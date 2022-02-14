@@ -11,6 +11,7 @@ const Button: FC<ButtonProps> = ({
   fontSize = "small",
   margin = "small",
   children,
+  className,
   ...nativeProps
 }) => {
   const buttonStyle = button({
@@ -21,7 +22,7 @@ const Button: FC<ButtonProps> = ({
   });
 
   return (
-    <button className={`${buttonStyle}`} {...nativeProps}>
+    <button className={`${buttonStyle} ${className || ""}`} {...nativeProps}>
       {children}
     </button>
   );
