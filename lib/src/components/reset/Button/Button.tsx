@@ -1,5 +1,5 @@
 import { RecipeVariants } from "@vanilla-extract/recipes";
-import React, { FC } from "react";
+import { FC, RefObject } from "react";
 import { button } from "./button.css";
 
 type ButtonProps = RecipeVariants<typeof button> &
@@ -9,9 +9,9 @@ const Button: FC<ButtonProps> = ({
   variant = "default",
   padding = "small",
   fontSize = "small",
-  margin = "small",
+  margin = "default",
+  isBlock = false,
   children,
-  className,
   ...nativeProps
 }) => {
   const buttonStyle = button({
@@ -19,10 +19,11 @@ const Button: FC<ButtonProps> = ({
     padding,
     fontSize,
     margin,
+    isBlock,
   });
 
   return (
-    <button className={`${buttonStyle} ${className || ""}`} {...nativeProps}>
+    <button className={`${buttonStyle}`} {...nativeProps}>
       {children}
     </button>
   );

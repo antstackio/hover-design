@@ -40,7 +40,7 @@ export default {
       defaultValue: "small",
       control: {
         type: "select",
-        options: ["small", "medium", "large"],
+        options: ["default", "small", "medium", "large"],
       },
     },
     margin: {
@@ -49,9 +49,18 @@ export default {
       defaultValue: "small",
       control: {
         type: "select",
-        options: ["small", "medium", "large"],
+        options: ["default", "small", "medium", "large"],
       },
     },
+    isBlock: {
+      description: "Button Block",
+      name: "Block",
+      defaultValue:true,
+      control: {
+        type: "select",
+        options: [true, false],
+      },
+    }
   },
 } as Meta;
 
