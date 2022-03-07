@@ -30,6 +30,7 @@ export const button = recipe({
 			},
 		},
 		padding: {
+			default: { padding: 0 },
 			small: { padding: "8px 16px" },
 			medium: { padding: "8px 16px" },
 			large: { padding: 24 },
@@ -40,9 +41,14 @@ export const button = recipe({
 			large: { fontSize: 24 },
 		},
 		margin: {
+			default: { margin: 0},
 			small: { margin: 12 },
 			medium: { margin: 16 },
 			large: { margin: 24 },
 		},
+		isBlock: {
+			true: { width: '100%' },
+			false:{ width: 'auto' }
+		}
 	},
 });
