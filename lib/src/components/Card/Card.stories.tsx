@@ -1,28 +1,24 @@
-// Button.stories.ts|tsx
-
-import React from "react";
-
 import { ComponentStory, Meta } from "@storybook/react";
 
-import { Button } from "./Button";
+import { Card } from "./Card";
 
 export default {
-  title: "Button",
-  component: Button,
+  title: "Card",
+  component: Card,
   argTypes: {
     variant: {
-      description: "Button Variant",
+      description: "Card Variant",
       name: "Variant",
-      defaultValue: "default",
+      defaultValue: "plain",
       control: {
         type: "select",
-        options: ["default", "light", "ghost", "hallow"],
+        options: ["plain", "outline", "shadow", "solid"],
       },
     },
     children: {
-      defaultValue: "Button",
-      description: "HTML Child of button",
-      name: "Label",
+      defaultValue: "Card Content",
+      description: "HTML Child of card",
+      name: "Content",
       type: "string",
     },
     fontSize: {
@@ -35,7 +31,7 @@ export default {
       },
     },
     padding: {
-      description: "Button Padding",
+      description: "Card Padding",
       name: "Padding",
       defaultValue: "small",
       control: {
@@ -44,7 +40,7 @@ export default {
       },
     },
     margin: {
-      description: "Button Margin",
+      description: "Card Margin",
       name: "Margin",
       defaultValue: "small",
       control: {
@@ -52,21 +48,10 @@ export default {
         options: ["default", "small", "medium", "large"],
       },
     },
-    isBlock: {
-      description: "Button Block",
-      name: "Block",
-      defaultValue:true,
-      control: {
-        type: "select",
-        options: [true, false],
-      },
-    }
   },
-} as Meta;
+};
 
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button {...args}>{args.children}</Button>
-);
+const Template: ComponentStory<typeof Card> = (args) => <div>Hi</div>;
 
 export const Primary = Template.bind({});
 

@@ -1,27 +1,14 @@
 {
-  "name": "hover-design-prototype",
-  "version": "0.0.4",
-  "description": "Prototype for Hover Design",
+  "name": "@hover-design/react",
+  "version": "0.1.0",
+  "description": "Hover Component library created by bunch of ants from antstack",
   "license": "MIT",
   "files": [
     "dist/**"
   ],
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.umd",
-  "typings": "./dist/index.umd",
-  "module": "./dist/index.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
-    },
-    "./styles": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
-  },
-  "unpkg": "./dist/index.umd.js",
-  "jsdelivr": "./dist/index.umd.js",
+  "main": "dist/hover-react.es.js",
+  "module": "dist/hover-react.es.js",
+  "types": "./src/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -31,6 +18,9 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@mdx-js/react": "^2.1.0",
+    "@storybook/client-api": "^6.4.19",
+    "@storybook/client-logger": "^6.4.19",
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/recipes": "^0.2.3",
     "@vanilla-extract/sprinkles": "^1.3.3",
@@ -59,5 +49,9 @@
   "peerDependencies": {
     "react": "^17",
     "react-dom": "^17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antstackio/hover-design.git"
   }
 }
