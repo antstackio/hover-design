@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@hover-design/react",
+  "name": "@hover-design/base",
   "version": "1.0.0",
   "description": "Hover Component library created by bunch of ants from antstack",
   "main": "index.js",
@@ -15,7 +15,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel --continue",
-    "storybook":"turbo run storybook --no-cache --parallel --continue",
+    "storybook": "turbo run storybook --no-cache --parallel --continue",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

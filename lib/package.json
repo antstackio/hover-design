@@ -1,17 +1,14 @@
 {
   "name": "@hover-design/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hover Component library created by bunch of ants from antstack",
   "license": "MIT",
-  "files": [
-    "dist/**"
-  ],
   "main": "dist/hover-react.es.js",
   "module": "dist/hover-react.es.js",
-  "types": "./src/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && tsc --emitDeclarationOnly",
     "tsc": "tsc",
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006",
@@ -28,6 +25,7 @@
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@vitejs/plugin-react": "^1.0.0",
@@ -43,5 +41,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antstackio/hover-design.git"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
