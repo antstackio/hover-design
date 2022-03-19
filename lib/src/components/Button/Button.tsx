@@ -1,8 +1,8 @@
 import { RecipeVariants } from "@vanilla-extract/recipes";
 import { FC, RefObject } from "react";
-import { button } from "./button.css";
+import { buttonStyles } from "./button.css";
 
-type ButtonProps = RecipeVariants<typeof button> &
+type ButtonProps = RecipeVariants<typeof buttonStyles> &
   JSX.IntrinsicElements["button"];
 
 const Button: FC<ButtonProps> = ({
@@ -14,7 +14,7 @@ const Button: FC<ButtonProps> = ({
   children,
   ...nativeProps
 }) => {
-  const buttonStyle = button({
+  const buttonStyle = buttonStyles({
     variant,
     padding,
     fontSize,

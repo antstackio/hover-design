@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { RecipeVariants } from "@vanilla-extract/recipes";
-import { card } from "./card.css";
+import { cardStyles } from "./card.css";
 
-type CardProps = RecipeVariants<typeof card> & JSX.IntrinsicElements["div"];
+type CardProps = RecipeVariants<typeof cardStyles> &
+  JSX.IntrinsicElements["div"];
 
 const Card: FC<CardProps> = ({
   children,
@@ -13,7 +14,7 @@ const Card: FC<CardProps> = ({
   className,
   ...nativeDivProps
 }) => {
-  const cardStyle = card({
+  const cardStyle = cardStyles({
     variant,
     padding,
     fontSize,

@@ -18,7 +18,14 @@ globalStyle(
     display: "block",
   }
 );
-globalStyle("body", { lineHeight: 1 });
+globalStyle("body", {
+  lineHeight: 1,
+  fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif`,
+  WebkitFontSmoothing: "antialiased",
+  MozOsxFontSmoothing: "grayscale",
+});
 globalStyle("ol,ul", { listStyle: "none" });
 globalStyle("blockquote,q", { quotes: "none" });
 globalStyle("blockquote:before,blockquote:after,q:before,q:after", {
