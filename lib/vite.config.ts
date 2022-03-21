@@ -29,7 +29,6 @@ export default defineConfig({
         emitDeclarationOnly: true,
         noEmit: false,
       },
-      outputDir: "dist/types",
     }),
   ],
   build: {
