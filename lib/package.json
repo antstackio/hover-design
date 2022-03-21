@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "dist/hover-react.es.js",
   "module": "dist/hover-react.es.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && tsc --emitDeclarationOnly",
