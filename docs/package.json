@@ -1,25 +1,22 @@
 {
-  "name": "vanilla-extract-react-example",
+  "name": "docs",
+  "private": true,
   "version": "0.0.0",
-  "private":"true",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vanilla-extract/css": "^1.6.8",
-    "@vanilla-extract/vite-plugin": "^3.1.2",
-    "polished": "^4.1.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "vite-tsconfig-paths": "^3.3.17"
+    "@hover-design/react": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
-    "typescript": "^4.4.4",
-    "vite": "^2.7.2"
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0"
   }
 }

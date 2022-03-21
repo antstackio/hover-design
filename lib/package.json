@@ -1,30 +1,14 @@
 {
-  "name": "hover-design-prototype",
-  "version": "0.0.4",
-  "description": "Prototype for Hover Design",
+  "name": "@hover-design/react",
+  "version": "0.1.1",
+  "description": "Hover Component library created by bunch of ants from antstack",
   "license": "MIT",
-  "files": [
-    "dist/**"
-  ],
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.umd",
-  "typings": "./dist/index.umd",
-  "module": "./dist/index.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
-    },
-    "./styles": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
-  },
-  "unpkg": "./dist/index.umd.js",
-  "jsdelivr": "./dist/index.umd.js",
+  "main": "dist/hover-react.es.js",
+  "module": "dist/hover-react.es.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && tsc --emitDeclarationOnly",
     "tsc": "tsc",
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006",
@@ -41,16 +25,10 @@
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@storybook/addon-actions": "^6.5.0-alpha.4",
-    "@storybook/addon-essentials": "^6.5.0-alpha.4",
-    "@storybook/addon-links": "^6.5.0-alpha.4",
-    "@storybook/react": "^6.5.0-alpha.4",
+    "@types/node": "^17.0.21",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@vitejs/plugin-react": "^1.0.0",
-    "babel-loader": "^8.2.3",
-    "storybook-builder-vite": "^0.1.11",
     "typescript": "^4.3.2",
     "vite": "^2.6.4",
     "vite-plugin-dts": "^0.9.9",
@@ -59,5 +37,12 @@
   "peerDependencies": {
     "react": "^17",
     "react-dom": "^17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antstackio/hover-design.git"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
