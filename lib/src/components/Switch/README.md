@@ -18,7 +18,7 @@ Here's a quick start guide to get started with the button component
 
 ```html
 <div className="App">
-  <Switch status="{stateVariable}" onChange="{setStateVariable}" />
+  <Switch status={stateVariable} onChange={setStateVariable} />
 </div>
 ```
 
@@ -36,7 +36,7 @@ Here's a quick start guide to get started with the button component
 
 ```html
 <div className="App">
-  <Switch status="{stateVariable}" onChange="{setStateVariable}" isDisabled={true}/>
+  <Switch status={stateVariable} onChange={setStateVariable} isDisabled={true}/>
 </div>
 ```
 ##### Disabled switch off state
