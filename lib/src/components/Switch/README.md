@@ -14,7 +14,7 @@ Here's a quick start guide to get started with the button component
 
 ### Code Snippets and Examples
 
-##### Toggle switch on and off
+##### Toggle switch
 
 ```html
 <div className="App">
@@ -22,20 +22,27 @@ Here's a quick start guide to get started with the button component
 </div>
 ```
 
+##### Toggle switch off state
+
 ![Switch](https://i.imgur.com/jeJP03s.png)
+
+##### Toggle switch on state
 
 ![Switch](https://i.imgur.com/vFgYBym.png)
 
 ---
 
-##### Disabled switch on and off
+##### Disabled switch
 
 ```html
 <div className="App">
   <Switch status="{stateVariable}" onChange="{setStateVariable}" isDisabled={true}/>
 </div>
 ```
+##### Disabled switch off state
 
 ![Switch](https://i.imgur.com/XNRGr2e.png)
 
-![Switch](https://i.imgur.com/ameer1x.png)
+##### Disabled switch on state
+
+![Switch](https://i.imgur.com/Ffyalpo.png)
