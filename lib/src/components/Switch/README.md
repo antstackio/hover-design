@@ -4,7 +4,7 @@
 
 ### Quick start
 
-Here's a quick start guide to get started with the button component
+Here's a quick start guide to get started with the switch component
 
 | Attributes |                     Values                      | Optional ? |
 | :--------- | :---------------------------------------------: | ---------: |
