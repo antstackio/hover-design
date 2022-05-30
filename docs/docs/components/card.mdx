@@ -1,0 +1,97 @@
+# Card
+
+### Quick start
+
+Here's a quick start guide to get started with the button component
+
+### Importing Component
+
+```jsx
+import { Card } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Card Plain
+
+import "@hover-design/react/dist/style.css";
+import { Card } from "@hover-design/react";
+export const CardComponent = ({ variant, children }) => (
+  <Card variant={variant}>{children}</Card>
+);
+
+```jsx
+<div className="App">
+  <CardComponent variant="plain">
+    <h3>I am a card heading</h3>
+    <p>I am card Content</p>
+  </CardComponent>
+</div>
+```
+
+<!-- ![Button](https://i.imgur.com/BeBATSh.jpg) -->
+
+<CardComponent variant="plain">
+  <h3>I am a card heading</h3>
+  <p>I am card Content</p>
+</CardComponent>
+
+##### Card Outline
+
+```jsx
+<div className="App">
+  <CardComponent variant="outline">
+    <h3>I am a card heading</h3>
+    <p>I am card Content</p>
+  </CardComponent>
+</div>
+```
+
+<!-- ![Button](https://i.imgur.com/iGIVhXN.jpg) -->
+
+<CardComponent variant="outline">
+  <h3>I am a card heading</h3>
+  <p>I am card Content</p>
+</CardComponent>
+
+##### Card Solid
+
+```jsx
+<CardComponent variant="solid">
+  <h3>I am a card heading</h3>
+  <p>I am card Content</p>
+</CardComponent>
+```
+
+<!-- ![Button](https://i.imgur.com/AbrmEdn.jpg) -->
+
+<CardComponent variant="solid">
+  <h3>I am a card heading</h3>
+  <p>I am card Content</p>
+</CardComponent>
+
+##### Card Shadow
+
+```jsx
+<CardComponent variant="shadow">
+  <h3>I am a card heading</h3>
+  <p>I am card Content</p>
+</CardComponent>
+```
+
+<!-- ![Button](https://i.imgur.com/iPfqa7x.jpg) -->
+
+<CardComponent variant="shadow">
+  <h3>I am a card heading</h3>
+  <p>I am card Content</p>
+</CardComponent>
+
+### Props Referece
+
+| Attributes |                         Values                          | Optional ? |
+| :--------- | :-----------------------------------------------------: | ---------: |
+| children   |                       JSX.Element                       |        Yes |
+| padding    | `small` &#124; `medium` &#124; `large` &#124; `default` |        Yes |
+| fontSize   |         `small` &#124; `medium` &#124; `large`          |        Yes |
+| margin     | `small` &#124; `medium` &#124; `large` &#124; `default` |        Yes |
+| variant    | `outline` &#124; `plain` &#124; `solid` &#124; `shadow` |        Yes |
