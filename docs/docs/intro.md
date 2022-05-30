@@ -2,46 +2,41 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Quickstart
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Let's get started with running hover-design.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+Get started by creating any react based project. We recommend using vite as your tool for bundling as we keep vite as the primary focus of cosumption(in its early stages), however hover should work with any bundler without any issues
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Or **try Hover immediately** with **[codesandbox](https://codesandbox.io/s/react-typescript-forked-5sjnjo)**.
 
-### What you'll need
+## Installation
 
-- [Node.js](https://nodejs.org/en/download/) version 14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Install the package using your favourite package manager.
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```shell
+npm install @hover-design/react
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## Usage
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+Before using any components, import the css for all components by adding this line on the entrypoint of your project
 
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
+```jsx
+import "@hover-design/react/dist/style.css";
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+## Using Components
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+using components are easy, they are typed so expect in-built documentation.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Usage Example
+
+```jsx
+import "@hover-design/react/dist/style.css";
+import { Button } from "@hover-design/react";
+
+export const Component = () => <Button>I am a Button</Button>;
+```

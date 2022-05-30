@@ -12,6 +12,7 @@ export const buttonStyles = recipe({
     variant: {
       default: {
         background: "#1AB5EB",
+        border: 0,
       },
       light: {
         background: "#F9F9F9",

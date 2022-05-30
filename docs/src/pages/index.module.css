@@ -21,3 +21,8 @@
   align-items: center;
   justify-content: center;
 }
+.buttonFlex {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}

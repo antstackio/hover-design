@@ -16,6 +16,8 @@ importers:
       '@hover-design/react': workspace:*
       '@mdx-js/react': ^1.6.22
       '@tsconfig/docusaurus': ^1.0.5
+      '@vanilla-extract/css': ^1.6.8
+      '@vanilla-extract/webpack-plugin': ^2.1.10
       clsx: ^1.1.1
       prism-react-renderer: ^1.3.1
       react: ^17.0.2
@@ -26,6 +28,8 @@ importers:
       '@docusaurus/preset-classic': 2.0.0-beta.20_700c29a26d85f66fa068a43b58a7a08b
       '@hover-design/react': link:../lib
       '@mdx-js/react': 1.6.22_react@17.0.2
+      '@vanilla-extract/css': 1.6.8
+      '@vanilla-extract/webpack-plugin': 2.1.10
       clsx: 1.1.1
       prism-react-renderer: 1.3.1_react@17.0.2
       react: 17.0.2
@@ -2902,6 +2906,18 @@ packages:
       outdent: 0.8.0
     dev: false
 
+  /@vanilla-extract/integration/4.0.1:
+    resolution: {integrity: sha512-s/P7FynY2/LWMCGVgHTXOpfy4pH0+cTCtTgEZEVvmf2ErX5ZSSsFe1i9MzODCYTDuvV2MWFg7oOspwx7i70h+A==}
+    dependencies:
+      '@vanilla-extract/css': 1.6.8
+      esbuild: 0.11.23
+      eval: 0.1.6
+      find-up: 5.0.0
+      javascript-stringify: 2.1.0
+      lodash: 4.17.21
+      outdent: 0.8.0
+    dev: false
+
   /@vanilla-extract/private/1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
     dev: false
@@ -2934,6 +2950,19 @@ packages:
       vite: 2.8.6
     transitivePeerDependencies:
       - ts-node
+    dev: false
+
+  /@vanilla-extract/webpack-plugin/2.1.10:
+    resolution: {integrity: sha512-QXjJQbUIyR2hEiz5TaRRAEdLF/1zWLGyc/jotAxugOyzcbCS4C6YvJcHSUoEayjqDbS+Chnj0kSbFC+pQSOjNA==}
+    peerDependencies:
+      webpack: ^4.30.0 || ^5.20.2
+    dependencies:
+      '@vanilla-extract/integration': 4.0.1
+      chalk: 4.1.2
+      debug: 4.3.4
+      loader-utils: 2.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@vitejs/plugin-react/1.2.0:
