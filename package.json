@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "private": "true",
   "name": "@hover-design/base",
   "version": "1.0.0",
   "description": "Hover Component library created by bunch of ants from antstack",
