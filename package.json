@@ -12,6 +12,7 @@
   "devDependencies": {
     "turbo": "^1.1.6"
   },
+  "packageManager": "pnpm@6.32.3",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel --continue",
