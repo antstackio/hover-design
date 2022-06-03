@@ -1,8 +1,7 @@
 [build]
-    publish = "./docs/dist"
+    publish = ".dist"
     command = "pnpm run build || ( npm install pnpm && pnpm run build )"
-
 [build.environment]
-    NPM_FLAGS="--prefix=/dev/null"
-
+  NODE_VERSION = "14"
+  NPM_FLAGS = "--prefix=/dev/null"
     
