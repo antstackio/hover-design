@@ -15,7 +15,7 @@ importers:
       '@docusaurus/core': 2.0.0-beta.20
       '@docusaurus/module-type-aliases': 2.0.0-beta.20
       '@docusaurus/preset-classic': 2.0.0-beta.20
-      '@hover-design/react': workspace:*
+      '@hover-design/react': '*'
       '@mdx-js/react': ^1.6.22
       '@tsconfig/docusaurus': ^1.0.5
       '@vanilla-extract/css': ^1.6.8

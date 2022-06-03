@@ -17,7 +17,7 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.20",
     "@docusaurus/preset-classic": "2.0.0-beta.20",
-    "@hover-design/react": "workspace:*",
+    "@hover-design/react": "*",
     "@mdx-js/react": "^1.6.22",
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/webpack-plugin": "^2.1.10",
