@@ -1,5 +1,5 @@
 [build]
-    publish = "./docs/dist"
+    publish = "./docs/build"
     command = "pnpm run build || ( npm install pnpm turbo && pnpm i && pnpm run build )"
 [build.environment]
   NODE_VERSION = "14"
