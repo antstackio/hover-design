@@ -1,6 +1,6 @@
 [build]
-    publish = ".dist"
-    command = "pnpm run build || ( npm install pnpm turbo && pnpm run build )"
+    publish = "./docs/dist"
+    command = "pnpm run build || ( npm install pnpm turbo && pnpm i && pnpm run build )"
 [build.environment]
   NODE_VERSION = "14"
   NPM_FLAGS = "--prefix=/dev/null"
