@@ -4,8 +4,10 @@ importers:
 
   .:
     specifiers:
+      pnpm: '6'
       turbo: ^1.1.6
     devDependencies:
+      pnpm: 6.32.19
       turbo: 1.1.6
 
   docs:
@@ -6619,6 +6621,12 @@ packages:
     dependencies:
       find-up: 3.0.0
     dev: false
+
+  /pnpm/6.32.19:
+    resolution: {integrity: sha512-IY+62k/caP5GsMQm5YcOJ03XDkze68aBiiXrlwqMUAYFhSstLETlenIC73AukJyUd7o4Y18HcV2gfQYCKb0PEA==}
+    engines: {node: '>=12.17'}
+    hasBin: true
+    dev: true
 
   /polished/4.1.4:
     resolution: {integrity: sha512-Nq5Mbza+Auo7N3sQb1QMFaQiDO+4UexWuSGR7Cjb4Sw11SZIJcrrFtiZ+L0jT9MBsUsxDboHVASbCLbE1rnECg==}
