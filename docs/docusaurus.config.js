@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Hover Design",
   tagline: "A component library created by bunch of ants from antstack",
-  url: "https://github.com/antstackio/hover-design",
+  url: "https://enchanting-stroopwafel-5222c6.netlify.app",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
