@@ -21,6 +21,7 @@ importers:
       '@vanilla-extract/css': ^1.6.8
       '@vanilla-extract/webpack-plugin': ^2.1.10
       clsx: ^1.1.1
+      docusaurus-plugin-vanilla-extract: ^1.0.1
       prism-react-renderer: ^1.3.1
       react: ^17.0.2
       react-dom: ^17.0.2
@@ -33,6 +34,7 @@ importers:
       '@vanilla-extract/css': 1.6.8
       '@vanilla-extract/webpack-plugin': 2.1.10
       clsx: 1.1.1
+      docusaurus-plugin-vanilla-extract: 1.0.1_dc93015bfa1e446a616cc27bd9e8cc77
       prism-react-renderer: 1.3.1_react@17.0.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -4271,6 +4273,20 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       '@leichtgewicht/ip-codec': 2.0.3
+    dev: false
+
+  /docusaurus-plugin-vanilla-extract/1.0.1_dc93015bfa1e446a616cc27bd9e8cc77:
+    resolution: {integrity: sha512-8hzShneeEYmGQrJ2tdISFfBusris01E335oAyzkAhr5T0WSmO7geQSrlXi/3L2tH9mhktnvcn+bNeqeQY2nOhQ==}
+    peerDependencies:
+      '@docusaurus/core': ^2.0.0-beta
+      '@vanilla-extract/css': ^1.6.0
+    dependencies:
+      '@docusaurus/core': 2.0.0-beta.20_700c29a26d85f66fa068a43b58a7a08b
+      '@vanilla-extract/css': 1.6.8
+      '@vanilla-extract/webpack-plugin': 2.1.10
+    transitivePeerDependencies:
+      - supports-color
+      - webpack
     dev: false
 
   /dom-converter/0.2.0:

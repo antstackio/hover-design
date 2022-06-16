@@ -105,14 +105,7 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-  plugins: [
-    [
-      require.resolve("./plugins/docasaurun-plugin-vanilla-extract"),
-      {
-        /*options */
-      },
-    ],
-  ],
+  plugins: ["docusaurus-plugin-vanilla-extract"],
 };
 
 module.exports = config;
