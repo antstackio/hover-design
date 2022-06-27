@@ -11,31 +11,32 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: "Easy to Use",
-    Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
+    Svg: require("@site/static/img/hover_logo_letters.svg").default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Hover focuses on easy to use battries included method, so use it as you
+        would use a native element, no need to learn fancy complex apis to do
+        simple things.
       </>
     ),
   },
   {
     title: "Focus on What Matters",
-    Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
+    Svg: require("@site/static/img/hover_logo_letters.svg").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Easily extend the components and use it to conform to your brand
+        identity.
       </>
     ),
   },
   {
-    title: "Powered by React",
-    Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
+    title: "Platform agnostic",
+    Svg: require("@site/static/img/hover_logo_letters.svg").default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Hover uses vanilla extract behind the hood, meainig most of the styles
+        are platform agnostic, if it can run css and js then hover works!
       </>
     ),
   },
