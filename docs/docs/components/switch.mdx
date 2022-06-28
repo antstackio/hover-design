@@ -1,0 +1,82 @@
+# Switch
+
+### Quick start
+
+Here's a quick start guide to get started with the button component
+
+### Importing Component
+
+```jsx
+import { Switch } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Toggle switch
+
+import "@hover-design/react/dist/style.css";
+import { Switch } from "@hover-design/react";
+import { useState } from "react";
+
+export const SwitchComponent = ({ status, isDisabled = false }) => {
+  const [isSwitchOn, setIsSwitchOn] = useState(status || false);
+  return (
+    <Switch
+      status={isSwitchOn}
+      onChange={() => {
+        setIsSwitchOn((prevState) => !prevState);
+      }}
+      isDisabled={isDisabled}
+    />
+  );
+};
+
+```jsx
+<div className="App">
+  <Switch status="{stateVariable}" onChange="{setStateVariable}" />
+</div>
+```
+
+##### Toggle switch off state
+
+<!-- ![Switch](https://i.imgur.com/jeJP03s.png) -->
+
+<SwitchComponent status={false} />
+
+##### Toggle switch on state
+
+<!-- ![Switch](https://i.imgur.com/vFgYBym.png) -->
+
+<SwitchComponent status={true} />
+
+##### Disabled switch
+
+```jsx
+<div className="App">
+  <Switch
+    status="{stateVariable}"
+    onChange="{setStateVariable}"
+    isDisabled="{true}"
+  />
+</div>
+```
+
+##### Disabled switch off state
+
+<!-- ![Switch](https://i.imgur.com/XNRGr2e.png) -->
+
+<SwitchComponent status={false} isDisabled={true} />
+
+##### Disabled switch on state
+
+<!-- ![Switch](https://i.imgur.com/Ffyalpo.png) -->
+
+<SwitchComponent status={true} isDisabled={true} />
+
+## Props Reference
+
+| Attributes |                     Values                      | Optional ? |
+| :--------- | :---------------------------------------------: | ---------: |
+| status     |                    `boolean`                    |         No |
+| onChange   | `React.Dispatch<React.SetStateAction<boolean>>` |         No |
+| isDisabled |                    `boolean`                    |        Yes |
