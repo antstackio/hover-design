@@ -1,0 +1,79 @@
+# Button
+
+### Quick start
+
+Here's a quick start guide to get started with the button component
+
+### Importing Component
+
+```jsx
+import { Button } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Button Default
+
+import "@hover-design/react/dist/style.css";
+import { Button } from "@hover-design/react";
+export const ButtonComponent = ({ variant, children }) => (
+  <Button variant={variant}>{children}</Button>
+);
+
+```jsx
+<div className="App">
+  <Button>Button default</Button>
+</div>
+```
+
+<!-- ![Button](https://i.imgur.com/BeBATSh.jpg) -->
+
+<ButtonComponent>Button Default</ButtonComponent>
+
+##### Button Light
+
+```jsx
+<div className="App">
+  <Button variant="light">Button light</Button>
+</div>
+```
+
+<!-- ![Button](https://i.imgur.com/iGIVhXN.jpg) -->
+
+<ButtonComponent variant="light">Button Light</ButtonComponent>
+
+##### Button Ghost
+
+```jsx
+<div className="App">
+  <Button variant="ghost">Button ghost</Button>
+</div>
+```
+
+<!-- ![Button](https://i.imgur.com/AbrmEdn.jpg) -->
+
+<ButtonComponent variant="ghost">Button Ghost</ButtonComponent>
+
+##### Button Hallow
+
+```jsx
+<div className="App">
+  <Button variant="hallow">Button Hallow</Button>
+</div>
+```
+
+<!-- ![Button](https://i.imgur.com/iPfqa7x.jpg) -->
+
+<ButtonComponent variant="hallow">Button Hallow</ButtonComponent>
+
+### Props Referece
+
+| Attributes |                         Values                          | Optional ? |
+| :--------- | :-----------------------------------------------------: | ---------: |
+| variant    | `default` &#124; `light` &#124; `ghost` &#124; `hallow` |        Yes |
+| padding    |         `small` &#124; `medium` &#124; `large`          |        Yes |
+| fontSize   |         `small` &#124; `medium` &#124; `large`          |        Yes |
+| margin     |         `small` &#124; `medium` &#124; `large`          |        Yes |
+| onClick    |                      `() => void;`                      |        Yes |
+| onHover    |                      `() => void;`                      |        Yes |
+| ref        |             `RefObject<HTMLButtonElement>;`             |        Yes |

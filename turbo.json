@@ -5,11 +5,7 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "src/**"]
     },
-    "dev": {
-      "cache": false
-    },
-    "storybook": {
-      "cache": false
-    }
+    "dev": {},
+    "storybook": {}
   }
 }

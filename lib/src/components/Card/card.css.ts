@@ -2,8 +2,6 @@ import { recipe } from "@vanilla-extract/recipes";
 
 export const cardStyles = recipe({
   base: {
-    fontFamily: "'Poppins', sans-serif",
-    color: "black",
     borderRadius: "4px",
   },
 
