@@ -3,7 +3,6 @@
   "version": "0.1.5",
   "description": "Hover Component library created by bunch of ants from antstack",
   "license": "MIT",
-  "type": "module",
   "main": "dist/hover-react.es.js",
   "module": "dist/hover-react.es.js",
   "types": "dist/types/index.d.ts",
@@ -15,22 +14,6 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "exports": {
-    ".": {
-      "require": "./dist/hover-react.js",
-      "import": "./dist/hover-react.mjs"
-    },
-    "./*": {
-      "require": "./dist/*.js",
-      "import": "./dist/*.mjs"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "sideEffects": [
-    "*.css.ts"
-  ],
   "dependencies": {
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/recipes": "^0.2.3",
