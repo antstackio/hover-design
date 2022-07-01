@@ -14,10 +14,12 @@ export const listStyles = recipe({
   },
   variants: {
     variant: {
-      default: {},
       horizontal: {
         display: "inline-flex",
         gap: "24px",
+      },
+      vertical: {
+        display: "block",
       },
     },
   },

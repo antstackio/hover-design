@@ -28,9 +28,10 @@ export const ListItemComp = ({ variant, children }) => (
 );
 
 ```jsx
-<div className="App">
-  <List></List>
-</div>
+<List>
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</List>
 ```
 
 <ListComponent>
@@ -57,6 +58,13 @@ export const ListItemComp = ({ variant, children }) => (
 
 ##### List StyleType
 
+```jsx
+<List type={"square"}>
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</List>
+```
+
 ###### Square
 
 <ListComponent type="square">
@@ -73,7 +81,22 @@ export const ListItemComp = ({ variant, children }) => (
 
 ###### Number
 
+<ListComponent type="Number">
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</ListComponent>
+
+###### Custom Emoji
+
 <ListComponent type="'\1F44D'">
   <ListItem>One</ListItem>
   <ListItem>Two</ListItem>
 </ListComponent>
+
+### Props Referece
+
+| Attributes |                                                              Values                                                               | Optional ? |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------: | ---------: |
+| variant    |                                                  `horizontal` &#124; `vertical`                                                   |        Yes |
+| type       | `square` &#124; `circle` &#124; `\1F44D` &#124; [listStyleType](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type) |        Yes |
+| children   |                                                          React.Children                                                           |        Yes |
