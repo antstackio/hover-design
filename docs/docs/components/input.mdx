@@ -1,0 +1,61 @@
+# Input
+
+### Quick start
+
+Here's a quick start guide to get started with the button component
+
+### Importing Component
+
+```jsx
+import { Input } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Button Default
+
+import "@hover-design/react/dist/style.css";
+import { Input } from "@hover-design/react";
+export const InputComponent = ({ status, children }) => (
+  <Input status={status} />
+);
+
+```jsx
+<div className="App">
+  <Input />
+</div>
+```
+
+<!-- ![Button](https://i.imgur.com/BeBATSh.jpg) -->
+
+<InputComponent />
+
+##### Input Success
+
+```jsx
+<div className="App">
+  <Input status={"success"} />
+</div>
+```
+
+<InputComponent status={"success"} />
+
+##### Input Warning
+
+```jsx
+<div className="App">
+  <Input status={"warning"} />
+</div>
+```
+
+<InputComponent status={"warning"} />
+
+##### Input Error
+
+```jsx
+<div className="App">
+  <Input status={"error"} />
+</div>
+```
+
+<InputComponent status={"error"} />
