@@ -9,6 +9,7 @@ import { PageMain } from "components/pageMain/PageMain";
 import React from "react";
 import { fonts, fontSizes } from "styles/index.css";
 import "styles/reset.css";
+import { Badge } from "@hover-design/react";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,9 @@ const App: React.FC = () => {
       <Header />
       <PageMain>
         <Container>
+          <br />
+          <Badge>123</Badge>
+          <br />
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
           <ColorsPreview />
