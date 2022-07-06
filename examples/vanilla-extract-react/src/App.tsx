@@ -9,7 +9,7 @@ import { PageMain } from "components/pageMain/PageMain";
 import React from "react";
 import { fonts, fontSizes } from "styles/index.css";
 import "styles/reset.css";
-import { Badge } from "@hover-design/react";
+import { Badge, Button } from "@hover-design/react";
 
 const App: React.FC = () => {
   return (
@@ -17,8 +17,34 @@ const App: React.FC = () => {
       <Header />
       <PageMain>
         <Container>
+          <Badge shape="rounded" label="12" />
           <br />
-          <Badge>123</Badge>
+          <Badge shape="rounded" label="12">
+            <Button>Notifications</Button>
+          </Badge>
+          <br />
+          <br />
+          <br />
+          <Badge shape="rounded" position="top-start" label="12">
+            <Button>Notifications</Button>
+          </Badge>
+          <br />
+          <br />
+          <Badge shape="rounded" position="top-end" label="12">
+            <Button>Notifications</Button>
+          </Badge>
+          <br />
+          <br />
+          <Badge shape="rounded" position="bottom-start" label="12">
+            <Button>Notifications</Button>
+          </Badge>
+          <br />
+          <br />
+          <Badge shape="rounded" position="bottom-end" label="12">
+            <Button>Notifications</Button>
+          </Badge>
+          <br />
+          <br />
           <br />
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
