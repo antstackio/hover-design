@@ -1,0 +1,102 @@
+# List
+
+### Quick start
+
+Here's a quick start guide to get started with the button component
+
+### Importing Component
+
+```jsx
+import { List, ListItem } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### List Plain
+
+import "@hover-design/react/dist/style.css";
+import { List, ListItem } from "@hover-design/react";
+export const ListComponent = ({ variant, children, type }) => (
+  <div style={{ margin: "0px 12px" }}>
+    <List type={type} variant={variant}>
+      {children}
+    </List>
+  </div>
+);
+export const ListItemComp = ({ variant, children }) => (
+  <ListItem variant={variant}>{children}</ListItem>
+);
+
+```jsx
+<List>
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</List>
+```
+
+<ListComponent>
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</ListComponent>
+
+##### List Horizontal
+
+```jsx
+<List variant={"horizontal"}>
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</List>
+```
+
+<div style={{ margin: "0 !important" }}>
+  <ListComponent variant={"horizontal"}>
+    <ListItem></ListItem>
+    <ListItem>One</ListItem>
+    <ListItem>Two</ListItem>
+  </ListComponent>
+</div>
+
+##### List StyleType
+
+```jsx
+<List type={"square"}>
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</List>
+```
+
+###### Square
+
+<ListComponent type="square">
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</ListComponent>
+
+###### Circle
+
+<ListComponent type="circle">
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</ListComponent>
+
+###### Number
+
+<ListComponent type="Number">
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</ListComponent>
+
+###### Custom Emoji
+
+<ListComponent type="'\1F44D'">
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</ListComponent>
+
+### Props Referece
+
+| Attributes |                                                              Values                                                               | Optional ? |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------: | ---------: |
+| variant    |                                                  `horizontal` &#124; `vertical`                                                   |        Yes |
+| type       | `square` &#124; `circle` &#124; `\1F44D` &#124; [listStyleType](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type) |        Yes |
+| children   |                                                          React.Children                                                           |        Yes |
