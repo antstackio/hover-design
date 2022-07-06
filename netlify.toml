@@ -1,5 +1,5 @@
 [build]
-    publish = "./docs/build"
+    publish = "./build"
     command = "pnpm run build || ( npm install pnpm turbo && pnpm i --no-frozen-lockfile && cd .. && npx turbo run build --scope=docs --includeDependencies --no-deps)"
 [build.environment]
   NODE_VERSION = "14"
