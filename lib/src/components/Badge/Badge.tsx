@@ -34,6 +34,7 @@ const BadgeComponent: ForwardRefRenderFunction<
 
   return (
     <span className={`${badgeWrapperStyle}`}>
+      {children}
       <small
         style={assignInlineVars({
           [badgeThemeVars.badgeStyleColor]: color,
@@ -43,7 +44,6 @@ const BadgeComponent: ForwardRefRenderFunction<
       >
         {label}
       </small>
-      {children}
     </span>
   );
 };

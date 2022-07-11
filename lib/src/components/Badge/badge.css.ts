@@ -19,13 +19,13 @@ export const badges = recipe({
   base: {
     backgroundColor: badgeThemeVars.badgeStyleColor,
     color: badgeThemeVars.badgeStyleTextColor,
-    position: "absolute",
     minWidth: "24px",
     height: " 24px",
     textAlign: "center",
     padding: "4px 8px",
     lineHeight: "1.3",
-    fontSize: "13px"
+    fontSize: "13px",
+    fontWeight: "700"
   },
 
   variants: {
@@ -38,11 +38,15 @@ export const badges = recipe({
       hide: { display: "none" }
     },
     position: {
-      default: { top: "0px", left: "0px" },
-      ["top-start"]: { top: "-15px", left: "-15px" },
-      ["top-end"]: { top: "-15px", right: "-15px" },
-      ["bottom-start"]: { bottom: "-15px", left: "-15px" },
-      ["bottom-end"]: { bottom: "-15px", right: "-15px" }
+      default: { position: "static", top: "0px", left: "0px" },
+      ["top-start"]: { position: "absolute", top: "-20px", left: "-15px" },
+      ["top-end"]: { position: "absolute", top: "-20px", right: "-15px" },
+      ["bottom-start"]: {
+        position: "absolute",
+        bottom: "-20px",
+        left: "-15px"
+      },
+      ["bottom-end"]: { position: "absolute", bottom: "-20px", right: "-15px" }
     }
   }
 });

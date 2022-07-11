@@ -1,0 +1,117 @@
+# Badge
+
+### Quick start
+
+Here's a quick start guide to get started with the badge component
+
+### Importing Component
+
+import "@hover-design/react/dist/style.css";
+import { Badge, Button } from "@hover-design/react";
+
+```jsx
+import { Badge } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Badge Default
+
+```jsx
+<div className="App">
+  <Badge color="#321fdb" label="primary" />
+  <Badge color="#2eb85c" label="success" />
+  <Badge color="red" label="danger" />
+  <Badge color="#f9b115" label="warning" />
+  <Badge color="#39f" label="info" />
+  <Badge color="#ebedef" textColor="#000" label="light" />
+  <Badge color="#4f5d73" label="dark" />
+</div>
+```
+
+<div className="App">
+  <Badge color="#321fdb" label="primary" />
+  <Badge color="#2eb85c" label="success" />
+  <Badge color="red" label="danger" />
+  <Badge color="#f9b115" label="warning" />
+  <Badge color="#39f" label="info" />
+  <Badge color="#ebedef" textColor="#000" label="light" />
+  <Badge color="#4f5d73" label="dark" />
+</div>
+
+##### Badge with shapes
+
+```jsx
+<div className="App">
+  <Badge color="#321fdb" shape="rounded" label="primary" />
+  <Badge color="#2eb85c" shape="rounded" label="success" />
+  <Badge color="red" shape="rounded" label="danger" />
+  <Badge color="#f9b115" shape="rounded" label="warning" />
+  <Badge color="#39f" shape="rounded" label="info" />
+  <Badge color="#ebedef" textColor="#000" shape="rounded" label="light" />
+  <Badge color="#4f5d73" shape="rounded" label="dark" />
+</div>
+```
+
+<div className="App">
+  <Badge color="#321fdb" shape="rounded" label="primary" />
+  <Badge color="#2eb85c" shape="rounded" label="success" />
+  <Badge color="red" shape="rounded" label="danger" />
+  <Badge color="#f9b115" shape="rounded" label="warning" />
+  <Badge color="#39f" shape="rounded" label="info" />
+  <Badge color="#ebedef" textColor="#000" shape="rounded" label="light" />
+  <Badge color="#4f5d73" shape="rounded" label="dark" />
+</div>
+
+##### Badge with position
+
+```jsx
+<div className="App">
+  <Button variant="dark">
+    <Badge color="red" label="New" /> Profile
+  </Button>
+  <Button variant="dark">
+    Notifications <Badge color="red" label="7" shape="rounded" />
+  </Button>
+</div>
+```
+
+<div className="App">
+  <Badge color="red" label="3" shape="rounded" position="top-end">
+    <Button variant="dark">Notifications</Button>
+  </Badge>
+</div>
+
+##### Badge with a child
+
+```jsx
+<div className="App">
+  <Button variant="dark">
+    <Badge color="red" label="New" /> Profile
+  </Button>
+  <Button variant="dark">
+    Notifications <Badge color="red" label="7" shape="rounded" />
+  </Button>
+</div>
+```
+
+<div className="App">
+  <Button variant="dark">
+    <Badge color="red" label="New" /> Profile
+  </Button>
+  <Button variant="dark">
+    Notifications <Badge color="red" label="7" shape="rounded" />
+  </Button>
+</div>
+
+### Props Referece
+
+| Attributes |                                 Values                                 | Optional ? |
+| :--------- | :--------------------------------------------------------------------: | ---------: |
+| color      |                                `string`                                |        Yes |
+| textColor  |                                `string`                                |        Yes |
+| label      |                                `string`                                |         No |
+| shape      |                   `rounded` &#124; `rounded-circle`                    |        Yes |
+| hide       |                               `boolean;`                               |        Yes |
+| position   | `top-start` &#124; `top-end` &#124; `bottom-start` &#124; `bottom-end` |        Yes |
+| ref        |                    `RefObject<HTMLButtonElement>;`                     |        Yes |

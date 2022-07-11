@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 export type IBadgesProps = JSX.IntrinsicElements["span"] &
   RecipeVariants<typeof badges> & {
-    label?: string | JSX.Element;
+    label: string | JSX.Element;
     color?: string;
     textColor?: string;
     children?: ReactNode;
