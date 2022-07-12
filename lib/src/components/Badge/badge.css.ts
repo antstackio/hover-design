@@ -7,12 +7,10 @@ export const [badgeThemeClass, badgeThemeVars]: IBadgeTheme = createTheme({
   badgeStyleTextColor: "inherit"
 });
 
-export const badgeWrapper = recipe({
-  base: {
-    position: "relative",
-    minWidth: "24px",
-    height: " 24px"
-  }
+export const badgeWrapper = style({
+  position: "relative",
+  minWidth: "24px",
+  height: " 24px"
 });
 
 export const badges = recipe({

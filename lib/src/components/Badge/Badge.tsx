@@ -30,10 +30,8 @@ const BadgeComponent: ForwardRefRenderFunction<
     position
   });
 
-  const badgeWrapperStyle = badgeWrapper({});
-
   return (
-    <span className={`${badgeWrapperStyle}`}>
+    <span role="status" className={`${badgeWrapper}`} ref={ref} {...props}>
       {children}
       <small
         style={assignInlineVars({
@@ -49,4 +47,4 @@ const BadgeComponent: ForwardRefRenderFunction<
 };
 
 const BadgeWithRef = React.forwardRef(BadgeComponent);
-export { BadgeComponent as Badge };
+export { BadgeWithRef as Badge };
