@@ -7,7 +7,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "src/**", "build/**"]
     },
-    "dev": {},
+    "dev": {
+      "dependsOn": ["^dev"]
+    },
     "storybook": {}
   }
 }
