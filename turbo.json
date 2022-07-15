@@ -8,7 +8,8 @@
       "outputs": ["dist/**", "src/**", "build/**"]
     },
     "dev": {
-      "dependsOn": ["^dev"]
+      "dependsOn": ["^dev"],
+      "cache": false
     },
     "storybook": {}
   }
