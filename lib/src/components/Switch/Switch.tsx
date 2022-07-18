@@ -8,13 +8,14 @@ export const Switch = ({
   status,
   onChange,
   isDisabled = false,
+  className = "",
   ...nativeProps
 }: SwitchProps) => {
   return (
     <label className={switchLayout}>
       <input
         {...nativeProps}
-        className={switchInputStyle}
+        className={`${switchInputStyle} ${className}`}
         type="checkbox"
         checked={status}
         onChange={(e) => onChange(e.target.checked)}
