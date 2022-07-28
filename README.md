@@ -4,7 +4,7 @@
 
 ## Looking for Documentation?
 
-[https://hover-design.netlify.app/](https://hover-design.netlify.app/) is the home for Hover's Documentation
+[https://hover.style/](https://hover.style/) is the home for Hover's Documentation
 
 ## Installation
 
@@ -31,7 +31,7 @@ export const Component = () => <Button>I am a Button</Button>;
 
 ## Contribution
 
-Intrested in contributing to hover? visit our [Contribution Guide](https://hover-design.netlify.app/docs/contribution)
+Intrested in contributing to hover? visit our [Contribution Guide](https://hover.style/docs/contribution)
 
 <p style="display: inline-block; margin-top:8px">Made with ❤️ by</p> 
 <a href="https://www.antstack.com/">
