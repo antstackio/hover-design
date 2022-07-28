@@ -13,13 +13,14 @@ description: Hover Wiki Home
 
 **Hover Design** is antstack's internal(for now) Design/Component System which aims to reduce the repetitive scaffolding/boilerplate which goes into making re-usable components. Its built using [vanilla-extract](https://vanilla-extract.style/) with [Vite](https://vitejs.dev/) as the bundler. This wiki acts as the documentation, roadmap and plan for the design system until a proper documentation site is made. The package is intended to be divided by framework. Focusing on being Platform Agnostic.
 
-Currently the project is under development and need of devs to pitch in for Brainstorming and Developing Components
-
 ## Contents
 
-- [Introduction](https://github.com/antstackio/hover-design/wiki#introduction)
-- [What's Hover Exactly?](https://github.com/antstackio/hover-design/wiki#whats-hover-exactly)
-- [How To Contribute](https://github.com/antstackio/hover-design/wiki#how-to-contribute)
+- [Hover Design](#hover-design)
+  - [About](#about)
+  - [Contents](#contents)
+  - [Introduction](#introduction)
+  - [What's Hover Exactly?](#whats-hover-exactly)
+  - [How To Contribute](#how-to-contribute)
 
 ## Introduction
 
@@ -35,6 +36,6 @@ We use vanilla-extract which to put it in a very basic sense is like SASS but he
 
 ## How To Contribute
 
-If you are interested in contributing to development of Hover please read the Getting Started Portion!
+Currently the project is under development and need of devs to pitch in for Brainstorming and Developing Components
 
-**Note: This is a WIP**
+If you are interested in contributing to development of Hover please read the [Contribution Section](/docs/contribution)
