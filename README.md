@@ -1,4 +1,4 @@
-![Hover Logo](./docs/static/img/hover_logo_letters.svg)
+![Hover Logo](./docs/static/img/hover_logo_letters_white.svg)
 
 <center><h1>Hover Design</h1></center>
 
