@@ -16,6 +16,8 @@ To get started make yourself famaliar with:
 - Basic Typescript
 - Basics of Storybook
 
-We use the [recipies](https://vanilla-extract.style/documentation/recipes-api/) and [sprinkles](https://vanilla-extract.style/documentation/sprinkles-api/) api heavily along with styles.
+We use the [recipies](https://vanilla-extract.style/documentation/recipes-api/) api heavily along with styles.
 
-Issues are coming soon but right now contact @pruthvi via slack for planning out components.
+We believe in acessibility first way of developing and to ensure that we always extend HTML elements rather than using css and js to heavily modify a `<div>`
+
+Make sure to go through [Contribution Guide](/docs/contribution) and contact [@pruthvi2103](https://github.com/pruthvi2103) or [@Raalzz](https://github.com/Raalzz) via slack for planning out components.
