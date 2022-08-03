@@ -35,8 +35,7 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl: "#",
         },
         blog: {
           showReadingTime: true,
@@ -66,7 +65,14 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Tutorial",
+            label: "Documentation",
+          },
+          {
+            type: "doc",
+            docId: "wiki/home",
+            position: "left",
+            sidebarId: "wiki",
+            label: "Wiki",
           },
           {
             href: "https://github.com/antstackio/hover-design",
@@ -97,7 +103,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

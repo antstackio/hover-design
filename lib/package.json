@@ -7,7 +7,7 @@
   "module": "dist/hover-react.es.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "dev": "vite",
+    "dev": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "build": "tsc && vite build && tsc --emitDeclarationOnly",
     "tsc": "tsc",
     "serve": "vite preview",
