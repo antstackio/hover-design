@@ -37,9 +37,7 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - run: cd ./lib
-
       - name: Publish package on NPM 📦
-        run: npm publish --no-git-checks
+        run: cd ./lib && npm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
