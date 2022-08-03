@@ -6,6 +6,7 @@
   "main": "dist/hover-react.es.js",
   "module": "dist/hover-react.es.js",
   "types": "dist/types/index.d.ts",
+  "private": false,
   "scripts": {
     "dev": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "build": "tsc && vite build && tsc --emitDeclarationOnly",
