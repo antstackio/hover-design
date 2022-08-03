@@ -4,8 +4,8 @@
 name: Publish to NPM
 
 on:
-  pull_request:
-    branches: [main]
+  release:
+    types: [created]
 jobs:
   build:
     name: Build and Publish
@@ -39,11 +39,6 @@ jobs:
 
       - name: Build
         run: pnpm build
-
-      - name: Configure npm
-        run: |
-          echo '//registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN}' > .npmrc
-          cat .npmrc
 
       - name: Publish package on NPM 📦
         run: cd ./lib && npm publish --access public --no-git-checks
