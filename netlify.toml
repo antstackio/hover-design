@@ -1,6 +1,6 @@
 [build]
     publish = "./build"
-    command = "( pnpm run build  || npm install pnpm turbo ) && cd .. && pnpm i --no-frozen-lockfile  && npx turbo run build --scope=docs --include-dependencies --no-deps"
+    command = "( pnpm install --no-frozen-lockfile  || npm install pnpm turbo ) && cd .. && pnpm install --no-frozen-lockfile  && npx turbo run build --scope=docs --include-dependencies --no-deps"
 [build.environment]
     NODE_VERSION = "14"
     NPM_FLAGS = "--prefix=/dev/null"
