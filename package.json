@@ -1,7 +1,7 @@
 {
   "name": "@hover-design/base",
   "version": "1.0.0",
-  "description": "Hover Component library created by bunch of ants from antstack",
+  "description": "Hover Component library created by bunch of ants from AntStack",
   "main": "index.js",
   "homepage": "https://github.com/antstackio/hover-design",
   "repository": {
@@ -24,6 +24,6 @@
     "component library",
     "design system"
   ],
-  "author": "Antstack <connect@antstak.io> (https://antstack.io)",
+  "author": "AntStack <connect@antstak.com> (https://antstack.com)",
   "license": "MIT"
 }
