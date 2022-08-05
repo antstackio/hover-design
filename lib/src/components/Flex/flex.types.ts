@@ -8,5 +8,5 @@ export interface FlexProps extends React.DetailedHTMLProps<React.HTMLAttributes<
     flexShrink?: React.CSSProperties['flexShrink'],
     flexGrow?: React.CSSProperties['flexGrow'],
     flexBasis?: React.CSSProperties['flexBasis'],
-    gap:React.CSSProperties['gap'],
+    gap?:React.CSSProperties['gap'],
 }
