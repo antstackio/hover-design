@@ -1,3 +1,4 @@
 [build]
     publish = "./build"
-    command = "( pnpm run build  || npm install pnpm turbo ) && cd .. && pnpm install --no-frozen-lockfile  && npx turbo run build --scope=docs --include-dependencies --no-deps"
+    command = "( pnpm run build  || npm install pnpm turbo ) && cd .. && pnpm i --no-frozen-lockfile  && npx turbo run build --scope=docs --include-dependencies --no-deps"
+
