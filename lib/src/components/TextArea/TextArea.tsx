@@ -17,4 +17,4 @@ const TextAreaComponent: ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaP
 };
 
 const TextAreaWithRef = React.forwardRef(TextAreaComponent);
-export { TextAreaWithRef as TextArea };
+export { TextAreaWithRef as Textarea };
