@@ -1,0 +1,115 @@
+# Textarea
+
+## Quick start
+
+Here's a quick start guide to get started with the textarea component
+
+## Importing Component
+
+```jsx
+import { Textarea } from "@hover-design/react";
+```
+
+## Code Snippets and Examples
+import { Textarea } from "@hover-design/react";
+
+### Default
+
+```jsx
+  <Textarea
+  placeholder="AutoSize">
+  </Textarea>
+```
+
+<Textarea
+  placeholder="AutoSize">
+  </Textarea>
+
+### Fixedsize
+
+```jsx
+  <Textarea
+  placeholder="Fixedsize"
+  style={{resize: 'none'}}>
+  </Textarea>
+```
+
+<Textarea
+  placeholder="Fixedsize"
+  style={{resize: 'none'}}>
+  </Textarea>
+
+### Rows & Cols
+
+```jsx
+  <Textarea
+  placeholder="Rows"
+  rows={5}>
+  </Textarea>
+```
+```jsx
+  <Textarea
+  placeholder="Cols"
+  cols={10}>
+  </Textarea>
+```
+
+<Textarea
+  placeholder="Rows"
+  rows={5}>
+  </Textarea>
+<span style={{padding:'5px'}}></span>
+<Textarea
+  placeholder="Cols"
+  cols={10}>
+  </Textarea>
+
+### Maximum & Minimum Length
+
+```jsx
+  <Textarea
+  placeholder="Maximum height"
+  maxlength={12}
+  defaultValue="Hover Maximum">
+  </Textarea>
+```
+```jsx
+  <Textarea
+  placeholder="Minimum height"
+  minlength={10}
+  defaultValue="Hover Minimum">
+  </Textarea>
+```
+
+<Textarea
+  placeholder="Maximum Length"
+  maxlength={12}
+  defaultValue="Hover Maximum">
+  </Textarea>
+<span style={{padding:'5px'}}></span>
+<Textarea
+  placeholder="Minimum Length"
+  minlength={10}
+  defaultValue="Hover Minimum">
+  </Textarea>
+
+## Props Referece
+
+| Attributes    |                         Values                          | Optional ? |
+| :-------------| :-----------------------------------------------------: | ---------: |
+| children      |                       JSX.Element                       |        Yes |
+| autocomplete  | `on` &#124; `off`                                       |        Yes |
+| autocorrect   |         `on` &#124; `off`                               |        Yes |
+| autofocus     | `boolean`                                               |        Yes |
+| cols          | `number`                                                |        Yes |
+| rows          | `number`                                                |        Yes |  
+| minlength     | `number`                                                |        Yes |
+| maxlength     | `number`                                                |        Yes |
+| disabled      | `boolean`                                               |        Yes |
+| required      | `boolean`                                               |        Yes |
+| name          | `string`                                                |        Yes |
+| placeholder   | `string`                                                |        Yes |
+| readonly      | `boolean`                                               |        Yes |
+| spellcheck    | `true` &#124; `default` &#124; `false`                  |        Yes |
+| wrap          | `hard` &#124; `soft` &#124; `off`                       |        Yes |
+| onChange      | `() => void;`                                           |        Yes |
