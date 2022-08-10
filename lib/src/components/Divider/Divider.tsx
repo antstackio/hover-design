@@ -14,7 +14,7 @@ export const Divider = ({
   type = "solid",
   label,
   labelPosition = "center",
-  color = "#000",
+  color = "grey",
   labelColor = "#000",
   labelBackground = "#fff",
   orientation = "horizontal",
