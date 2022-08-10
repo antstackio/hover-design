@@ -1,0 +1,95 @@
+# Divider
+
+### Quick start
+
+Here's a quick start guide to get started with the divider component
+
+### Importing Component
+
+```jsx
+import { Divider } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Divider Default
+
+import "@hover-design/react/dist/style.css";
+import { Divider } from "@hover-design/react";
+
+```jsx
+<div className="App">
+  <Divider />
+</div>
+```
+
+<Divider />
+
+##### Divider Dashed
+
+```jsx
+<div className="App">
+  <Divider type="dashed" />
+</div>
+```
+
+<Divider type="dashed" />
+
+##### Divider Dotted
+
+```jsx
+<div className="App">
+  <Divider type="dotted" />
+</div>
+```
+
+<Divider type="dotted" />
+
+##### Divider with Label
+
+```jsx
+<div className="App">
+  <Divider label="label" />
+</div>
+```
+
+<div style={{ marginTop: "30px" }}>
+  <Divider label="label" />
+</div>
+
+##### Vertical Divider
+
+```jsx
+<div className="App">
+  <Divider orientation="vertical" />
+</div>
+```
+
+<div style={{ height: "50px" }}>
+  <Divider orientation="vertical" />
+</div>
+
+##### Vertical Divider with Label
+
+```jsx
+<div className="App">
+  <Divider orientation="vertical" label="label" />
+</div>
+```
+
+<div style={{ height: "100px", margin: "0 auto", width: "fit-content" }}>
+  <Divider orientation="vertical" label="label" />
+</div>
+
+### Props Referece
+
+| Attributes      |                 Values                  | Optional ? |
+| :-------------- | :-------------------------------------: | ---------: |
+| orientation     |    ` vertical` &#124; `horizontal `     |        Yes |
+| type            | `solid` &#124; `dashed` &#124; `dotted` |        Yes |
+| size            |                `string`                 |        Yes |
+| label           |      `String` &#124; `JSX Element`      |        Yes |
+| color           |                `string`                 |        Yes |
+| labelColor      |                `string`                 |        Yes |
+| labelBackground |                `string`                 |        Yes |
+| labelPosition   |  `start` &#124; `center` &#124; `end`   |        Yes |
