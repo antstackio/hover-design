@@ -63,14 +63,29 @@ import { Divider } from "@hover-design/react";
 
 ```jsx
 <div className="App">
-  <Divider orientation="vertical" />
+  <div>Label 1</div>
+  <Divider orientation="vertical" style={{ margin: "0 10px" }} />
+  <div>Label 2</div>
+  <Divider orientation="vertical" style={{ margin: "0 10px" }} />
+  <div>Label 3</div>
 </div>
 ```
 
 > **Note:** Vertical Divider's height will depend on container's height
 
-<div style={{ height: "100px", margin: "0 auto", width: "fit-content" }}>
-  <Divider orientation="vertical" />
+<div
+  style={{
+    display: "flex",
+    height: "30px",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <div>Label 1</div>
+  <Divider orientation="vertical" style={{ margin: "0 10px" }} />
+  <div>Label 2</div>
+  <Divider orientation="vertical" style={{ margin: "0 10px" }} />
+  <div>Label 3</div>
 </div>
 
 ##### Vertical Divider with Label
@@ -83,6 +98,44 @@ import { Divider } from "@hover-design/react";
 
 <div style={{ height: "100px", margin: "0 auto", width: "fit-content" }}>
   <Divider orientation="vertical" label="label" />
+</div>
+
+##### Vertical Divider with Custom Label
+
+```jsx
+<div className="App">
+  <Divider
+    label={
+      <div
+        style={{
+          borderRadius: "5px",
+          background: "hotpink",
+          padding: "2px 6px",
+          color: "white",
+        }}
+      >
+        label
+      </div>
+    }
+  />
+</div>
+```
+
+<div style={{ margin: "30px" }}>
+  <Divider
+    label={
+      <div
+        style={{
+          borderRadius: "5px",
+          background: "hotpink",
+          padding: "2px 6px",
+          color: "white",
+        }}
+      >
+        label
+      </div>
+    }
+  />
 </div>
 
 ### Props Reference

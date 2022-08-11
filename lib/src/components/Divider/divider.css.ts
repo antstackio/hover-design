@@ -13,6 +13,7 @@ export const [dividerThemeClass, dividerThemeVar]: DividerTheme = createTheme({
 export const dividerContainerHorizontal = style({
   position: "relative",
   width: "100%",
+  height: "fit-content",
 });
 
 export const dividerContainerVertical = style({

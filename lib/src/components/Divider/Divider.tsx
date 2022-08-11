@@ -18,6 +18,8 @@ export const Divider = ({
   labelColor = "#000",
   labelBackground = "#fff",
   orientation = "horizontal",
+  className,
+  style,
   size = "1px",
   ...nativeProps
 }: DividerProps) => {
@@ -37,31 +39,35 @@ export const Divider = ({
       : labelVertical({
           labelPosition,
         });
+  const dividerStyles = assignInlineVars({
+    [dividerThemeVar.dividerColor]: color,
+    [dividerThemeVar.dividerSize]: size,
+  });
+
+  Object.assign(dividerStyles, style);
 
   return (
     <div
-      className={`divider-container ${
+      className={`${
         orientation === "horizontal"
           ? dividerContainerHorizontal
-          : ` ${dividerContainerVertical}`
+          : dividerContainerVertical
       }`}
     >
       <div
-        className={`divider ${dividerClass} `}
-        style={assignInlineVars({
-          [dividerThemeVar.dividerColor]: color,
-          [dividerThemeVar.dividerSize]: size,
-        })}
+        role="seperator"
+        className={`${dividerClass} ${className}`}
+        style={dividerStyles}
         {...nativeProps}
       ></div>
       {label && (
         <span
           style={assignInlineVars({
             [dividerThemeVar.labelColor]: labelColor,
-            [dividerThemeVar.labelBackground]: labelBackground,
-            [dividerThemeVar.dividerSize]: size,
+            [dividerThemeVar.labelBackground]:
+              typeof label === "string" ? labelBackground : "transparent",
           })}
-          className={`label ${labelClass} `}
+          className={`${labelClass}`} //If label has to be customized then user is supposed to add JSX element
         >
           {label}
         </span>
