@@ -12,8 +12,6 @@
     "build": "tsc && vite build && tsc --emitDeclarationOnly",
     "tsc": "tsc",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\""
   },
   "dependencies": {
@@ -39,8 +37,8 @@
     "vite-tsconfig-paths": "^3.4.0"
   },
   "peerDependencies": {
-    "react": "^17",
-    "react-dom": "^17"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "repository": {
     "type": "git",
