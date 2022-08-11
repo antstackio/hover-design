@@ -6,6 +6,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import "@hover-design/react/dist/style.css";
+import { Accordion } from "@hover-design/react";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -48,6 +49,11 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <h1>Accordion</h1>
+        <Accordion>
+          <Accordion.Summary> This is summary</Accordion.Summary>
+          Hello
+        </Accordion>
       </main>
     </Layout>
   );

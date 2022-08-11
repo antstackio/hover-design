@@ -1,3 +1,4 @@
+import Accordion from "@hover-design/react/dist/types/components/Accordion/Accordion";
 import { StyleWrapper } from "components/appWraper/StyleWrapper";
 import { BreakpointsExample } from "components/breakpointsExample/BreakpointsExample";
 import { ColorsPreview } from "components/colorsPreview/colorsPreview";
@@ -32,6 +33,8 @@ const App: React.FC = () => {
           </h3>
           <h2>Breakpoints</h2>
           <BreakpointsExample />
+          <h1>Accordion</h1>
+          <Accordion></Accordion>
         </Container>
       </PageMain>
       <Footer />
