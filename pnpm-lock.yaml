@@ -17,15 +17,15 @@ importers:
       '@docusaurus/preset-classic': 2.0.0-beta.20
       '@hover-design/react': '*'
       '@mdx-js/react': ^1.6.22
-      '@tsconfig/docusaurus': ^1.0.6
-      '@vanilla-extract/css': ^1.7.2
-      '@vanilla-extract/webpack-plugin': ^2.1.11
-      clsx: ^1.2.1
-      docusaurus-plugin-vanilla-extract: ^1.0.2
-      prism-react-renderer: ^1.3.5
+      '@tsconfig/docusaurus': ^1.0.5
+      '@vanilla-extract/css': ^1.6.8
+      '@vanilla-extract/webpack-plugin': ^2.1.10
+      clsx: ^1.1.1
+      docusaurus-plugin-vanilla-extract: ^1.0.1
+      prism-react-renderer: ^1.3.1
       react: ^17.0.2
       react-dom: ^17.0.2
-      typescript: ^4.7.4
+      typescript: ^4.6.4
     dependencies:
       '@docusaurus/core': 2.0.0-beta.20_3tgeifm2vmwrlpqlopppsnjtcu
       '@docusaurus/preset-classic': 2.0.0-beta.20_3tgeifm2vmwrlpqlopppsnjtcu
@@ -78,6 +78,7 @@ importers:
       '@types/react': ^17.0.0
       '@types/react-dom': ^17.0.0
       '@vanilla-extract/css': ^1.6.8
+      '@vanilla-extract/css-utils': ^0.1.2
       '@vanilla-extract/dynamic': ^2.0.2
       '@vanilla-extract/recipes': ^0.2.3
       '@vanilla-extract/sprinkles': ^1.3.3
@@ -94,6 +95,7 @@ importers:
       vite-tsconfig-paths: ^3.4.0
     dependencies:
       '@vanilla-extract/css': 1.6.8
+      '@vanilla-extract/css-utils': 0.1.2
       '@vanilla-extract/dynamic': 2.0.2
       '@vanilla-extract/recipes': 0.2.3_@vanilla-extract+css@1.6.8
       '@vanilla-extract/sprinkles': 1.4.0_@vanilla-extract+css@1.6.8
@@ -3103,6 +3105,10 @@ packages:
     resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
     dependencies:
       '@types/node': 18.6.3
+    dev: false
+
+  /@vanilla-extract/css-utils/0.1.2:
+    resolution: {integrity: sha512-qoxIu5E/UhJtoKsPL1JaU9nhTN0Xl5zYV0pScOgsvc3JN46TvTTt0L3GV8x3PQpZP7x3elw8BsC9czYbhJy9Gg==}
     dev: false
 
   /@vanilla-extract/css/1.6.8:
