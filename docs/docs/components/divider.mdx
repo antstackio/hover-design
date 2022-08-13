@@ -1,0 +1,152 @@
+# Divider
+
+### Quick start
+
+Here's a quick start guide to get started with the divider component
+
+### Importing Component
+
+```jsx
+import { Divider } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Divider Default
+
+import "@hover-design/react/dist/style.css";
+import { Divider } from "@hover-design/react";
+
+```jsx
+<div className="App">
+  <Divider />
+</div>
+```
+
+> **Note:** Horizontal Divider's width will depend on container's width
+
+<Divider />
+
+##### Divider Dashed
+
+```jsx
+<div className="App">
+  <Divider type="dashed" />
+</div>
+```
+
+<Divider type="dashed" />
+
+##### Divider Dotted
+
+```jsx
+<div className="App">
+  <Divider type="dotted" />
+</div>
+```
+
+<Divider type="dotted" />
+
+##### Divider with Label
+
+```jsx
+<div className="App">
+  <Divider label="label" />
+</div>
+```
+
+<div style={{ marginTop: "30px" }}>
+  <Divider label="label" />
+</div>
+
+##### Vertical Divider
+
+```jsx
+<div className="App">
+  <div>Label 1</div>
+  <Divider orientation="vertical" style={{ margin: "0 10px" }} />
+  <div>Label 2</div>
+  <Divider orientation="vertical" style={{ margin: "0 10px" }} />
+  <div>Label 3</div>
+</div>
+```
+
+> **Note:** Vertical Divider's height will depend on container's height
+
+<div
+  style={{
+    display: "flex",
+    height: "30px",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <div>Label 1</div>
+  <Divider orientation="vertical" style={{ margin: "0 10px" }} />
+  <div>Label 2</div>
+  <Divider orientation="vertical" style={{ margin: "0 10px" }} />
+  <div>Label 3</div>
+</div>
+
+##### Vertical Divider with Label
+
+```jsx
+<div className="App">
+  <Divider orientation="vertical" label="label" />
+</div>
+```
+
+<div style={{ height: "100px", margin: "0 auto", width: "fit-content" }}>
+  <Divider orientation="vertical" label="label" />
+</div>
+
+##### Vertical Divider with Custom Label
+
+```jsx
+<div className="App">
+  <Divider
+    label={
+      <div
+        style={{
+          borderRadius: "5px",
+          background: "hotpink",
+          padding: "2px 6px",
+          color: "white",
+        }}
+      >
+        label
+      </div>
+    }
+  />
+</div>
+```
+
+<div style={{ margin: "30px" }}>
+  <Divider
+    label={
+      <div
+        style={{
+          borderRadius: "5px",
+          background: "hotpink",
+          padding: "2px 6px",
+          color: "white",
+        }}
+      >
+        label
+      </div>
+    }
+  />
+</div>
+
+### Props Reference
+
+| Attributes      |                 Values                  | Default Value | Optional ? |
+| :-------------- | :-------------------------------------: | :-----------: | ---------: |
+| orientation     |    ` vertical` &#124; `horizontal `     | `horizontal`  |        Yes |
+| type            | `solid` &#124; `dashed` &#124; `dotted` |    `solid`    |        Yes |
+| size            |                `string`                 |     `1px`     |        Yes |
+| label           |      `String` &#124; `JSX Element`      |               |        Yes |
+| color           |                `string`                 |    `grey`     |        Yes |
+| labelColor      |                `string`                 |    `black`    |        Yes |
+| labelBackground |                `string`                 |    `white`    |        Yes |
+| labelPosition   |  `start` &#124; `center` &#124; `end`   |   `center`    |        Yes |
