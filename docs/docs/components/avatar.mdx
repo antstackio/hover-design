@@ -1,0 +1,45 @@
+# Avatar
+
+### Quick start
+
+Here's a quick start guide to get started with the avatar component
+
+<div class="App">
+  <Avatar src="image" alt="image" />
+  <Avatar src="image" alt="image" />
+  <Avatar>RS</Avatar>
+  <Avatar>
+    <Icon />
+  </Avatar>
+</div>
+
+<div class="App">
+  <Avatar.Group gap="sm">
+    <Avatar src="image" alt="image"/>
+    <Avatar src="image" alt="image"/>
+  </Avatar>
+</div>
+
+Note:
+
+1. gap should depend on size of the avatar
+2. For now any custom props(classNames, html attributes, etc) will be applied only of wrappers.
+
+### Avatar Props Referece
+
+| Attributes   |             Values              | Optional ? |
+| :----------- | :-----------------------------: | ---------: |
+| src          |            `string`             |        Yes |
+| alt          |            `string`             |        Yes |
+| borderRadius | `xs` `sm` `md` `lg` `xl` number |        Yes |
+| size         | `xs` `sm` `md` `lg` `xl` number |        Yes |
+| color        |            `string`             |        Yes |
+| textColor    |            `string`             |        Yes |
+| ref          | `RefObject<HTMLButtonElement>;` |        Yes |
+
+### Avatar.Group Props Referece
+
+| Attributes |      Values      | Optional ? |
+| :--------- | :--------------: | ---------: |
+| children   | `React.Children` |         No |
+| gap        |     `string`     |        Yes |
