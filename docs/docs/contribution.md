@@ -6,7 +6,9 @@ In this guide you will get an overview of the contribution workflow from cloning
 
 ## 1. Cloning the repository
 
-First step is to clone the hover project from [Github](https://github.com/antstackio/hover-design)
+First step is to fork the hover project from [Github](https://github.com/antstackio/hover-design)
+
+<i> Note: We have a Playbook for the best practices read more [here](/docs/wiki/playbooks/git_playbook)</i>
 
 ## 2. Understanding the Project
 
@@ -56,6 +58,8 @@ We can proceed with development after that. The project uses the following tech 
 Raise a PR after contributing the code and replacing spec with actual documentation.
 
 For our Ideas, methodology and reasonings refer to our [Wiki](/docs/wiki/home)
+
+We also have a [Playbook](/docs/wiki/playbooks/git_playbook) where we document our best practices and 'what to dos'
 
 refer [Prerequisites](/docs/wiki/getting_started) to look at what approach to follow.
 
