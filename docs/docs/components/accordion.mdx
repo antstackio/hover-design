@@ -1,0 +1,136 @@
+# Accordion
+
+### Quick start
+
+Here's a quick start guide to get started with the Accordion component
+
+### Importing Component
+
+```jsx
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionContent,
+  AccordionGroup,
+} from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Accordion Default
+
+The Accordion makes use of `Accordion`, `AccordionSummary`, and `AccordionContent` components to create an accordion.
+
+It renders a `details` element and `summary` element for the best semantic structure
+
+import "@hover-design/react/dist/style.css";
+
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionContent,
+  AccordionGroup,
+} from "@hover-design/react";
+
+export const AccordionComponent = ({ variant, children }) => (
+  <Accordion variant={variant}>{children}</Accordion>
+);
+export const SummaryComponent = ({ children, ...props }) => (
+  <AccordionSummary {...props}>{children}</AccordionSummary>
+);
+export const ContentComponent = ({ children, ...props }) => (
+  <AccordionContent {...props}>{children}</AccordionContent>
+);
+export const GroupComponent = ({ children, ...props }) => (
+  <AccordionGroup {...props}>{children}</AccordionGroup>
+);
+
+```jsx
+<Accordion>
+  <AccordionSummary>This is summary</AccordionSummary>
+  <AccordionContent>Hello</AccordionContent>
+</Accordion>
+```
+
+<AccordionComponent>
+  <AccordionSummary>I am Accordion Summary</AccordionSummary>
+  <AccordionContent>I am Accordion Content</AccordionContent>
+</AccordionComponent>
+
+##### Accordion Group
+
+Use this to give required styles for accordion.
+
+```jsx
+<AccordionGroup>
+  <Accordion>
+    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionContent>
+      <div>Hello</div>
+    </AccordionContent>
+  </Accordion>
+  <Accordion>
+    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionContent>
+      <div>Hello</div>
+    </AccordionContent>
+  </Accordion>
+  <Accordion>
+    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionContent>
+      <div>Hello</div>
+    </AccordionContent>
+  </Accordion>
+</AccordionGroup>
+```
+
+<AccordionGroup>
+  <Accordion>
+    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionContent>
+      <div>Hello</div>
+    </AccordionContent>
+  </Accordion>
+  <Accordion>
+    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionContent>
+      <div>Hello</div>
+    </AccordionContent>
+  </Accordion>
+  <Accordion>
+    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionContent>
+      <div>Hello</div>
+    </AccordionContent>
+  </Accordion>
+</AccordionGroup>
+
+### Props Reference
+
+#### Accordion
+
+Accordion also accepts native `<details>` element props. [Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
+
+| Attributes |          Values          | Default Value | Optional ? |
+| :--------- | :----------------------: | :-----------: | ---------: |
+| open       |     `true` , `false`     |    `false`    |        Yes |
+| onToggle   | `React OnToggle Handler` |       -       |        Yes |
+
+#### AccordionSummary
+
+AccordionSummary also accepts native `<summary>` element props. [Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
+
+| Attributes     |      Values      |        Default Value         | Optional ? |
+| :------------- | :--------------: | :--------------------------: | ---------: |
+| Icon           | React.ReactNode  |          undefined           |        Yes |
+| iconPosition   | 'left' , 'right' |           'right'            |        Yes |
+| iconTransform  |      string      |       'rotate(180deg)'       |        Yes |
+| iconTransition |      string      | 'transform 0.2s ease-in-out' |        Yes |
+
+#### AccordionContent
+
+AccordionContent accepts native `<div>` element props. [Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
+
+#### AccordionGroup
+
+AccordionGroup accepts native `<div>` element props. [Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
