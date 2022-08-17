@@ -4,13 +4,13 @@ import { accordionThemeClass, detailsClass } from "./accordion.styles.css";
 import "./accordion.global.styles.css";
 import { IAccordionProps } from "./accordion.types";
 
-const Accordion: ForwardRefRenderFunction<HTMLElement, IAccordionProps> = (
-  { children, onToggle, className, ...nativeProps },
-  ref
-) => {
+const Accordion: ForwardRefRenderFunction<
+  HTMLDetailsElement,
+  IAccordionProps
+> = ({ children, onToggle, className, ...nativeProps }, ref) => {
   return (
     <details
-      ref={ref}
+      ref={ref as React.ForwardedRef<HTMLElement>}
       onToggle={onToggle}
       className={`${detailsClass} ${accordionThemeClass} ${className}`}
       {...nativeProps}
