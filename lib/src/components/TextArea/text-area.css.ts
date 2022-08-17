@@ -5,3 +5,7 @@ export const textAreaStyle = style({
     borderRadius: '10px',
     padding: '20px'
 })
+
+export const textAreaResize = style({
+    resize: 'none'
+})
