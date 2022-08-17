@@ -8,3 +8,4 @@ export * from "./components/reset";
 export * from "./components/Switch";
 export * from "./components/Accordion";
 export * from "./components/Divider";
+export * from "./components/Icon";

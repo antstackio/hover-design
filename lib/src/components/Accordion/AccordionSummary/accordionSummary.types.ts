@@ -1,6 +1,6 @@
 import React from "react";
 
-interface IAccordionSummaryCustomProps {
+export interface IAccordionSummaryCustomProps {
   iconPosition?: "left" | "right";
   Icon?: React.ReactNode;
   iconTransform?: string;

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ForwardRefRenderFunction } from "react";
 import { IIconProps } from "./icon.type";
 
-const Icon: React.FC<IIconProps> = ({
+const Icon: ForwardRefRenderFunction<SVGSVGElement, IIconProps> = ({
   children,
   xmlns = "http://www.w3.org/2000/svg",
   width = "24",

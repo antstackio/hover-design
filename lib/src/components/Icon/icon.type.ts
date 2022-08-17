@@ -1,1 +1,1 @@
-export type IIconProps = JSX.IntrinsicElements["svg"];
+export type IIconProps = React.SVGProps<SVGSVGElement>;

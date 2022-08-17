@@ -1,5 +1,5 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import React from "react";
+import React, { ForwardRefRenderFunction } from "react";
 import { Flex } from "src/components/Flex";
 import ChevronIcon from "src/components/_internal/Icons/Chevron";
 import {
@@ -14,16 +14,22 @@ const DefaultAccordionSummaryIcon: React.FC<{
 }> = () => {
   return <ChevronIcon height={"18"} width={"18"} />;
 };
-export const AccordionSummary: React.FC<IAccordionSummaryProps> = ({
-  children,
-  Icon,
-  iconPosition = "right",
-  iconTransform = "rotate(180deg)",
-  iconTransition = "transform 0.2s ease-in-out",
-  className,
-  style,
-  ...nativeProps
-}) => {
+const AccordionSummary: ForwardRefRenderFunction<
+  HTMLElement,
+  IAccordionSummaryProps
+> = (
+  {
+    children,
+    Icon,
+    iconPosition = "right",
+    iconTransform = "rotate(180deg)",
+    iconTransition = "transform 0.2s ease-in-out",
+    className,
+    style,
+    ...nativeProps
+  },
+  ref
+) => {
   const summaryStyle = Object.assign(
     assignInlineVars({
       [accordionThemeVars.accordionTransition]: iconTransition,
@@ -48,6 +54,7 @@ export const AccordionSummary: React.FC<IAccordionSummaryProps> = ({
 
   return (
     <summary
+      ref={ref}
       style={summaryStyle}
       className={`${summaryClass} ${className}`}
       {...nativeProps}
@@ -58,3 +65,7 @@ export const AccordionSummary: React.FC<IAccordionSummaryProps> = ({
     </summary>
   );
 };
+
+const AccordionSummaryWithRef = React.forwardRef(AccordionSummary);
+
+export { AccordionSummaryWithRef as AccordionSummary };

@@ -1,16 +1,20 @@
-import React from "react";
+import React, { ForwardRefRenderFunction } from "react";
 import { accordionGroupClass } from "../accordion.styles.css";
 
-const AccordionGroup: React.FC<JSX.IntrinsicElements["div"]> = ({
-  children,
-  className,
-  ...nativeProps
-}) => {
+const AccordionGroup: ForwardRefRenderFunction<
+  HTMLDivElement,
+  JSX.IntrinsicElements["div"]
+> = ({ children, className, ...nativeProps }, ref) => {
   return (
-    <div className={`${accordionGroupClass} ${className}`} {...nativeProps}>
+    <div
+      ref={ref}
+      className={`${accordionGroupClass} ${className}`}
+      {...nativeProps}
+    >
       {children}
     </div>
   );
 };
 
-export { AccordionGroup };
+const AccordionGroupWithRef = React.forwardRef(AccordionGroup);
+export { AccordionGroupWithRef as AccordionGroup };
