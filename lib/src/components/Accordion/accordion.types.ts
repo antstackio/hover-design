@@ -6,10 +6,4 @@ export type IAccordionTheme = [
   { accordionTransition: string; accordionTransform: string }
 ];
 
-export type IAccordionProps = IHoverAccordion &
-  JSX.IntrinsicElements["details"];
-interface IHoverAccordion {
-  open?: boolean;
-  onToggle?: React.ReactEventHandler<HTMLDetailsElement>;
-  children: React.ReactNode;
-}
+export type IAccordionProps = JSX.IntrinsicElements["details"];
