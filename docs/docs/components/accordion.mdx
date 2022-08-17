@@ -30,19 +30,13 @@ import {
   AccordionSummary,
   AccordionContent,
   AccordionGroup,
+  Switch,
 } from "@hover-design/react";
+
+import AccordionAdvancedExample from "@site/src/components/examples/AccordionAdvancedUsage";
 
 export const AccordionComponent = ({ variant, children }) => (
   <Accordion variant={variant}>{children}</Accordion>
-);
-export const SummaryComponent = ({ children, ...props }) => (
-  <AccordionSummary {...props}>{children}</AccordionSummary>
-);
-export const ContentComponent = ({ children, ...props }) => (
-  <AccordionContent {...props}>{children}</AccordionContent>
-);
-export const GroupComponent = ({ children, ...props }) => (
-  <AccordionGroup {...props}>{children}</AccordionGroup>
 );
 
 ```jsx
@@ -64,15 +58,17 @@ Use this to give required styles for accordion.
 ```jsx
 <AccordionGroup>
   <Accordion>
-    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionSummary>Tab Navigate Me!</AccordionSummary>
     <AccordionContent>
-      <div>Hello</div>
+      <div>I have awesome accessibility</div>
     </AccordionContent>
   </Accordion>
   <Accordion>
-    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionSummary>You will love tabbing me!</AccordionSummary>
     <AccordionContent>
-      <div>Hello</div>
+      <input type="checkbox" /> I am checkbox 1
+      <input type="checkbox" /> I am checkbox 2
+      <input type="checkbox" /> I am checkbox 3
     </AccordionContent>
   </Accordion>
   <Accordion>
@@ -86,15 +82,17 @@ Use this to give required styles for accordion.
 
 <AccordionGroup>
   <Accordion>
-    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionSummary>Tab Navigate Me!</AccordionSummary>
     <AccordionContent>
-      <div>Hello</div>
+      <div>I have awesome accessibility</div>
     </AccordionContent>
   </Accordion>
   <Accordion>
-    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionSummary>You will love tabbing me!</AccordionSummary>
     <AccordionContent>
-      <div>Hello</div>
+      <input type="checkbox" /> I am checkbox 1
+      <input type="checkbox" /> I am checkbox 2
+      <input type="checkbox" /> I am checkbox 3
     </AccordionContent>
   </Accordion>
   <Accordion>
@@ -104,6 +102,111 @@ Use this to give required styles for accordion.
     </AccordionContent>
   </Accordion>
 </AccordionGroup>
+0
+
+##### Accordion Icon Position
+
+Specify the position of the icon in the accordion summary. Defaults to `right`
+
+```jsx
+<Accordion>
+  <AccordionSummary iconPosition="left">This is summary</AccordionSummary>
+  <AccordionContent>
+    <div>Hello</div>
+  </AccordionContent>
+</Accordion>
+```
+
+<Accordion>
+  <AccordionSummary iconPosition="left">This is summary</AccordionSummary>
+  <AccordionContent>
+    <div>Hello</div>
+  </AccordionContent>
+</Accordion>
+
+##### Accordion Custom Icon
+
+```jsx
+<Accordion>
+  <AccordionSummary iconPosition="left">This is summary</AccordionSummary>
+  <AccordionContent>
+    <div>Hello</div>
+  </AccordionContent>
+</Accordion>
+```
+
+<Accordion>
+  <AccordionSummary Icon={<>☝️</>} iconPosition="right">
+    This is summary
+  </AccordionSummary>
+  <AccordionContent>
+    <div>Hello</div>
+  </AccordionContent>
+</Accordion>
+
+##### Accordion Icon Transition and Animation
+
+```jsx
+<Accordion>
+  <AccordionSummary
+    Icon={<>+</>}
+    iconTransform={"rotate(45deg)"}
+    iconTransition={"transform 0.5s"}
+    iconPosition="right"
+  >
+    This is summary
+  </AccordionSummary>
+  <AccordionContent>
+    <div>Hello</div>
+  </AccordionContent>
+</Accordion>
+```
+
+<Accordion>
+  <AccordionSummary
+    Icon={<>+</>}
+    iconTransform={"rotate(45deg)"}
+    iconTransition={"transform 0.5s"}
+    iconPosition="right"
+  >
+    This is summary
+  </AccordionSummary>
+  <AccordionContent>
+    <div>Hello</div>
+  </AccordionContent>
+</Accordion>
+
+##### Accordion Advanced usage
+
+The accordion allows for really flexible usage
+
+```jsx
+const [open, setOpen] = useState(false);
+.
+.
+<div>
+  <Accordion
+    onToggle={(e) => {
+      setOpen(e.target.open);
+    }}
+    open={open}
+  >
+    <AccordionSummary>This is summary</AccordionSummary>
+    <AccordionContent>Hello</AccordionContent>
+  </Accordion>
+  <Flex gap={"12px"} justifyContent={"space-between"}>
+    <Switch
+      status={open}
+      onChange={() => {
+        setOpen((prevValue) => !prevValue);
+      }}
+    />
+    <p>Accordion is {open ? "open" : "closed"}</p>
+  </Flex>
+</div>
+```
+
+<AccordionAdvancedExample />
 
 ### Props Reference
 
@@ -134,3 +237,7 @@ AccordionContent accepts native `<div>` element props. [Reference](https://devel
 #### AccordionGroup
 
 AccordionGroup accepts native `<div>` element props. [Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
+
+```
+
+```

@@ -11,18 +11,8 @@ import { IAccordionSummaryProps } from "./accordionSummary.types";
 
 const DefaultAccordionSummaryIcon: React.FC<{
   iconPosition: IAccordionSummaryProps["iconPosition"];
-}> = ({ iconPosition }) => {
-  const accordionIconStyle = accordionIconClass({ position: iconPosition });
-  return (
-    <Flex
-      data-attribute="chevron"
-      justifyContent={"center"}
-      alignItems={"center"}
-      className={accordionIconStyle}
-    >
-      <ChevronIcon height={"18"} width={"18"} />
-    </Flex>
-  );
+}> = () => {
+  return <ChevronIcon height={"18"} width={"18"} />;
 };
 export const AccordionSummary: React.FC<IAccordionSummaryProps> = ({
   children,
@@ -41,8 +31,20 @@ export const AccordionSummary: React.FC<IAccordionSummaryProps> = ({
     }),
     style
   );
-  const SummaryIcon = () =>
-    Icon || <DefaultAccordionSummaryIcon iconPosition={iconPosition} />;
+  const SummaryIcon = () => {
+    const accordionIconStyle = accordionIconClass({ position: iconPosition });
+
+    return (
+      <Flex
+        data-attribute="chevron"
+        justifyContent={"center"}
+        alignItems={"center"}
+        className={accordionIconStyle}
+      >
+        {Icon || <DefaultAccordionSummaryIcon iconPosition={iconPosition} />}
+      </Flex>
+    );
+  };
 
   return (
     <summary
