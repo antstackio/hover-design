@@ -30,13 +30,13 @@ import { Textarea } from "@hover-design/react";
 ```jsx
   <Textarea
   placeholder="Fixedsize"
-  style={{resize: 'none'}}>
+  fixedSize="true">
   </Textarea>
 ```
 
 <Textarea
   placeholder="Fixedsize"
-  style={{resize: 'none'}}>
+  fixedSize="true">
   </Textarea>
 
 ### Rows & Cols
@@ -93,6 +93,42 @@ import { Textarea } from "@hover-design/react";
   defaultValue="Hover Minimum">
   </Textarea>
 
+### Status Border
+
+```jsx
+  <Textarea
+  placeholder="Error"
+  statusBorder="red">
+  </Textarea>
+```
+```jsx
+  <Textarea
+  placeholder="Warning"
+  statusBorder="yellow">
+  </Textarea>
+```
+```jsx
+  <Textarea
+  placeholder="Valid"
+  statusBorder="green">
+  </Textarea>
+```
+
+<Textarea
+  placeholder="Error"
+  statusBorder="red">
+  </Textarea>
+<span style={{padding:'5px'}}></span>
+<Textarea
+  placeholder="Warning"
+  statusBorder="yellow">
+  </Textarea>
+<span style={{padding:'5px'}}></span>
+<Textarea
+  placeholder="Valid"
+  statusBorder="green">
+  </Textarea>
+
 ## Props Referece
 
 | Attributes    |                         Values                          | Optional ? |
@@ -101,6 +137,8 @@ import { Textarea } from "@hover-design/react";
 | autocomplete  | `on` &#124; `off`                                       |        Yes |
 | autocorrect   |         `on` &#124; `off`                               |        Yes |
 | autofocus     | `boolean`                                               |        Yes |
+| resize        | `boolean`                                               |        Yes |
+| statusBorder  | `string`                                                |        Yes |
 | cols          | `number`                                                |        Yes |
 | rows          | `number`                                                |        Yes |  
 | minlength     | `number`                                                |        Yes |

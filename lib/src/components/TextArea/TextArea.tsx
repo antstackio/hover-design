@@ -7,7 +7,7 @@ const TextAreaComponent: ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaP
     className,
     children,
     style,
-    resize = false,
+    fixedSize = false,
     statusBorder = '#082D59',
     ...nativeTextAreaProps
  }, ref) => {
@@ -23,7 +23,7 @@ const TextAreaComponent: ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaP
 
   return (
     <textarea 
-      className={`${textAreaStyle} ${className} ${resize ? textAreaResize : null} ${textAreaColorClass}`} 
+      className={`${textAreaStyle} ${className} ${fixedSize ? textAreaResize : null} ${textAreaColorClass}`} 
       style={textAreaBorder}
       ref={ref} 
       {...nativeTextAreaProps}
