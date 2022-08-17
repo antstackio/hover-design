@@ -10,7 +10,7 @@ const Accordion: ForwardRefRenderFunction<
 > = ({ children, onToggle, className, ...nativeProps }, ref) => {
   return (
     <details
-      ref={ref as React.ForwardedRef<HTMLElement>}
+      ref={ref}
       onToggle={onToggle}
       className={`${detailsClass} ${accordionThemeClass} ${className}`}
       {...nativeProps}
