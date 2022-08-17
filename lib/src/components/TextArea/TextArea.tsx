@@ -1,5 +1,6 @@
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 import React, { ForwardRefRenderFunction } from "react";
-import { textAreaStyle, textAreaResize } from "./text-area.css";
+import { textAreaStyle, textAreaResize, textAreaColorClass, textAreaColorVars } from "./text-area.css";
 import { TextAreaProps } from "./text-area.types";
 
 const TextAreaComponent: ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaProps> = ({ 
@@ -7,11 +8,26 @@ const TextAreaComponent: ForwardRefRenderFunction<HTMLTextAreaElement, TextAreaP
     children,
     style,
     resize = false,
+    statusBorder = '#082D59',
     ...nativeTextAreaProps
  }, ref) => {
 
+  let textAreaBorder = assignInlineVars({
+    [textAreaColorVars.textAreaBorderColor.statusBorderColor]: statusBorder
+  });
+
+  /**
+   * It will overwrite the default styling with the user provided style 
+   */
+  Object.assign(textAreaBorder, style);
+
   return (
-    <textarea className={`${textAreaStyle} ${className} ${resize ? textAreaResize : null}`} style={style} ref={ref} {...nativeTextAreaProps}>
+    <textarea 
+      className={`${textAreaStyle} ${className} ${resize ? textAreaResize : null} ${textAreaColorClass}`} 
+      style={textAreaBorder}
+      ref={ref} 
+      {...nativeTextAreaProps}
+      >
         {children}
     </textarea>
   );

@@ -1,7 +1,15 @@
+import { createTheme } from "@vanilla-extract/css"; 
 import { style } from "@vanilla-extract/css";
+import { TextAreaBorder } from "./text-area.types";
+
+export const [textAreaColorClass, textAreaColorVars]: TextAreaBorder = createTheme({
+    textAreaBorderColor: {
+      statusBorderColor: "#082D59",
+    },
+  });
 
 export const textAreaStyle = style({
-    border: '1px solid #082D59',
+    border: `1px solid ${textAreaColorVars.textAreaBorderColor.statusBorderColor}`,
     borderRadius: '10px',
     padding: '20px'
 })
@@ -9,3 +17,5 @@ export const textAreaStyle = style({
 export const textAreaResize = style({
     resize: 'none'
 })
+
+
