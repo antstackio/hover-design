@@ -9,6 +9,7 @@ import { PageMain } from "components/pageMain/PageMain";
 import React from "react";
 import { fonts, fontSizes } from "styles/index.css";
 import "styles/reset.css";
+import { Avatar } from "@hover-design/react";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,15 @@ const App: React.FC = () => {
       <Header />
       <PageMain>
         <Container>
+          <div>
+            {/* <Avatar
+              src="https://avatars.githubusercontent.com/u/29141140?v=4"
+              alt="avatar"
+            /> */}
+            <Avatar>RA</Avatar>
+            <Avatar>RA</Avatar>
+            <Avatar>RA</Avatar>
+          </div>
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
           <ColorsPreview />
