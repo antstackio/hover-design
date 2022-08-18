@@ -2,11 +2,11 @@ import React, { ForwardRefRenderFunction } from "react";
 import { IAvatarProps } from "./avatar.types";
 import {
   avatarImg,
-  avatar,
   avatarThemeClass,
   avatarThemeVars,
   avatarShapes,
-  avatarSizes
+  avatarSizes,
+  avatarWrapper
 } from "./avatar.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { Flex } from "../Flex";
@@ -19,7 +19,7 @@ const AvatarComponent: ForwardRefRenderFunction<
     children,
     src,
     alt,
-    borderRadius = "lg",
+    borderRadius = "xl",
     size = "md",
     color = "#000",
     textColor = "#fff",
@@ -29,8 +29,6 @@ const AvatarComponent: ForwardRefRenderFunction<
   },
   ref
 ) => {
-  const avatarStyle = avatar({});
-
   const assignVariables = assignInlineVars({
     [avatarThemeVars.avatarStyleColor]: src ? "transparent" : color,
     [avatarThemeVars.avatarStyleTextColor]: textColor,
@@ -47,7 +45,7 @@ const AvatarComponent: ForwardRefRenderFunction<
       display="inline-flex"
       justifyContent="center"
       alignItems="center"
-      className={`${avatarStyle} ${avatarThemeClass} ${className || ""}`}
+      className={`${avatarWrapper} ${avatarThemeClass} ${className || ""}`}
       style={{ ...assignVariables, ...(style || {}) }}
       ref={ref}
       {...nativeProps}

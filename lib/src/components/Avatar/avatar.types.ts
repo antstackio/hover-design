@@ -1,5 +1,3 @@
-import { RecipeVariants } from "@vanilla-extract/recipes";
-import { avatar } from "./avatar.styles.css";
 import { MutableRefObject, ReactNode } from "react";
 
 export type IAvatarSizes = "xs" | "sm" | "md" | "lg" | "xl";
@@ -19,17 +17,16 @@ export type IAvatarGroupTheme = [
   { avatarStyleGap: IAvatarGaps | string }
 ];
 
-export type IAvatarProps = JSX.IntrinsicElements["div"] &
-  RecipeVariants<typeof avatar> & {
-    src?: string;
-    alt?: string;
-    borderRadius?: string;
-    size?: string;
-    color?: string;
-    textColor?: string;
-    ref?: MutableRefObject<HTMLDivElement | null>;
-    children?: ReactNode;
-  };
+export type IAvatarProps = JSX.IntrinsicElements["div"] & {
+  src?: string;
+  alt?: string;
+  borderRadius?: string;
+  size?: string;
+  color?: string;
+  textColor?: string;
+  ref?: MutableRefObject<HTMLDivElement | null>;
+  children?: ReactNode;
+};
 
 export type IAvatarTheme = [
   string,

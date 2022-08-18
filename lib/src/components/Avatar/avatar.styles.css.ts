@@ -1,4 +1,3 @@
-import { recipe } from "@vanilla-extract/recipes";
 import { style, createTheme } from "@vanilla-extract/css";
 import { IAvatarGroupTheme, IAvatarTheme } from "./avatar.types";
 
@@ -6,11 +5,11 @@ export const avatarGaps: Record<
   IAvatarGroupTheme[1]["avatarStyleGap"],
   string
 > = {
-  xs: "-14px",
-  sm: "-12px",
-  md: "-10px",
-  lg: "-8px",
-  xl: "-6px"
+  xs: "-16px",
+  sm: "-14px",
+  md: "-12px",
+  lg: "-10px",
+  xl: "-8px"
 };
 
 export const avatarChildClass = style({});
@@ -50,14 +49,13 @@ export const avatarShapes: Record<
   xl: "32px"
 };
 
-export const avatar = recipe({
-  base: {
-    verticalAlign: "middle",
-    overflow: "hidden",
-    width: avatarThemeVars.avatarStyleSize,
-    height: avatarThemeVars.avatarStyleSize,
-    backgroundColor: avatarThemeVars.avatarStyleColor,
-    color: avatarThemeVars.avatarStyleTextColor,
-    borderRadius: avatarThemeVars.avatarStyleBorderRadius
-  }
+export const avatarWrapper = style({
+  fontWeight: "700",
+  verticalAlign: "middle",
+  overflow: "hidden",
+  width: avatarThemeVars.avatarStyleSize,
+  height: avatarThemeVars.avatarStyleSize,
+  backgroundColor: avatarThemeVars.avatarStyleColor,
+  color: avatarThemeVars.avatarStyleTextColor,
+  borderRadius: avatarThemeVars.avatarStyleBorderRadius
 });

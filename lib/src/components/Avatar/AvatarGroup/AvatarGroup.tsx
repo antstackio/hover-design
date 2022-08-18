@@ -13,7 +13,7 @@ import "../avatar.global.styles.css";
 const AvatarGroup: ForwardRefRenderFunction<
   HTMLDivElement,
   IAvatarGroupProps
-> = ({ children, gap = "sm", className, style, ...nativeProps }, ref) => {
+> = ({ children, gap = "xs", className, style, ...nativeProps }, ref) => {
   const assignVariables = assignInlineVars({
     [avatarGroupThemeVars.avatarStyleGap]: avatarGaps[gap]
   });
