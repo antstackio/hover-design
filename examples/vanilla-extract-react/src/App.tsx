@@ -19,6 +19,11 @@ const App: React.FC = () => {
         <Container>
           <div style={{ border: "2px red solid" }}>
             <Avatar
+              size="xs"
+              src="https://avatars.githubusercontent.com/u/29141140?v=4"
+              alt="avatar"
+            />
+            <Avatar
               size="sm"
               src="https://avatars.githubusercontent.com/u/29141140?v=4"
               alt="avatar"
@@ -33,11 +38,18 @@ const App: React.FC = () => {
               src="https://avatars.githubusercontent.com/u/29141140?v=4"
               alt="avatar"
             />
+            <Avatar
+              size="xl"
+              src="https://avatars.githubusercontent.com/u/29141140?v=4"
+              alt="avatar"
+            />
           </div>
           <div style={{ border: "2px red solid" }}>
+            <Avatar size="xs">RA</Avatar>
             <Avatar size="sm">RA</Avatar>
             <Avatar size="md">RA</Avatar>
             <Avatar size="lg">RA</Avatar>
+            <Avatar size="xl">RA</Avatar>
           </div>
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>

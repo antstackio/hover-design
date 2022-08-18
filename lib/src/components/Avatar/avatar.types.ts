@@ -14,7 +14,7 @@ export type IAvatarProps = JSX.IntrinsicElements["div"] &
     children?: ReactNode;
   };
 
-export type IAvatarSizes = "sm" | "md" | "lg";
+export type IAvatarSizes = "xs" | "sm" | "md" | "lg" | "xl";
 
 export type IAvatarShapes = "xs" | "sm" | "md" | "lg" | "xl";
 

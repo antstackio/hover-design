@@ -9,12 +9,6 @@ export const [avatarThemeClass, avatarThemeVars]: IAvatarTheme = createTheme({
   avatarStyleSize: "0"
 });
 
-export const avatarWrapperFlex = style({
-  display: "inline-flex",
-  justifyContent: "center",
-  alignItems: "center"
-});
-
 export const avatarImg = style({
   objectFit: "cover",
   width: "100%",
@@ -22,9 +16,11 @@ export const avatarImg = style({
 });
 
 export const avatarSizes: Record<IAvatarTheme[1]["avatarStyleSize"], string> = {
-  sm: "16px",
+  xs: "16px",
+  sm: "24px",
   md: "32px",
-  lg: "64px"
+  lg: "40px",
+  xl: "48px"
 };
 
 export const avatarShapes: Record<

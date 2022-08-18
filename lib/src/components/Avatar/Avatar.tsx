@@ -5,11 +5,11 @@ import {
   avatar,
   avatarThemeClass,
   avatarThemeVars,
-  avatarWrapperFlex,
   avatarShapes,
   avatarSizes
 } from "./avatar.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { Flex } from "../Flex";
 
 const AvatarComponent: ForwardRefRenderFunction<
   HTMLDivElement,
@@ -43,16 +43,17 @@ const AvatarComponent: ForwardRefRenderFunction<
   });
 
   return (
-    <div
-      className={`${avatarWrapperFlex} ${avatarStyle} ${avatarThemeClass} ${
-        className || ""
-      }`}
+    <Flex
+      display="inline-flex"
+      justifyContent="center"
+      alignItems="center"
+      className={`${avatarStyle} ${avatarThemeClass} ${className || ""}`}
       style={{ ...assignVariables, ...(style || {}) }}
       ref={ref}
       {...props}
     >
       {src ? <img className={`${avatarImg}`} src={src} alt={alt} /> : children}
-    </div>
+    </Flex>
   );
 };
 
