@@ -11,30 +11,31 @@ import { Textarea } from "@hover-design/react";
 ```
 
 ## Code Snippets and Examples
+
 import { Textarea } from "@hover-design/react";
 
 ### Default
 
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="AutoSize">
   </Textarea>
 ```
 
-<Textarea
+<TextArea
   placeholder="AutoSize">
   </Textarea>
 
 ### Fixedsize
 
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="Fixedsize"
   fixedSize="true">
   </Textarea>
 ```
 
-<Textarea
+<TextArea
   placeholder="Fixedsize"
   fixedSize="true">
   </Textarea>
@@ -42,24 +43,25 @@ import { Textarea } from "@hover-design/react";
 ### Rows & Cols
 
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="Rows"
   rows={5}>
   </Textarea>
 ```
+
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="Cols"
   cols={10}>
   </Textarea>
 ```
 
-<Textarea
+<TextArea
   placeholder="Rows"
   rows={5}>
   </Textarea>
 <span style={{padding:'5px'}}></span>
-<Textarea
+<TextArea
   placeholder="Cols"
   cols={10}>
   </Textarea>
@@ -67,27 +69,28 @@ import { Textarea } from "@hover-design/react";
 ### Maximum & Minimum Length
 
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="Maximum height"
   maxlength={12}
   defaultValue="Hover Maximum">
   </Textarea>
 ```
+
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="Minimum height"
   minlength={10}
   defaultValue="Hover Minimum">
   </Textarea>
 ```
 
-<Textarea
+<TextArea
   placeholder="Maximum Length"
   maxlength={12}
   defaultValue="Hover Maximum">
   </Textarea>
 <span style={{padding:'5px'}}></span>
-<Textarea
+<TextArea
   placeholder="Minimum Length"
   minlength={10}
   defaultValue="Hover Minimum">
@@ -96,58 +99,60 @@ import { Textarea } from "@hover-design/react";
 ### Status Border
 
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="Error"
   statusBorder="red">
   </Textarea>
 ```
+
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="Warning"
   statusBorder="yellow">
   </Textarea>
 ```
+
 ```jsx
-  <Textarea
+  <TextArea
   placeholder="Valid"
   statusBorder="green">
   </Textarea>
 ```
 
-<Textarea
+<TextArea
   placeholder="Error"
   statusBorder="red">
   </Textarea>
 <span style={{padding:'5px'}}></span>
-<Textarea
+<TextArea
   placeholder="Warning"
   statusBorder="yellow">
   </Textarea>
 <span style={{padding:'5px'}}></span>
-<Textarea
+<TextArea
   placeholder="Valid"
   statusBorder="green">
   </Textarea>
 
 ## Props Referece
 
-| Attributes    |                         Values                          | Optional ? |
-| :-------------| :-----------------------------------------------------: | ---------: |
-| children      |                       JSX.Element                       |        Yes |
-| autocomplete  | `on` &#124; `off`                                       |        Yes |
-| autocorrect   |         `on` &#124; `off`                               |        Yes |
-| autofocus     | `boolean`                                               |        Yes |
-| resize        | `boolean`                                               |        Yes |
-| statusBorder  | `string`                                                |        Yes |
-| cols          | `number`                                                |        Yes |
-| rows          | `number`                                                |        Yes |  
-| minlength     | `number`                                                |        Yes |
-| maxlength     | `number`                                                |        Yes |
-| disabled      | `boolean`                                               |        Yes |
-| required      | `boolean`                                               |        Yes |
-| name          | `string`                                                |        Yes |
-| placeholder   | `string`                                                |        Yes |
-| readonly      | `boolean`                                               |        Yes |
-| spellcheck    | `true` &#124; `default` &#124; `false`                  |        Yes |
-| wrap          | `hard` &#124; `soft` &#124; `off`                       |        Yes |
-| onChange      | `() => void;`                                           |        Yes |
+| Attributes   |                 Values                 | Optional ? |
+| :----------- | :------------------------------------: | ---------: |
+| children     |              JSX.Element               |        Yes |
+| autocomplete |           `on` &#124; `off`            |        Yes |
+| autocorrect  |           `on` &#124; `off`            |        Yes |
+| autofocus    |               `boolean`                |        Yes |
+| resize       |               `boolean`                |        Yes |
+| statusBorder |                `string`                |        Yes |
+| cols         |                `number`                |        Yes |
+| rows         |                `number`                |        Yes |
+| minlength    |                `number`                |        Yes |
+| maxlength    |                `number`                |        Yes |
+| disabled     |               `boolean`                |        Yes |
+| required     |               `boolean`                |        Yes |
+| name         |                `string`                |        Yes |
+| placeholder  |                `string`                |        Yes |
+| readonly     |               `boolean`                |        Yes |
+| spellcheck   | `true` &#124; `default` &#124; `false` |        Yes |
+| wrap         |   `hard` &#124; `soft` &#124; `off`    |        Yes |
+| onChange     |             `() => void;`              |        Yes |
