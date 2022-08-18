@@ -1,0 +1,118 @@
+# Textarea
+
+## Quick start
+
+Here's a quick start guide to get started with the textarea component
+
+## Importing Component
+
+```jsx
+import { TextArea } from "@hover-design/react";
+```
+
+## Code Snippets and Examples
+
+import { TextArea } from "@hover-design/react";
+
+### Default
+
+```jsx
+<TextArea placeholder="AutoSize"></TextArea>
+```
+
+<TextArea placeholder="AutoSize"></TextArea>
+
+### Fixedsize
+
+```jsx
+<TextArea placeholder="Fixedsize" fixedSize="true"></TextArea>
+```
+
+<TextArea placeholder="Fixedsize" fixedSize="true"></TextArea>
+
+### Rows & Cols
+
+```jsx
+<TextArea placeholder="Rows" rows={5}></TextArea>
+```
+
+```jsx
+<TextArea placeholder="Cols" cols={10}></TextArea>
+```
+
+<TextArea placeholder="Rows" rows={5}></TextArea>
+<span style={{ padding: "5px" }}></span>
+<TextArea placeholder="Cols" cols={10}></TextArea>
+
+### Maximum & Minimum Length
+
+```jsx
+<TextArea
+  placeholder="Maximum height"
+  maxlength={12}
+  defaultValue="Hover Maximum"
+></TextArea>
+```
+
+```jsx
+<TextArea
+  placeholder="Minimum height"
+  minlength={10}
+  defaultValue="Hover Minimum"
+></TextArea>
+```
+
+<TextArea
+  placeholder="Maximum Length"
+  maxlength={12}
+  defaultValue="Hover Maximum"
+></TextArea>
+<span style={{ padding: "5px" }}></span>
+<TextArea
+  placeholder="Minimum Length"
+  minlength={10}
+  defaultValue="Hover Minimum"
+></TextArea>
+
+### Status Border
+
+```jsx
+<TextArea placeholder="Error" statusBorder="red"></TextArea>
+```
+
+```jsx
+<TextArea placeholder="Warning" statusBorder="yellow"></TextArea>
+```
+
+```jsx
+<TextArea placeholder="Valid" statusBorder="green"></TextArea>
+```
+
+<TextArea placeholder="Error" statusBorder="red"></TextArea>
+<span style={{ padding: "5px" }}></span>
+<TextArea placeholder="Warning" statusBorder="yellow"></TextArea>
+<span style={{ padding: "5px" }}></span>
+<TextArea placeholder="Valid" statusBorder="green"></TextArea>
+
+## Props Referece
+
+| Attributes   |                 Values                 | Optional ? |
+| :----------- | :------------------------------------: | ---------: |
+| children     |              JSX.Element               |        Yes |
+| autocomplete |           `on` &#124; `off`            |        Yes |
+| autocorrect  |           `on` &#124; `off`            |        Yes |
+| autofocus    |               `boolean`                |        Yes |
+| resize       |               `boolean`                |        Yes |
+| statusBorder |                `string`                |        Yes |
+| cols         |                `number`                |        Yes |
+| rows         |                `number`                |        Yes |
+| minlength    |                `number`                |        Yes |
+| maxlength    |                `number`                |        Yes |
+| disabled     |               `boolean`                |        Yes |
+| required     |               `boolean`                |        Yes |
+| name         |                `string`                |        Yes |
+| placeholder  |                `string`                |        Yes |
+| readonly     |               `boolean`                |        Yes |
+| spellcheck   | `true` &#124; `default` &#124; `false` |        Yes |
+| wrap         |   `hard` &#124; `soft` &#124; `off`    |        Yes |
+| onChange     |             `() => void;`              |        Yes |

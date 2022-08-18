@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 # Quickstart
@@ -14,7 +14,7 @@ Or **try Hover immediately** with **[codesandbox](https://codesandbox.io/s/react
 
 ## Installation
 
-Install the package using your favourite package manager.
+Install the package using your favourite package manager
 
 ```shell
 npm install @hover-design/react
