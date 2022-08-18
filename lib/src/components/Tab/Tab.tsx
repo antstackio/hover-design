@@ -3,7 +3,6 @@ import {
   forwardRef,
   ForwardRefRenderFunction,
   MouseEvent,
-  Ref,
   useEffect,
   useState,
 } from "react";
@@ -36,9 +35,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
   },
   ref
 ) => {
-  const [selectedTab, setSelectedTab] = useState<TabsObjectProps>(
-    {} as TabsObjectProps
-  );
+  const [selectedTab, setSelectedTab] = useState<TabsObjectProps | null>(null);
 
   useEffect(() => {
     const activeValue = value || defaultValue;
@@ -64,7 +61,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
       >
         {tabData.map((tabItem, ind) => {
           const tabClass = tabRecipe({
-            active: tabItem.value === selectedTab.value,
+            active: tabItem.value === selectedTab?.value,
             disabled: tabItem.disabled,
           });
           return (
@@ -96,7 +93,9 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
           );
         })}
       </Flex>
-      <div className={`${contentStyles}`}>{children(selectedTab)}</div>
+      {selectedTab && (
+        <div className={`${contentStyles}`}>{children(selectedTab)}</div>
+      )}
     </div>
   );
 };
