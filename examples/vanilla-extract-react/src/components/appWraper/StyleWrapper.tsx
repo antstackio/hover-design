@@ -5,7 +5,9 @@ const ThemeContext = createContext({
   theme: "",
   toggleTheme: () => console.log(),
 });
-const StyleWrapper: React.FC = ({ children }) => {
+const StyleWrapper: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [theme, setTheme] = useState(lightTheme);
   const toggleTheme = () => {
     setTheme((prevValue) =>
