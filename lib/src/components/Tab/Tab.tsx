@@ -1,6 +1,14 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { useEffect, useState } from "react";
+import {
+  forwardRef,
+  ForwardRefRenderFunction,
+  MouseEvent,
+  Ref,
+  useEffect,
+  useState,
+} from "react";
 import { Badge } from "../Badge";
+import { Flex } from "../Flex";
 import {
   badgeStyles,
   contentStyles,
@@ -11,76 +19,86 @@ import {
 } from "./tab.css";
 import { TabsObjectProps, TabProps } from "./tab.types";
 
-export const Tab = ({
-  defaultValue,
-  value,
-  color = "#2F80ED",
-  background = "#d7e9ff",
-  onChange = () => {},
-  grow = false,
-  height = "40px",
-  tabs,
-  style,
-  className,
-  children,
-  ...nativeProps
-}: TabProps) => {
+const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
+  {
+    defaultValue,
+    value,
+    color = "#2F80ED",
+    background = "#d7e9ff",
+    onChange = () => {},
+    grow = false,
+    height = "40px",
+    tabData,
+    style,
+    className,
+    children,
+    ...nativeProps
+  },
+  ref
+) => {
   const [selectedTab, setSelectedTab] = useState<TabsObjectProps>(
     {} as TabsObjectProps
   );
 
   useEffect(() => {
-    const comparator = value || defaultValue;
-    const tab = tabs.find((arr) => arr.value === comparator);
+    const activeValue = value || defaultValue;
+    const tab = tabData.find((tabItem) => tabItem.value === activeValue);
     tab && setSelectedTab(tab);
-  }, [defaultValue, tabs, value]);
+  }, [defaultValue, tabData, value]);
+
+  const internalOnClickHandler = (
+    event: MouseEvent<HTMLDivElement>,
+    tabItem: TabsObjectProps
+  ) => {
+    onChange(tabItem, event);
+    !value && setSelectedTab(tabItem);
+  };
 
   return (
-    <div>
-      <div
+    <div ref={ref} {...nativeProps} className={className} style={style}>
+      <Flex
         style={assignInlineVars({
           [tabVars.height]: height,
         })}
         className={`${tabHeaderContainerStyles}`}
       >
-        {tabs.map((arr, ind) => {
+        {tabData.map((tabItem, ind) => {
           const tabClass = tabRecipe({
-            active: arr.value === selectedTab.value,
-            grow,
-            disabled: arr.disabled,
+            active: tabItem.value === selectedTab.value,
+            disabled: tabItem.disabled,
           });
           return (
-            <div
-              style={{
-                ...assignInlineVars({
-                  [tabVars.color]: color,
-                  [tabVars.background]: background,
-                }),
-                ...style,
-              }}
-              className={`${tabClass} ${className}`}
-              onClick={(event) => {
-                onChange(arr, event);
-                !value && setSelectedTab(arr);
-              }}
-              {...nativeProps}
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              flexGrow={grow ? "1" : "0"}
+              style={assignInlineVars({
+                [tabVars.color]: color,
+                [tabVars.background]: background,
+              })}
+              className={tabClass}
+              onClick={(event) => internalOnClickHandler(event, tabItem)}
               key={ind}
             >
-              {arr.icon && <span className={`${iconStyles}`}>{arr.icon}</span>}
-              {arr.label && <span>{arr.label}</span>}
-              {arr.badge && (
+              {tabItem.icon && (
+                <span className={`${iconStyles}`}>{tabItem.icon}</span>
+              )}
+              {tabItem.label && <span>{tabItem.label}</span>}
+              {tabItem.badge && (
                 <Badge
-                  label={arr.badge}
+                  label={tabItem.badge}
                   className={`${badgeStyles}`}
                   shape={"rounded"}
                   color={"#DA2C2C"}
                 />
               )}
-            </div>
+            </Flex>
           );
         })}
-      </div>
+      </Flex>
       <div className={`${contentStyles}`}>{children(selectedTab)}</div>
     </div>
   );
 };
+
+export const Tab = forwardRef(TabComponent);

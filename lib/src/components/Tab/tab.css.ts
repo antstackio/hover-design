@@ -11,8 +11,6 @@ export const [tabTheme, tabVars]: TabTheme = createTheme({
 export const tabHeaderContainerStyles = style({
   height: tabVars.height,
   position: "relative",
-  display: "flex",
-  alignItems: "center",
   borderBottom: "2px solid #EBECF0",
 });
 
@@ -20,12 +18,9 @@ export const tabRecipe = recipe({
   base: {
     cursor: "pointer",
     height: "100%",
-    justifyContent: "center",
     position: "relative",
     zIndex: 1,
     padding: "8px 10px",
-    display: "flex",
-    alignItems: "center",
     borderRadius: "4px 4px 0px 0px",
     ":hover": {
       background: tabVars.background,
@@ -47,11 +42,6 @@ export const tabRecipe = recipe({
           width: "100%",
           zIndex: 0,
         },
-      },
-    },
-    grow: {
-      true: {
-        flexGrow: 1,
       },
     },
     disabled: {

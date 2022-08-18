@@ -9,7 +9,7 @@ export type TabProps = JSX.IntrinsicElements["div"] & {
     value: TabsObjectProps,
     event: React.MouseEvent<HTMLDivElement>
   ) => void;
-  tabs: TabsObjectProps[];
+  tabData: TabsObjectProps[];
   grow?: boolean;
 };
 
