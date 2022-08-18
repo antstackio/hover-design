@@ -14,7 +14,16 @@ export type IAvatarProps = JSX.IntrinsicElements["div"] &
     children?: ReactNode;
   };
 
+export type IAvatarSizes = "sm" | "md" | "lg";
+
+export type IAvatarShapes = "xs" | "sm" | "md" | "lg" | "xl";
+
 export type IAvatarTheme = [
   string,
-  { avatarStyleColor: string; avatarStyleTextColor: string }
+  {
+    avatarStyleColor: string;
+    avatarStyleTextColor: string;
+    avatarStyleBorderRadius: IAvatarShapes | string;
+    avatarStyleSize: IAvatarSizes | string;
+  }
 ];

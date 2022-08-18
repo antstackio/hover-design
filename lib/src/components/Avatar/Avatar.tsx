@@ -1,13 +1,15 @@
 import React, { ForwardRefRenderFunction } from "react";
 import { IAvatarProps } from "./avatar.types";
 import {
-  avatarWrapper,
+  avatarImg,
   avatar,
   avatarThemeClass,
-  avatarThemeVars
+  avatarThemeVars,
+  avatarWrapperFlex,
+  avatarShapes,
+  avatarSizes
 } from "./avatar.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { Flex } from "../Flex";
 
 const AvatarComponent: ForwardRefRenderFunction<
   HTMLDivElement,
@@ -17,70 +19,42 @@ const AvatarComponent: ForwardRefRenderFunction<
     children,
     src,
     alt,
-    borderRadius,
-    size,
-    color = "balck",
+    borderRadius = "lg",
+    size = "md",
+    color = "black",
     textColor = "white",
+    className,
+    style,
     ...props
   },
   ref
 ) => {
   const avatarStyle = avatar({});
+
+  const assignVariables = assignInlineVars({
+    [avatarThemeVars.avatarStyleColor]: src ? "transparent" : color,
+    [avatarThemeVars.avatarStyleTextColor]: textColor,
+    [avatarThemeVars.avatarStyleBorderRadius]: avatarShapes[borderRadius]
+      ? avatarShapes[borderRadius]
+      : borderRadius,
+    [avatarThemeVars.avatarStyleSize]: avatarSizes[size]
+      ? avatarSizes[size]
+      : size
+  });
+
   return (
-    <Flex
-      alignItems="center"
-      justifyContent="center"
-      className={`${avatarWrapper} ${avatarThemeClass}`}
-      style={assignInlineVars({
-        [avatarThemeVars.avatarStyleColor]: color,
-        [avatarThemeVars.avatarStyleTextColor]: textColor
-      })}
+    <div
+      className={`${avatarWrapperFlex} ${avatarStyle} ${avatarThemeClass} ${
+        className || ""
+      }`}
+      style={{ ...assignVariables, ...(style || {}) }}
       ref={ref}
       {...props}
     >
-      {children}
-    </Flex>
-    // <Flex
-    //   alignItems="center"
-    //   justifyContent="center"
-    //   flexDirection="row"
-    //   className={`${avatarWrapper} ${avatarThemeClass}`}
-    //   style={assignInlineVars({
-    //     [avatarThemeVars.avatarStyleColor]: color,
-    //     [avatarThemeVars.avatarStyleTextColor]: textColor
-    //   })}
-    //   ref={ref}
-    //   {...props}
-    // >
-    //   {src ? (
-    //     <img className={`${avatarStyle}`} src={src} alt={alt} />
-    //   ) : (
-    //     children
-    //   )}
-    // </Flex>
+      {src ? <img className={`${avatarImg}`} src={src} alt={alt} /> : children}
+    </div>
   );
 };
 
 const AvatarWithRef = React.forwardRef(AvatarComponent);
 export { AvatarWithRef as Avatar };
-
-{
-  /* <div class="App">
-  <Avatar>RA</Avatar>
-  <Avatar src="image" alt="image" />
-  <Avatar>RS</Avatar>
-  <Avatar>
-    <Icon />
-  </Avatar>
-</div> */
-}
-{
-  /* <AvatarGroup class="App">
-  <Avatar src="image" alt="image" />
-  <Avatar src="image" alt="image" />
-  <Avatar>RS</Avatar>
-  <Avatar>
-    <Icon />
-  </AvatarGroup>
-</div> */
-}
