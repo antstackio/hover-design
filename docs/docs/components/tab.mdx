@@ -133,7 +133,9 @@ const tabData = [
 ];
 
 <div className="App">
-  <Tab tabData={tabData}>{(selectedTab) => <div>{selectedTab.label}</div>}</Tab>
+  <Tab defaultValue={"first"} tabData={tabData}>
+    {(selectedTab) => <div>{selectedTab.label}</div>}
+  </Tab>
 </div>;
 ```
 
