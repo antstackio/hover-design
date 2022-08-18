@@ -7,7 +7,7 @@ import {
   avatarThemeVars,
   avatarShapes,
   avatarSizes
-} from "./avatar.css";
+} from "./avatar.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { Flex } from "../Flex";
 
@@ -21,8 +21,8 @@ const AvatarComponent: ForwardRefRenderFunction<
     alt,
     borderRadius = "lg",
     size = "md",
-    color = "black",
-    textColor = "white",
+    color = "#000",
+    textColor = "#fff",
     className,
     style,
     ...props

@@ -1,6 +1,22 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { style, createTheme } from "@vanilla-extract/css";
-import { IAvatarProps, IAvatarSizes, IAvatarTheme } from "./avatar.types";
+import { IAvatarGroupTheme, IAvatarTheme } from "./avatar.types";
+
+export const avatarGaps: Record<
+  IAvatarGroupTheme[1]["avatarStyleGap"],
+  string
+> = {
+  xs: "-14px",
+  sm: "-12px",
+  md: "-10px",
+  lg: "-8px",
+  xl: "-6px"
+};
+
+export const avatarChildClass = style({});
+
+export const [avatarGroupThemeClass, avatarGroupThemeVars]: IAvatarGroupTheme =
+  createTheme({ avatarStyleGap: "0" });
 
 export const [avatarThemeClass, avatarThemeVars]: IAvatarTheme = createTheme({
   avatarStyleColor: "none",
