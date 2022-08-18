@@ -2,10 +2,10 @@ export type TabProps = JSX.IntrinsicElements["div"] & {
   children: (selectedTab: TabsObjectProps) => JSX.Element;
   color?: string;
   background?: string;
-  defaultValue: string | number;
-  value: string | number;
+  defaultValue?: string | number;
+  value?: string | number;
   height?: string;
-  onChange: (
+  onChange?: (
     value: TabsObjectProps,
     event: React.MouseEvent<HTMLDivElement>
   ) => void;
