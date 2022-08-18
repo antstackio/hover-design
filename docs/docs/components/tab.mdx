@@ -18,7 +18,7 @@ import "@hover-design/react/dist/style.css";
 import { Tab } from "@hover-design/react";
 
 ```jsx
-const tabs = [
+const tabData = [
   {
     label: "First",
     value: "first",
@@ -42,7 +42,7 @@ const tabs = [
 ];
 
 <div className="App">
-  <Tab defaultValue={"first"} tabs={tabs}>
+  <Tab defaultValue={"first"} tabData={tabData}>
     {(selectedTab) => <div>{selectedTab.label}</div>}
   </Tab>
 </div>;
@@ -52,7 +52,7 @@ const tabs = [
 
 <Tab
   defaultValue={"first"}
-  tabs={[
+  tabData={[
     {
       label: "First",
       value: "first",
@@ -110,7 +110,7 @@ const tabs = [
 
 ```jsx
 const [activeTab, setActiveTab] = useState("first");
-const tabs = [
+const tabData = [
   {
     label: "First",
     value: "first",
@@ -139,7 +139,7 @@ const tabs = [
     onChange={(tabData) => {
       setActiveTab(tabData);
     }}
-    tabs={tabs}
+    tabData={tabData}
   >
     {(selectedTab) => <div>{selectedTab.label}</div>}
   </Tab>
@@ -151,7 +151,7 @@ const tabs = [
 <Tab
   grow
   defaultValue={"first"}
-  tabs={[
+  tabData={[
     {
       label: "First",
       value: "first",
@@ -216,7 +216,7 @@ const tabs = [
 | onChange     |                       `(selectedTabObject)=>void`                       |   `()=>{}`    |        Yes |
 | grow         |                  grows to fit the containter `boolean`                  |    `false`    |        Yes |
 | height       |                                `string`                                 |    `40px`     |        Yes |
-| tabs         |                       `Array of` **_Tab Object_**                       |               |         No |
+| tabData      |                       `Array of` **_Tab Object_**                       |               |         No |
 | children     | _ not a prop but children to the `<Tab/>`_ `(selectedTabObject)=> JSX ` |               |        Yes |
 
 ### Tab Object
