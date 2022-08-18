@@ -109,7 +109,6 @@ const tabData = [
 ##### Controlled Tabs
 
 ```jsx
-const [activeTab, setActiveTab] = useState("first");
 const tabData = [
   {
     label: "First",
@@ -134,15 +133,7 @@ const tabData = [
 ];
 
 <div className="App">
-  <Tab
-    value={activeTab.value}
-    onChange={(tabData) => {
-      setActiveTab(tabData);
-    }}
-    tabData={tabData}
-  >
-    {(selectedTab) => <div>{selectedTab.label}</div>}
-  </Tab>
+  <Tab tabData={tabData}>{(selectedTab) => <div>{selectedTab.label}</div>}</Tab>
 </div>;
 ```
 
