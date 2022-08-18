@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "docusaurus": "docusaurus",
+    "dev": "docusaurus start --port 8080",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -11,12 +12,11 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
-    "dev": "docusaurus start"
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.20",
-    "@docusaurus/preset-classic": "2.0.0-beta.20",
+    "@docusaurus/core": "2.0.1",
+    "@docusaurus/preset-classic": "2.0.1",
     "@hover-design/react": "*",
     "@mdx-js/react": "^1.6.22",
     "@vanilla-extract/css": "^1.6.8",
@@ -28,7 +28,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-beta.20",
+    "@docusaurus/module-type-aliases": "2.0.1",
     "@tsconfig/docusaurus": "^1.0.5",
     "typescript": "^4.6.4"
   },
