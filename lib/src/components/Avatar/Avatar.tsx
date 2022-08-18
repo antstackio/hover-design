@@ -25,7 +25,7 @@ const AvatarComponent: ForwardRefRenderFunction<
     textColor = "#fff",
     className,
     style,
-    ...props
+    ...nativeProps
   },
   ref
 ) => {
@@ -50,7 +50,7 @@ const AvatarComponent: ForwardRefRenderFunction<
       className={`${avatarStyle} ${avatarThemeClass} ${className || ""}`}
       style={{ ...assignVariables, ...(style || {}) }}
       ref={ref}
-      {...props}
+      {...nativeProps}
     >
       {src ? <img className={`${avatarImg}`} src={src} alt={alt} /> : children}
     </Flex>
