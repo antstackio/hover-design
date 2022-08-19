@@ -1,4 +1,4 @@
-import React, { ForwardRefRenderFunction } from "react";
+import React, { ForwardRefRenderFunction, LegacyRef } from "react";
 
 import { accordionThemeClass, detailsClass } from "./accordion.styles.css";
 import "./accordion.global.styles.css";
@@ -10,7 +10,7 @@ const Accordion: ForwardRefRenderFunction<
 > = ({ children, onToggle, className, ...nativeProps }, ref) => {
   return (
     <details
-      ref={ref}
+      ref={ref as LegacyRef<HTMLElement> | undefined}
       onToggle={onToggle}
       className={`${detailsClass} ${accordionThemeClass} ${className}`}
       {...nativeProps}
