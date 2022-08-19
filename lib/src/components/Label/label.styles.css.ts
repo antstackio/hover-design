@@ -1,3 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
-export const LabelStyles = style({});
+export const labelClass = style({
+  fontSize: "16px",
+});

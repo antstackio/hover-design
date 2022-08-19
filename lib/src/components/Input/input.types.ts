@@ -3,5 +3,19 @@ export interface InputProps
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  status?: "success" | "warning" | "error";
+  statusBorder?: string;
+  iconPosition?: "left" | "right";
+  Icon?: React.ReactNode;
 }
+export type IInputTheme = [
+  string,
+  {
+    borderColor: string;
+    padding: {
+      top: string;
+      right: string;
+      bottom: string;
+      left: string;
+    };
+  }
+];

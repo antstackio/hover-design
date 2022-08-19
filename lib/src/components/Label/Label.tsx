@@ -1,12 +1,13 @@
 import React, { ForwardRefRenderFunction } from "react";
-import { LabelProps } from "./label.types";
+import { labelClass } from "./label.styles.css";
+import { ILabelProps } from "./label.types";
 
-const Label: ForwardRefRenderFunction<HTMLLabelElement, LabelProps> = (
+const Label: ForwardRefRenderFunction<HTMLLabelElement, ILabelProps> = (
   { children, ...props },
   ref
 ) => {
   return (
-    <label ref={ref} {...props}>
+    <label className={labelClass} ref={ref} {...props}>
       {children}
     </label>
   );
