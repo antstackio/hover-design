@@ -10,3 +10,4 @@ export * from "./components/Input";
 export * from "./components/Label";
 export * from "./components/TextArea";
 export * from "./components/Divider";
+export * from "./components/Tab";

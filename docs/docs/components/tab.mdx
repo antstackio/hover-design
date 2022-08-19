@@ -1,0 +1,230 @@
+# Tabs
+
+### Quick start
+
+Here's a quick start guide to get started with the Tab component
+
+### Importing Component
+
+```jsx
+import { Tab } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Tab Default
+
+import "@hover-design/react/dist/style.css";
+import { Tab } from "@hover-design/react";
+
+```jsx
+const tabData = [
+  {
+    label: "First",
+    value: "first",
+  },
+  {
+    label: "Second",
+    value: "second",
+    disabled: true,
+  },
+  {
+    label: "Third",
+    value: "third",
+    icon: <div style={icon}>O</div>,
+  },
+  {
+    label: "Fourth",
+    value: "fourth",
+    icon: <div style={icon}>O</div>,
+    badge: "13",
+  },
+];
+
+<div className="App">
+  <Tab defaultValue={"first"} tabData={tabData}>
+    {(selectedTab) => <div>{selectedTab.label}</div>}
+  </Tab>
+</div>;
+```
+
+> **_(selectedTab)_** contains the whole tab object which is selected.
+
+<Tab
+  defaultValue={"first"}
+  tabData={[
+    {
+      label: "First",
+      value: "first",
+    },
+    {
+      label: "Second",
+      value: "second",
+      disabled: true,
+    },
+    {
+      label: "Third",
+      value: "third",
+      icon: (
+        <div
+          style={{
+            border: "1px solid black",
+            borderRadius: "50%",
+            height: "16px",
+            width: "16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          O
+        </div>
+      ),
+    },
+    {
+      label: "Fourth",
+      value: "fourth",
+      icon: (
+        <div
+          style={{
+            border: "1px solid black",
+            borderRadius: "50%",
+            height: "16px",
+            width: "16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          O
+        </div>
+      ),
+      badge: "13",
+    },
+  ]}
+>
+  {(selectedTab) => <div>{selectedTab?.label}</div>}
+</Tab>
+
+##### Controlled Tabs
+
+```jsx
+const [activeTab, setActiveTab] = useState("first");
+
+const tabData = [
+  {
+    label: "First",
+    value: "first",
+  },
+  {
+    label: "Second",
+    value: "second",
+    disabled: true,
+  },
+  {
+    label: "Third",
+    value: "third",
+    icon: <div style={icon}>O</div>,
+  },
+  {
+    label: "Fourth",
+    value: "fourth",
+    icon: <div style={icon}>O</div>,
+    badge: "15",
+  },
+];
+
+<div className="App">
+  <Tab
+    value={activeTab}
+    onChange={(selectedTab) => setActiveTab(selectedTab.value)}
+    value
+    tabData={tabData}
+  >
+    {(selectedTab) => <div>{selectedTab.label}</div>}
+  </Tab>
+</div>;
+```
+
+> **_(tabData)_** contains the whole tab object which is selected.
+
+<Tab
+  grow
+  defaultValue={"first"}
+  tabData={[
+    {
+      label: "First",
+      value: "first",
+    },
+    {
+      label: "Second",
+      value: "second",
+      disabled: true,
+    },
+    {
+      label: "Third",
+      value: "third",
+      icon: (
+        <div
+          style={{
+            border: "1px solid black",
+            borderRadius: "50%",
+            height: "16px",
+            width: "16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          O
+        </div>
+      ),
+    },
+    {
+      label: "Fourth",
+      value: "fourth",
+      icon: (
+        <div
+          style={{
+            border: "1px solid black",
+            borderRadius: "50%",
+            height: "16px",
+            width: "16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          O
+        </div>
+      ),
+      badge: "13",
+    },
+  ]}
+>
+  {(selectedTab) => <div>{selectedTab?.label}</div>}
+</Tab>
+
+### Props Reference
+
+| Attributes   |                                  Values                                   | Default Value | Optional ? |
+| :----------- | :-----------------------------------------------------------------------: | :-----------: | ---------: |
+| defaultValue | _ must be equal to value from ** Tab Object ** _ `string` &#124; `number` |               |        Yes |
+| value        | _ must be equal to value from ** Tab Object ** _ `string` &#124; `number` |               |        Yes |
+| color        |                                 `string`                                  |   `#2F80ED`   |        Yes |
+| background   |                                 `string`                                  |   `#d7e9ff`   |        Yes |
+| onChange     |                        `(selectedTabObject)=>void`                        |   `()=>{}`    |        Yes |
+| grow         |                   grows to fit the containter `boolean`                   |    `false`    |        Yes |
+| height       |                                 `string`                                  |    `40px`     |        Yes |
+| tabData      |                        `Array of` **_Tab Object_**                        |               |         No |
+| children     |  _ not a prop but children to the `<Tab/>`_ `(selectedTabObject)=> JSX `  |               |         No |
+
+### Tab Object
+
+| Key      |             type              | Optional ? |
+| :------- | :---------------------------: | ---------: |
+| label    |           `string`            |         No |
+| value    |   `string` &#124; `number`    |         No |
+| icon     |         `JSX Element`         |        Yes |
+| disabled |           `boolean`           |        Yes |
+| badge    | `string` &#124; `JSX Element` |        Yes |
