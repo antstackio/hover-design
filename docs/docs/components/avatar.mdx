@@ -1,0 +1,220 @@
+# Avatar
+
+### Quick start
+
+Hover avatar component can be used to display profile pictures. It supports images, icons or letters. Here's a quick start guide to get started with the avatar component
+
+### Importing Component
+
+import "@hover-design/react/dist/style.css";
+import { Avatar, AvatarGroup, Flex, Card } from "@hover-design/react";
+
+export const Avatarcontainer = ({ children }) => (
+  <Card variant="shadow">
+    <Flex justifyContent="center" alignItems="center" gap="16px">
+      {children}
+    </Flex>
+  </Card>
+);
+
+```jsx
+import { Avatar } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Avatars with Image
+
+```
+<div class="App">
+    <Avatar src="./images/avatar1.png" alt="avatar1"/>
+    <Avatar src="./images/avatar2.png" alt="avatar2"/>
+    <Avatar src="./images/avatar3.png" alt="avatar3"/>
+</div>
+
+```
+
+<Avatarcontainer>
+  <Avatar
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    src="https://avatars.githubusercontent.com/u/29141140?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    src="https://avatars.githubusercontent.com/u/13111030?v=4?s=200&v=4"
+    alt="random-image"
+  />
+</Avatarcontainer>
+
+##### Avatars without Image
+
+```
+<div class="App">
+  <Avatar size="lg" color="#4f5d73">J</Avatar>
+  <Avatar size="lg" color="#4f5d73">RA</Avatar>
+  <Avatar size="lg" color="#4f5d73">+3</Avatar>
+</div>
+
+```
+
+<Avatarcontainer>
+  <Avatar size="lg" color="#4f5d73">
+    J
+  </Avatar>
+  <Avatar size="lg" color="#4f5d73">
+    RA
+  </Avatar>
+  <Avatar size="lg" color="#4f5d73">
+    +3
+  </Avatar>
+</Avatarcontainer>
+
+##### Avatars with sizes
+
+```
+<div class="App">
+    <Avatar size="xs" src="./images/avatar.png" alt="avatar"/>
+    <Avatar size="sm" src="./images/avatar.png" alt="avatar"/>
+    <Avatar size="md" src="./images/avatar.png" alt="avatar"/>
+    <Avatar size="lg" src="./images/avatar.png" alt="avatar"/>
+    <Avatar size="xl" src="./images/avatar.png" alt="avatar"/>
+</div>
+
+```
+
+<Avatarcontainer>
+  <Avatar
+    size="xs"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    size="sm"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    size="md"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    size="lg"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    size="xl"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+</Avatarcontainer>
+
+##### Avatars with shapes
+
+```
+<div class="App">
+  <Avatar borderRadius="xs" size="xl" src="./images/avatar.png" alt="avatar"/>
+  <Avatar borderRadius="sm" size="xl" src="./images/avatar.png" alt="avatar"/>
+  <Avatar borderRadius="md" size="xl" src="./images/avatar.png" alt="avatar"/>
+  <Avatar borderRadius="lg" size="xl" src="./images/avatar.png" alt="avatar"/>
+  <Avatar borderRadius="xl" size="xl" src="./images/avatar.png" alt="avatar"/>
+</div>
+
+```
+
+<Avatarcontainer>
+  <Avatar
+    size="xl"
+    borderRadius="xs"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    size="xl"
+    borderRadius="sm"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    size="xl"
+    borderRadius="md"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    size="xl"
+    borderRadius="lg"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+  <Avatar
+    size="xl"
+    borderRadius="xl"
+    src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+    alt="random-image"
+  />
+</Avatarcontainer>
+
+##### AvatarGroups
+
+```
+<div class="App">
+    <AvatarGroup gap="xs">
+    <Avatarsize="lg" src="./images/avatar1.png" alt="avatar1" />
+    <Avatarsize="lg" src="./images/avatar2.png" alt="avatar2" />
+    <Avatarsize="lg" src="./images/avatar3.png" alt="avatar3" />
+    <Avatar size="lg" color="#4f5d73" >+5</Avatar>
+  </AvatarGroup>
+</div>
+
+```
+
+<Avatarcontainer>
+  <AvatarGroup gap="xs">
+    <Avatar
+      size="lg"
+      src="https://avatars.githubusercontent.com/u/13111030?v=4"
+      alt="avatar"
+    />
+    <Avatar
+      size="lg"
+      src="https://avatars.githubusercontent.com/u/29141140?v=4"
+      alt="avatar"
+    />
+    <Avatar
+      size="lg"
+      src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+      alt="avatar"
+    />
+    <Avatar size="lg" color="#4f5d73">
+      +5
+    </Avatar>
+  </AvatarGroup>
+</Avatarcontainer>
+
+### Avatar Props Referece
+
+| Attributes   |             Values              | Optional ? |
+| :----------- | :-----------------------------: | ---------: |
+| src          |            `string`             |        Yes |
+| alt          |            `string`             |        Yes |
+| borderRadius | `xs` `sm` `md` `lg` `xl` number |        Yes |
+| size         | `xs` `sm` `md` `lg` `xl` number |        Yes |
+| color        |            `string`             |        Yes |
+| textColor    |            `string`             |        Yes |
+| ref          | `RefObject<HTMLButtonElement>;` |        Yes |
+
+### Avatar.Group Props Referece
+
+| Attributes |      Values      | Optional ? |
+| :--------- | :--------------: | ---------: |
+| children   | `React.Children` |         No |
+| gap        |     `string`     |        Yes |
+
+<hr />
+
+> **Note:** As of now any custom props (classNames, html attributes, etc) added, will be applied only for the wrappers and not for the img tag.

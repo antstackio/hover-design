@@ -7,8 +7,10 @@ export * from "./components/ListItem";
 export * from "./components/reset";
 export * from "./components/Switch";
 export * from "./components/Accordion";
+export * from "./components/Input";
+export * from "./components/Label";
 export * from "./components/Divider";
 export * from "./components/Icon";
 export * from "./components/TextArea";
 export * from "./components/Tab";
-
+export * from "./components/Avatar";
