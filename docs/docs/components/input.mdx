@@ -16,9 +16,6 @@ import { Input } from "@hover-design/react";
 
 import "@hover-design/react/dist/style.css";
 import { Input, Label, Flex } from "@hover-design/react";
-export const InputComponent = ({ statusBorder, children, ...props }) => (
-  <Input statusBorder={statusBorder} {...props} />
-);
 export const LabelComponent = ({ children, ...props }) => (
   <Label {...props}>{children} </Label>
 );
@@ -27,7 +24,7 @@ export const LabelComponent = ({ children, ...props }) => (
 <div className="App">
   <Flex flexDirection="column" gap="6px">
     <Label htmlFor={"basic-input"}>Simple Input</Label>
-    <InputComponent id="basic-input" placeholder="placeholder" />
+    <Input id="basic-input" placeholder="placeholder" />
   </Flex>
 </div>
 ```
@@ -36,7 +33,7 @@ export const LabelComponent = ({ children, ...props }) => (
 
 <Flex flexDirection="column" gap="6px">
   <Label htmlFor={"basic-input"}>Simple Input</Label>
-  <InputComponent id="basic-input" placeholder="placeholder" />
+  <Input id="basic-input" placeholder="placeholder" />
 </Flex>
 
 ##### Input Success
