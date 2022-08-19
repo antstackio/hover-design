@@ -9,3 +9,6 @@ export * from "./components/Switch";
 export * from "./components/Accordion";
 export * from "./components/Divider";
 export * from "./components/Icon";
+export * from "./components/TextArea";
+export * from "./components/Tab";
+
