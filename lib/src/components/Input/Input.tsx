@@ -50,7 +50,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
           }),
           ...style,
         }}
-        className={`${inputClass} ${inputThemeClass} ${className}`}
+        className={`${inputClass} ${inputThemeClass} ${className || ""}`}
         {...props}
       />
       {Icon && iconPosition === "right" && (
