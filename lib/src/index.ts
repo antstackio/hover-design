@@ -11,4 +11,4 @@ export * from "./components/Divider";
 export * from "./components/Icon";
 export * from "./components/TextArea";
 export * from "./components/Tab";
-
+export * from "./components/Avatar";
