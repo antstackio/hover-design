@@ -12,13 +12,13 @@ import {
   badgeStyles,
   contentStyles,
   iconStyles,
-  tabHeaderContainerStyles,
-  tabRecipe,
-  tabVars,
-} from "./tab.css";
-import { TabsObjectProps, TabProps } from "./tab.types";
+  tabsHeaderContainerStyles,
+  tabsRecipe,
+  tabsVars,
+} from "./tabs.css";
+import { TabsObjectProps, TabsProps } from "./tabs.types";
 
-const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
+const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
   {
     defaultValue,
     value,
@@ -27,7 +27,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
     onChange = () => {},
     grow = false,
     height = "40px",
-    tabData,
+    tabsData,
     style,
     className,
     children,
@@ -39,9 +39,9 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
 
   useEffect(() => {
     const activeValue = value || defaultValue;
-    const tab = tabData.find((tabItem) => tabItem.value === activeValue);
+    const tab = tabsData.find((tabItem) => tabItem.value === activeValue);
     tab && setSelectedTab(tab);
-  }, [defaultValue, tabData, value]);
+  }, [defaultValue, tabsData, value]);
 
   const internalOnClickHandler = (
     event: MouseEvent<HTMLDivElement>,
@@ -55,12 +55,12 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
     <div ref={ref} {...nativeProps} className={className} style={style}>
       <Flex
         style={assignInlineVars({
-          [tabVars.height]: height,
+          [tabsVars.height]: height,
         })}
-        className={`${tabHeaderContainerStyles}`}
+        className={`${tabsHeaderContainerStyles}`}
       >
-        {tabData.map((tabItem, ind) => {
-          const tabClass = tabRecipe({
+        {tabsData.map((tabItem, ind) => {
+          const tabClass = tabsRecipe({
             active: tabItem.value === selectedTab?.value,
             disabled: tabItem.disabled,
           });
@@ -70,8 +70,8 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
               justifyContent="center"
               flexGrow={grow ? "1" : "0"}
               style={assignInlineVars({
-                [tabVars.color]: color,
-                [tabVars.background]: background,
+                [tabsVars.color]: color,
+                [tabsVars.background]: background,
               })}
               className={tabClass}
               onClick={(event) => internalOnClickHandler(event, tabItem)}

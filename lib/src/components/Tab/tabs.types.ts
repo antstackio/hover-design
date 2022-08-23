@@ -1,6 +1,6 @@
 type divType = Omit<JSX.IntrinsicElements["div"], "children">;
 
-export type TabProps = divType & {
+export type TabsProps = divType & {
   children: (selectedTab: TabsObjectProps) => JSX.Element;
   color?: string;
   background?: string;
@@ -11,7 +11,7 @@ export type TabProps = divType & {
     value: TabsObjectProps,
     event: React.MouseEvent<HTMLDivElement>
   ) => void;
-  tabData: TabsObjectProps[];
+  tabsData: TabsObjectProps[];
   grow?: boolean;
 };
 
