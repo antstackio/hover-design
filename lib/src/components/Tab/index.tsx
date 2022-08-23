@@ -1,2 +1,2 @@
-export * from "./Tab";
-export * from "./tab.css";
+export * from "./Tabs";
+export * from "./tabs.css";
