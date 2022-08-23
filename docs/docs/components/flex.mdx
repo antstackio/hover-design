@@ -1,0 +1,482 @@
+# Flex
+
+## Quick start
+
+Here's a quick start guide to get started with the flex component
+
+## Importing flex
+
+```jsx
+import { Flex } from "@hover-design/react";
+```
+
+## Code Snippets and Examples
+
+### Flex Default
+
+import { Flex } from "@hover-design/react";
+import { Card } from "@hover-design/react";
+
+```jsx
+<Flex>
+  <div>flex 1</div>
+  <div>flex 2</div>
+</Flex>
+```
+
+<Flex>
+  <Card variant="outline">flex 1</Card>
+  <Card variant="outline">flex 2</Card>
+</Flex>
+
+### Flex Direction
+
+```jsx
+<Flex flexDirection="column">
+  <div> flex 1 </div>
+  <div> flex 2 </div>
+</Flex>
+```
+
+- column
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexDirection="column">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+    </Flex>
+  </Card>
+
+- row
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexDirection="row" x>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+    </Flex>
+  </Card>
+
+- column-reverse
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexDirection="column-reverse">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+    </Flex>
+  </Card>
+
+- row-reverse
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexDirection="row-reverse">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+    </Flex>
+  </Card>
+
+### Flex Wrap
+
+```jsx
+<Flex flexWrap="wrap">
+  <div> flex 1 </div>
+  <div> flex 2 </div>
+</Flex>
+```
+
+- wrap
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexWrap="wrap">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+      <Card variant="outline">flex 5</Card>
+      <Card variant="outline">flex 6</Card>
+      <Card variant="outline">flex 7</Card>
+      <Card variant="outline">flex 8</Card>
+    </Flex>
+  </Card>
+
+- nowrap
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexWrap="nowrap">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+      <Card variant="outline">flex 5</Card>
+      <Card variant="outline">flex 6</Card>
+      <Card variant="outline">flex 7</Card>
+      <Card variant="outline">flex 8</Card>
+    </Flex>
+  </Card>
+
+### Align Content
+
+```jsx
+<Flex alignContent="center">
+  <div> flex 1 </div>
+  <div> flex 2 </div>
+</Flex>
+```
+
+- center
+
+  <Card variant="outline" style={{ width: "20rem", height: "14rem" }}>
+    <Flex flexWrap="wrap" alignContent="center" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+      <Card variant="outline">flex 5</Card>
+      <Card variant="outline">flex 6</Card>
+      <Card variant="outline">flex 7</Card>
+      <Card variant="outline">flex 8</Card>
+    </Flex>
+  </Card>
+
+- flex-start
+
+  <Card variant="outline" style={{ width: "20rem", height: "14rem" }}>
+    <Flex flexWrap="wrap" alignContent="flex-start" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+      <Card variant="outline">flex 5</Card>
+      <Card variant="outline">flex 6</Card>
+      <Card variant="outline">flex 7</Card>
+      <Card variant="outline">flex 8</Card>
+    </Flex>
+  </Card>
+
+- flex-end
+
+  <Card variant="outline" style={{ width: "20rem", height: "14rem" }}>
+    <Flex flexWrap="wrap" alignContent="flex-end" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+      <Card variant="outline">flex 5</Card>
+      <Card variant="outline">flex 6</Card>
+      <Card variant="outline">flex 7</Card>
+      <Card variant="outline">flex 8</Card>
+    </Flex>
+  </Card>
+
+- space-between
+
+  <Card variant="outline" style={{ width: "20rem", height: "14rem" }}>
+    <Flex
+      flexWrap="wrap"
+      alignContent="space-between"
+      style={{ height: "100%" }}
+    >
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+      <Card variant="outline">flex 5</Card>
+      <Card variant="outline">flex 6</Card>
+      <Card variant="outline">flex 7</Card>
+      <Card variant="outline">flex 8</Card>
+    </Flex>
+  </Card>
+
+- space-around
+
+  <Card variant="outline" style={{ width: "20rem", height: "14rem" }}>
+    <Flex
+      flexWrap="wrap"
+      alignContent="space-around"
+      style={{ height: "100%" }}
+    >
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+      <Card variant="outline">flex 5</Card>
+      <Card variant="outline">flex 6</Card>
+      <Card variant="outline">flex 7</Card>
+      <Card variant="outline">flex 8</Card>
+    </Flex>
+  </Card>
+
+- stretch
+  <Card variant="outline" style={{ width: "20rem", height: "14rem" }}>
+    <Flex flexWrap="wrap" alignContent="stretch" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+      <Card variant="outline">flex 5</Card>
+      <Card variant="outline">flex 6</Card>
+      <Card variant="outline">flex 7</Card>
+      <Card variant="outline">flex 8</Card>
+    </Flex>
+  </Card>
+
+### Justify Content
+
+```jsx
+<Flex justifyContent="center">
+  <div> flex 1 </div>
+  <div> flex 2 </div>
+</Flex>
+```
+
+- center
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexWrap="wrap" justifyContent="center">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+    </Flex>
+  </Card>
+
+- flex-start
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexWrap="wrap" justifyContent="flex-start">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+    </Flex>
+  </Card>
+
+- flex-end
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexWrap="wrap" justifyContent="flex-end">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+    </Flex>
+  </Card>
+
+- space-between
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexWrap="wrap" justifyContent="space-between">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+    </Flex>
+  </Card>
+
+- space-around
+
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexWrap="wrap" justifyContent="space-around">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+    </Flex>
+  </Card>
+
+- space-evenly
+  <Card variant="outline" style={{ width: "20rem" }}>
+    <Flex flexWrap="wrap" justifyContent="space-evenly">
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+    </Flex>
+  </Card>
+
+### Align Items
+
+```jsx
+<Flex alignItems="center">
+  <div> flex 1 </div>
+  <div> flex 2 </div>
+</Flex>
+```
+
+- center
+
+  <Card variant="outline" style={{ width: "20rem", height: "10rem" }}>
+    <Flex alignItems="center" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+    </Flex>
+  </Card>
+
+- flex-start
+
+  <Card variant="outline" style={{ width: "20rem", height: "10rem" }}>
+    <Flex alignItems="flex-start" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+    </Flex>
+  </Card>
+
+- flex-end
+
+  <Card variant="outline" style={{ width: "20rem", height: "14rem" }}>
+    <Flex alignItems="flex-end" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+    </Flex>
+  </Card>
+
+- baseline
+
+  <Card variant="outline" style={{ width: "20rem", height: "10rem" }}>
+    <Flex alignItems="baseline" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+    </Flex>
+  </Card>
+
+- stretch
+  <Card variant="outline" style={{ width: "20rem", height: "10rem" }}>
+    <Flex alignItems="stretch" style={{ height: "100%" }}>
+      <Card variant="outline">flex 1</Card>
+      <Card variant="outline">flex 2</Card>
+      <Card variant="outline">flex 3</Card>
+      <Card variant="outline">flex 4</Card>
+    </Flex>
+  </Card>
+
+### Flex Shrink
+
+```jsx
+<Flex>
+  <Flex flexShrink="1"> flex 1 </Flex>
+  <div> flex 2 </div>
+  <div> flex 3 </div>
+</Flex>
+```
+
+<Card variant="outline" style={{ width: "20rem" }}>
+  <Flex>
+    <Flex
+      flexShrink="1"
+      style={{
+        border: "1px solid #808080",
+        borderRadius: "8px",
+        padding: "8px 16px"
+      }}
+    >
+      flex 1
+    </Flex>
+    <div
+      style={{
+        border: "1px solid #808080",
+        borderRadius: "8px",
+        padding: "8px 16px"
+      }}
+    >
+      flex 2
+    </div>
+    <div
+      style={{
+        border: "1px solid #808080",
+        borderRadius: "8px",
+        padding: "8px 16px"
+      }}
+    >
+      flex 3
+    </div>
+  </Flex>
+</Card>
+
+### Flex Grow
+
+```jsx
+<Flex>
+  <div> flex 1 </div>
+  <Flex flexGrow="2"> flex 2 </Flex>
+  <div> flex 3 </div>
+</Flex>
+```
+
+<Card variant="outline" style={{ width: "20rem" }}>
+  <Flex>
+    <Card variant="outline">flex 1</Card>
+    <Flex
+      flexGrow="1"
+      style={{
+        border: "1px solid #808080",
+        borderRadius: "8px",
+        padding: "8px 16px"
+      }}
+    >
+      flex 2
+    </Flex>
+    <Card variant="outline">flex 3</Card>
+  </Flex>
+</Card>
+
+### Flex Basis
+
+```jsx
+<Flex>
+  <div> flex 1 </div>
+  <div> flex 2 </div>
+  <Flex flexBasis="120px"> flex 3 </Flex>
+</Flex>
+```
+
+<Card variant="outline" style={{ width: "20rem" }}>
+  <Flex>
+    <Card variant="outline">flex 1</Card>
+    <Card variant="outline">flex 2</Card>
+    <Flex
+      flexBasis="120px"
+      style={{
+        border: "1px solid #808080",
+        borderRadius: "8px",
+        padding: "8px 16px"
+      }}
+    >
+      flex 3
+    </Flex>
+  </Flex>
+</Card>
+
+### Gap
+
+```jsx
+<Flex gap="20px">
+  <div> flex 2 </div>
+  <div> flex 3 </div>
+</Flex>
+```
+
+<Card variant="outline" style={{ width: "20rem" }}>
+  <Flex gap="20px">
+    <Card variant="outline">flex 1</Card>
+    <Card variant="outline">flex 2</Card>
+    <Card variant="outline">flex 3</Card>
+  </Flex>
+</Card>
+
+## Props Referece
+
+| Attributes     |                                                                                     Values                                                                                     | Optional ? |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ---------: |
+| flexDirection  |                                                       `row` &#124; `column` &#124; `row-reverse` &#124; `column-reverse`                                                       |        Yes |
+| flexWrap       |                                                                            `wrap` &#124; `no-wrap`                                                                             |        Yes |
+| alignContent   | `normal` &#124; `start` &#124; `center` &#124; `end` &#124; `flex-start` &#124; `flex-end` &#124; `space-between` &#124; `space-around` &#124; `space-evenly` &#124; `stretch` |        Yes |
+| justifyContent |            `normal` &#124; `start` &#124; `center` &#124; `end` &#124; `flex-start` &#124; `flex-end` &#124; `space-between` &#124; `space-around` &#124; `stretch`            |        Yes |
+| alignItems     |            `normal` &#124; `start` &#124; `center` &#124; `flex-start` &#124; `flex-end` &#124; `space-between` &#124; `space-around` &#124; `stretch` &#124; `end`            |        Yes |
+| flexShrink     |                                                                                    `number`                                                                                    |        Yes |
+| flexGrow       |                                                                                    `number`                                                                                    |        Yes |
+| flexBasis      |                                            `width` &#124; `max-content` &#124; `min-content` &#124; `fit-content` &#124; `content`                                             |        Yes |
+| gap            |                                                                  `normal` &#124; `length` &#124; `percentage`                                                                  |        Yes |
+| onClick        |                                                                                 `() => void;`                                                                                  |        Yes |
+| onHover        |                                                                                 `() => void;`                                                                                  |        Yes |
+| display        |                                                                          `flex` &#124; `inline-flex`                                                                           |        Yes |
+
+<!-- TODO: need to add ref -->
