@@ -2,20 +2,20 @@
 
 ### Quick start
 
-Here's a quick start guide to get started with the Tab component
+Here's a quick start guide to get started with the Tabs component
 
 ### Importing Component
 
 ```jsx
-import { Tab } from "@hover-design/react";
+import { Tabs } from "@hover-design/react";
 ```
 
 ### Code Snippets and Examples
 
-##### Tab Default
+##### Tabs Default
 
 import "@hover-design/react/dist/style.css";
-import { Tab } from "@hover-design/react";
+import { Tabs } from "@hover-design/react";
 import { useState } from "react";
 
 ```jsx
@@ -43,15 +43,15 @@ const tabData = [
 ];
 
 <div className="App">
-  <Tab defaultValue={"first"} tabData={tabData}>
+  <Tabs defaultValue={"first"} tabData={tabData}>
     {(selectedTab) => <div>{selectedTab.label}</div>}
-  </Tab>
+  </Tabs>
 </div>;
 ```
 
 > **_(selectedTab)_** contains the whole tab object which is selected.
 
-<Tab
+<Tabs
   defaultValue={"first"}
   tabData={[
     {
@@ -105,7 +105,7 @@ const tabData = [
   ]}
 >
   {(selectedTab) => <div>{selectedTab?.label}</div>}
-</Tab>
+</Tabs>
 
 ##### Controlled Tabs
 
@@ -136,14 +136,14 @@ const tabData = [
 ];
 
 <div className="App">
-  <Tab
+  <Tabs
     value={activeTab}
     onChange={(selectedTab) => setActiveTab(selectedTab.value)}
     value
     tabData={tabData}
   >
     {(selectedTab) => <div>{selectedTab.label}</div>}
-  </Tab>
+  </Tabs>
 </div>;
 ```
 
@@ -152,7 +152,7 @@ const tabData = [
 export const App = () => {
   const [activeTab, setActiveTab] = useState("first");
   return (
-    <Tab
+    <Tabs
       grow
       value={activeTab}
       onChange={(selectedTab) => setActiveTab(selectedTab.value)}
@@ -208,7 +208,7 @@ export const App = () => {
       ]}
     >
       {(selectedTab) => <div>{selectedTab?.label}</div>}
-    </Tab>
+    </Tabs>
   );
 };
 
@@ -216,19 +216,19 @@ export const App = () => {
 
 ### Props Reference
 
-| Attributes   |                                     Values                                      | Default Value | Optional ? |
-| :----------- | :-----------------------------------------------------------------------------: | :-----------: | ---------: |
-| defaultValue | _ must be equal to value from ** Tab Object ** _ <br/> `string` &#124; `number` |               |        Yes |
-| value        | _ must be equal to value from ** Tab Object ** _ <br/> `string` &#124; `number` |               |        Yes |
-| color        |                                    `string`                                     |   `#2F80ED`   |        Yes |
-| background   |                                    `string`                                     |   `#d7e9ff`   |        Yes |
-| onChange     |                           `(selectedTabObject)=>void`                           |   `()=>{}`    |        Yes |
-| grow         |                      grows to fit the containter `boolean`                      |    `false`    |        Yes |
-| height       |                                    `string`                                     |    `40px`     |        Yes |
-| tabData      |                           `Array of` **_Tab Object_**                           |               |         No |
-| children     |  _ not a prop but children to the `<Tab/>`_ <br/> `(selectedTabObject)=> JSX `  |               |         No |
+| Attributes   |                                      Values                                      | Default Value | Optional ? |
+| :----------- | :------------------------------------------------------------------------------: | :-----------: | ---------: |
+| defaultValue | _ must be equal to value from ** Tabs Object ** _ <br/> `string` &#124; `number` |               |        Yes |
+| value        | _ must be equal to value from ** Tabs Object ** _ <br/> `string` &#124; `number` |               |        Yes |
+| color        |                                     `string`                                     |   `#2F80ED`   |        Yes |
+| background   |                                     `string`                                     |   `#d7e9ff`   |        Yes |
+| onChange     |                           `(selectedTabObject)=>void`                            |   `()=>{}`    |        Yes |
+| grow         |                      grows to fit the containter `boolean`                       |    `false`    |        Yes |
+| height       |                                     `string`                                     |    `40px`     |        Yes |
+| tabData      |                           `Array of` **_Tab Object_**                            |               |         No |
+| children     |  _ not a prop but children to the `<Tabs/>`_ <br/> `(selectedTabObject)=> JSX `  |               |         No |
 
-### Tab Object
+### Tabs Object
 
 | Key      |             type              | Optional ? |
 | :------- | :---------------------------: | ---------: |

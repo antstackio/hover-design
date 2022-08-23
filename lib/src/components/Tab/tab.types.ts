@@ -1,4 +1,6 @@
-export type TabProps = JSX.IntrinsicElements["div"] & {
+type divType = Omit<JSX.IntrinsicElements["div"], "children">;
+
+export type TabProps = divType & {
   children: (selectedTab: TabsObjectProps) => JSX.Element;
   color?: string;
   background?: string;

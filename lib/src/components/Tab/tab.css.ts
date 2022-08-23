@@ -46,7 +46,7 @@ export const tabRecipe = recipe({
     },
     disabled: {
       true: {
-        color: "#42526E",
+        color: "#a0a8b7",
         pointerEvents: "none",
       },
     },

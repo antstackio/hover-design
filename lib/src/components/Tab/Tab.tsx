@@ -100,4 +100,4 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabProps> = (
   );
 };
 
-export const Tab = forwardRef(TabComponent);
+export const Tabs = forwardRef(TabComponent);
