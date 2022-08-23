@@ -9,11 +9,14 @@
 - Lock scroll when modal is visible
 - Close on ClickOutside
 - Close on EscapeKey
+- use `<dialog>` element instead of `<div>`
 
-| Attributes    |        Values        | Optional ? |
-| :------------ | :------------------: | ---------: |
-| `isOpen`      | boolean (true/false) |         No |
-| `onClose`     |       function       |        Yes |
-| `onOpen`      |       function       |        Yes |
-| `size`        |        string        |        Yes |
-| `showOverlay` |       boolean        |         No |
+| Attributes            |        Values        | Optional ? |
+| :-------------------- | :------------------: | ---------: |
+| `isOpen`              | boolean (true/false) |         No |
+| `onClose`             |       function       |        Yes |
+| `onOpen`              |       function       |        Yes |
+| `size`                |        string        |        Yes |
+| `showOverlay`         |       boolean        |        Yes |
+| `closeOnOutsideClick` |       boolean        |        Yes |
+| `overlayStyles`       |     Style Object     |        Yes |
