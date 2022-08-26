@@ -94,7 +94,7 @@ export const tabsRecipe = recipe({
           content: "",
           background: tabsVars.color,
           position: "absolute",
-          bottom: 0,
+          bottom: "-2px",
           left: 0,
           borderRadius: "20px",
           height: "2px",

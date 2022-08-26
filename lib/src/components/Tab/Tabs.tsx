@@ -4,7 +4,9 @@ import {
   ForwardRefRenderFunction,
   KeyboardEvent,
   MouseEvent,
+  MutableRefObject,
   useEffect,
+  useRef,
   useState,
 } from "react";
 import { Badge } from "../Badge";
@@ -44,6 +46,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
 ) => {
   const [selectedTab, setSelectedTab] = useState<TabsObjectProps | null>(null);
   const [size, setSize] = useState<string>(tabSize as string);
+  const tabsContainer = useRef() as MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
     if (tabSize) {
@@ -147,12 +150,11 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
   };
 
   const focusAndSelectTab: (tabData: TabsObjectProps) => void = (tabData) => {
-    // const tabsList = [
-    //   ...document.querySelectorAll(`.${tabsHeaderContainerClass}.[role=tab]`),
-    // ] as HTMLElement[];
-    console.log(tabsHeaderContainerClass);
-    // setSelectedTab(tabData);
-    // tabsList.find((tab) => tab.ariaLabel === tabData.label)?.focus();
+    const tabsList = [
+      ...tabsContainer.current.querySelectorAll("[role=tab]"),
+    ] as HTMLElement[];
+    setSelectedTab(tabData);
+    tabsList.find((tab) => tab.ariaLabel === tabData.label)?.focus();
   };
 
   const internalKeydownHandler = (
@@ -199,6 +201,8 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
       <Flex
         flexDirection={orientation === "vertical" ? "column" : "row"}
         role={"tablist"}
+        ref={tabsContainer}
+        tabIndex={0}
         gap={variant === "pill" ? "8px" : "normal"}
         className={`${tabsHeaderContainerClass} hover-tabs-container`}
       >
@@ -226,7 +230,13 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
               tabIndex={!tabItem.disabled ? 0 : 1}
             >
               {tabItem.icon && (
-                <span className={`${iconStyles}`}>{tabItem.icon}</span>
+                <Flex
+                  alignItems="center"
+                  justifyContent={"center"}
+                  className={`${iconStyles}`}
+                >
+                  {tabItem.icon}
+                </Flex>
               )}
               {tabItem.label && <span>{tabItem.label}</span>}
               {tabItem.badge && (
