@@ -1,3 +1,4 @@
+import { Button } from "@hover-design/react";
 import { StyleWrapper } from "components/appWraper/StyleWrapper";
 import { BreakpointsExample } from "components/breakpointsExample/BreakpointsExample";
 import { ColorsPreview } from "components/colorsPreview/colorsPreview";
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <Header />
       <PageMain>
         <Container>
+          <Button>Click me!</Button>
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
           <ColorsPreview />
