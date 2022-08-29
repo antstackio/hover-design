@@ -11,7 +11,6 @@ export const [selectThemeClass, selectVars]: SelectThemeType = createTheme({
 export const selectRecipe = recipe({
   base: {
     appearance: "none",
-    padding: "8px 24px 8px 16px",
     height: "100%",
     width: "100%",
     borderRadius: selectVars.roundness,
