@@ -23,11 +23,8 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
 }) => {
   const selectClass = selectRecipe({
     error: error ? true : false,
+    isMulti: multiple ? true : false,
   });
-
-  multiple
-    ? Object.assign(style, { padding: "8px 16px" })
-    : Object.assign(style, { padding: "8px 32px 8px 16px" });
 
   return (
     <Flex flexDirection="column">

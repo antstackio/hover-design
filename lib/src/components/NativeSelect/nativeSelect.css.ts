@@ -12,6 +12,7 @@ export const selectRecipe = recipe({
   base: {
     appearance: "none",
     height: "100%",
+    padding: "8px 32px 8px 16px",
     width: "100%",
     borderRadius: selectVars.roundness,
   },
@@ -20,6 +21,11 @@ export const selectRecipe = recipe({
       true: {
         border: "1px solid #DA2C2C",
         color: "#DA2C2C",
+      },
+    },
+    isMulti: {
+      true: {
+        padding: "8px 16px",
       },
     },
   },
