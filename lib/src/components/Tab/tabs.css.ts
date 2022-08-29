@@ -1,20 +1,20 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { TabTheme } from "./tab.types";
+import { TabTheme } from "./tabs.types";
 
-export const [tabTheme, tabVars]: TabTheme = createTheme({
+export const [tabsTheme, tabsVars]: TabTheme = createTheme({
   color: "#2F80ED",
   background: "#BDDBFF60",
   height: "50px",
 });
 
-export const tabHeaderContainerStyles = style({
-  height: tabVars.height,
+export const tabsHeaderContainerStyles = style({
+  height: tabsVars.height,
   position: "relative",
   borderBottom: "2px solid #EBECF0",
 });
 
-export const tabRecipe = recipe({
+export const tabsRecipe = recipe({
   base: {
     cursor: "pointer",
     height: "100%",
@@ -23,17 +23,17 @@ export const tabRecipe = recipe({
     padding: "8px 10px",
     borderRadius: "4px 4px 0px 0px",
     ":hover": {
-      background: tabVars.background,
-      color: tabVars.color,
+      background: tabsVars.background,
+      color: tabsVars.color,
     },
   },
   variants: {
     active: {
       true: {
-        color: tabVars.color,
+        color: tabsVars.color,
         ":after": {
           content: "",
-          background: tabVars.color,
+          background: tabsVars.color,
           position: "absolute",
           bottom: "-2px",
           left: 0,
@@ -46,7 +46,7 @@ export const tabRecipe = recipe({
     },
     disabled: {
       true: {
-        color: "#42526E",
+        color: "#a0a8b7",
         pointerEvents: "none",
       },
     },

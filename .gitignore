@@ -2,3 +2,6 @@
 node_modules/
 .turbo
 .DS_Store
+
+# pnpm
+.pnpm-debug.log
