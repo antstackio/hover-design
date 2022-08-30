@@ -11,9 +11,11 @@ import { Flex } from "../Flex";
 import {
   comboContainerStyles,
   comboErrorMsg,
+  comboIconRecipe,
   comboInputRecipe,
   comboListContainerRecipe,
   comboListRecipe,
+  comboPlaceholder,
   comboVars,
 } from "./comboBox.css";
 import { ComboPropsType, OptionsType } from "./comboBox.types";
@@ -73,7 +75,10 @@ export const ComboBox: FC<ComboPropsType> = ({
   };
 
   const comboListContainerClass = comboListContainerRecipe({
-    active: isDropped,
+    isDropped,
+  });
+  const comboIconClass = comboIconRecipe({
+    isDropped,
   });
 
   const comboInputStyles = comboInputRecipe({
@@ -107,12 +112,12 @@ export const ComboBox: FC<ComboPropsType> = ({
           !isMulti && (
             <div>
               {options.find((option) => option.value === comboValue)?.label || (
-                <div>{placeholder}</div>
+                <div className={comboPlaceholder}>{placeholder}</div>
               )}
             </div>
           )
         )}
-        <Flex alignItems="center">
+        <Flex alignItems="center" className={comboIconClass}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={18}

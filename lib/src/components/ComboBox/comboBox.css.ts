@@ -61,7 +61,7 @@ export const comboListContainerRecipe = recipe({
     },
   },
   variants: {
-    active: {
+    isDropped: {
       true: {
         display: "flex !important",
       },
@@ -101,4 +101,21 @@ export const comboErrorMsg = style({
   fontSize: "12px",
   color: "#DA2C2C",
   margin: "4px 0",
+});
+
+export const comboPlaceholder = style({
+  color: "#787878",
+});
+
+export const comboIconRecipe = recipe({
+  base: {
+    transition: "0.2s ease",
+  },
+  variants: {
+    isDropped: {
+      true: {
+        transform: "rotate(180deg)",
+      },
+    },
+  },
 });
