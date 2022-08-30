@@ -21,7 +21,7 @@ Following are the concepts/philosophies/features hover is going to have througho
 - Theme Support is going to happen by giving multiple fluids
 - Entry point for the Fluid will be the **provider**
 - **Vanilla Extract Specific**
-  - Blocker - Making storybook work with Vite + VE is an issue
+  - ~~Blocker - Making storybook work with Vite + VE is an issue~~ Resolved by using [Ladle](https://ladle.dev/)
   - Vanilla-Extract + vite is smooth but also Rollup + vite is also great
   - We need to use sprinkles as the overseeing configuration for our fluid system
   - Recipes for variant creation
