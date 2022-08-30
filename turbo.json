@@ -11,6 +11,9 @@
       "dependsOn": ["^dev"],
       "cache": false
     },
-    "storybook": {}
+    "ladle": {
+      "dependsOn": ["^ladle"],
+      "cache": false
+    }
   }
 }

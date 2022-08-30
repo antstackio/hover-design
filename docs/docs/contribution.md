@@ -64,3 +64,7 @@ We also have a [Playbook](/docs/wiki/playbooks/git_playbook) where we document o
 refer [Prerequisites](/docs/wiki/getting_started) to look at what approach to follow.
 
 Thank you for taking the time to read this doc. to suggest anything do not be afraid to [create an issue](https://github.com/antstackio/hover-design/issues/new) at the hover repo
+
+## 5. Testing locally.
+
+We use [Ladle](https://ladle.dev/) for writing stories. All you need to do is write a `.story.tsx` file and see the magic happen by running `pnpm ladle`.
