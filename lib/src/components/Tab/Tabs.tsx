@@ -162,7 +162,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
     tabIndex: number
   ) => {
     event.stopPropagation();
-    event.preventDefault();
+    // event.preventDefault();
     switch (event.key) {
       case `${orientation === "horizontal" ? "ArrowLeft" : "ArrowUp"}`:
         selectPreviousTab(tabIndex);
