@@ -19,6 +19,6 @@ When it comes to development, its never fun when the developer has to wait for a
 
 Read More about Vite [here](https://vitejs.dev/)
 
-## Storybook
+## Ladle
 
-Storybook just works! when it comes to a component library such as this storybook is a no brainer for the showcase and writing stories, we also plan to expand this further by letting it go beyond just a dev-dependency but make it a part of the app so that we can easily import stories too but that's a later thing
+Ladle just works! when it comes to a component library such as this ladle is a no brainer for the showcase and writing stories, we also plan to expand this further by letting it go beyond just a dev-dependency but make it a part of the app so that we can easily import stories too but that's a later thing. Storybook gave us trouble so we switched to Ladle

@@ -14,7 +14,7 @@ To get started make yourself famaliar with:
 - [Vanilla Extract](https://vanilla-extract.style/documentation)
 - React
 - Basic Typescript
-- Basics of Storybook
+- Basics of Storybook and stories, we use [Ladle](https://ladle.dev/)
 
 We use the [recipies](https://vanilla-extract.style/documentation/recipes-api/) api heavily along with styles.
 

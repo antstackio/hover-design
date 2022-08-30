@@ -11,12 +11,12 @@
     "dev": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "build": "tsc && vite build && tsc --emitDeclarationOnly",
     "tsc": "tsc",
+    "ladle": "ladle serve",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\""
   },
   "dependencies": {
+    "@ladle/react": "^2.3.0",
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/css-utils": "^0.1.2",
     "@vanilla-extract/dynamic": "^2.0.2",
