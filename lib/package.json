@@ -11,9 +11,8 @@
     "dev": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "build": "tsc && vite build && tsc --emitDeclarationOnly",
     "tsc": "tsc",
+    "ladle": "ladle serve",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\""
   },
   "dependencies": {
