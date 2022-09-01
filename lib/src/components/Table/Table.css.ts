@@ -22,6 +22,7 @@ export const tableContainerDefaults = style({
   borderRadius: tableContainerThemeVars.customBorderRadius,
   display: "inline-block",
   overflow: "auto",
+  maxWidth: "100%",
   paddingBottom: "10px",
 });
 
