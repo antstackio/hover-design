@@ -2,7 +2,6 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 import {
   ChangeEvent,
   FC,
-  KeyboardEvent,
   MouseEvent,
   MutableRefObject,
   useEffect,
@@ -15,7 +14,7 @@ import {
   comboErrorMsg,
   comboIconRecipe,
   comboInputRecipe,
-  comboListContainerRecipe,
+  comboListContainerStyle,
   comboListRecipe,
   comboPlaceholder,
   comboVars,
@@ -24,27 +23,8 @@ import {
   noDataFoundStyles,
 } from "./comboBox.css";
 import { ComboPropsType, OptionsType } from "./comboBox.types";
-
-const outsideClickHandler = (
-  ref: MutableRefObject<HTMLDivElement>,
-  closeMenu: () => void
-) => {
-  //later to be convert into hook
-  useEffect(() => {
-    const handleClickOutside: EventListener = (event) => {
-      if (
-        ref.current &&
-        !ref.current.contains(event.target as HTMLDivElement)
-      ) {
-        closeMenu();
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [ref]);
-};
+import { ArrowDown, Clear } from "./components/SelectIcons";
+import { useOutsideClickHandler } from "./helpers";
 
 export const ComboBox: FC<ComboPropsType> = ({
   placeholder = "Pick one",
@@ -55,21 +35,24 @@ export const ComboBox: FC<ComboPropsType> = ({
   maxDropDownHeight = "auto",
   onChange = () => {},
   isSearchable = false,
+  isClearable = false,
+  isDisabled = false,
   isMulti = false,
+  DropIcon,
   error = false,
+  nothingFoundLabel = "Nothing Found!",
+  onDropDownClose = () => {},
+  onDropDownOpen = () => {},
 }) => {
   const [comboValue, setComboValue] = useState(value);
   const [isDropped, setIsDropped] = useState(false);
   const [internalOptions, setInternalOptions] = useState(options);
   const [searchText, setSearchText] = useState("");
   const comboRef = useRef() as MutableRefObject<HTMLDivElement>;
-
-  outsideClickHandler(comboRef, () => {
-    setIsDropped(false);
-  });
+  const itemRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
-    if (value) {
+    if (value !== undefined) {
       setComboValue(value);
     }
   }, [value]);
@@ -85,10 +68,18 @@ export const ComboBox: FC<ComboPropsType> = ({
     option: OptionsType,
     event: MouseEvent<HTMLSpanElement>
   ) => {
-    onChange(option.value, event);
-    !value && setComboValue(option.value);
+    if (value !== undefined) {
+      isClearable && option.value === comboValue
+        ? onChange("", event)
+        : onChange(option.value, event);
+    } else {
+      isClearable && option.value === comboValue
+        ? setComboValue("")
+        : setComboValue(option.value);
+    }
     setInternalOptions(options);
     setIsDropped(false);
+    onDropDownClose();
   };
 
   const internalChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -102,15 +93,32 @@ export const ComboBox: FC<ComboPropsType> = ({
       : setInternalOptions(filteredOptions);
   };
 
-  const comboListContainerClass = comboListContainerRecipe({
-    isDropped,
-  });
+  const handleIconClick = (event: MouseEvent<HTMLSpanElement>) => {
+    event.stopPropagation();
+    if (isClearable) {
+      if (value !== undefined) {
+        onChange("", event);
+      } else {
+        setComboValue("");
+      }
+    } else {
+      setIsDropped(!isDropped);
+      isDropped ? onDropDownClose() : onDropDownOpen();
+    }
+  };
+
   const comboIconClass = comboIconRecipe({
     isDropped,
   });
 
   const comboInputStyles = comboInputRecipe({
     error: error ? true : false,
+    disabled: isDisabled,
+  });
+
+  useOutsideClickHandler(comboRef, isDropped, () => {
+    setIsDropped(false);
+    onDropDownClose();
   });
 
   return (
@@ -126,15 +134,21 @@ export const ComboBox: FC<ComboPropsType> = ({
     >
       <Flex
         role="combobox"
+        aria-expanded={isDropped}
+        tab-index="-1"
         alignItems="center"
         justifyContent={"space-between"}
         className={`${comboInputStyles}`}
-        onClick={() => setIsDropped(true)}
+        onClick={() => {
+          setIsDropped(!isDropped);
+          isDropped ? onDropDownClose() : onDropDownOpen();
+        }}
       >
         <div className={inputTextContainer}>
           {isMulti && <div></div>} {/*pill container */}
           {isSearchable && (
             <input
+              disabled={isDisabled}
               className={inputStyles}
               value={searchText}
               placeholder={placeholder}
@@ -150,49 +164,49 @@ export const ComboBox: FC<ComboPropsType> = ({
           )}
         </div>
 
-        <Flex alignItems="center" className={comboIconClass}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={18}
-            height={18}
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <line x1={12} y1={5} x2={12} y2={19}></line>
-            <line x1={18} y1={13} x2={12} y2={19}></line>
-            <line x1={6} y1={13} x2={12} y2={19}></line>
-          </svg>
+        <Flex
+          alignItems="center"
+          className={comboIconClass}
+          onClick={handleIconClick}
+        >
+          {DropIcon ? !isClearable && DropIcon : !isClearable && <ArrowDown />}
+          {isClearable && <Clear />}
         </Flex>
       </Flex>
-      <Flex flexDirection="column" className={`${comboListContainerClass}`}>
-        {internalOptions.length !== 0 ? (
-          internalOptions.map((option) => {
-            const comboListClass = comboListRecipe({
-              disabled: option.disabled,
-              active: option.value === comboValue,
-            });
-            return (
-              <span
-                role="listbox"
-                tab-index="-1"
-                className={comboListClass}
-                onClick={(event) =>
-                  !option.disabled && internalClickHandler(option, event)
-                }
-              >
-                {option.label}
-              </span>
-            );
-          })
-        ) : (
-          <div className={noDataFoundStyles}>Nothing Found!</div>
-        )}
-      </Flex>
+
+      {isDropped && (
+        <Flex
+          flexDirection="column"
+          className={`${comboListContainerStyle}`}
+          role={"listbox"}
+          tab-index="-1"
+        >
+          {internalOptions.length !== 0 ? (
+            internalOptions.map((option) => {
+              const comboListClass = comboListRecipe({
+                disabled: option.disabled,
+                active: option.value === comboValue,
+              });
+              return (
+                <span
+                  role="option"
+                  tab-index={option.disabled ? "1" : "-1"}
+                  aria-selected={option.value === comboValue}
+                  className={comboListClass}
+                  onClick={(event) =>
+                    !option.disabled && internalClickHandler(option, event)
+                  }
+                >
+                  {option.label}
+                </span>
+              );
+            })
+          ) : (
+            <div className={noDataFoundStyles}>{nothingFoundLabel}</div>
+          )}
+        </Flex>
+      )}
+
       {error && typeof error !== "boolean" && (
         <span className={comboErrorMsg}>{error}</span>
       )}

@@ -29,43 +29,40 @@ export const comboInputRecipe = recipe({
         color: "#DA2C2C",
       },
     },
+    disabled: {
+      true: {
+        background: "#ededed",
+        color: "#545454",
+        pointerEvents: "none",
+      },
+    },
   },
 });
 
-export const comboListContainerRecipe = recipe({
-  base: {
-    overflowX: "hidden",
-    overflowY: "auto",
-    position: "absolute",
-    background: "white",
-    marginTop: "8px",
-    top: "35px",
-    left: 0,
-    width: "100%",
-    maxHeight: comboVars.maxDropDownHeight,
-    padding: "4px",
-    display: "none !important",
-    border: "1px solid #ced4da ",
-    borderRadius: comboVars.roundness,
-    boxShadow:
-      "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
-    "::-webkit-scrollbar": {
-      width: "10px",
-    },
-    "::-webkit-scrollbar-thumb": {
-      background: "#ced4da",
-      border: "4px solid rgba(0, 0, 0, 0)",
-      borderLeft: "none",
-      backgroundClip: "padding-box",
-      //   borderRadius: "100px",
-    },
+export const comboListContainerStyle = style({
+  overflowX: "hidden",
+  overflowY: "auto",
+  position: "absolute",
+  background: "white",
+  marginTop: "8px",
+  top: "35px",
+  left: 0,
+  width: "100%",
+  maxHeight: comboVars.maxDropDownHeight,
+  padding: "4px",
+  border: "1px solid #ced4da ",
+  borderRadius: comboVars.roundness,
+  boxShadow:
+    "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
+  "::-webkit-scrollbar": {
+    width: "10px",
   },
-  variants: {
-    isDropped: {
-      true: {
-        display: "flex !important",
-      },
-    },
+  "::-webkit-scrollbar-thumb": {
+    background: "#ced4da",
+    border: "4px solid rgba(0, 0, 0, 0)",
+    borderLeft: "none",
+    backgroundClip: "padding-box",
+    //   borderRadius: "100px",
   },
 });
 
@@ -78,7 +75,7 @@ export const comboListRecipe = recipe({
     borderRadius: `${calc.subtract(comboVars.roundness, "4px")}`,
     ":hover": {
       background: "#ebe8e8",
-      //   color: "white",
+      color: "black",
     },
   },
   variants: {
@@ -117,6 +114,7 @@ export const comboPlaceholder = style({
 export const comboIconRecipe = recipe({
   base: {
     transition: "0.2s ease",
+    cursor: "pointer",
   },
   variants: {
     isDropped: {

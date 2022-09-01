@@ -10,10 +10,16 @@ export type ComboPropsType = JSX.IntrinsicElements["div"] & {
   ) => void;
   isSearchable?: boolean;
   maxDropDownHeight?: string;
+  isDisabled?: boolean;
+  isClearable?: boolean;
+  nothingFoundLabel?: string | JSX.Element;
+  DropIcon?: JSX.Element;
   isMulti?: boolean;
   roundness?: string;
   color?: string;
   error?: boolean | string;
+  onDropDownClose?: () => void;
+  onDropDownOpen?: () => void;
 };
 
 export type OptionsType = {
