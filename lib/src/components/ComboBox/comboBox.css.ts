@@ -97,6 +97,13 @@ export const comboListRecipe = recipe({
   },
 });
 
+export const noDataFoundStyles = style({
+  width: "100%",
+  padding: "10px 16px",
+  background: "white",
+  cursor: "not-allowed",
+});
+
 export const comboErrorMsg = style({
   fontSize: "12px",
   color: "#DA2C2C",
@@ -118,4 +125,18 @@ export const comboIconRecipe = recipe({
       },
     },
   },
+});
+
+export const inputStyles = style({
+  width: "100%",
+  border: "none",
+  outline: "none",
+  padding: 0,
+  fontSize: "16px",
+  background: "transparent",
+});
+
+export const inputTextContainer = style({
+  width: "100%",
+  fontSize: "16px",
 });
