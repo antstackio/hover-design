@@ -5,7 +5,10 @@ import {
   tableDefaults,
   tableContainerThemeVars,
   tableThemeVars,
+  tableContainerThemeClass,
+  tableThemeClass,
 } from "./Table.css";
+import "./Table.global.styles.css";
 import { InitialTableProps } from "./Table.types";
 
 const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
@@ -22,6 +25,8 @@ const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
     striped = false,
     stripeColor = "#eee",
     children,
+    className,
+    style,
     ...nativeProps
   },
   ref
@@ -43,15 +48,17 @@ const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
 
   return (
     <div
-      style={{ ...tableContainerInlineVars }}
-      className={`${tableContainerDefaults} ${overrideTableContainerClass}`}
+      style={{ ...tableContainerInlineVars, ...(style || {}) }}
+      className={`${tableContainerDefaults} ${tableContainerThemeClass} ${overrideTableContainerClass} ${
+        className || ""
+      }`}
     >
       <table
         ref={ref}
-        style={{ ...tableInlineVars }}
+        style={{ ...tableInlineVars, ...(style || {}) }}
         className={`${tableDefaults} ${
           striped && "striped"
-        } ${overrideTableClass}`}
+        } ${tableThemeClass} ${overrideTableClass} ${className || ""}`}
         {...nativeProps}
       >
         {children}

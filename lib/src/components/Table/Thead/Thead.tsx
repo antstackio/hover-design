@@ -1,19 +1,22 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import React, { ForwardRefRenderFunction } from "react";
-import { headerDefaults, theadThemeVars } from "./Thead.css";
+import { headerDefaults, theadThemeClass, theadThemeVars } from "./Thead.css";
 import { TheadProps } from "./Thead.types";
+import "./Thead.global.styles.css";
 
 const Thead: ForwardRefRenderFunction<HTMLTableSectionElement, TheadProps> = (
-  { children, backgroundColor = "#ddd", className, ...nativeProps },
+  { children, backgroundColor = "#ddd", className, style, ...nativeProps },
   ref
 ) => {
+  const assignVars = assignInlineVars({
+    [theadThemeVars.customBackgroundColor]: backgroundColor,
+  });
+
   return (
     <thead
       ref={ref}
-      style={assignInlineVars({
-        [theadThemeVars.customBackgroundColor]: backgroundColor,
-      })}
-      className={`${headerDefaults} ${className}`}
+      style={{ ...assignVars, ...(style || {}) }}
+      className={`${headerDefaults} ${theadThemeClass} ${className || ""}`}
       {...nativeProps}
     >
       {children}

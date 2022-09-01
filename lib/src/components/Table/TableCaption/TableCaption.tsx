@@ -4,11 +4,14 @@ import { TableCaptionProps } from "./TableCaption.types";
 const TableCaption: ForwardRefRenderFunction<
   HTMLTableCaptionElement,
   TableCaptionProps
-> = ({ children, className, placement = "bottom", ...nativeProps }, ref) => {
+> = (
+  { children, className, placement = "bottom", style, ...nativeProps },
+  ref
+) => {
   return (
     <caption
       ref={ref}
-      style={{ captionSide: placement, paddingTop: "10px" }}
+      style={{ captionSide: placement, paddingTop: "10px", ...(style || {}) }}
       className={className}
       {...nativeProps}
     >

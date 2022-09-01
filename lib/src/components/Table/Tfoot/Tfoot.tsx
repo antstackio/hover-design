@@ -1,19 +1,22 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import React, { ForwardRefRenderFunction } from "react";
-import { footerDefaults, tfootThemeVars } from "./Tfoot.css";
+import { footerDefaults, tfootThemeClass, tfootThemeVars } from "./Tfoot.css";
 import { TfootProps } from "./Tfoot.types";
+import "./Tfoot.global.styles.css";
 
 const Tfoot: ForwardRefRenderFunction<HTMLTableSectionElement, TfootProps> = (
-  { children, backgroundColor = "#ddd", className, ...nativeProps },
+  { children, backgroundColor = "#ddd", className, style, ...nativeProps },
   ref
 ) => {
+  const assignVars = assignInlineVars({
+    [tfootThemeVars.customBackgroundColor]: backgroundColor,
+  });
+
   return (
     <tfoot
       ref={ref}
-      style={assignInlineVars({
-        [tfootThemeVars.customBackgroundColor]: backgroundColor,
-      })}
-      className={`${footerDefaults} ${className}`}
+      style={{ ...assignVars, ...(style || {}) }}
+      className={`${footerDefaults} ${tfootThemeClass} ${className || ""}`}
       {...nativeProps}
     >
       {children}

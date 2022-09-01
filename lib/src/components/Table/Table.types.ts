@@ -17,6 +17,7 @@ export interface InitialTableProps
   stripeColor?: string;
   overrideTableContainerClass?: string;
   overrideTableClass?: string;
+  className?: string;
 }
 
 export type ITableThemeVars = [
