@@ -12,11 +12,13 @@ import { Tabs } from "@hover-design/react";
 
 ### Code Snippets and Examples
 
-##### Tabs Default
-
 import "@hover-design/react/dist/style.css";
 import { Tabs } from "@hover-design/react";
 import { useState } from "react";
+import { FiArrowRightCircle } from "react-icons/fi";
+import { FiCpu } from "react-icons/fi";
+
+##### Tabs Default
 
 ```jsx
 const tabsData = [
@@ -32,12 +34,12 @@ const tabsData = [
   {
     label: "Third",
     value: "third",
-    icon: <div style={icon}>O</div>,
+    icon: <FiArrowRightCircle />,
   },
   {
     label: "Fourth",
     value: "fourth",
-    icon: <div style={icon}>O</div>,
+    icon: <FiCpu />,
     badge: "13",
   },
 ];
@@ -66,40 +68,212 @@ const tabsData = [
     {
       label: "Third",
       value: "third",
-      icon: (
-        <div
-          style={{
-            border: "1px solid black",
-            borderRadius: "50%",
-            height: "16px",
-            width: "16px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          O
-        </div>
-      ),
+      icon: <FiArrowRightCircle />,
     },
     {
       label: "Fourth",
       value: "fourth",
-      icon: (
-        <div
-          style={{
-            border: "1px solid black",
-            borderRadius: "50%",
-            height: "16px",
-            width: "16px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          O
-        </div>
-      ),
+      icon: <FiCpu />,
+      badge: "13",
+    },
+  ]}
+>
+  {(selectedTab) => <div>{selectedTab?.label}</div>}
+</Tabs>
+
+##### Tabs Vertical
+
+```jsx
+const tabsData = [
+  {
+    label: "First",
+    value: "first",
+  },
+  {
+    label: "Second",
+    value: "second",
+    disabled: true,
+  },
+  {
+    label: "Third",
+    value: "third",
+    icon: <FiArrowRightCircle />,
+  },
+  {
+    label: "Fourth",
+    value: "fourth",
+    icon: <FiCpu />,
+    badge: "13",
+  },
+];
+
+<div className="App">
+  <Tabs
+    defaultValue={"first"}
+    tabSize={"200px"}
+    textAlign={"left"}
+    orientation={"vertical"}
+    tabsData={tabsData}
+  >
+    {(selectedTab) => <div>{selectedTab.label}</div>}
+  </Tabs>
+</div>;
+```
+
+> **_(selectedTab)_** contains the whole tab object which is selected.
+
+<Tabs
+  defaultValue={"first"}
+  tabSize={"200px"}
+  textAlign={"left"}
+  orientation={"vertical"}
+  tabsData={[
+    {
+      label: "First",
+      value: "first",
+    },
+    {
+      label: "Second",
+      value: "second",
+      disabled: true,
+    },
+    {
+      label: "Third",
+      value: "third",
+      icon: <FiArrowRightCircle />,
+    },
+    {
+      label: "Fourth",
+      value: "fourth",
+      icon: <FiCpu />,
+      badge: "13",
+    },
+  ]}
+>
+  {(selectedTab) => <div>{selectedTab?.label}</div>}
+</Tabs>
+
+##### Tabs Variants - Outline
+
+```jsx
+const tabsData = [
+  {
+    label: "First",
+    value: "first",
+  },
+  {
+    label: "Second",
+    value: "second",
+    disabled: true,
+  },
+  {
+    label: "Third",
+    value: "third",
+    icon: <FiArrowRightCircle />,
+  },
+  {
+    label: "Fourth",
+    value: "fourth",
+    icon: <FiCpu />,
+    badge: "13",
+  },
+];
+
+<div className="App">
+  <Tabs defaultValue={"first"} variant={"outline"} tabsData={tabsData}>
+    {(selectedTab) => <div>{selectedTab.label}</div>}
+  </Tabs>
+</div>;
+```
+
+> **_(selectedTab)_** contains the whole tab object which is selected.
+
+<Tabs
+  defaultValue={"first"}
+  variant={"outline"}
+  tabsData={[
+    {
+      label: "First",
+      value: "first",
+    },
+    {
+      label: "Second",
+      value: "second",
+      disabled: true,
+    },
+    {
+      label: "Third",
+      value: "third",
+      icon: <FiArrowRightCircle />,
+    },
+    {
+      label: "Fourth",
+      value: "fourth",
+      icon: <FiCpu />,
+      badge: "13",
+    },
+  ]}
+>
+  {(selectedTab) => <div>{selectedTab?.label}</div>}
+</Tabs>
+
+##### Tabs Variants - Pill
+
+```jsx
+const tabsData = [
+  {
+    label: "First",
+    value: "first",
+  },
+  {
+    label: "Second",
+    value: "second",
+    disabled: true,
+  },
+  {
+    label: "Third",
+    value: "third",
+    icon: <FiArrowRightCircle />,
+  },
+  {
+    label: "Fourth",
+    value: "fourth",
+    icon: <FiCpu />,
+    badge: "13",
+  },
+];
+
+<div className="App">
+  <Tabs defaultValue={"first"} variant={"pill"} tabsData={tabsData}>
+    {(selectedTab) => <div>{selectedTab.label}</div>}
+  </Tabs>
+</div>;
+```
+
+> **_(selectedTab)_** contains the whole tab object which is selected.
+
+<Tabs
+  defaultValue={"first"}
+  variant={"pill"}
+  tabsData={[
+    {
+      label: "First",
+      value: "first",
+    },
+    {
+      label: "Second",
+      value: "second",
+      disabled: true,
+    },
+    {
+      label: "Third",
+      value: "third",
+      icon: <FiArrowRightCircle />,
+    },
+    {
+      label: "Fourth",
+      value: "fourth",
+      icon: <FiCpu />,
       badge: "13",
     },
   ]}
@@ -125,12 +299,12 @@ const tabsData = [
   {
     label: "Third",
     value: "third",
-    icon: <div style={icon}>O</div>,
+    icon: <FiArrowRightCircle />,
   },
   {
     label: "Fourth",
     value: "fourth",
-    icon: <div style={icon}>O</div>,
+    icon: <FiCpu />,
     badge: "15",
   },
 ];
@@ -169,40 +343,12 @@ export const App = () => {
         {
           label: "Third",
           value: "third",
-          icon: (
-            <div
-              style={{
-                border: "1px solid black",
-                borderRadius: "50%",
-                height: "16px",
-                width: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              O
-            </div>
-          ),
+          icon: <FiArrowRightCircle />,
         },
         {
           label: "Fourth",
           value: "fourth",
-          icon: (
-            <div
-              style={{
-                border: "1px solid black",
-                borderRadius: "50%",
-                height: "16px",
-                width: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              O
-            </div>
-          ),
+          icon: <FiCpu />,
           badge: "13",
         },
       ]}
@@ -216,24 +362,43 @@ export const App = () => {
 
 ### Props Reference
 
-| Attributes   |                                      Values                                      | Default Value | Optional ? |
-| :----------- | :------------------------------------------------------------------------------: | :-----------: | ---------: |
-| defaultValue | _ must be equal to value from ** Tabs Object ** _ <br/> `string` &#124; `number` |               |        Yes |
-| value        | _ must be equal to value from ** Tabs Object ** _ <br/> `string` &#124; `number` |               |        Yes |
-| color        |                                     `string`                                     |   `#2F80ED`   |        Yes |
-| background   |                                     `string`                                     |   `#d7e9ff`   |        Yes |
-| onChange     |                           `(selectedTabObject)=>void`                            |   `()=>{}`    |        Yes |
-| grow         |                      grows to fit the containter `boolean`                       |    `false`    |        Yes |
-| height       |                                     `string`                                     |    `40px`     |        Yes |
-| tabsData     |                           `Array of` **_Tabs Object_**                           |               |         No |
-| children     |  _ not a prop but children to the `<Tabs/>`_ <br/> `(selectedTabObject)=> JSX `  |               |         No |
+| Attributes      |                                      Values                                       | Default Value | Optional ? |
+| :-------------- | :-------------------------------------------------------------------------------: | :-----------: | ---------: |
+| defaultValue    | _ must be equal to value from ** Tabs Object ** _ <br/> `string` &#124; `number`  |               |        Yes |
+| value           | _ must be equal to value from ** Tabs Object ** _ <br/> `string` &#124; `number`  |               |        Yes |
+| orientation     |                          `horizontal` &#124; `vertical`                           | `horizontal`  |        Yes |
+| variant         |                     `default` &#124; `outline` &#124; `pill`                      |   `default`   |        Yes |
+| color           |                                     `string`                                      |   `#2F80ED`   |        Yes |
+| backgroundColor |                                     `string`                                      |   `#d7e9ff`   |        Yes |
+| outlineColor    |                                     `string`                                      |   `#EBECF0`   |        Yes |
+| textAlign       |                       `left` &#124; `center`&#124; `right`                        |   `center`    |        Yes |
+| roundness       |                                     `string`                                      |     `4px`     |        Yes |
+| onChange        |                            `(selectedTabObject)=>void`                            |   `()=>{}`    |        Yes |
+| grow            |                       grows to fit the containter `boolean`                       |    `false`    |        Yes |
+| size            | _ **height** for ** horizontal ** & **width** for ** vertical ** _ <br/> `string` |    `40px`     |        Yes |
+| tabsData        |                           `Array of` **_Tabs Object_**                            |               |         No |
+| children        |  _ not a prop but children to the `<Tabs/>`_ <br/> `(selectedTabObject)=> JSX `   |               |         No |
 
 ### Tabs Object
 
-| Key      |             type              | Optional ? |
-| :------- | :---------------------------: | ---------: |
-| label    |           `string`            |         No |
-| value    |   `string` &#124; `number`    |         No |
-| icon     |         `JSX Element`         |        Yes |
-| disabled |           `boolean`           |        Yes |
-| badge    | `string` &#124; `JSX Element` |        Yes |
+| Key      |                type                | Optional ? |
+| :------- | :--------------------------------: | ---------: |
+| label    |              `string`              |         No |
+| value    |      `string` &#124; `number`      |         No |
+| icon     |           `JSX Element`            |        Yes |
+| disabled |             `boolean`              |        Yes |
+| badge    |   `string` &#124; `JSX Element`    |        Yes |
+| ref      | `MutableRefObject<HTMLDivElement>` |        Yes |
+
+### Keyboard Controls
+
+> Keyboard controls will only work when the ** Tab ** is focused (selected)
+
+| Key        |                    type                     | Orientation |
+| :--------- | :-----------------------------------------: | ----------: |
+| ArrowRight |                 `Next Tab`                  |  horizontal |
+| ArrowLeft  |               `Previous Tab`                |  horizontal |
+| ArrowDown  |                 `Next Tab`                  |    vertical |
+| ArrowUp    |               `Previous Tab`                |    vertical |
+| Home       | _ if not **disabled ** _ <br/> `First Tab ` |        both |
+| End        |  _ if not **disabled ** _ <br/> `Last Tab`  |        both |
