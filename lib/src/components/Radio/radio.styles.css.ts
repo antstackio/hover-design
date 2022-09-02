@@ -34,14 +34,14 @@ export const [radioThemeClass, radioThemeVars]: TRadioTheme = createTheme({
   radioStyleSize: radioSizes.xs,
   baseStyles: {
     borderColor: "rgb(204, 204, 204)",
-    backgroundColor: "white"
+    backgroundColor: "rgb(250, 250, 250)"
   },
   disabledStyles: {
     borderColor: "rgb(204, 204, 204)",
     backgroundColor: "rgb(227, 227, 227)"
   },
   selectedStyles: {
-    color: "white",
+    color: "rgb(250, 250, 250)",
     borderColor: "rgb(174, 68, 10)",
     backgroundColor: "rgb(250, 128, 5)"
   }
