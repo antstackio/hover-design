@@ -9,7 +9,7 @@ import {
   nativeSelectRecipe,
   nativeSelectVars,
 } from "./nativeSelect.css";
-import { NativeSelectPropsType, OptionsType } from "./nativeSelect.types";
+import { NativeSelectPropsType } from "./nativeSelect.types";
 
 export const NativeSelect: FC<NativeSelectPropsType> = ({
   height = "fit-content",
