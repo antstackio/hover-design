@@ -223,13 +223,14 @@ const SelectComponent: ForwardRefRenderFunction<
           tabIndex={-1}
         >
           {internalOptions.length !== 0 ? (
-            internalOptions.map((option) => {
+            internalOptions.map((option, ind) => {
               const selectListClass = selectListRecipe({
                 disabled: option.disabled,
                 active: option.value === selectValue,
               });
               return (
                 <span
+                  key={ind}
                   ref={option.ref}
                   role="option"
                   tabIndex={option.disabled ? 1 : 0}
