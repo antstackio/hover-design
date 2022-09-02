@@ -1,7 +1,6 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import {
   ChangeEvent,
-  FC,
   forwardRef,
   ForwardRefRenderFunction,
   KeyboardEvent,
@@ -13,6 +12,8 @@ import {
 } from "react";
 import { useClickOutside } from "src/hooks/useClickOutside";
 import { Flex } from "../Flex";
+import { ArrowDown } from "../_internal/Icons/ArrowDown";
+import { Clear } from "../_internal/Icons/Clear";
 import {
   selectContainerStyles,
   selectErrorMsg,
@@ -27,7 +28,6 @@ import {
   inputRecipe,
 } from "./select.css";
 import { SelectPropsType, OptionsType } from "./select.types";
-import { ArrowDown, Clear } from "../../icons/Icons";
 
 const SelectComponent: ForwardRefRenderFunction<
   HTMLDivElement,
