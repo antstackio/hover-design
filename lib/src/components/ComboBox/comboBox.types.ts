@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { KeyboardEvent, MouseEvent } from "react";
 
 export type ComboPropsType = JSX.IntrinsicElements["div"] & {
   placeholder?: string;
@@ -6,7 +6,7 @@ export type ComboPropsType = JSX.IntrinsicElements["div"] & {
   value: string | number;
   onChange?: (
     value: string | number,
-    event: MouseEvent<HTMLSpanElement>
+    event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>
   ) => void;
   isSearchable?: boolean;
   maxDropDownHeight?: string;

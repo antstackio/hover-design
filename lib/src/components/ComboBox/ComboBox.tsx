@@ -2,6 +2,7 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 import {
   ChangeEvent,
   FC,
+  KeyboardEvent,
   MouseEvent,
   MutableRefObject,
   useEffect,
@@ -49,7 +50,6 @@ export const ComboBox: FC<ComboPropsType> = ({
   const [internalOptions, setInternalOptions] = useState(options);
   const [searchText, setSearchText] = useState("");
   const comboRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const itemRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
     if (value !== undefined) {
@@ -66,7 +66,7 @@ export const ComboBox: FC<ComboPropsType> = ({
 
   const internalClickHandler = (
     option: OptionsType,
-    event: MouseEvent<HTMLSpanElement>
+    event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>
   ) => {
     if (value !== undefined) {
       isClearable && option.value === comboValue
@@ -107,6 +107,11 @@ export const ComboBox: FC<ComboPropsType> = ({
     }
   };
 
+  const changeDrop = () => {
+    setIsDropped(!isDropped);
+    isDropped ? onDropDownClose() : onDropDownOpen();
+  };
+
   const comboIconClass = comboIconRecipe({
     isDropped,
   });
@@ -135,13 +140,15 @@ export const ComboBox: FC<ComboPropsType> = ({
       <Flex
         role="combobox"
         aria-expanded={isDropped}
-        tab-index="-1"
+        tabIndex={0}
         alignItems="center"
         justifyContent={"space-between"}
         className={`${comboInputStyles}`}
-        onClick={() => {
-          setIsDropped(!isDropped);
-          isDropped ? onDropDownClose() : onDropDownOpen();
+        onClick={changeDrop}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            changeDrop();
+          }
         }}
       >
         <div className={inputTextContainer}>
@@ -179,7 +186,7 @@ export const ComboBox: FC<ComboPropsType> = ({
           flexDirection="column"
           className={`${comboListContainerStyle}`}
           role={"listbox"}
-          tab-index="-1"
+          tabIndex={-1}
         >
           {internalOptions.length !== 0 ? (
             internalOptions.map((option) => {
@@ -190,11 +197,16 @@ export const ComboBox: FC<ComboPropsType> = ({
               return (
                 <span
                   role="option"
-                  tab-index={option.disabled ? "1" : "-1"}
+                  tabIndex={option.disabled ? 1 : 0}
                   aria-selected={option.value === comboValue}
                   className={comboListClass}
                   onClick={(event) =>
                     !option.disabled && internalClickHandler(option, event)
+                  }
+                  onKeyDown={(event) =>
+                    event.key === "Enter" &&
+                    !option.disabled &&
+                    internalClickHandler(option, event)
                   }
                 >
                   {option.label}
