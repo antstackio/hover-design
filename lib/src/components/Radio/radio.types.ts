@@ -11,7 +11,7 @@ export type TRadioGroupTheme = [
 
 export type TRadioGroupProps = JSX.IntrinsicElements["div"] & {
   ref?: MutableRefObject<HTMLDivElement | null>;
-  Spacing?: TRadioSpacing;
+  spacing?: TRadioSpacing;
   children?: ReactNode;
   orientation?: "horizontal" | "verticle";
 };

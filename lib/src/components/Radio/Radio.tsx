@@ -10,14 +10,7 @@ import {
 import "./radio.global.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { eliminateUndefinedKeys } from "src/utils/object-utils";
-
-const SvgDot = () => {
-  return (
-    <svg viewBox="0 0 6 6">
-      <circle fill="currentColor" cx="3" cy="3" r="3"></circle>
-    </svg>
-  );
-};
+import { SvgDot } from "../_internal/Icons/SvgDot";
 
 const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
   {

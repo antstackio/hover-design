@@ -18,36 +18,6 @@ const App: React.FC = () => {
       <Header />
       <PageMain>
         <Container>
-          <RadioGroup>
-            <label>
-              <Radio
-                name="radios"
-                value="radio1"
-                checked={radioVal == "radio1"}
-                onChange={(e) => setRadioVal(e.target.value)}
-              ></Radio>
-              radio1
-            </label>
-            <label>
-              <Radio
-                name="radios"
-                value="radio2"
-                checked={radioVal == "radio2"}
-                onChange={(e) => setRadioVal(e.target.value)}
-              ></Radio>
-              radio2
-            </label>
-            <label>
-              <Radio
-                name="radios"
-                value="radio3"
-                checked={radioVal == "radio3"}
-                isDisabled
-                onChange={(e) => setRadioVal(e.target.value)}
-              ></Radio>
-              radio3
-            </label>
-          </RadioGroup>
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
           <ColorsPreview />

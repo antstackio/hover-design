@@ -1,14 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
-import {
-  radioGroupChildClass,
-  radioGroupThemeVars,
-  radioThemeVars,
-  radioWrapperClass
-} from "./radio.styles.css";
-
-globalStyle(`${radioGroupChildClass} > :not(:last-child)`, {
-  marginBottom: radioGroupThemeVars.radioGroupStyleSpacing
-});
+import { radioThemeVars, radioWrapperClass } from "./radio.styles.css";
 
 globalStyle(`${radioWrapperClass} > svg`, {
   display: "inline-block",

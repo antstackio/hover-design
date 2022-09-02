@@ -3,12 +3,7 @@ import React, { ForwardRefRenderFunction } from "react";
 import { TRadioGroupProps } from "../radio.types";
 import { Flex } from "src/components/Flex";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import {
-  radioGroupChildClass,
-  radioGroupSpacing,
-  radioGroupThemeClass,
-  radioGroupThemeVars
-} from "../radio.styles.css";
+import { radioGroupChildClass, radioGroupSpacing } from "../radio.styles.css";
 import { eliminateUndefinedKeys } from "src/utils/object-utils";
 
 const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
@@ -17,26 +12,21 @@ const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
     className,
     style,
     orientation = "horizontal",
-    Spacing = "xs",
+    spacing = "xs",
     ...nativeProps
   },
   ref
 ) => {
-  const assignVariables = assignInlineVars(
-    eliminateUndefinedKeys({
-      [radioGroupThemeVars.radioGroupStyleSpacing]: radioGroupSpacing[Spacing]
-        ? radioGroupSpacing[Spacing]
-        : undefined
-    })
-  );
+  const assignVariables = assignInlineVars(eliminateUndefinedKeys({}));
 
   return (
     <Flex
       flexDirection={orientation === "horizontal" ? "row" : "column"}
       ref={ref}
-      className={`${radioGroupThemeClass} ${
-        orientation === "verticle" ? radioGroupChildClass : ""
-      } ${className || ""}`}
+      gap={radioGroupSpacing[spacing]}
+      className={` ${orientation === "verticle" ? radioGroupChildClass : ""} ${
+        className || ""
+      }`}
       style={{ ...assignVariables, ...(style || {}) }}
       {...nativeProps}
     >

@@ -23,13 +23,6 @@ export const radioSizes: Record<TRadioTheme[1]["radioStyleSize"], string> = {
   xl: "48px"
 };
 
-export const [radioGroupThemeClass, radioGroupThemeVars]: TRadioGroupTheme =
-  createTheme({ radioGroupStyleSpacing: radioGroupSpacing.xs });
-
-export const radioGroupWrapper = style({
-  marginBottom: radioGroupThemeVars.radioGroupStyleSpacing
-});
-
 export const [radioThemeClass, radioThemeVars]: TRadioTheme = createTheme({
   radioStyleSize: radioSizes.xs,
   baseStyles: {
