@@ -26,6 +26,9 @@ export interface IRadioProps
   name: string;
   radioSize?: string;
   isDisabled?: boolean;
+  baseStyles?: Partial<TRadioTheme[1]["baseStyles"]>;
+  disabledStyles?: Partial<TRadioTheme[1]["disabledStyles"]>;
+  selectedStyles?: Partial<TRadioTheme[1]["selectedStyles"]>;
 }
 
 export type TRadioTheme = [

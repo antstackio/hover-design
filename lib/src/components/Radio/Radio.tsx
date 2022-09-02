@@ -9,6 +9,7 @@ import {
 } from "./radio.styles.css";
 import "./radio.global.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { eliminateUndefinedKeys } from "src/utils/object-utils";
 
 const SvgDot = () => {
   return (
@@ -27,15 +28,29 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
     checked,
     radioSize = "xs",
     isDisabled = false,
+    baseStyles,
+    disabledStyles,
+    selectedStyles,
     ...nativeProps
   },
   ref
 ) => {
-  const assignVariables = assignInlineVars({
-    [radioThemeVars.radioStyleSize]: radioSizes[radioSize]
-      ? radioSizes[radioSize]
-      : radioSize
-  });
+  const assignVariables = assignInlineVars(
+    eliminateUndefinedKeys({
+      [radioThemeVars.radioStyleSize]: radioSizes[radioSize]
+        ? radioSizes[radioSize]
+        : undefined,
+      [radioThemeVars.baseStyles.backgroundColor]: baseStyles?.backgroundColor,
+      [radioThemeVars.baseStyles.borderColor]: baseStyles?.borderColor,
+      [radioThemeVars.selectedStyles.backgroundColor]:
+        selectedStyles?.backgroundColor,
+      [radioThemeVars.selectedStyles.borderColor]: selectedStyles?.borderColor,
+      [radioThemeVars.selectedStyles.color]: selectedStyles?.color,
+      [radioThemeVars.disabledStyles.backgroundColor]:
+        disabledStyles?.backgroundColor,
+      [radioThemeVars.disabledStyles.borderColor]: disabledStyles?.borderColor
+    })
+  );
 
   return (
     <div

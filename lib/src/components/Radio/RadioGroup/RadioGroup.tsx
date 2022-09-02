@@ -9,6 +9,7 @@ import {
   radioGroupThemeClass,
   radioGroupThemeVars
 } from "../radio.styles.css";
+import { eliminateUndefinedKeys } from "src/utils/object-utils";
 
 const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
   {
@@ -21,11 +22,13 @@ const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
   },
   ref
 ) => {
-  const assignVariables = assignInlineVars({
-    [radioGroupThemeVars.radioGroupStyleSpacing]: radioGroupSpacing[Spacing]
-      ? radioGroupSpacing[Spacing]
-      : Spacing
-  });
+  const assignVariables = assignInlineVars(
+    eliminateUndefinedKeys({
+      [radioGroupThemeVars.radioGroupStyleSpacing]: radioGroupSpacing[Spacing]
+        ? radioGroupSpacing[Spacing]
+        : undefined
+    })
+  );
 
   return (
     <Flex

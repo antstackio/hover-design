@@ -4,9 +4,6 @@ import { calc } from "@vanilla-extract/css-utils";
 
 export const radioGroupChildClass = style({});
 
-export const [radioGroupThemeClass, radioGroupThemeVars]: TRadioGroupTheme =
-  createTheme({ radioGroupStyleSpacing: "0" });
-
 export const radioGroupSpacing: Record<
   TRadioGroupTheme[1]["radioGroupStyleSpacing"],
   string
@@ -18,12 +15,23 @@ export const radioGroupSpacing: Record<
   xl: "10px"
 };
 
+export const radioSizes: Record<TRadioTheme[1]["radioStyleSize"], string> = {
+  xs: "16px",
+  sm: "24px",
+  md: "32px",
+  lg: "40px",
+  xl: "48px"
+};
+
+export const [radioGroupThemeClass, radioGroupThemeVars]: TRadioGroupTheme =
+  createTheme({ radioGroupStyleSpacing: radioGroupSpacing.xs });
+
 export const radioGroupWrapper = style({
   marginBottom: radioGroupThemeVars.radioGroupStyleSpacing
 });
 
 export const [radioThemeClass, radioThemeVars]: TRadioTheme = createTheme({
-  radioStyleSize: "0",
+  radioStyleSize: radioSizes.xs,
   baseStyles: {
     borderColor: "rgb(204, 204, 204)",
     backgroundColor: "white"
@@ -38,14 +46,6 @@ export const [radioThemeClass, radioThemeVars]: TRadioTheme = createTheme({
     backgroundColor: "rgb(250, 128, 5)"
   }
 });
-
-export const radioSizes: Record<TRadioTheme[1]["radioStyleSize"], string> = {
-  xs: "16px",
-  sm: "24px",
-  md: "32px",
-  lg: "40px",
-  xl: "48px"
-};
 
 export const radioWrapperClass = style({
   display: "inline-block",

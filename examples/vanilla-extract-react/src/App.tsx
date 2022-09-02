@@ -1,4 +1,4 @@
-import { Button } from "@hover-design/react";
+import { Button, Radio, RadioGroup } from "@hover-design/react";
 import { StyleWrapper } from "components/appWraper/StyleWrapper";
 import { BreakpointsExample } from "components/breakpointsExample/BreakpointsExample";
 import { ColorsPreview } from "components/colorsPreview/colorsPreview";
@@ -7,17 +7,47 @@ import FontSizePreview from "components/fontSizePreview/FontSizePreview";
 import { Footer } from "components/footer/footer";
 import { Header } from "components/header/header";
 import { PageMain } from "components/pageMain/PageMain";
-import React from "react";
+import React, { useState } from "react";
 import { fonts, fontSizes } from "styles/index.css";
 import "styles/reset.css";
 
 const App: React.FC = () => {
+  const [radioVal, setRadioVal] = useState("radio1");
   return (
     <StyleWrapper>
       <Header />
       <PageMain>
         <Container>
-          <Button>Click me!</Button>
+          <RadioGroup>
+            <label>
+              <Radio
+                name="radios"
+                value="radio1"
+                checked={radioVal == "radio1"}
+                onChange={(e) => setRadioVal(e.target.value)}
+              ></Radio>
+              radio1
+            </label>
+            <label>
+              <Radio
+                name="radios"
+                value="radio2"
+                checked={radioVal == "radio2"}
+                onChange={(e) => setRadioVal(e.target.value)}
+              ></Radio>
+              radio2
+            </label>
+            <label>
+              <Radio
+                name="radios"
+                value="radio3"
+                checked={radioVal == "radio3"}
+                isDisabled
+                onChange={(e) => setRadioVal(e.target.value)}
+              ></Radio>
+              radio3
+            </label>
+          </RadioGroup>
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
           <ColorsPreview />
