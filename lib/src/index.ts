@@ -16,3 +16,4 @@ export * from "./components/Tab";
 export * from "./components/Avatar";
 export * from "./components/Modal";
 export * from "./components/Table";
+export * from "./components/Dialog";
