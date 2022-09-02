@@ -15,3 +15,5 @@ export * from "./components/TextArea";
 export * from "./components/Tab";
 export * from "./components/Avatar";
 export * from "./components/NativeSelect";
+export * from "./components/Table";
+

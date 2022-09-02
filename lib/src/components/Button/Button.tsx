@@ -1,9 +1,6 @@
-import { RecipeVariants } from "@vanilla-extract/recipes";
-import { FC, RefObject } from "react";
+import { FC } from "react";
 import { buttonStyles } from "./button.css";
-
-type ButtonProps = RecipeVariants<typeof buttonStyles> &
-  JSX.IntrinsicElements["button"];
+import { ButtonProps } from "./button.types";
 
 const Button: FC<ButtonProps> = ({
   variant = "default",
