@@ -27,6 +27,7 @@ const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
     children,
     className,
     style,
+    horizontalSpacing = "0",
     ...nativeProps
   },
   ref
@@ -44,6 +45,7 @@ const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
     [tableThemeVars.contentAlignment]: alignContent,
     [tableThemeVars.headerAlignment]: alignHeading,
     [tableThemeVars.customCellPadding]: cellPadding,
+    [tableThemeVars.customHorizontalSpacing]: horizontalSpacing,
   });
 
   return (
