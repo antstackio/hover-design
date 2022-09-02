@@ -1,0 +1,83 @@
+# Dialog
+
+### Quick start
+
+Here's a quick start guide to get started with the modal component
+
+### Importing Component
+
+```jsx
+import { Dialog } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Simple Dialog
+
+import "@hover-design/react/dist/style.css";
+import { Dialog, Label, Input, Flex, Button } from "@hover-design/react";
+import DialogExample from "@site/src/components/examples/DialogExample";
+
+```jsx
+import { Dialog, Label, Input, Flex, Button } from "@hover-design/react";
+
+function Demo() {
+  const [isOpen, setIsOpen] = useState(false);
+  <Button onClick={()=>{setIsOpen(true)}}>Open Dialog</Button>
+  <Dialog
+    isOpen={isOpen}
+    onClose={() => {
+      setIsOpen(false);
+    }}
+  >
+    {/* Dialog content */}
+  </Dialog>;
+}
+```
+
+<DialogExample>
+  <h4>Hello Dialog</h4>
+  <Flex alignItems="flex-end" gap="12px">
+    <Flex gap="4px" flexDirection="column">
+      <Label>
+        Label
+        <Flex justifyContent="center" alignItems="center" gap="4px">
+          <Input placeholder="Input" />
+          <Button>Submit</Button>
+        </Flex>
+      </Label>
+    </Flex>
+  </Flex>
+</DialogExample>
+
+##### Customizing Dialog
+
+You can customize the base and overlay styles of the modal by passing in the baseStyles and overlayStyles props. Refer this Spec for this:
+
+styles
+
+| Property        | Description        | Default                     |
+| --------------- | ------------------ | --------------------------- |
+| backgroundColor | Background of Base | unset                       |
+| zIndex          | Z Index            | 10                          |
+| position        | Position           | relative                    |
+| transform       | Transform          | translate(-50%, -50%)       |
+| top             | Top                | unset                       |
+| left            | Left               | 24px                        |
+| right           | Right              | 24px                        |
+| bottom          | Bottom             | unset                       |
+| padding         | Padding            | 12px                        |
+| width           | Width              | auto                        |
+| height          | height             | auto                        |
+| boxShadow       | Box Shadow         | 0 0 10px rgba(0, 0, 0, 0.5) |
+| borderRadius    | Border Radius      | 4px                         |
+
+### Props Referece
+
+| Attributes          |     Values      | Optional ? |
+| :------------------ | :-------------: | ---------: |
+| isOpen              |    `boolean`    |         No |
+| onClose             |   `()=> void`   |         No |
+| isCloseIconVisible  |    `boolean`    |        Yes |
+| closeOnClickOutside |    `boolean`    |        Yes |
+| styles              | `styles Object` |        Yes |
