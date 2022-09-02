@@ -17,7 +17,7 @@ export type SelectPropsType = divType & {
   nothingFoundLabel?: string | JSX.Element;
   DropIcon?: JSX.Element;
   isMulti?: boolean;
-  roundness?: string;
+  borderRadius?: string;
   color?: string;
   error?: boolean | string;
   onDropDownClose?: () => void;
@@ -34,7 +34,7 @@ export type OptionsType = {
 export type SelectTheme = [
   string,
   {
-    roundness: string;
+    borderRadius: string;
     color: string;
     maxDropDownHeight: string;
     height: string;

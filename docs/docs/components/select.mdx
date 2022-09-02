@@ -52,13 +52,13 @@ const options = [
 ];
 
 <div className="App">
-  <Select roundness="20px" options={options} />
+  <Select borderRadius="20px" options={options} />
 </div>;
 ```
 
 <Select
   width="40%"
-  roundness="20px"
+  borderRadius="20px"
   options={[
     { label: "First", value: "first" },
     { label: "Second", value: "second", disabled: true },
@@ -226,7 +226,7 @@ export const App = () => {
 | isSearchable      |           `boolean`            |     `false`      |        Yes |
 | error             |           `boolean`            |     `false`      |        Yes |
 | maxDropDownHeight |            `string`            |      `auto`      |        Yes |
-| roundness         |            `string`            |       `0`        |        Yes |
+| borderRadius      |            `string`            |       `0`        |        Yes |
 | onChange          | `(selectedOption,event)=>void` |     `()=>{}`     |        Yes |
 | isDisabled        |           `boolean`            |     `false`      |        Yes |
 | isClearable       |           `boolean`            |     `false`      |        Yes |

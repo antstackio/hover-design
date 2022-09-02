@@ -34,12 +34,12 @@ const SelectComponent: ForwardRefRenderFunction<
   SelectPropsType
 > = (
   {
-    placeholder = "Pick one",
+    placeholder,
     options,
     value,
     height = "40px",
     width = "100%",
-    roundness = "0",
+    borderRadius = "0",
     color = "#2F80ED",
     maxDropDownHeight = "auto",
     onChange = () => {},
@@ -49,7 +49,7 @@ const SelectComponent: ForwardRefRenderFunction<
     isMulti = false,
     DropIcon,
     error = false,
-    nothingFoundLabel = "Nothing Found!",
+    nothingFoundLabel,
     onDropDownClose = () => {},
     onDropDownOpen = () => {},
   },
@@ -161,7 +161,7 @@ const SelectComponent: ForwardRefRenderFunction<
       flexDirection="column"
       className={selectContainerStyles}
       style={assignInlineVars({
-        [selectVars.roundness]: roundness,
+        [selectVars.borderRadius]: borderRadius,
         [selectVars.color]: color,
         [selectVars.height]: height,
         [selectVars.width]: width,
@@ -189,7 +189,7 @@ const SelectComponent: ForwardRefRenderFunction<
               disabled={isDisabled}
               className={inputStyles}
               value={searchText}
-              placeholder={placeholder}
+              placeholder={placeholder || "Search here"}
               onChange={internalChangeHandler}
             />
           )}
@@ -197,7 +197,9 @@ const SelectComponent: ForwardRefRenderFunction<
             <div>
               {options.find((option) => option.value === selectValue)
                 ?.label || (
-                <div className={selectPlaceholder}>{placeholder}</div>
+                <div className={selectPlaceholder}>
+                  {placeholder || "Pick one"}
+                </div>
               )}
             </div>
           )}
@@ -247,7 +249,9 @@ const SelectComponent: ForwardRefRenderFunction<
               );
             })
           ) : (
-            <div className={noDataFoundStyles}>{nothingFoundLabel}</div>
+            <div className={noDataFoundStyles}>
+              {nothingFoundLabel || "Nothing Found!"}
+            </div>
           )}
         </Flex>
       )}

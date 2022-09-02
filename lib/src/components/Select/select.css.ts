@@ -4,7 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { SelectTheme } from "./select.types";
 
 export const [selectClass, selectVars]: SelectTheme = createTheme({
-  roundness: "0",
+  borderRadius: "0",
   color: "#2F80ED",
   maxDropDownHeight: "auto",
   height: "40px",
@@ -23,7 +23,7 @@ export const selectInputRecipe = recipe({
     width: "100%",
     height: selectVars.height,
     border: "1px solid #ced4da ",
-    borderRadius: selectVars.roundness,
+    borderRadius: selectVars.borderRadius,
     cursor: "default",
   },
   variants: {
@@ -56,7 +56,7 @@ export const selectListContainerStyle = style({
   padding: "4px",
   zIndex: "1",
   border: "1px solid #ced4da ",
-  borderRadius: selectVars.roundness,
+  borderRadius: selectVars.borderRadius,
   boxShadow:
     "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
   "::-webkit-scrollbar": {
@@ -77,7 +77,7 @@ export const selectListRecipe = recipe({
     padding: "10px 16px",
     background: "white",
     cursor: "pointer",
-    borderRadius: `${calc.subtract(selectVars.roundness, "4px")}`,
+    borderRadius: `${calc.subtract(selectVars.borderRadius, "4px")}`,
     ":hover": {
       background: "#ebe8e8",
       color: "black",
