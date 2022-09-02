@@ -27,7 +27,7 @@ import {
   inputRecipe,
 } from "./select.css";
 import { SelectPropsType, OptionsType } from "./select.types";
-import { ArrowDown, Clear } from "./components/SelectIcons";
+import { ArrowDown, Clear } from "../../icons/Icons";
 
 const SelectComponent: ForwardRefRenderFunction<
   HTMLDivElement,
