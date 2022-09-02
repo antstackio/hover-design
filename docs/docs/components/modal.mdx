@@ -1,22 +1,169 @@
-# Modal (Spec)
+# Modal
 
-## Notes
+### Quick start
 
-- use Create Portal for Markup
-- Proper settings to control the trigger
-- Proper way to adjust size, position, etc.
-- Overlay Customization and option to not show it
-- Lock scroll when modal is visible
-- Close on ClickOutside
-- Close on EscapeKey
-- use `<dialog>` element instead of `<div>`
+Here's a quick start guide to get started with the modal component
 
-| Attributes            |        Values        | Optional ? |
-| :-------------------- | :------------------: | ---------: |
-| `isOpen`              | boolean (true/false) |         No |
-| `onClose`             |       function       |        Yes |
-| `onOpen`              |       function       |        Yes |
-| `size`                |        string        |        Yes |
-| `showOverlay`         |       boolean        |        Yes |
-| `closeOnOutsideClick` |       boolean        |        Yes |
-| `overlayStyles`       |     Style Object     |        Yes |
+### Importing Component
+
+```jsx
+import { Modal } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Simple Modal
+
+import "@hover-design/react/dist/style.css";
+import { Modal, Label, Input, Flex, Button } from "@hover-design/react";
+import ModalExample from "@site/src/components/examples/ModalExample";
+
+```jsx
+import { Modal, Label, Input, Flex, Button } from "@hover-design/react";
+
+function Demo() {
+  const [isOpen, setIsOpen] = useState(false);
+  <Button onClick={()=>{setIsOpen(true)}}>Open Modal</Button>
+  <Modal
+    title="Modal Title"
+    isOpen={isOpen}
+    onClose={() => {
+      setIsOpen(false);
+    }}
+  >
+    {/* Modal content */}
+  </Modal>;
+}
+```
+
+<ModalExample
+  title="Modal Title"
+  baseStyles={{ backgroundColor: "var(--ifm-navbar-background-color)" }}
+>
+  <Flex gap="12px">
+    <Flex gap="4px" flexDirection="column">
+      <Label>
+        Label
+        <Input placeholder="Input" />
+      </Label>
+      <Label>
+        Label
+        <Input placeholder="Input" />
+      </Label>
+      <Label>
+        Label
+        <Input placeholder="Input" />
+      </Label>
+    </Flex>
+    <Flex gap="4px" flexDirection="column">
+      <Label>
+        Label
+        <Input placeholder="Input" />
+      </Label>
+      <Label>
+        Label
+        <Input placeholder="Input" />
+      </Label>
+    </Flex>
+  </Flex>
+  <Flex justifyContent="flex-end">
+    <Button>Submit</Button>
+  </Flex>
+</ModalExample>
+
+##### Modal without Heading and Icon
+
+```jsx
+<Modal isCloseIconVisible={false}>{/* Modal content */}</Modal>
+```
+
+<ModalExample baseStyles={{ backgroundColor: "var(--ifm-navbar-background-color)" }} isCloseIconVisible={false}>
+
+<span>I am a very simple and happy modal</span>
+
+</ModalExample>
+
+##### Modal without Overlay
+
+```jsx
+<Modal showOverlay={false}>{/* Modal content */}</Modal>
+```
+
+<ModalExample baseStyles={{ backgroundColor: "var(--ifm-navbar-background-color)" }} showOverlay={false}>
+
+<span>I do not have a overlay</span>
+
+</ModalExample>
+
+##### Prevent Clicking Outside Modal to Close
+
+```jsx
+<Modal closeOnClickOutside={false}>{/* Modal content */}</Modal>
+```
+
+<ModalExample baseStyles={{ backgroundColor: "var(--ifm-navbar-background-color)" }} closeOnClickOutside={false}>
+
+<span>I am a persistent kinda modal</span>
+
+</ModalExample>
+
+##### Customizing Modal Base and overlay
+
+You can customize the base and overlay styles of the modal by passing in the baseStyles and overlayStyles props. Refer this Spec for this:
+
+overlayStyles
+
+| Property        | Description           | Default       |
+| --------------- | --------------------- | ------------- |
+| backgroundColor | Background of Overlay | rgba(0, 0, 0) |
+| zIndex          | Z Index               | 1             |
+| position        | Position              | fixed         |
+| top             | Top                   | 0             |
+| left            | Left                  | 0             |
+| right           | Right                 | 0             |
+| bottom          | Bottom                | 0             |
+| filter          | Filter                | unset         |
+| opacity         | opacity               | 0.5           |
+
+baseStyles
+
+| Property        | Description        | Default                     |
+| --------------- | ------------------ | --------------------------- |
+| backgroundColor | Background of Base | rgba(255, 255, 255)         |
+| zIndex          | Z Index            | 10                          |
+| position        | Position           | relative                    |
+| transform       | Transform          | translate(-50%, -50%)       |
+| top             | Top                | 50%                         |
+| left            | Left               | unset                       |
+| right           | Right              | unset                       |
+| bottom          | Bottom             | unset                       |
+| padding         | Padding            | 12px                        |
+| width           | Width              | 440px                       |
+| height          | height             | auto                        |
+| boxShadow       | Box Shadow         | 0 0 10px rgba(0, 0, 0, 0.5) |
+
+```jsx
+<Modal baseStyles={{ backgroundColor: "#C1292E" }} isCloseIconVisible={false}>
+  {/* Modal content */}
+</Modal>
+```
+
+<ModalExample overlayStyles={{backgroundColor:"red"}} baseStyles={{ backgroundColor: "#C1292E" }} isCloseIconVisible={false}>
+
+<span>I am a very red and angry modal</span>
+
+</ModalExample>
+
+### Props Reference
+
+| Key                 |         type         | Optional? |
+| :------------------ | :------------------: | --------: |
+| children            |  `React.ReactNode`   |        No |
+| isOpen              |      `boolean`       |        No |
+| onClose             |      `()=>void`      |        No |
+| title               |       `string`       |       Yes |
+| closeOnClickOutside |      `boolean`       |       Yes |
+| isCloseIconVisible  |      `boolean`       |       Yes |
+| baseStyles          |  `base CSS object`   |       Yes |
+| overlayStyles       | `overlay CSS object` |       Yes |
+| showOverlay         |      `boolean`       |       Yes |
