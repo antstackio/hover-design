@@ -15,6 +15,7 @@ export const [tableThemeClass, tableThemeVars]: ITableThemeVars = createTheme({
   contentAlignment: "left",
   customCellPadding: "10px",
   customStripeColor: "#eee",
+  customHorizontalSpacing: "0",
 });
 
 export const tableContainerDefaults = style({
@@ -29,4 +30,3 @@ export const tableContainerDefaults = style({
 export const tableDefaults = style({
   borderCollapse: "collapse",
 });
-

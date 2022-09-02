@@ -20,3 +20,14 @@ globalStyle(`${tableDefaults} td`, {
 globalStyle(`${tableDefaults}.striped tr:nth-child(even)`, {
   backgroundColor: tableThemeVars.customStripeColor,
 });
+
+globalStyle(`${tableDefaults} thead th, ${tableDefaults} tbody td`, {
+  paddingRight: tableThemeVars.customHorizontalSpacing,
+});
+
+globalStyle(
+  `${tableDefaults} thead th:last-child, ${tableDefaults} tbody td:last-child`,
+  {
+    paddingRight: tableThemeVars.customCellPadding,
+  }
+);
