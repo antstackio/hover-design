@@ -83,6 +83,30 @@ function Demo() {
 
 </ModalExample>
 
+##### Modal without Overlay
+
+```jsx
+<Modal showOverlay={false}>{/* Modal content */}</Modal>
+```
+
+<ModalExample baseStyles={{ backgroundColor: "var(--ifm-navbar-background-color)" }} showOverlay={false}>
+
+<span>I do not have a overlay</span>
+
+</ModalExample>
+
+##### Prevent Clicking Outside Modal to Close
+
+```jsx
+<Modal closeOnClickOutside={false}>{/* Modal content */}</Modal>
+```
+
+<ModalExample baseStyles={{ backgroundColor: "var(--ifm-navbar-background-color)" }} closeOnClickOutside={false}>
+
+<span>I am a persistent kinda modal</span>
+
+</ModalExample>
+
 ##### Customizing Modal Base and overlay
 
 You can customize the base and overlay styles of the modal by passing in the baseStyles and overlayStyles props. Refer this Spec for this:
@@ -129,3 +153,17 @@ baseStyles
 <span>I am a very red and angry modal</span>
 
 </ModalExample>
+
+### Props Reference
+
+| Key                 |         type         | Optional? |
+| :------------------ | :------------------: | --------: |
+| children            |  `React.ReactNode`   |        No |
+| isOpen              |      `boolean`       |        No |
+| onClose             |      `()=>void`      |        No |
+| title               |       `string`       |       Yes |
+| closeOnClickOutside |      `boolean`       |       Yes |
+| isCloseIconVisible  |      `boolean`       |       Yes |
+| baseStyles          |  `base CSS object`   |       Yes |
+| overlayStyles       | `overlay CSS object` |       Yes |
+| showOverlay         |      `boolean`       |       Yes |

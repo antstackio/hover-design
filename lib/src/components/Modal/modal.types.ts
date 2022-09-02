@@ -1,4 +1,4 @@
-export interface IModalProps {
+export type IModalProps = JSX.IntrinsicElements["div"] & {
   children: React.ReactNode;
   isOpen: boolean;
   onClose: () => void;
@@ -11,7 +11,7 @@ export interface IModalProps {
   baseStyles?: Partial<IModalTheme[1]["base"]>;
   overlayStyles?: Partial<IModalTheme[1]["overlay"]>;
   showOverlay?: boolean;
-}
+};
 
 export type IModalTheme = [
   string,

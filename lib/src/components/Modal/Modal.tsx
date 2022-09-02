@@ -25,6 +25,9 @@ const Modal: React.FC<IModalProps> = ({
   baseStyles,
   overlayStyles,
   showOverlay = true,
+  style,
+  className,
+  ...nativeProps
 }) => {
   const modalSurfaceRef = React.useRef<HTMLDivElement>(null);
   if (closeOnClickOutside) {
@@ -63,7 +66,12 @@ const Modal: React.FC<IModalProps> = ({
     <Portal>
       <div style={customStyles} className={modalThemeClass}>
         {showOverlay && <div className={overlayStyleClass} />}
-        <div ref={modalSurfaceRef} className={modalStyleClass}>
+        <div
+          ref={modalSurfaceRef}
+          style={style}
+          className={`${modalStyleClass} ${className}`}
+          {...nativeProps}
+        >
           <div className={modalHeaderStyleClass}>
             {!!title && <p className={modalTitleStyleClass}>{title}</p>}
             {isCloseIconVisible && (
