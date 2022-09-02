@@ -12,7 +12,7 @@ export type OptionsType = {
   disabled?: boolean | undefined;
 };
 
-export type SelectThemeType = [
+export type NativeSelectThemeType = [
   string,
   {
     height: string;

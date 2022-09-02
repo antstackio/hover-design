@@ -1,20 +1,21 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { SelectThemeType } from "./nativeSelect.types";
+import { NativeSelectThemeType } from "./nativeSelect.types";
 
-export const [selectThemeClass, selectVars]: SelectThemeType = createTheme({
-  height: "fit-content",
-  roundness: "0",
-  width: "fit-content",
-});
+export const [nativeSelectThemeClass, nativeSelectVars]: NativeSelectThemeType =
+  createTheme({
+    height: "fit-content",
+    roundness: "0",
+    width: "fit-content",
+  });
 
-export const selectRecipe = recipe({
+export const nativeSelectRecipe = recipe({
   base: {
     appearance: "none",
     height: "100%",
     padding: "8px 32px 8px 16px",
     width: "100%",
-    borderRadius: selectVars.roundness,
+    borderRadius: nativeSelectVars.roundness,
   },
   variants: {
     error: {
@@ -31,13 +32,13 @@ export const selectRecipe = recipe({
   },
 });
 
-export const selectContainerStyles = style({
-  height: selectVars.height,
-  width: selectVars.width,
+export const nativeSelectContainerStyles = style({
+  height: nativeSelectVars.height,
+  width: nativeSelectVars.width,
   position: "relative",
 });
 
-export const selectIconStyle = style({
+export const nativeSelectIconStyle = style({
   pointerEvents: "none",
   position: "absolute",
   height: "100%",
@@ -45,7 +46,7 @@ export const selectIconStyle = style({
   right: "10px",
 });
 
-export const selectErrorMsg = style({
+export const nativeSelectErrorMsg = style({
   fontSize: "12px",
   color: "#DA2C2C",
   margin: "4px 0",

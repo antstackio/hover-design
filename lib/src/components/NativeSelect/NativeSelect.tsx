@@ -1,12 +1,13 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { FC, useEffect } from "react";
 import { Flex } from "../Flex";
+import { ArrowDown } from "../_internal/Icons/ArrowDown";
 import {
-  selectContainerStyles,
-  selectErrorMsg,
-  selectIconStyle,
-  selectRecipe,
-  selectVars,
+  nativeSelectContainerStyles,
+  nativeSelectErrorMsg,
+  nativeSelectIconStyle,
+  nativeSelectRecipe,
+  nativeSelectVars,
 } from "./nativeSelect.css";
 import { NativeSelectPropsType, OptionsType } from "./nativeSelect.types";
 
@@ -21,7 +22,7 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
   multiple,
   ...nativeProps
 }) => {
-  const selectClass = selectRecipe({
+  const nativeSelectClass = nativeSelectRecipe({
     error: error ? true : false,
     isMulti: multiple ? true : false,
   });
@@ -29,16 +30,16 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
   return (
     <Flex flexDirection="column">
       <div
-        className={selectContainerStyles}
+        className={nativeSelectContainerStyles}
         style={assignInlineVars({
-          [selectVars.height]: height,
-          [selectVars.width]: width,
-          [selectVars.roundness]: roundness,
+          [nativeSelectVars.height]: height,
+          [nativeSelectVars.width]: width,
+          [nativeSelectVars.roundness]: roundness,
         })}
       >
         <select
           style={style}
-          className={`${selectClass} ${className}`}
+          className={`${nativeSelectClass} ${className}`}
           multiple={multiple}
           {...nativeProps}
         >
@@ -49,28 +50,13 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
           ))}
         </select>
         {!multiple && (
-          <Flex className={selectIconStyle} alignItems="center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={18}
-              height={18}
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <line x1={12} y1={5} x2={12} y2={19}></line>
-              <line x1={18} y1={13} x2={12} y2={19}></line>
-              <line x1={6} y1={13} x2={12} y2={19}></line>
-            </svg>
+          <Flex className={nativeSelectIconStyle} alignItems="center">
+            <ArrowDown />
           </Flex>
         )}
       </div>
       {error && typeof error !== "boolean" && (
-        <span className={selectErrorMsg}>{error}</span>
+        <span className={nativeSelectErrorMsg}>{error}</span>
       )}
     </Flex>
   );
