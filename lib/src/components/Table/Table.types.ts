@@ -18,6 +18,7 @@ export interface InitialTableProps
   overrideTableContainerClass?: string;
   overrideTableClass?: string;
   className?: string;
+  horizontalSpacing?: string;
 }
 
 export type ITableThemeVars = [
@@ -28,6 +29,7 @@ export type ITableThemeVars = [
     contentAlignment: string;
     customCellPadding: string;
     customStripeColor: string;
+    customHorizontalSpacing: string;
   }
 ];
 
