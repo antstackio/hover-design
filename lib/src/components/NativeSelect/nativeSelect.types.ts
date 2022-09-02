@@ -1,7 +1,7 @@
 export type NativeSelectPropsType = JSX.IntrinsicElements["select"] & {
   height?: string;
   width?: string;
-  roundness?: string;
+  borderRadius?: string;
   options: OptionsType[];
   error?: boolean | string;
 };
@@ -17,6 +17,6 @@ export type NativeSelectThemeType = [
   {
     height: string;
     width: string;
-    roundness: string;
+    borderRadius: string;
   }
 ];

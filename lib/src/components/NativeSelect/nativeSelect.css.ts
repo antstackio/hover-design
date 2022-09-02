@@ -5,7 +5,7 @@ import { NativeSelectThemeType } from "./nativeSelect.types";
 export const [nativeSelectThemeClass, nativeSelectVars]: NativeSelectThemeType =
   createTheme({
     height: "fit-content",
-    roundness: "0",
+    borderRadius: "0",
     width: "fit-content",
   });
 
@@ -15,7 +15,7 @@ export const nativeSelectRecipe = recipe({
     height: "100%",
     padding: "8px 32px 8px 16px",
     width: "100%",
-    borderRadius: nativeSelectVars.roundness,
+    borderRadius: nativeSelectVars.borderRadius,
   },
   variants: {
     error: {

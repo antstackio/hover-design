@@ -14,7 +14,7 @@ import { NativeSelectPropsType, OptionsType } from "./nativeSelect.types";
 export const NativeSelect: FC<NativeSelectPropsType> = ({
   height = "fit-content",
   width = "fit-content",
-  roundness = "0",
+  borderRadius = "0",
   options,
   error = false,
   className,
@@ -34,7 +34,7 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
         style={assignInlineVars({
           [nativeSelectVars.height]: height,
           [nativeSelectVars.width]: width,
-          [nativeSelectVars.roundness]: roundness,
+          [nativeSelectVars.borderRadius]: borderRadius,
         })}
       >
         <select

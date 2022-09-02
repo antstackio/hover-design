@@ -122,14 +122,18 @@ const options = [
 ];
 
 <div className="App">
-  <NativeSelect roundness={"50px"} error="This is an error" options={options} />
+  <NativeSelect
+    borderRadius={"50px"}
+    error="This is an error"
+    options={options}
+  />
 </div>;
 ```
 
 > Note: **error** can also be passed as a boolean.
 
 <NativeSelect
-  roundness={"60px"}
+  borderRadius={"60px"}
   options={[
     { label: "First", value: "first" },
     { label: "Second", value: "second" },
@@ -140,12 +144,12 @@ const options = [
 
 ### Props Reference
 
-| Attributes |                                Values                                | Default Value | Optional ? |
-| :--------- | :------------------------------------------------------------------: | :-----------: | ---------: |
-| options    | ` Array of`<br/> { label:string , <br/> value:string &#124; number } |               |         No |
-| height     |                               `string`                               | `fit-content` |        Yes |
-| width      |                               `string`                               | `fit-content` |        Yes |
-| roundness  |                               `string`                               |      `0`      |        Yes |
-| error      |                      `string` &#124; `boolean`                       |     false     |        Yes |
+| Attributes   |                                Values                                | Default Value | Optional ? |
+| :----------- | :------------------------------------------------------------------: | :-----------: | ---------: |
+| options      | ` Array of`<br/> { label:string , <br/> value:string &#124; number } |               |         No |
+| height       |                               `string`                               | `fit-content` |        Yes |
+| width        |                               `string`                               | `fit-content` |        Yes |
+| borderRadius |                               `string`                               |      `0`      |        Yes |
+| error        |                      `string` &#124; `boolean`                       |     false     |        Yes |
 
 > NativeSelect extends the props of **select tag** https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
