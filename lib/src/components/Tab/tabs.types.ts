@@ -1,18 +1,26 @@
+import { MouseEvent, MutableRefObject } from "react";
+
 type divType = Omit<JSX.IntrinsicElements["div"], "children">;
 
 export type TabsProps = divType & {
   children: (selectedTab: TabsObjectProps) => JSX.Element;
+  ref?: MutableRefObject<HTMLDivElement | null>;
+  orientation?: "vertical" | "horizontal";
   color?: string;
-  background?: string;
+  backgroundColor?: string;
+  outlineColor?: string;
   defaultValue?: string | number;
   value?: string | number;
-  height?: string;
+  tabSize?: string;
+  textAlign?: "left" | "center" | "right";
   onChange?: (
     value: TabsObjectProps,
-    event: React.MouseEvent<HTMLDivElement>
+    event: MouseEvent<HTMLDivElement>
   ) => void;
   tabsData: TabsObjectProps[];
   grow?: boolean;
+  roundness?: string;
+  variant?: "default" | "outline" | "pill";
 };
 
 export type TabsObjectProps = {
@@ -21,13 +29,16 @@ export type TabsObjectProps = {
   icon?: JSX.Element;
   disabled?: boolean;
   badge?: string | JSX.Element;
+  ref?: MutableRefObject<HTMLDivElement>;
 };
 
 export type TabTheme = [
   string,
   {
     color: string;
-    background: string;
-    height: string;
+    backgroundColor: string;
+    outlineColor: string;
+    tabSize: string;
+    roundness: string;
   }
 ];

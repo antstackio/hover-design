@@ -1,0 +1,341 @@
+# Table
+
+### Quick start
+
+Hover table component can be used to organise and display data. Here's a quick start guide to get started with the table component.
+
+### Importing Component
+
+import {
+  Table,
+  TableCaption,
+  Thead,
+  Th,
+  Tbody,
+  Tr,
+  Td,
+  Tfoot,
+  Flex,
+} from "@hover-design/react";
+import { resetTableStyles } from "../../src/components/examples/resetTableStyles.css.ts";
+import "../../src/components/examples/global.styles.css.ts";
+
+```jsx
+import {
+  Table,
+  TableCaption,
+  Thead,
+  Th,
+  Tbody,
+  Tr,
+  Td,
+  Tfoot,
+} from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Basic Table
+
+```jsx
+<Table addBorder>
+  <TableCaption>Calories and proteins data</TableCaption>
+  <Thead>
+    <Tr>
+      <Th>Food</Th>
+      <Th>Protein</Th>
+      <Th>Calories</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>Almonds</Td>
+      <Td alignContent="right">21g</Td>
+      <Td alignContent="right">579</Td>
+    </Tr>
+    <Tr>
+      <Td>Eggs</Td>
+      <Td alignContent="right">13g</Td>
+      <Td alignContent="right">143</Td>
+    </Tr>
+    <Tr>
+      <Td>Peanuts</Td>
+      <Td alignContent="right">25g</Td>
+      <Td alignContent="right">607</Td>
+    </Tr>
+    <Tr>
+      <Td>Yogurt</Td>
+      <Td alignContent="right">6g</Td>
+      <Td alignContent="right">70</Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
+
+<div className={resetTableStyles}>
+  <Table addBorder>
+    <TableCaption>Calories and proteins data</TableCaption>
+    <Thead>
+      <Tr>
+        <Th>Food</Th>
+        <Th>Protein</Th>
+        <Th>Calories</Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      <Tr>
+        <Td>Almonds</Td>
+        <Td alignContent="right">21g</Td>
+        <Td alignContent="right">579</Td>
+      </Tr>
+      <Tr>
+        <Td>Eggs</Td>
+        <Td alignContent="right">13g</Td>
+        <Td alignContent="right">143</Td>
+      </Tr>
+      <Tr>
+        <Td>Peanuts</Td>
+        <Td alignContent="right">25g</Td>
+        <Td alignContent="right">607</Td>
+      </Tr>
+      <Tr>
+        <Td>Yogurt</Td>
+        <Td alignContent="right">6g</Td>
+        <Td alignContent="right">70</Td>
+      </Tr>
+    </Tbody>
+  </Table>
+</div>
+
+##### Striped Table
+
+```jsx
+<Table addBorder striped>
+  <TableCaption>Calories and proteins data</TableCaption>
+  <Thead>
+    <Tr>
+      <Th>Food</Th>
+      <Th>Protein</Th>
+      <Th>Calories</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>Almonds</Td>
+      <Td alignContent="right">21g</Td>
+      <Td alignContent="right">579</Td>
+    </Tr>
+    <Tr>
+      <Td>Eggs</Td>
+      <Td alignContent="right">13g</Td>
+      <Td alignContent="right">143</Td>
+    </Tr>
+    <Tr>
+      <Td>Peanuts</Td>
+      <Td alignContent="right">25g</Td>
+      <Td alignContent="right">607</Td>
+    </Tr>
+    <Tr>
+      <Td>Yogurt</Td>
+      <Td alignContent="right">6g</Td>
+      <Td alignContent="right">70</Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
+
+<div className={resetTableStyles}>
+  <Table addBorder striped>
+    <TableCaption>Calories and proteins data</TableCaption>
+    <Thead>
+      <Tr>
+        <Th>Food</Th>
+        <Th>Protein</Th>
+        <Th>Calories</Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      <Tr>
+        <Td>Almonds</Td>
+        <Td alignContent="right">21g</Td>
+        <Td alignContent="right">579</Td>
+      </Tr>
+      <Tr>
+        <Td>Eggs</Td>
+        <Td alignContent="right">13g</Td>
+        <Td alignContent="right">143</Td>
+      </Tr>
+      <Tr>
+        <Td>Peanuts</Td>
+        <Td alignContent="right">25g</Td>
+        <Td alignContent="right">607</Td>
+      </Tr>
+      <Tr>
+        <Td>Yogurt</Td>
+        <Td alignContent="right">6g</Td>
+        <Td alignContent="right">70</Td>
+      </Tr>
+    </Tbody>
+  </Table>
+</div>
+
+##### Customized table
+
+```jsx
+<Table
+  addBorder
+  borderColor="#ccc"
+  striped
+  stripeColor="#f9f9f9"
+  borderRadius="8px"
+  horizontalSpacing="100px"
+  rowHeight="1.5"
+  alignContent="center"
+  alignHeading="center"
+>
+  <TableCaption>Calories and proteins data</TableCaption>
+  <Thead backgroundColor="#eee">
+    <Tr>
+      <Th>Food</Th>
+      <Th>Protein</Th>
+      <Th>Calories</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>Almonds</Td>
+      <Td>21g</Td>
+      <Td>579</Td>
+    </Tr>
+    <Tr>
+      <Td>Eggs</Td>
+      <Td>13g</Td>
+      <Td>143</Td>
+    </Tr>
+    <Tr>
+      <Td>Peanuts</Td>
+      <Td>25g</Td>
+      <Td>607</Td>
+    </Tr>
+    <Tr>
+      <Td>Yogurt</Td>
+      <Td>6g</Td>
+      <Td>70</Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
+
+<div className={resetTableStyles}>
+  <Table
+    addBorder
+    borderColor="#ccc"
+    striped
+    stripeColor="#f9f9f9"
+    borderRadius="8px"
+    horizontalSpacing="100px"
+    alignContent="center"
+    alignHeading="center"
+    rowHeight="1.5"
+  >
+    <TableCaption>Calories and proteins data</TableCaption>
+    <Thead backgroundColor="#eee">
+      <Tr>
+        <Th>Food</Th>
+        <Th>Protein</Th>
+        <Th>Calories</Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      <Tr>
+        <Td>Almonds</Td>
+        <Td>21g</Td>
+        <Td>579</Td>
+      </Tr>
+      <Tr>
+        <Td>Eggs</Td>
+        <Td>13g</Td>
+        <Td>143</Td>
+      </Tr>
+      <Tr>
+        <Td>Peanuts</Td>
+        <Td>25g</Td>
+        <Td>607</Td>
+      </Tr>
+      <Tr>
+        <Td>Yogurt</Td>
+        <Td>6g</Td>
+        <Td>70</Td>
+      </Tr>
+    </Tbody>
+  </Table>
+</div>
+
+### Props Reference
+
+#### Table
+
+| Attributes                  |                Values                 | Default Value | Optional ? |
+| :-------------------------- | :-----------------------------------: | :-----------: | ---------: |
+| children                    |              `ReactNode`              |       -       |         No |
+| addBorder                   |         `true` &#124; `false`         |    `false`    |        Yes |
+| borderRadius                |               `string`                |     `4px`     |        Yes |
+| borderColor                 |               `string`                |    `black`    |        Yes |
+| alignContent                | `left` &#124; `center` &#124; `right` |    `left`     |        Yes |
+| alignHeading                | `left` &#124; `center` &#124; `right` |    `left`     |        Yes |
+| cellPadding                 |               `string`                |    `10px`     |        Yes |
+| striped                     |         `true` &#124; `false`         |    `false`    |        Yes |
+| stripeColor                 |               `string`                |    `#EEE`     |        Yes |
+| rowHeight                   |               `string`                |      `1`      |        Yes |
+| horizontalSpacing           |               `string`                |      `0`      |        Yes |
+| overrideTableClass          |               `string`                |       -       |        Yes |
+| overrideTableContainerClass |               `string`                |       -       |        Yes |
+
+The table component renders a `div` that wraps the table to not allow the table to overflow the parent, this can be customized by sending a class to `overrideTableContainerClass`
+
+#### TableCaption
+
+| Attributes |        Values         | Default Value | Optional ? |
+| :--------- | :-------------------: | :-----------: | ---------: |
+| children   |   `React.ReactNode`   |   undefined   |         No |
+| placement  | `top` &#124; `bottom` |   `bottom`    |        Yes |
+
+#### Thead
+
+| Attributes      |      Values       | Default Value | Optional ? |
+| :-------------- | :---------------: | :-----------: | ---------: |
+| children        | `React.ReactNode` |   undefined   |         No |
+| backgroundColor |     `string`      |    '#DDD'     |        Yes |
+
+#### Tbody
+
+| Attributes |      Values       | Default Value | Optional ? |
+| :--------- | :---------------: | :-----------: | ---------: |
+| children   | `React.ReactNode` |   undefined   |         No |
+
+#### Tr
+
+| Attributes |      Values       | Default Value | Optional ? |
+| :--------- | :---------------: | :-----------: | ---------: |
+| children   | `React.ReactNode` |   undefined   |         No |
+
+#### Th
+
+| Attributes   |                Values                 | Default Value | Optional ? |
+| :----------- | :-----------------------------------: | :-----------: | ---------: |
+| children     |           `React.ReactNode`           |   undefined   |         No |
+| alignHeading | `left` &#124; `center` &#124; `right` |       -       |        Yes |
+
+#### Td
+
+| Attributes   |                Values                 | Default Value | Optional ? |
+| :----------- | :-----------------------------------: | :-----------: | ---------: |
+| children     |           `React.ReactNode`           |   undefined   |         No |
+| alignContent | `left` &#124; `center` &#124; `right` |       -       |        Yes |
+
+#### Tfoot
+
+| Attributes      |      Values       | Default Value | Optional ? |
+| :-------------- | :---------------: | :-----------: | ---------: |
+| children        | `React.ReactNode` |   undefined   |         No |
+| backgroundColor |     `string`      |    `#DDD`     |        Yes |
