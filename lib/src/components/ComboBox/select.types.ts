@@ -1,12 +1,14 @@
-import { KeyboardEvent, MouseEvent } from "react";
-
-export type ComboPropsType = JSX.IntrinsicElements["div"] & {
+import { KeyboardEvent, MouseEvent, MutableRefObject } from "react";
+type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
+export type SelectPropsType = divType & {
   placeholder?: string;
   options: OptionsType[];
-  value: string | number;
+  value?: string | number;
+  height?: string;
+  width?: string;
   onChange?: (
     value: string | number,
-    event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>
+    event?: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>
   ) => void;
   isSearchable?: boolean;
   maxDropDownHeight?: string;
@@ -26,13 +28,16 @@ export type OptionsType = {
   label: string;
   value: string | number;
   disabled?: boolean | undefined;
+  ref?: MutableRefObject<HTMLSpanElement>;
 };
 
-export type ComboTheme = [
+export type SelectTheme = [
   string,
   {
     roundness: string;
     color: string;
     maxDropDownHeight: string;
+    height: string;
+    width: string;
   }
 ];

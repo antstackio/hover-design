@@ -1,0 +1,245 @@
+# Select
+
+### Quick start
+
+Here's a quick start guide to get started with the Select component
+
+### Importing Component
+
+```jsx
+import { Select } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+import "@hover-design/react/dist/style.css";
+import { Select } from "@hover-design/react";
+import { useState } from "react";
+
+##### Select Default
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select options={options} />
+</div>;
+```
+
+<Select
+  width="40%"
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### Select Rounded
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select roundness="20px" options={options} />
+</div>;
+```
+
+<Select
+  width="40%"
+  roundness="20px"
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### Select Searchable (ComboBox)
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select placeholder="Search Here!" isSearchable options={options} />
+</div>;
+```
+
+<Select
+  width="40%"
+  placeholder="Search Here!"
+  isSearchable
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### Select Clearable
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select isClearable options={options} />
+</div>;
+```
+
+<Select
+  width="40%"
+  isClearable
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### Select Error
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select error="This is an error" options={options} />
+</div>;
+```
+
+<Select
+  width="40%"
+  error="This is an error"
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### Select Disabled
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select isDisabled options={options} />
+</div>;
+```
+
+<Select
+  width="40%"
+  isDisabled
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### Controlled Select
+
+```jsx
+const [selectedValue, setSelectedValue] = useState("first");
+
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select
+    value={selectedValue}
+    onChange={(value) => setSelectedValue(value)}
+    options={options}
+  />
+</div>;
+```
+
+export const App = () => {
+  const [selectedValue, setSelectedValue] = useState("first");
+  const options = [
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ];
+  return (
+    <Select
+      width="40%"
+      value={selectedValue}
+      onChange={(value) => setSelectedValue(value)}
+      options={options}
+    />
+  );
+};
+
+<App />
+
+### Props Reference
+
+| Attributes        |             Values             |  Default Value   | Optional ? |
+| :---------------- | :----------------------------: | :--------------: | ---------: |
+| placeholder       |            `string`            |    `Pick one`    |        Yes |
+| options           | `Array of` **_Option Object_** |                  |         No |
+| value             |    `string` &#124; `number`    |   `horizontal`   |        Yes |
+| height            |            `string`            |      `40px`      |        Yes |
+| color             |            `string`            |    `#2F80ED`     |        Yes |
+| width             |            `string`            |      `100%`      |        Yes |
+| isSearchable      |           `boolean`            |     `false`      |        Yes |
+| error             |           `boolean`            |     `false`      |        Yes |
+| maxDropDownHeight |            `string`            |      `auto`      |        Yes |
+| roundness         |            `string`            |       `0`        |        Yes |
+| onChange          | `(selectedOption,event)=>void` |     `()=>{}`     |        Yes |
+| isDisabled        |           `boolean`            |     `false`      |        Yes |
+| isClearable       |           `boolean`            |     `false`      |        Yes |
+| nothingFoundLabel | `string` &#124; `JSX Element`  | `Nothing Found!` |        Yes |
+| DropIcon          |         `JSX Element`          |                  |        Yes |
+| onDropDownOpen    |          `()=> void `          |                  |        Yes |
+| onDropDownClose   |          `()=> void `          |                  |        Yes |
+
+### Option Object
+
+| Key      |                type                | Optional ? |
+| :------- | :--------------------------------: | ---------: |
+| label    |              `string`              |         No |
+| value    |      `string` &#124; `number`      |         No |
+| disabled |             `boolean`              |        Yes |
+| ref      | `MutableRefObject<HTMLDivElement>` |        Yes |

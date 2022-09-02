@@ -1,26 +1,30 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { ComboTheme } from "./comboBox.types";
+import { SelectTheme } from "./select.types";
 
-export const [comboClass, comboVars]: ComboTheme = createTheme({
+export const [selectClass, selectVars]: SelectTheme = createTheme({
   roundness: "0",
   color: "#2F80ED",
   maxDropDownHeight: "auto",
-});
-
-export const comboContainerStyles = style({
-  position: "relative",
+  height: "40px",
   width: "100%",
 });
 
-export const comboInputRecipe = recipe({
+export const selectContainerStyles = style({
+  position: "relative",
+  width: selectVars.width,
+});
+
+export const selectInputRecipe = recipe({
   base: {
     background: "white",
     padding: "10px 16px",
     width: "100%",
+    height: selectVars.height,
     border: "1px solid #ced4da ",
-    borderRadius: comboVars.roundness,
+    borderRadius: selectVars.roundness,
+    cursor: "default",
   },
   variants: {
     error: {
@@ -39,19 +43,20 @@ export const comboInputRecipe = recipe({
   },
 });
 
-export const comboListContainerStyle = style({
+export const selectListContainerStyle = style({
   overflowX: "hidden",
   overflowY: "auto",
   position: "absolute",
   background: "white",
   marginTop: "8px",
-  top: "35px",
+  top: `${calc.subtract(selectVars.height, "5px")}`,
   left: 0,
   width: "100%",
-  maxHeight: comboVars.maxDropDownHeight,
+  maxHeight: selectVars.maxDropDownHeight,
   padding: "4px",
+  zIndex: "1",
   border: "1px solid #ced4da ",
-  borderRadius: comboVars.roundness,
+  borderRadius: selectVars.roundness,
   boxShadow:
     "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
   "::-webkit-scrollbar": {
@@ -66,13 +71,13 @@ export const comboListContainerStyle = style({
   },
 });
 
-export const comboListRecipe = recipe({
+export const selectListRecipe = recipe({
   base: {
     width: "100%",
     padding: "10px 16px",
     background: "white",
     cursor: "pointer",
-    borderRadius: `${calc.subtract(comboVars.roundness, "4px")}`,
+    borderRadius: `${calc.subtract(selectVars.roundness, "4px")}`,
     ":hover": {
       background: "#ebe8e8",
       color: "black",
@@ -87,7 +92,7 @@ export const comboListRecipe = recipe({
     },
     active: {
       true: {
-        background: comboVars.color,
+        background: selectVars.color,
         color: "white",
       },
     },
@@ -101,17 +106,24 @@ export const noDataFoundStyles = style({
   cursor: "not-allowed",
 });
 
-export const comboErrorMsg = style({
+export const selectErrorMsg = style({
   fontSize: "12px",
   color: "#DA2C2C",
   margin: "4px 0",
 });
 
-export const comboPlaceholder = style({
-  color: "#787878",
+export const selectPlaceholderRecipe = recipe({
+  base: { color: "#787878" },
+  variants: {
+    error: {
+      true: {
+        color: "#DA2C2C",
+      },
+    },
+  },
 });
 
-export const comboIconRecipe = recipe({
+export const selectIconRecipe = recipe({
   base: {
     transition: "0.2s ease",
     cursor: "pointer",
@@ -125,16 +137,28 @@ export const comboIconRecipe = recipe({
   },
 });
 
-export const inputStyles = style({
-  width: "100%",
-  border: "none",
-  outline: "none",
-  padding: 0,
-  fontSize: "16px",
-  background: "transparent",
+export const inputRecipe = recipe({
+  base: {
+    width: "100%",
+    border: "none",
+    outline: "none",
+    padding: 0,
+    fontSize: "16px",
+    background: "transparent",
+  },
+  variants: {
+    error: {
+      true: {
+        color: "#DA2C2C",
+        "::placeholder": { color: "#DA2C2C" },
+      },
+    },
+  },
 });
 
 export const inputTextContainer = style({
-  width: "100%",
+  width: "85%",
   fontSize: "16px",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
 });

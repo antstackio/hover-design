@@ -1,2 +1,2 @@
-export * from "./ComboBox";
-export * from "./comboBox.css";
+export * from "./Select";
+export * from "./select.css";
