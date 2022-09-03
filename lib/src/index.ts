@@ -1,3 +1,6 @@
+/**
+ * Make sure below list is in Alphabetical or Dictionary Order (When adding new component 🙏🏼):
+ */
 export * from "./components/Accordion";
 export * from "./components/Avatar";
 export * from "./components/Badge";

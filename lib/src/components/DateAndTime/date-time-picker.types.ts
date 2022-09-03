@@ -1,6 +1,6 @@
 import React from "react"
 
-export interface DateAndTimeProps extends React.DetailedHTMLProps<
+export interface DateTimePickerProps extends React.DetailedHTMLProps<
 React.InputHTMLAttributes<HTMLInputElement>,
 HTMLInputElement
 > {
