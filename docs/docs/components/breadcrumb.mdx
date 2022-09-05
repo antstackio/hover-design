@@ -1,0 +1,51 @@
+# Breadcrumb
+
+To display hierarchy with respect to current location and help with navigation.
+
+### Quick start
+
+Here's a quick start guide to get started with the Breadcrumb component
+
+### Importing Component
+
+```jsx
+import { Breadcrumb } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Breadcrumb Default
+
+import "@hover-design/react/dist/style.css";
+import { Breadcrumb } from "@hover-design/react";
+
+
+```jsx
+<div className="App">
+  <Breadcrumb>
+    <Breadcrumb.Item>Home</Breadcrumb.Item>
+    <Breadcrumb.Item href="">
+      Application Center
+    </Breadcrumb.Item>
+    <Breadcrumb.Item>
+      <a href="">Application List</a>
+    </Breadcrumb.Item>
+    <Breadcrumb.Item>An Application</Breadcrumb.Item>
+  </Breadcrumb>
+</div>
+```
+### Breadcrumb 
+
+
+### Breadcrumb.Item
+| Property  | Description                          | Type                   | Default	Version |
+| :-------- | :-----------------------------       | :---                   | :-------------  |
+| className	|The additional css class	             | string                 |	       -        |
+|href	      |Target of hyperlink                   | string	                |        -	      |
+|onClick	  |Set the handler to handle click event |	(e:MouseEvent) => void|             	-	|
+
+
+### Breadcrumb.Separator
+|Property	| Description	   | Type       | Default	Version |
+| :------ | :------------- | :----------| :-------------- |
+|children	|Custom separator|	ReactNode	|  `/`            |	
