@@ -204,13 +204,17 @@ const SelectComponent: ForwardRefRenderFunction<
   };
 
   const handleInputKeyChange = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "ArrowDown") {
-      setIsDropped(true);
-      setTimeout(() => focusFirstOption());
-    }
+    initiateKeyboardNavigation(event.key);
     if (event.key === "Enter" || event.code === "Space") {
       event.preventDefault();
       changeDrop();
+    }
+  };
+
+  const initiateKeyboardNavigation = (key: string) => {
+    if (key === "ArrowDown") {
+      setIsDropped(true);
+      setTimeout(() => focusFirstOption());
     }
   };
 
@@ -372,7 +376,10 @@ const SelectComponent: ForwardRefRenderFunction<
               value={searchText}
               placeholder={placeholder || "Search here"}
               onChange={internalChangeHandler}
-              onKeyDown={(event) => event.stopPropagation()}
+              onKeyDown={(event) => {
+                event.stopPropagation();
+                initiateKeyboardNavigation(event.key);
+              }}
             />
           )}
           {!isMulti &&
