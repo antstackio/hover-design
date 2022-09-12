@@ -50,6 +50,8 @@ const SelectComponent: ForwardRefRenderFunction<
     DropIcon,
     error = false,
     nothingFoundLabel,
+    className,
+    style,
     onDropDownClose = () => {},
     onDropDownOpen = () => {},
   },
@@ -351,13 +353,16 @@ const SelectComponent: ForwardRefRenderFunction<
         }
       }}
       flexDirection="column"
-      className={selectContainerStyles}
-      style={assignInlineVars({
-        [selectVars.borderRadius]: borderRadius,
-        [selectVars.color]: color,
-        [selectVars.width]: width,
-        [selectVars.maxDropDownHeight]: maxDropDownHeight,
-      })}
+      className={`${selectContainerStyles} ${className}`}
+      style={{
+        ...style,
+        ...assignInlineVars({
+          [selectVars.borderRadius]: borderRadius,
+          [selectVars.color]: color,
+          [selectVars.width]: width,
+          [selectVars.maxDropDownHeight]: maxDropDownHeight,
+        }),
+      }}
     >
       <Flex
         role="combobox"
