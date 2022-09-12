@@ -41,7 +41,7 @@ const SelectComponent: ForwardRefRenderFunction<
     width = "100%",
     borderRadius = "0",
     color = "#2F80ED",
-    maxDropDownHeight = "auto",
+    maxDropDownHeight = "200px",
     onChange = () => {},
     isSearchable = false,
     isClearable = false,
@@ -85,15 +85,21 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [selectValue, isMulti]);
 
   useEffect(() => {
+    focusElement(cursor);
+  }, [cursor]);
+
+  useEffect(() => {
     if (internalOptions.length !== 0) {
       let skipCount = cursor;
       while (internalOptions[skipCount]?.disabled) {
-        skipCount++;
+        if (skipCount === internalOptions.length - 1) {
+          skipCount = 0;
+        } else skipCount++;
       }
-      skipCount < internalOptions.length && focusElement(skipCount);
+      skipCount < internalOptions.length && setCursor(skipCount);
       internalOptions.every((option) => option.disabled) && blurAllElements();
     }
-  }, [cursor, internalOptions]);
+  }, [internalOptions]);
 
   useEffect(() => {
     if (optionsListRef.current && inputRef.current) {
@@ -438,12 +444,18 @@ const SelectComponent: ForwardRefRenderFunction<
                   key={ind}
                   ref={option.ref}
                   role="option"
-                  tabIndex={option.disabled ? 2 : -1}
+                  tabIndex={-1}
                   aria-selected={option.value === selectValue}
                   className={selectListClass}
                   onClick={(event) =>
                     !option.disabled && internalClickHandler(option, event)
                   }
+                  onMouseMove={(event) => {
+                    !option.disabled && event.currentTarget.focus();
+                  }}
+                  onMouseLeave={(event) => {
+                    event.currentTarget.blur();
+                  }}
                   onKeyDown={(event) => handleOptionKeyChange(event, option)}
                 >
                   <span>{option.label}</span>
