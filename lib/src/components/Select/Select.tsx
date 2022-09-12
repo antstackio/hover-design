@@ -85,8 +85,15 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [selectValue, isMulti]);
 
   useEffect(() => {
-    focusElement(cursor);
-  }, [cursor]);
+    if (internalOptions.length !== 0) {
+      let skipCount = cursor;
+      while (internalOptions[skipCount]?.disabled) {
+        skipCount++;
+      }
+      skipCount < internalOptions.length && focusElement(skipCount);
+      internalOptions.every((option) => option.disabled) && blurAllElements();
+    }
+  }, [cursor, internalOptions]);
 
   useEffect(() => {
     if (optionsListRef.current && inputRef.current) {
@@ -109,6 +116,15 @@ const SelectComponent: ForwardRefRenderFunction<
         ...optionsListRef.current.childNodes,
       ] as HTMLElement[];
       optionsList[pointer].focus();
+    }
+  };
+
+  const blurAllElements = () => {
+    if (optionsListRef.current) {
+      const optionsList = [
+        ...optionsListRef.current.childNodes,
+      ] as HTMLElement[];
+      optionsList.map((option) => option.blur());
     }
   };
 
@@ -422,7 +438,7 @@ const SelectComponent: ForwardRefRenderFunction<
                   key={ind}
                   ref={option.ref}
                   role="option"
-                  tabIndex={-1}
+                  tabIndex={option.disabled ? 2 : -1}
                   aria-selected={option.value === selectValue}
                   className={selectListClass}
                   onClick={(event) =>
