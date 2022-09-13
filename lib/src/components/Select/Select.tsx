@@ -221,7 +221,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const clearPill = (
     clearValue: string | number,
-    event: MouseEvent<SVGSVGElement> | KeyboardEvent<HTMLInputElement>
+    event: MouseEvent<SVGSVGElement> | KeyboardEvent<HTMLDivElement>
   ) => {
     let tempArr = typeof selectValue === "object" ? [...selectValue] : [];
     tempArr = tempArr.filter((arr) => arr !== clearValue);
@@ -273,6 +273,17 @@ const SelectComponent: ForwardRefRenderFunction<
       default:
         break;
     }
+
+    if (
+      isMulti &&
+      event.code === "Backspace" &&
+      searchText === "" &&
+      typeof selectValue === "object"
+    ) {
+      let lastValue = selectValue[selectValue.length - 1];
+      clearPill(lastValue, event);
+    }
+
     if (event.key === "Enter" || event.code === "Space") {
       if (event.currentTarget.tagName !== "INPUT") {
         event.preventDefault();
@@ -344,15 +355,6 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const inputKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
     event.stopPropagation();
-    if (
-      isMulti &&
-      event.code === "Backspace" &&
-      searchText === "" &&
-      typeof selectValue === "object"
-    ) {
-      let lastValue = selectValue[selectValue.length - 1];
-      clearPill(lastValue, event);
-    }
     handleInputKeyChange(event);
   };
 
