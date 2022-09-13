@@ -66,7 +66,7 @@ const SelectComponent: ForwardRefRenderFunction<
   const selectRef = useRef() as MutableRefObject<HTMLDivElement>;
   const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
   const optionsListRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const [cursor, setCursor] = useState(0);
+  const [cursor, setCursor] = useState(-1);
 
   useEffect(() => {
     if (value !== undefined) {
@@ -112,10 +112,10 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [inputRef, optionsListRef, isDropped, selectValue]);
 
   useEffect(() => {
-    if (isDropped) {
-      optionsListRef.current && focusFirstOption();
+    if (!isDropped) {
+      setCursor(-1);
     }
-  }, [isDropped, optionsListRef]);
+  }, [isDropped]);
 
   const getLabel = (extValue?: string | number) => {
     return (
@@ -246,17 +246,12 @@ const SelectComponent: ForwardRefRenderFunction<
     switch (event.key) {
       case "ArrowDown":
         event.preventDefault();
-        !isDropped
-          ? setIsDropped(true)
-          : setTimeout(() => {
-              if (
-                optionsList?.every(
-                  (option) => option.getAttribute("data-hover") !== "true"
-                )
-              ) {
-                focusFirstOption();
-              } else focusNextOption();
-            });
+        !isDropped && setIsDropped(true);
+        setTimeout(() => {
+          if (cursor === -1) {
+            focusFirstOption();
+          } else focusNextOption();
+        });
         break;
       case "ArrowUp":
         event.preventDefault();
@@ -475,7 +470,6 @@ const SelectComponent: ForwardRefRenderFunction<
           flexDirection="column"
           className={`${selectListContainerStyle}`}
           role={"listbox"}
-          tabIndex={-1}
         >
           {internalOptions.length !== 0 ? (
             internalOptions.map((option, ind) => {
@@ -494,9 +488,11 @@ const SelectComponent: ForwardRefRenderFunction<
                   onClick={(event) =>
                     !option.disabled && internalClickHandler(option, event)
                   }
-                  onMouseMove={(event) => {
-                    !option.disabled &&
-                      event.currentTarget.setAttribute("data-hover", "true");
+                  onMouseEnter={(event) => {
+                    if (!option.disabled) {
+                      setCursor(ind);
+                      focusElement(ind);
+                    }
                   }}
                   onMouseLeave={(event) => {
                     event.currentTarget.setAttribute("data-hover", "false");
