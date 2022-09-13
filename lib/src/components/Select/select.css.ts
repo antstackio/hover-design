@@ -1,4 +1,4 @@
-import { createTheme, style } from "@vanilla-extract/css";
+import { createTheme, globalStyle, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { SelectTheme } from "./select.types";
@@ -25,7 +25,7 @@ export const selectInputRecipe = recipe({
     border: "1px solid #ced4da ",
     borderRadius: selectVars.borderRadius,
     cursor: "default",
-    ":focus": {
+    ":focus-within": {
       border: `1px solid ${selectVars.color} `,
       outline: "none",
     },
@@ -80,15 +80,6 @@ export const selectListRecipe = recipe({
     background: "white",
     cursor: "pointer",
     borderRadius: `${calc.subtract(selectVars.borderRadius, "4px")}`,
-    ":hover": {
-      background: "#ebe8e8",
-      color: "black",
-    },
-    ":focus": {
-      background: "#ebe8e8",
-      color: "black",
-      outline: "none",
-    },
   },
   variants: {
     disabled: {
@@ -177,4 +168,10 @@ export const inputTextContainer = style({
   whiteSpace: "nowrap",
   overflow: "hidden",
   height: "100%",
+});
+
+globalStyle(`${selectContainerStyles} [data-hover="true"]`, {
+  background: "#ebe8e8",
+  color: "black",
+  outline: "none",
 });

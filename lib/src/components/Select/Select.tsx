@@ -94,11 +94,11 @@ const SelectComponent: ForwardRefRenderFunction<
     if (internalOptions.length !== 0) {
       let skipCount = cursor;
       while (internalOptions[skipCount]?.disabled) {
-        if (skipCount === internalOptions.length - 1) {
-          skipCount = 0;
-        } else skipCount++;
+        skipCount++;
       }
-      skipCount < internalOptions.length && setCursor(skipCount);
+      skipCount < internalOptions.length &&
+        !internalOptions[skipCount]?.disabled &&
+        setCursor(skipCount);
       internalOptions.every((option) => option.disabled) && blurAllElements();
     }
   }, [internalOptions]);
@@ -111,6 +111,12 @@ const SelectComponent: ForwardRefRenderFunction<
     }
   }, [inputRef, optionsListRef, isDropped, selectValue]);
 
+  useEffect(() => {
+    if (isDropped) {
+      optionsListRef.current && focusFirstOption();
+    }
+  }, [isDropped, optionsListRef]);
+
   const getLabel = (extValue?: string | number) => {
     return (
       options.find((option) => option.value === (extValue || selectValue))
@@ -119,20 +125,25 @@ const SelectComponent: ForwardRefRenderFunction<
   };
 
   const focusElement = (pointer: number) => {
-    if (optionsListRef.current) {
-      const optionsList = [
-        ...optionsListRef.current.childNodes,
-      ] as HTMLElement[];
-      optionsList[pointer].focus();
-    }
+    const optionsList = getOptionsRefAsArray();
+    optionsList?.map((option, index) => {
+      if (index === pointer) {
+        option.setAttribute("data-hover", "true");
+      } else option.setAttribute("data-hover", "false");
+    });
   };
 
   const blurAllElements = () => {
+    const optionsList = getOptionsRefAsArray();
+    optionsList?.map((option) => option.setAttribute("data-hover", "false"));
+  };
+
+  const getOptionsRefAsArray = () => {
     if (optionsListRef.current) {
       const optionsList = [
         ...optionsListRef.current.childNodes,
       ] as HTMLElement[];
-      optionsList.map((option) => option.blur());
+      return optionsList;
     }
   };
 
@@ -179,7 +190,10 @@ const SelectComponent: ForwardRefRenderFunction<
     setIsDropped(true);
     setSearchText(text);
     const filteredOptions = mainOptions.filter((option) => {
-      return option.label.toLowerCase().includes(text.toLowerCase());
+      return option.label
+        .trim()
+        .toLowerCase()
+        .includes(text.trim().toLowerCase());
     });
     text === ""
       ? setInternalOptions(mainOptions)
@@ -207,7 +221,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const clearPill = (
     clearValue: string | number,
-    event: MouseEvent<SVGSVGElement>
+    event: MouseEvent<SVGSVGElement> | KeyboardEvent<HTMLInputElement>
   ) => {
     let tempArr = typeof selectValue === "object" ? [...selectValue] : [];
     tempArr = tempArr.filter((arr) => arr !== clearValue);
@@ -228,17 +242,55 @@ const SelectComponent: ForwardRefRenderFunction<
   };
 
   const handleInputKeyChange = (event: KeyboardEvent<HTMLDivElement>) => {
-    initiateKeyboardNavigation(event.key);
-    if (event.key === "Enter" || event.code === "Space") {
-      event.preventDefault();
-      changeDrop();
+    const optionsList = getOptionsRefAsArray();
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+        !isDropped
+          ? setIsDropped(true)
+          : setTimeout(() => {
+              if (
+                optionsList?.every(
+                  (option) => option.getAttribute("data-hover") !== "true"
+                )
+              ) {
+                focusFirstOption();
+              } else focusNextOption();
+            });
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        focusPrevOption();
+        break;
+      case "Home":
+        event.preventDefault();
+        focusFirstOption();
+        break;
+      case "End":
+        event.preventDefault();
+        focusLastOption();
+        break;
+      default:
+        break;
     }
-  };
-
-  const initiateKeyboardNavigation = (key: string) => {
-    if (key === "ArrowDown") {
-      setIsDropped(true);
-      setTimeout(() => focusFirstOption());
+    if (event.key === "Enter" || event.code === "Space") {
+      if (event.currentTarget.tagName !== "INPUT") {
+        event.preventDefault();
+      } else {
+        event.code !== "Space" && event.preventDefault();
+      }
+      if (isDropped) {
+        optionsList?.map((option) => {
+          if (option.getAttribute("data-hover") === "true") {
+            const optionValue = internalOptions.find(
+              (arr) => arr.value === option.getAttribute("data-value")
+            ) as OptionsType;
+            !optionValue.disabled && internalClickHandler(optionValue, event);
+          }
+        });
+      } else if (!isDropped) {
+        setIsDropped(true);
+      }
     }
   };
 
@@ -290,32 +342,20 @@ const SelectComponent: ForwardRefRenderFunction<
       setCursor(internalOptions.length - skipStep);
   };
 
-  const handleOptionKeyChange = (
-    event: KeyboardEvent<HTMLDivElement>,
-    option: OptionsType
-  ) => {
-    switch (event.key) {
-      case "ArrowDown":
-        focusNextOption();
-        break;
-      case "ArrowUp":
-        focusPrevOption();
-        break;
-      case "Home":
-        focusFirstOption();
-        break;
-      case "End":
-        focusLastOption();
-        break;
-      default:
-        break;
+  const inputKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+    if (
+      isMulti &&
+      event.code === "Backspace" &&
+      searchText === "" &&
+      typeof selectValue === "object"
+    ) {
+      let lastValue = selectValue[selectValue.length - 1];
+      clearPill(lastValue, event);
     }
-
-    event.key !== "Tab" && event.preventDefault();
-    (event.key === "Enter" || event.code === "Space") &&
-      !option.disabled &&
-      internalClickHandler(option, event);
+    handleInputKeyChange(event);
   };
+
   const selectIconClass = selectIconRecipe({
     isDropped,
   });
@@ -403,10 +443,7 @@ const SelectComponent: ForwardRefRenderFunction<
               value={searchText}
               placeholder={placeholder || "Search here"}
               onChange={internalChangeHandler}
-              onKeyDown={(event) => {
-                event.stopPropagation();
-                initiateKeyboardNavigation(event.key);
-              }}
+              onKeyDown={inputKeyDownHandler}
             />
           )}
           {!isMulti &&
@@ -449,19 +486,19 @@ const SelectComponent: ForwardRefRenderFunction<
                   key={ind}
                   ref={option.ref}
                   role="option"
-                  tabIndex={-1}
+                  data-value={option.value}
                   aria-selected={option.value === selectValue}
                   className={selectListClass}
                   onClick={(event) =>
                     !option.disabled && internalClickHandler(option, event)
                   }
                   onMouseMove={(event) => {
-                    !option.disabled && event.currentTarget.focus();
+                    !option.disabled &&
+                      event.currentTarget.setAttribute("data-hover", "true");
                   }}
                   onMouseLeave={(event) => {
-                    event.currentTarget.blur();
+                    event.currentTarget.setAttribute("data-hover", "false");
                   }}
-                  onKeyDown={(event) => handleOptionKeyChange(event, option)}
                 >
                   <span>{option.label}</span>
                 </div>
