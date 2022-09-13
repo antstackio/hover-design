@@ -8,7 +8,7 @@ type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 export type SelectPropsType = divType & {
   placeholder?: string;
   options: OptionsType[];
-  value?: string | number;
+  value?: string | number | (string | number)[];
   width?: string;
   onChange?: (
     value: string | number | (string | number)[],
