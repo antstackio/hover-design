@@ -5,6 +5,7 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { eliminateUndefinedKeys } from "src/utils/object-utils";
 import { ICheckboxProps } from "./checkbox.types";
 import {
+  checkboxBorderRadius,
   checkboxCheckMarkClass,
   checkboxSizes,
   checkboxThemeClass,
@@ -38,6 +39,11 @@ const Checkbox: ForwardRefRenderFunction<HTMLInputElement, ICheckboxProps> = (
       [checkboxThemeVars.checkboxStyleSize]: checkboxSizes[checkboxSize]
         ? checkboxSizes[checkboxSize]
         : undefined,
+      [checkboxThemeVars.checkboxStyleBorderRadius]: checkboxBorderRadius[
+        borderRadius
+      ]
+        ? checkboxBorderRadius[borderRadius]
+        : borderRadius,
       [checkboxThemeVars.baseStyles.backgroundColor]:
         baseStyles?.backgroundColor,
       [checkboxThemeVars.baseStyles.borderColor]: baseStyles?.borderColor,
