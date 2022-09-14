@@ -11,22 +11,25 @@ export default defineConfig({
   plugins: [
     react(),
     vanillaExtractPlugin({ identifiers: "short" }),
-    tsconfigPaths(),
+    tsconfigPaths()
   ],
+  resolve: {
+    alias: [{ find: "src", replacement: resolve(__dirname, "src") }]
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       fileName: (format) => `hover-react.${format}.js`,
       formats: ["es"],
-      name: "@hover-design/react",
+      name: "@hover-design/react"
     },
     rollupOptions: {
       external: Object.keys(pkg.peerDependencies),
       output: {
         globals: {
-          react: "React",
-        },
-      },
-    },
-  },
+          react: "React"
+        }
+      }
+    }
+  }
 });
