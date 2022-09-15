@@ -6,7 +6,9 @@ In this guide you will get an overview of the contribution workflow from cloning
 
 ## 1. Cloning the repository
 
-First step is to clone the hover project from [Github](https://github.com/antstackio/hover-design)
+First step is to fork the hover project from [Github](https://github.com/antstackio/hover-design)
+
+_Note: We have a Playbook for the best practices read more [here](/docs/wiki/playbooks/git_playbook)_
 
 ## 2. Understanding the Project
 
@@ -57,6 +59,12 @@ Raise a PR after contributing the code and replacing spec with actual documentat
 
 For our Ideas, methodology and reasonings refer to our [Wiki](/docs/wiki/home)
 
+We also have a [Playbook](/docs/wiki/playbooks/git_playbook) where we document our best practices and 'what to dos'
+
 refer [Prerequisites](/docs/wiki/getting_started) to look at what approach to follow.
 
 Thank you for taking the time to read this doc. to suggest anything do not be afraid to [create an issue](https://github.com/antstackio/hover-design/issues/new) at the hover repo
+
+## 5. Testing locally.
+
+We use [Ladle](https://ladle.dev/) for writing stories. All you need to do is write a `.story.tsx` file and see the magic happen by running `pnpm ladle`.
