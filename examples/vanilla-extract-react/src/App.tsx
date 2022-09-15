@@ -1,4 +1,4 @@
-import { Button, Radio, RadioGroup } from "@hover-design/react";
+import { Button, List, ListItem, Radio, RadioGroup } from "@hover-design/react";
 import { StyleWrapper } from "components/appWraper/StyleWrapper";
 import { BreakpointsExample } from "components/breakpointsExample/BreakpointsExample";
 import { ColorsPreview } from "components/colorsPreview/colorsPreview";
@@ -32,6 +32,12 @@ const App: React.FC = () => {
           >
             Overpass
           </h3>
+          <List type="circle">
+            <ListItem>Hello</ListItem>
+            <ListItem>Hello</ListItem>
+            <ListItem>Hello</ListItem>
+            <ListItem>Hello</ListItem>
+          </List>
           <h2>Breakpoints</h2>
           <BreakpointsExample />
         </Container>
