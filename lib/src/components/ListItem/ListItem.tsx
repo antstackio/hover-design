@@ -1,5 +1,4 @@
 import React, { ForwardRefRenderFunction } from "react";
-import { listItemStyles } from "./list-item.css";
 import { IListItemProps } from "./list-item.types";
 
 const ListItemComponent: ForwardRefRenderFunction<
@@ -7,11 +6,7 @@ const ListItemComponent: ForwardRefRenderFunction<
   IListItemProps
 > = ({ children, ...props }, ref) => {
   return (
-    <li
-      className={`${listItemStyles} ${props?.className || ""}`}
-      ref={ref}
-      {...props}
-    >
+    <li className={`${props?.className || ""}`} ref={ref} {...props}>
       {children}
     </li>
   );

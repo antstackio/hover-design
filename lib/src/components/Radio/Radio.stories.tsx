@@ -1,19 +1,23 @@
-import { Radio } from ".";
+import { Radio } from "./Radio";
 import type { Story } from "@ladle/react";
 import { IRadioProps } from "./radio.types";
-import { useRef } from "react";
 
-export const Controls: Story<Omit<IRadioProps, "ref">> = ({
+export const RadioStory: Story<Omit<IRadioProps, "ref">> = ({
   ...nativeProps
 }) => {
   return (
     <>
-      <Radio {...nativeProps} />
+      <label>
+        <Radio {...nativeProps} />
+        Radio button
+      </label>
     </>
   );
 };
 
-Controls.args = {
-  disabled: false
+RadioStory.args = {
+  isDisabled: false,
+  checked: false,
+  radioSize: "xs"
 };
-Controls.argTypes = {};
+RadioStory.argTypes = {};

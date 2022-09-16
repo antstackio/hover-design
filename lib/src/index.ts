@@ -1,6 +1,7 @@
 export * from "./components/Badge";
 export * from "./components/Button";
 export * from "./components/Card";
+export * from "./components/Checkbox";
 export * from "./components/Flex";
 export * from "./components/Grid";
 export * from "./components/List";

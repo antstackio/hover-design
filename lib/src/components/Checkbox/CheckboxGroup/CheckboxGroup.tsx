@@ -1,12 +1,18 @@
 import React, { ForwardRefRenderFunction } from "react";
 
-import { TRadioGroupProps } from "../radio.types";
 import { Flex } from "src/components/Flex";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { radioGroupChildClass, radioGroupSpacing } from "../radio.styles.css";
 import { eliminateUndefinedKeys } from "src/utils/object-utils";
+import {
+  checkboxGroupChildClass,
+  checkboxGroupSpacing
+} from "../checkbox.styles.css";
+import { TCheckboxGroupProps } from "../checkbox.types";
 
-const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
+const CheckboxGroup: ForwardRefRenderFunction<
+  HTMLDivElement,
+  TCheckboxGroupProps
+> = (
   {
     children,
     className,
@@ -23,10 +29,10 @@ const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
     <Flex
       flexDirection={orientation === "horizontal" ? "row" : "column"}
       ref={ref}
-      gap={radioGroupSpacing[spacing]}
-      className={` ${orientation === "vertical" ? radioGroupChildClass : ""} ${
-        className || ""
-      }`}
+      gap={checkboxGroupSpacing[spacing]}
+      className={` ${
+        orientation === "vertical" ? checkboxGroupChildClass : ""
+      } ${className || ""}`}
       style={{ ...assignVariables, ...(style || {}) }}
       {...nativeProps}
     >
@@ -35,5 +41,5 @@ const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
   );
 };
 
-const RadioGroupWithRef = React.forwardRef(RadioGroup);
-export { RadioGroupWithRef as RadioGroup };
+const CheckboxGroupWithRef = React.forwardRef(CheckboxGroup);
+export { CheckboxGroupWithRef as CheckboxGroup };
