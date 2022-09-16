@@ -169,9 +169,3 @@ export const inputTextContainer = style({
   overflow: "hidden",
   height: "100%",
 });
-
-globalStyle(`${selectContainerStyles} [data-hover="true"]`, {
-  background: "#ebe8e8",
-  color: "black",
-  outline: "none",
-});

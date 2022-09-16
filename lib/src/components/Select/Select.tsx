@@ -29,6 +29,7 @@ import {
   inputRecipe,
 } from "./select.css";
 import { SelectPropsType, OptionsType } from "./select.types";
+import "./select.global.styles.css";
 
 const SelectComponent: ForwardRefRenderFunction<
   HTMLDivElement,

@@ -51,7 +51,7 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
         </select>
         {!multiple && (
           <Flex className={nativeSelectIconStyle} alignItems="center">
-            <ArrowDown />
+            <ArrowDown width={18} height={18} />
           </Flex>
         )}
       </div>
