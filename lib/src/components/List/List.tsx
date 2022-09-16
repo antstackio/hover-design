@@ -14,7 +14,7 @@ const ListComponent: ForwardRefRenderFunction<HTMLUListElement, IListProps> = (
   return (
     <ul
       style={assignInlineVars({
-        [listThemeVars.listStyles.listStyleType]: type || "none",
+        [listThemeVars.listStyles.listStyleType]: type || "disc",
       })}
       className={`${listStyle} ${listThemeClass} ${props.className || ""}`}
       ref={ref}
