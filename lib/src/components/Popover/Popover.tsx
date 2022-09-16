@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useTrapFocus } from "src/hooks/useTrapFocus";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { Flex } from "../Flex";
 import {
@@ -92,35 +93,10 @@ const PopoverComponent: ForwardRefRenderFunction<
     }
   };
 
-  const internalContentKeyDownHandler = (e: KeyboardEvent<HTMLDivElement>) => {
-    const focusableElements =
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-
-    const firstFocusableElement = contentRef.current.querySelectorAll(
-      focusableElements
-    )[0] as HTMLElement;
-    const focusableContent =
-      contentRef.current.querySelectorAll(focusableElements);
-    const lastFocusableElement = focusableContent[
-      focusableContent.length - 1
-    ] as HTMLElement;
-    let isTabPressed = e.key === "Tab";
-
-    if (!isTabPressed || !trapFocus) {
-      return;
-    }
-
-    if (e.shiftKey) {
-      if (document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus();
-        e.preventDefault();
-      }
-    } else {
-      if (document.activeElement === lastFocusableElement) {
-        firstFocusableElement.focus();
-        e.preventDefault();
-      }
-    }
+  const internalContentKeyDownHandler = (
+    event: KeyboardEvent<HTMLDivElement>
+  ) => {
+    trapFocus && useTrapFocus(event, contentRef);
   };
 
   const getTargetWidth = () => {
@@ -166,6 +142,8 @@ const PopoverComponent: ForwardRefRenderFunction<
       </div>
       {isOpen && (
         <Flex
+          aria-expanded={isOpen}
+          role="dialog"
           ref={contentRef}
           justifyContent="center"
           alignItems="center"
