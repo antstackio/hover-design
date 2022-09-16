@@ -12,7 +12,7 @@ import {
   checkboxThemeVars,
   checkboxWrapperClass
 } from "./checkbox.styles.css";
-import { SvgCheck, SvgDash } from "../_internal/Icons";
+import { CheckIcon, DashIcon } from "../_internal/Icons";
 
 const Checkbox: ForwardRefRenderFunction<HTMLInputElement, ICheckboxProps> = (
   {
@@ -86,8 +86,8 @@ const Checkbox: ForwardRefRenderFunction<HTMLInputElement, ICheckboxProps> = (
         data-indeterminate={indeterminate ? "true" : "false"}
         data-disabled={isDisabled ? "true" : "false"}
       >
-        {checked && !indeterminate ? <SvgCheck /> : null}
-        {!checked && indeterminate ? <SvgDash /> : null}
+        {checked && !indeterminate ? <CheckIcon /> : null}
+        {!checked && indeterminate ? <DashIcon /> : null}
       </div>
     </div>
   );
