@@ -1,21 +1,10 @@
 import { FC } from "react";
+import { positionType } from "../_internal/Types/types";
 
 type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 
 export type TooltipType = divType & {
-  position?:
-    | "bottom"
-    | "left"
-    | "right"
-    | "top"
-    | "bottom-end"
-    | "bottom-start"
-    | "left-end"
-    | "left-start"
-    | "right-end"
-    | "right-start"
-    | "top-end"
-    | "top-start";
+  position?: positionType;
   label: string | number;
   offset?: string;
   borderRadius?: string;

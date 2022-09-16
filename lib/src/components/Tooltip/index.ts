@@ -1,2 +1,2 @@
 export * from "./Tooltip";
-export * from "./tooltip.css";
+export * from "./tooltip.styles.css";

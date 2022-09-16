@@ -1,19 +1,9 @@
+import { positionType } from "../_internal/Types/types";
+
 type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 
 export type PopoverType = divType & {
-  position?:
-    | "bottom"
-    | "left"
-    | "right"
-    | "top"
-    | "bottom-end"
-    | "bottom-start"
-    | "left-end"
-    | "left-start"
-    | "right-end"
-    | "right-start"
-    | "top-end"
-    | "top-start";
+  position?: positionType;
   content: JSX.Element;
   offset?: string;
   borderRadius?: string;

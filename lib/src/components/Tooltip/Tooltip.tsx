@@ -17,7 +17,7 @@ import {
   tooltipContainerStyles,
   toolRadius,
   toolWidth,
-} from "./tooltip.css";
+} from "./tooltip.styles.css";
 import { TooltipType } from "./tooltip.types";
 
 const TooltipComponent: ForwardRefRenderFunction<

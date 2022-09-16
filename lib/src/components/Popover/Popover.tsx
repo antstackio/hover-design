@@ -18,7 +18,7 @@ import {
   popoverContainerStyles,
   popRadius,
   popWidth,
-} from "./popover.css";
+} from "./popover.styles.css";
 import { PopoverType } from "./popover.types";
 
 const PopoverComponent: ForwardRefRenderFunction<
