@@ -8,27 +8,26 @@ import {
   useRef,
   useState,
 } from "react";
-import { useTrapFocus } from "src/hooks/useTrapFocus";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import {
-  contentRecipe,
-  popArrowOffset,
-  popArrowSize,
-  popOffset,
-  popoverContainerStyles,
-  popRadius,
-  popWidth,
-} from "./popover.styles.css";
-import { PopoverType } from "./popover.types";
+  labelRecipe,
+  toolArrowOffset,
+  toolArrowSize,
+  toolOffset,
+  tooltipContainerStyles,
+  toolRadius,
+  toolWidth,
+} from "./tooltip.styles.css";
+import { TooltipType } from "./tooltip.types";
 
-const PopoverComponent: ForwardRefRenderFunction<
+const TooltipComponent: ForwardRefRenderFunction<
   HTMLDivElement,
-  PopoverType
+  TooltipType
 > = (
   {
     children,
     position = "bottom",
-    content,
+    label,
     offset = "4px",
     borderRadius = "4px",
     width = "fit-content",
@@ -39,14 +38,16 @@ const PopoverComponent: ForwardRefRenderFunction<
     className,
     style,
     zIndex = "1",
-    trapFocus = false,
+    color = "#2C2E33",
+    labelColor = "white",
+    multiLine = false,
   },
   ref
 ) => {
   const [isOpen, setIsOpen] = useState<boolean | null>(null);
   const [targetWidth, setTargetWidth] = useState("");
-  const popRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const contentRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const toolRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const labelRef = useRef() as MutableRefObject<HTMLDivElement>;
   const targetRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
@@ -66,7 +67,7 @@ const PopoverComponent: ForwardRefRenderFunction<
   }, [width, targetRef.current]);
 
   useClickOutside(
-    popRef,
+    toolRef,
     () => {
       isOpened === undefined && setIsOpen(false);
     },
@@ -92,38 +93,31 @@ const PopoverComponent: ForwardRefRenderFunction<
     }
   };
 
-  const internalContentKeyDownHandler = (
-    event: KeyboardEvent<HTMLDivElement>
-  ) => {
-    trapFocus && useTrapFocus(event, contentRef);
-  };
-
   const getTargetWidth = () => {
     return `${targetRef?.current?.offsetWidth}px`;
   };
 
-  const contentContainerStyles = contentRecipe({
+  const labelContainerStyles = labelRecipe({
     position,
     withArrow: withArrow ? true : false,
   });
 
   return (
     <div
-      className={popoverContainerStyles}
-      ref={popRef}
+      className={`${tooltipContainerStyles}`}
+      ref={toolRef}
       style={assignInlineVars({
-        [popOffset]: withArrow
-          ? `${Math.hypot(parseInt(arrowSize) + 4) / 2 + parseInt(offset)}px`
+        [toolOffset]: withArrow
+          ? `${Math.hypot(parseInt(arrowSize) + 2) / 2 + parseInt(offset)}px`
           : offset,
-        [popRadius]: borderRadius,
-        [popWidth]: targetWidth,
-        [popArrowSize]: arrowSize,
-        [popArrowOffset]: `-${Math.hypot(parseInt(arrowSize) + 2) / 2}px`,
+        [toolRadius]: borderRadius,
+        [toolWidth]: targetWidth,
+        [toolArrowSize]: arrowSize,
+        [toolArrowOffset]: `-${Math.hypot(parseInt(arrowSize)) / 2}px`,
       })}
     >
       <div
         ref={targetRef}
-        className="hover-popover-target"
         onClick={internalClickHandler}
         onKeyDown={internalKeyDownHandler}
       >
@@ -134,7 +128,7 @@ const PopoverComponent: ForwardRefRenderFunction<
           aria-expanded={isOpen}
           role="dialog"
           ref={(node) => {
-            contentRef.current = node as HTMLDivElement;
+            labelRef.current = node as HTMLDivElement;
             if (typeof ref === "function") {
               ref(node);
             } else if (ref) {
@@ -144,17 +138,19 @@ const PopoverComponent: ForwardRefRenderFunction<
           style={{
             ...assignInlineVars({
               zIndex,
+              backgroundColor: color,
+              color: labelColor,
+              whiteSpace: multiLine ? "wrap" : "nowrap",
             }),
             ...style,
           }}
-          onKeyDown={internalContentKeyDownHandler}
-          className={`${contentContainerStyles} ${className}`}
+          className={`${labelContainerStyles} ${className}`}
         >
-          {content}
+          {label}
         </div>
       )}
     </div>
   );
 };
 
-export const Popover = forwardRef(PopoverComponent);
+export const Tooltip = forwardRef(TooltipComponent);

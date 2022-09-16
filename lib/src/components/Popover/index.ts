@@ -1,2 +1,2 @@
 export * from "./Popover";
-export * from "./popover.css";
+export * from "./popover.styles.css";
