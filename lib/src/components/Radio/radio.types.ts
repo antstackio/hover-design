@@ -13,7 +13,7 @@ export type TRadioGroupProps = JSX.IntrinsicElements["div"] & {
   ref?: MutableRefObject<HTMLDivElement | null>;
   spacing?: TRadioSpacing;
   children?: ReactNode;
-  orientation?: "horizontal" | "verticle";
+  orientation?: "horizontal" | "vertical";
 };
 
 export interface IRadioProps

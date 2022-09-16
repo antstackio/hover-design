@@ -1,0 +1,317 @@
+# Checkbox
+
+### Quick start
+
+Here's a quick start guide to get started with the Checkbox component, Checkboxes are for selecting one or several options in a list.
+
+### Importing Component
+
+import "@hover-design/react/dist/style.css";
+import { Checkbox, CheckboxGroup, Card } from "@hover-design/react";
+import {
+  CheckboxExample,
+  CheckboxGroupExample
+} from "@site/src/components/examples/CheckboxExample";
+
+export const CheckboxContainer = ({ children }) => (
+  <Card variant="shadow">{children}</Card>
+);
+
+```jsx
+import { Checkbox, CheckboxGroup } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Simple Checkbox
+
+```jsx
+import { Checkbox, CheckboxGroup } from "@hover-design/react";
+
+const Demo = () => {
+  const [checkboxVal, setCheckboxVal] = useState({
+    honeypot: false,
+    rover: false,
+    weaver: false
+  });
+
+  return (
+    <div>
+      <label>
+        <Checkbox
+          name="antColony"
+          value="honeypot"
+          checked={checkboxVal.honeypot}
+          onChange={() =>
+            setCheckboxVal({
+              ...checkboxVal,
+              honeypot: !checkboxVal.honeypot
+            })
+          }
+        />
+        Honeypot
+      </label>
+      <label>
+        <Checkbox
+          name="antColony"
+          value="rover"
+          checked={checkboxVal.rover}
+          onChange={() =>
+            setCheckboxVal({
+              ...checkboxVal,
+              rover: !checkboxVal.rover
+            })
+          }
+        />
+        Rover
+      </label>
+      <label>
+        <Checkbox
+          name="antColony"
+          value="weaver"
+          checked={checkboxVal.weaver}
+          onChange={() =>
+            setCheckboxVal({
+              ...checkboxVal,
+              weaver: !checkboxVal.weaver
+            })
+          }
+        />
+        Weaver
+      </label>
+    </div>
+  );
+};
+```
+
+<CheckboxContainer>
+  <CheckboxGroupExample />
+</CheckboxContainer>
+
+##### Checkbox States
+
+```jsx
+<div>
+  <label>
+    <Checkbox /> Unselected Checkbox
+  </label>
+  <label>
+    <Checkbox checked /> Selected Checkbox
+  </label>
+  <label>
+    <Checkbox indeterminate /> Indeterminate Checkbox
+  </label>
+  <label>
+    <Checkbox isDisabled /> Disabled Checkbox
+  </label>
+  <label>
+    <Checkbox isDisabled checked /> Disabled Selected Checkbox
+  </label>
+  <label>
+    <Checkbox isDisabled indeterminate /> Disabled Indeterminate Checkbox
+  </label>
+</div>
+```
+
+<CheckboxContainer>
+  <CheckboxGroup orientation="vertical">
+    <label style={{ fontWeight: "bold" }}>
+      <Checkbox /> Unselected Checkbox
+    </label>
+    <label style={{ fontWeight: "bold" }}>
+      <Checkbox checked /> Selected Checkbox
+    </label>
+    <label style={{ fontWeight: "bold" }}>
+      <Checkbox indeterminate /> Indeterminate Checkbox
+    </label>
+    <label style={{ fontWeight: "bold" }}>
+      <Checkbox isDisabled /> Disabled Checkbox
+    </label>
+    <label style={{ fontWeight: "bold" }}>
+      <Checkbox isDisabled checked /> Disabled Selected Checkbox
+    </label>
+    <label style={{ fontWeight: "bold" }}>
+      <Checkbox isDisabled indeterminate /> Disabled Indeterminate Checkbox
+    </label>
+  </CheckboxGroup>
+</CheckboxContainer>
+
+##### Checkbox Group
+
+```jsx
+<CheckboxGroup orientation="vertical" spacing="xl">
+  <label>
+    <Checkbox name="antColony" value="honeypot" checked />
+    Honeypot
+  </label>
+  <label>
+    <Checkbox name="antColony" value="rover" />
+    Rover
+  </label>
+  <label>
+    <Checkbox name="antColony" value="weaver" isDisabled />
+    Weaver
+  </label>
+</CheckboxGroup>
+```
+
+<CheckboxContainer>
+  <CheckboxGroupExample
+    checkboxGroupProps={{ orientation: "vertical", spacing: "xl" }}
+  />
+</CheckboxContainer>
+
+##### Checkbox with styles
+
+```jsx
+<div>
+  <Checkbox
+    checked
+    checkboxSize="xs"
+    selectedStyles={{
+      borderColor: "rgb(102, 168, 15)",
+      backgroundColor: "rgb(102, 168, 15)"
+    }}
+  />
+  <Checkbox checkboxSize="sm" checked />
+  <Checkbox
+    checked
+    checkboxSize="md"
+    selectedStyles={{
+      borderColor: "rgb(224, 49, 49)",
+      backgroundColor: "rgb(224, 49, 49)"
+    }}
+  />
+  <Checkbox
+    indeterminate
+    checkboxSize="md"
+    indeterminateStyles={{
+      borderColor: "rgb(240, 140, 0)",
+      backgroundColor: "rgb(240, 140, 0)"
+    }}
+  />
+  <Checkbox
+    checkboxSize="sm"
+    isDisabled
+    borderRadius="md"
+    disabledStyles={{
+      borderColor: "rgb(255, 255, 255)",
+      backgroundColor: "rgb(0, 0, 0)"
+    }}
+  />
+  <Checkbox
+    indeterminate
+    checkboxSize="xs"
+    borderRadius="xl"
+    indeterminateStyles={{
+      borderColor: "rgb(156, 54, 181)",
+      backgroundColor: "rgb(156, 54, 181)"
+    }}
+  />
+</div>
+```
+
+<CheckboxContainer>
+  <CheckboxExample
+    checked
+    checkboxSize="xs"
+    selectedStyles={{
+      borderColor: "rgb(102, 168, 15)",
+      backgroundColor: "rgb(102, 168, 15)"
+    }}
+  />
+  <CheckboxExample checkboxSize="sm" checked />
+  <CheckboxExample
+    checked
+    checkboxSize="md"
+    selectedStyles={{
+      borderColor: "rgb(224, 49, 49)",
+      backgroundColor: "rgb(224, 49, 49)"
+    }}
+  />
+  <CheckboxExample
+    indeterminate
+    checkboxSize="md"
+    indeterminateStyles={{
+      borderColor: "rgb(240, 140, 0)",
+      backgroundColor: "rgb(240, 140, 0)"
+    }}
+  />
+  <CheckboxExample
+    checkboxSize="sm"
+    isDisabled
+    borderRadius="md"
+    disabledStyles={{
+      borderColor: "rgb(255, 255, 255)",
+      backgroundColor: "rgb(0, 0, 0)"
+    }}
+  />
+  <CheckboxExample
+    indeterminate
+    checkboxSize="xs"
+    borderRadius="xl"
+    indeterminateStyles={{
+      borderColor: "rgb(156, 54, 181)",
+      backgroundColor: "rgb(156, 54, 181)"
+    }}
+  />
+</CheckboxContainer>
+
+### Checkbox Props Reference
+
+| Key                 |              type               | Optional? |
+| :------------------ | :-----------------------------: | --------: |
+| value               |            `string;`            |       Yes |
+| name                |            `string;`            |       Yes |
+| id                  |            `string;`            |       Yes |
+| indeterminate       |           `boolean;`            |       Yes |
+| isDisabled          |            `boolean`            |       Yes |
+| checkboxSize        | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| borderRadius        | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| baseStyles          |       `baseStyles object`       |       Yes |
+| disabledStyles      |     `disabledStyles object`     |       Yes |
+| selectedStyles      |     `selectedStyles object`     |       Yes |
+| indeterminateStyles |  `indeterminateStyles object`   |       Yes |
+
+##### Customizing Checkbox Base, Selected, Indeterminate and Disabled Styles.
+
+You can customize the base, selected, indeterminate and disabled styles of the checkbox by passing in the baseStyles, selectedStyles, indeterminateStyles and disabledStyles props. Refer this Spec for this:
+
+baseStyles
+
+| Property        | Description            | Default            |
+| --------------- | ---------------------- | ------------------ |
+| backgroundColor | Background of Checkbox | rgb(250, 250, 250) |
+| borderColor     | Border Color           | rgb(204, 204, 204) |
+
+selectedStyles
+
+| Property        | Description                       | Default            |
+| --------------- | --------------------------------- | ------------------ |
+| color           | Selected Checkbox Color           | rgb(250, 250, 250) |
+| backgroundColor | Selected Checkbox BackgroundColor | rgb(25, 113, 194)  |
+| borderColor     | Selected Border Color             | rgb(25, 113, 194)  |
+
+indeterminateStyles
+
+| Property        | Description                       | Default            |
+| --------------- | --------------------------------- | ------------------ |
+| color           | Disabled Checkbox Color           | rgb(250, 250, 250) |
+| backgroundColor | Disabled Checkbox BackgroundColor | rgb(25, 113, 194)  |
+| borderColor     | Disabled Checkbox Border Color    | rgb(25, 113, 194)  |
+
+disabledStyles
+
+| Property        | Description                       | Default            |
+| --------------- | --------------------------------- | ------------------ |
+| backgroundColor | Disabled Checkbox BackgroundColor | rgb(227, 227, 227) |
+| borderColor     | Disabled Checkbox Border Color    | rgb(204, 204, 204) |
+
+### CheckboxGroup Props Reference
+
+| Key         |              type               | Optional? |
+| :---------- | :-----------------------------: | --------: |
+| children    |        `React.ReactNode`        |        No |
+| spacing     | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| orientation |     `verticle` `horizontal`     |       Yes |
+| ref         | `RefObject<HTMLButtonElement>;` |       Yes |
