@@ -1,6 +1,8 @@
+import { FC } from "react";
+
 type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 
-export type PopoverType = divType & {
+export type TooltipType = divType & {
   position?:
     | "bottom"
     | "left"
@@ -14,7 +16,7 @@ export type PopoverType = divType & {
     | "right-start"
     | "top-end"
     | "top-start";
-  content: JSX.Element;
+  label: string | number;
   offset?: string;
   borderRadius?: string;
   width?: string;
@@ -23,5 +25,7 @@ export type PopoverType = divType & {
   isOpened?: boolean;
   onChange?: (isOpened: boolean) => void;
   zIndex?: string;
-  trapFocus?: boolean;
+  color?: string;
+  labelColor?: string;
+  multiLine?: boolean;
 };
