@@ -19,4 +19,5 @@ export * from "./components/Table";
 export * from "./components/Radio";
 export * from "./components/Dialog";
 export * from "./components/Select";
+export * from "./components/Stepper";
 export * from "./components/NativeSelect";
