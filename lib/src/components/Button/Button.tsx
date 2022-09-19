@@ -1,16 +1,20 @@
-import { FC } from "react";
-import { buttonStyles } from "./button.css";
+import { forwardRef, ForwardRefRenderFunction } from "react";
+import { buttonStyles } from "./button.styles.css";
 import { ButtonProps } from "./button.types";
 
-const Button: FC<ButtonProps> = ({
-  variant = "default",
-  padding = "small",
-  fontSize = "small",
-  margin = "default",
-  isBlock = false,
-  children,
-  ...nativeProps
-}) => {
+const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
+  {
+    variant = "default",
+    padding = "small",
+    fontSize = "small",
+    margin = "default",
+    isBlock = false,
+    children,
+    className,
+    ...nativeProps
+  },
+  ref
+) => {
   const buttonStyle = buttonStyles({
     variant,
     padding,
@@ -20,10 +24,16 @@ const Button: FC<ButtonProps> = ({
   });
 
   return (
-    <button className={`${buttonStyle}`} {...nativeProps}>
+    <button
+      ref={ref}
+      className={`${buttonStyle} ${className || ""}`}
+      {...nativeProps}
+    >
       {children}
     </button>
   );
 };
 
-export { Button };
+const ButtonWithRef = forwardRef(Button);
+
+export { ButtonWithRef as Button };
