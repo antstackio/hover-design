@@ -1,4 +1,4 @@
-![Hover Logo](./docs/static/img/hover_logo_letters_white.svg)
+![Hover Logo](../docs/static/img/hover_logo_letters_white.svg)
 
 <center><h1>Hover Design</h1></center>
 
@@ -35,5 +35,5 @@ Intrested in contributing to hover? visit our [Contribution Guide](https://hover
 
 <p style="display: inline-block; margin-top:8px">Made with ❤️ by</p> 
 <a href="https://www.antstack.com/">
-<img style="float: right;" src="docs/static/img/antstackLogo.svg">
+<img style="float: right;" src="../docs/static/img/antstackLogo.svg">
 </a>
