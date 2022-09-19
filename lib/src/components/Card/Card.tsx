@@ -1,19 +1,19 @@
-import { FC } from "react";
-import { RecipeVariants } from "@vanilla-extract/recipes";
-import { cardStyles } from "./card.css";
+import { forwardRef, ForwardRefRenderFunction } from "react";
+import { cardStyles } from "./card.styles.css";
+import { CardProps } from "./card.types";
 
-type CardProps = RecipeVariants<typeof cardStyles> &
-  JSX.IntrinsicElements["div"];
-
-const Card: FC<CardProps> = ({
-  children,
-  padding = "small",
-  fontSize = "small",
-  margin = "default",
-  variant = "plain",
-  className,
-  ...nativeDivProps
-}) => {
+const Card: ForwardRefRenderFunction<HTMLDivElement, CardProps> = (
+  {
+    children,
+    padding = "small",
+    fontSize = "small",
+    margin = "default",
+    variant = "plain",
+    className,
+    ...nativeDivProps
+  },
+  ref
+) => {
   const cardStyle = cardStyles({
     variant,
     padding,
@@ -22,10 +22,14 @@ const Card: FC<CardProps> = ({
   });
 
   return (
-    <div className={`${cardStyle} ${className || ""}`} {...nativeDivProps}>
+    <div
+      ref={ref}
+      className={`${cardStyle} ${className || ""}`}
+      {...nativeDivProps}
+    >
       {children}
     </div>
   );
 };
-
-export { Card };
+const CardWithRef = forwardRef(Card);
+export { CardWithRef as Card };
