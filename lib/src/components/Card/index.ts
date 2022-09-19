@@ -1,2 +1,2 @@
 export * from "./Card";
-export * from "./card.css";
+export * from "./card.styles.css";
