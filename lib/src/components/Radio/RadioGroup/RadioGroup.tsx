@@ -24,7 +24,7 @@ const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
       flexDirection={orientation === "horizontal" ? "row" : "column"}
       ref={ref}
       gap={radioGroupSpacing[spacing]}
-      className={` ${orientation === "verticle" ? radioGroupChildClass : ""} ${
+      className={` ${orientation === "vertical" ? radioGroupChildClass : ""} ${
         className || ""
       }`}
       style={{ ...assignVariables, ...(style || {}) }}

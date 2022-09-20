@@ -1,0 +1,161 @@
+# Popover
+
+### Quick start
+
+Here's a quick start guide to get started with the Popover component
+
+### Importing Component
+
+```jsx
+import { Popover } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+import "@hover-design/react/dist/style.css";
+import { Popover } from "@hover-design/react";
+import { Button } from "@hover-design/react";
+import { useState } from "react";
+
+##### Basic Popover
+
+```jsx
+const content = <div>Basic Popover</div>;
+
+<div className="App">
+  <Popover withArrow content={content}>
+    <Button>Click To Open </Button>
+  </Popover>
+</div>;
+```
+
+<Popover withArrow content={<div>Basic Popover</div>}>
+  <Button>Click To Open </Button>
+</Popover>
+
+##### Controlled Popover
+
+```jsx
+const [isOpened, setIsOpened] = useState(false);
+const content = <div>This is a controlled Popover</div>;
+
+<div className="App">
+  <Popover position="right" withArrow isOpened={isOpened} content={content}>
+    <Button
+      onMouseEnter={() => setIsOpened(true)}
+      onMouseLeave={() => setIsOpened(false)}
+    >
+      Click To Open
+    </Button>
+  </Popover>
+</div>;
+```
+
+export const App = () => {
+  const [isOpened, setIsOpened] = useState(false);
+  const content = <div>This is a controlled Popover</div>;
+  return (
+    <Popover position="right" withArrow isOpened={isOpened} content={content}>
+      <Button
+        onMouseEnter={() => setIsOpened(true)}
+        onMouseLeave={() => setIsOpened(false)}
+      >
+        Hover to Open
+      </Button>
+    </Popover>
+  );
+};
+
+<App />
+
+##### Target Width
+
+```jsx
+const content = <div>Width matches the target Width</div>;
+
+<div className="App">
+  <Popover width="target" withArrow content={content}>
+    <Button>Click To Open </Button>
+  </Popover>
+</div>;
+```
+
+<Popover
+  width="target"
+  withArrow
+  content={<div>Width matches the target Width</div>}
+>
+  <Button>Click To Open </Button>
+</Popover>
+
+##### Trap Focus
+
+```jsx
+const styles = {
+  width: "100%",
+};
+const content = (
+  <div>
+    <label>Name: </label>
+    <input style={styles} type="text" />
+    <label>Password: </label>
+    <input style={styles} type="password" />
+  </div>
+);
+
+<div className="App">
+  <Popover width="200px" position="right" trapFocus withArrow content={content}>
+    <Button>Click To Open </Button>
+  </Popover>
+</div>;
+```
+
+<Popover
+  position="right"
+  trapFocus
+  width="200px"
+  withArrow
+  content={
+    <div>
+      <label>Name: </label>
+      <input
+        style={{
+          width: "100%",
+        }}
+        type="text"
+      />
+      <label>Password: </label>
+      <input
+        style={{
+          width: "100%",
+        }}
+        type="password"
+      />
+    </div>
+  }
+>
+  <Button>Click To Open </Button>
+</Popover>
+
+### Props Reference
+
+| Attributes   |                                                                                                                Values                                                                                                                 | Default Value | Optional ? |
+| :----------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------: | ---------: |
+| position     | ` "bottom"` &#124; `"left"` &#124; `"right"` &#124; `"top"` &#124; `"bottom-end"`&#124; `"bottom-start"`&#124; `"left-end"` &#124; `"left-start"` &#124; `"right-end"` &#124; `"right-start"` &#124; `"top-end"` &#124; `"top-start"` |   `bottom`    |        Yes |
+| content      |                                                                                                            `JSX.Element `                                                                                                             |               |         No |
+| isOpened     |                                                                                                      `boolean` controlled value                                                                                                       |    `false`    |        Yes |
+| offset       |                                                                                         `string` distance between Popover and Target element                                                                                          |     `4px`     |        Yes |
+| borderRadius |                                                                                                               `string`                                                                                                                |     `4px`     |        Yes |
+| width        |                                                                                                               `string`                                                                                                                | `fit-content` |        Yes |
+| withArrow    |                                                                                                               `boolean`                                                                                                               |    `false`    |        Yes |
+| arrowSize    |                                                                                                               `string`                                                                                                                |     `7px`     |        Yes |
+| onChange     |                                                                                                          `(isOpened)=>void`                                                                                                           |   `()=>{}`    |        Yes |
+| zIndex       |                                                                                                               `string`                                                                                                                |      `1`      |        Yes |
+| trapFocus    |                                                                                                               `boolean`                                                                                                               |    `false`    |        Yes |
+
+### Keyboard Controls
+
+| Key                |        Action         |
+| :----------------- | :-------------------: |
+| Space &#124; Enter | `Toggle Opened State` |
+| Tab                |      `Navigate`       |

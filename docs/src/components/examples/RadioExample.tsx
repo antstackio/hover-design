@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 import {
   Radio,
   RadioGroup,
@@ -5,10 +7,8 @@ import {
   IRadioProps
 } from "@hover-design/react";
 
-import React, { useState } from "react";
-
 const RadioExample = (radioProps: Omit<IRadioProps, "ref">) => {
-  return <Radio {...radioProps}></Radio>;
+  return <Radio {...radioProps} />;
 };
 const RadioGroupExample = ({
   radioGroupProps,
@@ -17,42 +17,40 @@ const RadioGroupExample = ({
   radioGroupProps: Omit<TRadioGroupProps, "ref">;
   radioProps: Omit<IRadioProps, "ref">;
 }) => {
-  const [radioVal, setRadioVal] = useState("apple");
-
-  console.log("radioGroupProps", radioGroupProps);
+  const [radioVal, setRadioVal] = useState("honeypot");
 
   return (
     <RadioGroup {...radioGroupProps}>
       <label>
         <RadioExample
-          name="fruits"
-          value="apple"
-          checked={radioVal == "apple"}
+          name="antColony"
+          value="honeypot"
+          checked={radioVal == "honeypot"}
           onChange={(e) => setRadioVal(e.target.value)}
           {...radioProps}
-        ></RadioExample>
-        Apple
+        />
+        Honeypot
       </label>
       <label>
         <RadioExample
-          name="fruits"
-          value="bannana"
-          checked={radioVal == "bannana"}
+          name="antColony"
+          value="rover"
+          checked={radioVal == "rover"}
           onChange={(e) => setRadioVal(e.target.value)}
           {...radioProps}
-        ></RadioExample>
-        Bannana
+        />
+        Rover
       </label>
       <label>
         <RadioExample
-          name="fruits"
-          value="orange"
-          checked={radioVal == "orange"}
+          name="antColony"
+          value="weaver"
+          checked={radioVal == "weaver"}
           isDisabled
           onChange={(e) => setRadioVal(e.target.value)}
           {...radioProps}
-        ></RadioExample>
-        Orange
+        />
+        Weaver
       </label>
     </RadioGroup>
   );

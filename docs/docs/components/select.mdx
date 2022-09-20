@@ -213,27 +213,56 @@ export const App = () => {
 
 <App />
 
+##### MultiSelect
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select isMulti options={options} />
+</div>;
+```
+
+<Select
+  width="40%"
+  isMulti
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+<br />
+
+> Note: All the above mentioned combinations Eg. Searchable, Cleareable, Disabled etc...are also present with MultiSelect
+
 ### Props Reference
 
-| Attributes        |             Values             |  Default Value   | Optional ? |
-| :---------------- | :----------------------------: | :--------------: | ---------: |
-| placeholder       |            `string`            |    `Pick one`    |        Yes |
-| options           | `Array of` **_Option Object_** |                  |         No |
-| value             |    `string` &#124; `number`    |   `horizontal`   |        Yes |
-| height            |            `string`            |      `40px`      |        Yes |
-| color             |            `string`            |    `#2F80ED`     |        Yes |
-| width             |            `string`            |      `100%`      |        Yes |
-| isSearchable      |           `boolean`            |     `false`      |        Yes |
-| error             |           `boolean`            |     `false`      |        Yes |
-| maxDropDownHeight |            `string`            |      `auto`      |        Yes |
-| borderRadius      |            `string`            |       `0`        |        Yes |
-| onChange          | `(selectedOption,event)=>void` |     `()=>{}`     |        Yes |
-| isDisabled        |           `boolean`            |     `false`      |        Yes |
-| isClearable       |           `boolean`            |     `false`      |        Yes |
-| nothingFoundLabel | `string` &#124; `JSX Element`  | `Nothing Found!` |        Yes |
-| DropIcon          |         `JSX Element`          |                  |        Yes |
-| onDropDownOpen    |          `()=> void `          |                  |        Yes |
-| onDropDownClose   |          `()=> void `          |                  |        Yes |
+| Attributes        |                                                 Values                                                  |  Default Value   | Optional ? |
+| :---------------- | :-----------------------------------------------------------------------------------------------------: | :--------------: | ---------: |
+| placeholder       |                                                `string`                                                 |    `Pick one`    |        Yes |
+| options           |                                     `Array of` **_Option Object_**                                      |                  |         No |
+| value             | `string` &#124; `number` <br/> when isMulti is `true` then value is <br/> `(string` &#124; ` number)[]` |                  |        Yes |
+| isMulti           |                                                `boolean`                                                |     `false`      |        Yes |
+| color             |                                                `string`                                                 |    `#2F80ED`     |        Yes |
+| width             |                                                `string`                                                 |      `100%`      |        Yes |
+| isSearchable      |                                                `boolean`                                                |     `false`      |        Yes |
+| error             |                                                `boolean`                                                |     `false`      |        Yes |
+| maxDropDownHeight |                                                `string`                                                 |      `auto`      |        Yes |
+| borderRadius      |                                                `string`                                                 |       `0`        |        Yes |
+| onChange          |                                     `(selectedOption,event)=>void`                                      |     `()=>{}`     |        Yes |
+| isDisabled        |                                                `boolean`                                                |     `false`      |        Yes |
+| isClearable       |                                                `boolean`                                                |     `false`      |        Yes |
+| nothingFoundLabel |                                      `string` &#124; `JSX Element`                                      | `Nothing Found!` |        Yes |
+| DropIcon          |                                              `JSX Element`                                              |                  |        Yes |
+| onDropDownOpen    |                                              `()=> void `                                               |                  |        Yes |
+| onDropDownClose   |                                              `()=> void `                                               |                  |        Yes |
 
 ### Option Object
 
@@ -243,3 +272,16 @@ export const App = () => {
 | value    |      `string` &#124; `number`      |         No |
 | disabled |             `boolean`              |        Yes |
 | ref      | `MutableRefObject<HTMLDivElement>` |        Yes |
+
+### Keyboard Controls
+
+> Keyboard controls will only work when the ** Select ** is focused (selected)
+
+| Key       |                           type                            |
+| :-------- | :-------------------------------------------------------: |
+| Space     |                   `Opens Options List`                    |
+| ArrowDown |                       `Next Option`                       |
+| ArrowUp   |                     `Previous Option`                     |
+| Home      |      _ if not **disabled ** _ <br/> `First Option `       |
+| End       |       _ if not **disabled ** _ <br/> `Last Option`        |
+| Backspace | _ if **isMulti ** _ <br/> `Clears the last selected pill` |

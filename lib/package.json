@@ -1,12 +1,28 @@
 {
   "name": "@hover-design/react",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Hover Component library created by bunch of ants from antstack",
   "license": "MIT",
   "main": "dist/hover-react.es.js",
   "module": "dist/hover-react.es.js",
   "types": "dist/types/index.d.ts",
   "private": false,
+  "repository": {
+    "url": "https://github.com/antstackio/hover-design.git",
+    "type": "git",
+    "directory": "lib"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "design",
+    "vanilla-extract",
+    "hover"
+  ],
   "scripts": {
     "dev": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "build": "tsc && vite build && tsc --emitDeclarationOnly",
