@@ -3,7 +3,17 @@ import { IIconProps } from "src/components/Icon/icon.type";
 
 const CheckIcon: React.FC<IIconProps> = (props) => {
   return (
-    <Icon viewBox="0 0 12 10" {...props}>
+    <Icon
+      width="24"
+      height="24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 12 10"
+      {...props}
+    >
       <path
         fill="currentColor"
         stroke="none"
