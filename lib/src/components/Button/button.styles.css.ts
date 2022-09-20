@@ -3,7 +3,6 @@ import { recipe } from "@vanilla-extract/recipes";
 export const buttonStyles = recipe({
   base: {
     borderRadius: 4,
-    fontFamily: "'Poppins', sans-serif",
     color: "white",
     cursor: "pointer",
   },
