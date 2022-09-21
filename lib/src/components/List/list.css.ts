@@ -9,14 +9,14 @@ export const [listThemeClass, listThemeVars]: IListTheme = createTheme({
 export const listStyles = recipe({
   base: {
     listStyleType: listThemeVars.listStyles.listStyleType,
-    padding: 0,
-    margin: 0,
   },
   variants: {
     variant: {
       horizontal: {
         display: "inline-flex",
         gap: "24px",
+        verticalAlign: "middle",
+        alignItems: "baseline",
       },
       vertical: {
         display: "block",

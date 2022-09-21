@@ -16,6 +16,7 @@
   "scripts": {
     "prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skiping pnpm install",
     "build": "turbo run build",
+    "test": "turbo run test",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "publish-build": "turbo run build --scope=@hover-design/react --no-deps --include-dependencies",
     "ladle": "turbo run ladle --scope=@hover-design/react --no-deps --include-dependencies"

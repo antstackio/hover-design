@@ -1,4 +1,4 @@
-import { createTheme, style } from "@vanilla-extract/css";
+import { createTheme, globalStyle, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { SelectTheme } from "./select.types";
@@ -7,7 +7,6 @@ export const [selectClass, selectVars]: SelectTheme = createTheme({
   borderRadius: "0",
   color: "#2F80ED",
   maxDropDownHeight: "auto",
-  height: "40px",
   width: "100%",
 });
 
@@ -19,12 +18,17 @@ export const selectContainerStyles = style({
 export const selectInputRecipe = recipe({
   base: {
     background: "white",
-    padding: "10px 16px",
+    padding: "8px 16px",
     width: "100%",
-    height: selectVars.height,
+    height: "auto",
+    minHeight: "40px",
     border: "1px solid #ced4da ",
     borderRadius: selectVars.borderRadius,
     cursor: "default",
+    ":focus-within": {
+      border: `1px solid ${selectVars.color} `,
+      outline: "none",
+    },
   },
   variants: {
     error: {
@@ -49,7 +53,6 @@ export const selectListContainerStyle = style({
   position: "absolute",
   background: "white",
   marginTop: "8px",
-  top: `${calc.subtract(selectVars.height, "5px")}`,
   left: 0,
   width: "100%",
   maxHeight: selectVars.maxDropDownHeight,
@@ -67,7 +70,6 @@ export const selectListContainerStyle = style({
     border: "4px solid rgba(0, 0, 0, 0)",
     borderLeft: "none",
     backgroundClip: "padding-box",
-    //   borderRadius: "100px",
   },
 });
 
@@ -78,10 +80,6 @@ export const selectListRecipe = recipe({
     background: "white",
     cursor: "pointer",
     borderRadius: `${calc.subtract(selectVars.borderRadius, "4px")}`,
-    ":hover": {
-      background: "#ebe8e8",
-      color: "black",
-    },
   },
   variants: {
     disabled: {
@@ -113,7 +111,7 @@ export const selectErrorMsg = style({
 });
 
 export const selectPlaceholderRecipe = recipe({
-  base: { color: "#787878" },
+  base: { color: "#787878", padding: "2px" },
   variants: {
     error: {
       true: {
@@ -153,12 +151,21 @@ export const inputRecipe = recipe({
         "::placeholder": { color: "#DA2C2C" },
       },
     },
+    isMulti: {
+      true: {
+        width: 0,
+        minWidth: "50px",
+        flex: 1,
+        fontSize: "14px",
+      },
+    },
   },
 });
 
 export const inputTextContainer = style({
-  width: "85%",
+  width: "80%",
   fontSize: "16px",
   whiteSpace: "nowrap",
   overflow: "hidden",
+  height: "100%",
 });

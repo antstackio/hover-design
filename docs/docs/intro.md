@@ -10,7 +10,7 @@ Let's get started with running hover-design.
 
 Get started by creating any react based project. We recommend using vite as your tool for bundling as we keep vite as the primary focus of cosumption(in its early stages), however hover should work with any bundler without any issues
 
-Or **try Hover immediately** with **[codesandbox](https://codesandbox.io/s/react-typescript-forked-5sjnjo)**.
+Or **try Hover immediately** with **[codesandbox](https://codesandbox.io/s/react-typescript-forked-zymhi4)**.
 
 ## Installation
 

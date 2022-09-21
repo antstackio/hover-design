@@ -1,19 +1,36 @@
 {
   "name": "@hover-design/react",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Hover Component library created by bunch of ants from antstack",
   "license": "MIT",
   "main": "dist/hover-react.es.js",
   "module": "dist/hover-react.es.js",
   "types": "dist/types/index.d.ts",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antstackio/hover-design.git"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "design",
+    "vanilla-extract",
+    "hover"
+  ],
   "scripts": {
     "dev": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "build": "tsc && vite build && tsc --emitDeclarationOnly",
     "tsc": "tsc",
     "ladle": "ladle serve",
     "serve": "vite preview",
-    "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\""
+    "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@ladle/react": "^2.3.0",
@@ -37,15 +54,12 @@
     "typescript": "^4.3.2",
     "vite": "^2.6.4",
     "vite-plugin-dts": "^0.9.9",
-    "vite-tsconfig-paths": "^3.4.0"
+    "vite-tsconfig-paths": "^3.4.0",
+    "vitest": "^0.23.4"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/antstackio/hover-design.git"
   },
   "publishConfig": {
     "access": "public"

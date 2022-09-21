@@ -1,0 +1,142 @@
+# Tooltip
+
+### Quick start
+
+Here's a quick start guide to get started with the Tooltip component
+
+### Importing Component
+
+```jsx
+import { Tooltip } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+import "@hover-design/react/dist/style.css";
+import { Tooltip } from "@hover-design/react";
+import { Button } from "@hover-design/react";
+import { useState } from "react";
+
+##### Basic Tooltip
+
+```jsx
+<div className="App">
+  <Tooltip withArrow label="Basic Tooltip">
+    <Button>Click To Open </Button>
+  </Tooltip>
+</div>
+```
+
+<Tooltip withArrow label="Basic Tooltip">
+  <Button>Click To Open </Button>
+</Tooltip>
+
+##### Controlled Tooltip
+
+```jsx
+const [isOpened, setIsOpened] = useState(false);
+<div className="App">
+  <Tooltip
+    position="right"
+    withArrow
+    isOpened={isOpened}
+    label="Controlled Tooltip"
+  >
+    <Button
+      onMouseEnter={() => setIsOpened(true)}
+      onMouseLeave={() => setIsOpened(false)}
+    >
+      Click To Open
+    </Button>
+  </Tooltip>
+</div>;
+```
+
+export const App = () => {
+  const [isOpened, setIsOpened] = useState(false);
+  return (
+    <Tooltip
+      position="right"
+      withArrow
+      isOpened={isOpened}
+      label="Controlled Tooltip"
+    >
+      <Button
+        onMouseEnter={() => setIsOpened(true)}
+        onMouseLeave={() => setIsOpened(false)}
+      >
+        Hover to Open
+      </Button>
+    </Tooltip>
+  );
+};
+
+<App />
+
+##### MultiLine Tooltip
+
+```jsx
+<div className="App">
+  <Tooltip multiLine withArrow label="This is a multiLine Tooltip">
+    <Button>Click To Open </Button>
+  </Tooltip>
+</div>
+```
+
+<Tooltip
+multiLine
+withArrow
+label="This is a multiLine Tooltip"
+>
+
+  <Button>Click To Open </Button>
+</Tooltip>
+
+##### Target Width
+
+```jsx
+<div className="App">
+  <Tooltip
+    width="target"
+    multiLine
+    withArrow
+    label="Width matches the target Width"
+  >
+    <Button>Click To Open </Button>
+  </Tooltip>
+</div>
+```
+
+<Tooltip
+  width="target"
+  multiLine
+  withArrow
+  label="Width matches the target Width"
+>
+  <Button>Click To Open </Button>
+</Tooltip>
+
+### Props Reference
+
+| Attributes   |                                                                                                                Values                                                                                                                 | Default Value | Optional ? |
+| :----------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------: | ---------: |
+| position     | ` "bottom"` &#124; `"left"` &#124; `"right"` &#124; `"top"` &#124; `"bottom-end"`&#124; `"bottom-start"`&#124; `"left-end"` &#124; `"left-start"` &#124; `"right-end"` &#124; `"right-start"` &#124; `"top-end"` &#124; `"top-start"` |   `bottom`    |        Yes |
+| label        |                                                                                                            `JSX.Element `                                                                                                             |               |         No |
+| isOpened     |                                                                                                    `boolean`<br/> controlled value                                                                                                    |    `false`    |        Yes |
+| offset       |                                                                                       `string`<br/> distance between Tooltip and Target element                                                                                       |     `4px`     |        Yes |
+| borderRadius |                                                                                                               `string`                                                                                                                |     `4px`     |        Yes |
+| width        |                                                                                                               `string`                                                                                                                |  `fit-label`  |        Yes |
+| withArrow    |                                                                                                               `boolean`                                                                                                               |    `false`    |        Yes |
+| arrowSize    |                                                                                                               `string`                                                                                                                |     `7px`     |        Yes |
+| onChange     |                                                                                                          `(isOpened)=>void`                                                                                                           |   `()=>{}`    |        Yes |
+| zIndex       |                                                                                                               `string`                                                                                                                |      `1`      |        Yes |
+| color        |                                                                                                               `string`                                                                                                                |   `#2C2E33`   |        Yes |
+| multiLine    |                                                                                                               `boolean`                                                                                                               |     false     |        Yes |
+| labelColor   |                                                                                                               `string`                                                                                                                |    `white`    |        Yes |
+
+### Keyboard Controls
+
+| Key                |        Action         |
+| :----------------- | :-------------------: |
+| Space &#124; Enter | `Toggle Opened State` |
+| Tab                |      `Navigate`       |

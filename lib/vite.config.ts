@@ -13,6 +13,9 @@ export default defineConfig({
     vanillaExtractPlugin({ identifiers: "short" }),
     tsconfigPaths(),
   ],
+  resolve: {
+    alias: [{ find: "src", replacement: resolve(__dirname, "src") }],
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
