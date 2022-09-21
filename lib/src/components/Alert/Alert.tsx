@@ -36,6 +36,7 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
     style,
     onClose = () => {},
     children,
+    ...nativeProps
   },
   ref
 ) => {
@@ -85,6 +86,7 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
         }),
         ...style,
       }}
+      {...nativeProps}
     >
       <Flex className={`${alertIconContainerStyles}`}>
         <div className={`${alertIconStyles} hover-alert-icon`}>
