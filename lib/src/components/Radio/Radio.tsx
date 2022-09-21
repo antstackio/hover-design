@@ -64,7 +64,6 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
         className={`${radioCheckMarkClass}`}
         data-checked={checked ? "true" : "false"}
         data-disabled={isDisabled ? "true" : "false"}
-        data-test
       >
         {checked ? <SvgDot /> : null}
       </div>

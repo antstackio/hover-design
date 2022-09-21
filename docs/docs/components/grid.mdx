@@ -1,0 +1,143 @@
+# Grid
+
+## Quick start
+
+Here's a quick start guide to get started with the Grid component
+
+## Importing Grid
+
+```jsx
+import { Grid } from "@hover-design/react";
+```
+
+## Code Snippets and Examples
+
+### Grid Default
+
+import { Grid } from "@hover-design/react";
+import { Card } from "@hover-design/react";
+
+```jsx
+<Grid>
+  <div>Grid 1</div>
+  <div>Grid 2</div>
+</Grid>
+```
+
+<Grid>
+  <Card variant="outline">Grid 1</Card>
+  <Card variant="outline">Grid 2</Card>
+</Grid>
+
+### Grid Template Columns
+
+```jsx
+<Grid columnGap="12px" gridTemplateColumns="200px 200px 200px">
+  <div>Grid 1</div>
+  <div>Grid 2</div>
+  <div>Grid 3</div>
+  <div>Grid 4</div>
+  <div>Grid 5</div>
+</Grid>
+```
+
+<Card variant="outline">
+  <Grid columnGap="12px" gridTemplateColumns="200px 200px 200px">
+    <Card variant="outline">Grid 1</Card>
+    <Card variant="outline">Grid 2</Card>
+    <Card variant="outline">Grid 3</Card>
+    <Card variant="outline">Grid 4</Card>
+    <Card variant="outline">Grid 5</Card>
+  </Grid>
+</Card>
+
+### Grid Template Rows
+
+```jsx
+<Grid gap="12px" gridTemplateRows="200px 200px 200px">
+  <div>Grid 1</div>
+  <div>Grid 2</div>
+  <div>Grid 3</div>
+  <div>Grid 4</div>
+  <div>Grid 5</div>
+</Grid>
+```
+
+<Card variant="outline">
+  <Grid gap="12px" gridTemplateRows="200px 200px 200px">
+    <Card variant="outline">Grid 1</Card>
+    <Card variant="outline">Grid 2</Card>
+    <Card variant="outline">Grid 3</Card>
+    <Card variant="outline">Grid 4</Card>
+    <Card variant="outline">Grid 5</Card>
+  </Grid>
+</Card>
+
+### Other properties
+
+```jsx
+<Grid
+  columnGap="12px"
+  gridAutoRows="100px"
+  gridTemplateColumns="repeat(3, 1fr)"
+  gap="20px"
+>
+  <div>Grid 1</div>
+  <div>Grid 2</div>
+  <div>Grid 3</div>
+  <div>Grid 4</div>
+  <div>Grid 5</div>
+  <div>Grid 6</div>
+  <div>Grid 7</div>
+</Grid>
+```
+
+<Card variant="outline">
+  <Grid
+    columnGap="12px"
+    gridAutoRows="100px"
+    gridTemplateColumns="repeat(3, 1fr)"
+    gap="20px"
+  >
+    <Card variant="outline">Grid 1</Card>
+    <Card variant="outline">Grid 2</Card>
+    <Card variant="outline">Grid 3</Card>
+    <Card variant="outline">Grid 4</Card>
+    <Card variant="outline">Grid 5</Card>
+    <Card variant="outline">Grid 6</Card>
+    <Card variant="outline">Grid 7</Card>
+  </Grid>
+</Card>
+
+## Props Referece
+
+| Attributes          |                                                     Values                                                     | Optional ? |
+| :------------------ | :------------------------------------------------------------------------------------------------------------: | ---------: |
+| gap                 |                  [gap CSS properties ](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)                   |        Yes |
+| columnGap           |           [column-gap CSS properties ](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap)            |        Yes |
+| rowGap              |               [row-gap CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap)               |        Yes |
+| display             |                           `"grid" or "inline-grid" or "block grid" or "inline grid"`                           |        Yes |
+| gridAutoRows        |        [grid-auto-rows CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows)        |        Yes |
+| gridAutoColumns     |     [grid-auto-columns CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns)     |        Yes |
+| gridTemplateColumns | [grid-template-columns CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) |        Yes |
+| gridTemplateRows    |    [grid-template-rows CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows)    |        Yes |
+| gridTemplateAreas   |   [grid-template-areas CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas)   |        Yes |
+| gridAutoFlow        |        [grid-auto-flow CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow)        |        Yes |
+| gridRow             |              [grid-row CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row)              |        Yes |
+| gridColumn          |           [grid-column CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column)           |        Yes |
+| gridArea            |            [grid-area CSS properties ](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area)             |        Yes |
+| gridRowStart        |        [grid-row-start CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start)        |        Yes |
+| gridRowEnd          |          [grid-row-end CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end)          |        Yes |
+| gridColumnStart     |     [grid-column-start CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start)     |        Yes |
+| gridColumnEnd       |       [grid-column-end CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end)       |        Yes |
+| justifyItems        |         [justify-items CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items)         |        Yes |
+| justifyContent      |       [justify-content CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)       |        Yes |
+| justifySelf         |          [justify-self CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self)          |        Yes |
+| alignItems          |           [align-items CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)           |        Yes |
+| alignContent        |         [align-content CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)         |        Yes |
+| alignSelf           |            [align-self CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)            |        Yes |
+| placeItems          |           [place-items CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/place-items)           |        Yes |
+| placeContent        |         [place-content CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/place-content)         |        Yes |
+| placeSelf           |            [place-self CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/place-self)            |        Yes |
+| grid                |                 [grid CSS properties ](https://developer.mozilla.org/en-US/docs/Web/CSS/grid)                  |        Yes |
+| gridTemplate        |         [gridTemplate CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template)          |        Yes |

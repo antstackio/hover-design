@@ -62,7 +62,15 @@ import { Divider } from "@hover-design/react";
 ##### Vertical Divider
 
 ```jsx
-<div className="App">
+<div
+  style={{
+    display: "flex",
+    height: "30px",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+  className="App"
+>
   <div>Label 1</div>
   <Divider orientation="vertical" style={{ margin: "0 10px" }} />
   <div>Label 2</div>
@@ -91,7 +99,10 @@ import { Divider } from "@hover-design/react";
 ##### Vertical Divider with Label
 
 ```jsx
-<div className="App">
+<div
+  style={{ height: "100px", margin: "0 auto", width: "fit-content" }}
+  className="App"
+>
   <Divider orientation="vertical" label="label" />
 </div>
 ```

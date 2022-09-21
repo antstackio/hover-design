@@ -1,7 +1,9 @@
 export * from "./components/Badge";
 export * from "./components/Button";
 export * from "./components/Card";
+export * from "./components/Checkbox";
 export * from "./components/Flex";
+export * from "./components/Grid";
 export * from "./components/List";
 export * from "./components/ListItem";
 export * from "./components/reset";
@@ -20,3 +22,5 @@ export * from "./components/Radio";
 export * from "./components/Dialog";
 export * from "./components/Select";
 export * from "./components/NativeSelect";
+export * from "./components/Popover";
+export * from "./components/Tooltip";
