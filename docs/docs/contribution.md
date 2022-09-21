@@ -8,7 +8,7 @@ In this guide you will get an overview of the contribution workflow from cloning
 
 First step is to fork the hover project from [Github](https://github.com/antstackio/hover-design)
 
-<i> Note: We have a Playbook for the best practices read more [here](/docs/wiki/playbooks/git_playbook)</i>
+_Note: We have a Playbook for the best practices read more [here](/docs/wiki/playbooks/git_playbook)_
 
 ## 2. Understanding the Project
 

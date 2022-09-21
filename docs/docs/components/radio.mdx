@@ -1,0 +1,189 @@
+# Radio
+
+### Quick start
+
+Here's a quick start guide to get started with the Radio component, Radios are for selecting one option from many.
+
+### Importing Component
+
+import "@hover-design/react/dist/style.css";
+import { Radio, RadioGroup, Card } from "@hover-design/react";
+import {
+  RadioExample,
+  RadioGroupExample
+} from "@site/src/components/examples/RadioExample";
+
+export const RadioContainer = ({ children }) => (
+  <Card variant="shadow">{children}</Card>
+);
+
+```jsx
+import { Radio, RadioGroup } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Simple Radio
+
+```jsx
+import { Radio, RadioGroup } from "@hover-design/react";
+
+const Demo = () => {
+  const [radioVal, setRadioVal] = useState("honeypot");
+
+  return (
+    <div>
+      <label>
+        <Radio
+          name="antColony"
+          value="honeypot"
+          checked={radioVal == "honeypot"}
+          onChange={(e) => setRadioVal(e.target.value)}
+        />
+        Honeypot
+      </label>
+      <label>
+        <Radio
+          name="antColony"
+          value="rover"
+          checked={radioVal == "rover"}
+          onChange={(e) => setRadioVal(e.target.value)}
+        />
+        Rover
+      </label>
+      <label>
+        <Radio
+          name="antColony"
+          value="weaver"
+          checked={radioVal == "weaver"}
+          isDisabled
+          onChange={(e) => setRadioVal(e.target.value)}
+        />
+        Weaver
+      </label>
+    </div>
+  );
+};
+```
+
+<RadioContainer>
+  <RadioGroupExample />
+</RadioContainer>
+
+##### Radio Group
+
+```jsx
+<RadioGroup orientation="vertical">
+  <label>
+    <Radio name="antColony" value="honeypot" checked />
+    Honeypot
+  </label>
+  <label>
+    <Radio name="antColony" value="rover" />
+    Rover
+  </label>
+  <label>
+    <Radio name="antColony" value="weaver" isDisabled />
+    Weaver
+  </label>
+</RadioGroup>
+```
+
+<RadioContainer>
+  <RadioGroupExample radioGroupProps={{ orientation: "vertical" }} />
+</RadioContainer>
+
+##### Radio with styles
+
+```jsx
+<div>
+  <Radio
+    name="antColony"
+    value="rover"
+    checked
+    radioSize="xs"
+    selectedStyles={{
+      borderColor: "rgb(25, 113, 194)",
+      backgroundColor: "rgb(25, 113, 194)"
+    }}
+  />
+  <Radio name="antColony" value="weaver" radioSize="sm" checked />
+  <Radio
+    name="antColony"
+    value="honeypot"
+    checked
+    radioSize="md"
+    selectedStyles={{
+      borderColor: "rgb(224, 49, 49)",
+      backgroundColor: "rgb(224, 49, 49)"
+    }}
+  />
+</div>
+```
+
+<RadioContainer>
+  <RadioExample
+    checked
+    radioSize="xs"
+    selectedStyles={{
+      borderColor: "rgb(25, 113, 194)",
+      backgroundColor: "rgb(25, 113, 194)"
+    }}
+  />
+  <RadioExample radioSize="sm" checked />
+  <RadioExample
+    checked
+    radioSize="md"
+    selectedStyles={{
+      borderColor: "rgb(224, 49, 49)",
+      backgroundColor: "rgb(224, 49, 49)"
+    }}
+  />
+</RadioContainer>
+
+### Radio Props Reference
+
+| Key            |              type               | Optional? |
+| :------------- | :-----------------------------: | --------: |
+| value          |            `string;`            |        No |
+| name           |            `string;`            |        No |
+| radioSize      | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| isDisabled     |            `boolean`            |       Yes |
+| baseStyles     |       `baseStyles object`       |       Yes |
+| disabledStyles |     `disabledStyles object`     |       Yes |
+| selectedStyles |     `selectedStyles object`     |       Yes |
+
+##### Customizing Radio Base, Selected and Disabled
+
+You can customize the base, selected and disabled styles of the radio by passing in the baseStyles, selectedStyles and disabledStyles props. Refer this Spec for this:
+
+baseStyles
+
+| Property        | Description         | Default            |
+| --------------- | ------------------- | ------------------ |
+| backgroundColor | Background of Radio | rgb(250, 250, 250) |
+| borderColor     | Border Color        | rgb(204, 204, 204) |
+
+selectedStyles
+
+| Property        | Description                    | Default            |
+| --------------- | ------------------------------ | ------------------ |
+| backgroundColor | Selected Radio BackgroundColor | rgb(250, 250, 250) |
+| borderColor     | Selected Border Color          | rgb(204, 204, 204) |
+
+disabledStyles
+
+| Property        | Description                    | Default            |
+| --------------- | ------------------------------ | ------------------ |
+| color           | Disabled Radio Color           | rgb(250, 250, 250) |
+| backgroundColor | Disabled Radio BackgroundColor | rgb(250, 128, 5)   |
+| borderColor     | Disabled Radio Border Color    | rgb(174, 68, 10)   |
+
+### RadioGroup Props Reference
+
+| Key         |              type               | Optional? |
+| :---------- | :-----------------------------: | --------: |
+| children    |        `React.ReactNode`        |        No |
+| spacing     | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| orientation |     `vertical` `horizontal`     |       Yes |
+| ref         | `RefObject<HTMLButtonElement>;` |       Yes |

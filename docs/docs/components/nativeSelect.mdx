@@ -1,0 +1,152 @@
+# Native Select
+
+### Quick start
+
+Here's a quick start guide to get started with the nativeSelect component
+
+### Importing Component
+
+import "@hover-design/react/dist/style.css";
+import { NativeSelect } from "@hover-design/react";
+import { useState } from "react";
+
+```jsx
+import { NativeSelect } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### NativeSelect Default
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <NativeSelect options={options} />
+</div>;
+```
+
+<NativeSelect
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### NativeSelect Controlled
+
+```jsx
+const [value, setValue] = useState("first");
+
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second" },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <NativeSelect
+    value={value}
+    onChange={(event) => {
+      setValue(event.target.value);
+    }}
+    options={options}
+  />
+</div>;
+```
+
+export const App = () => {
+  const [value, setValue] = useState("first");
+  const options = [
+    { label: "First", value: "first" },
+    { label: "Second", value: "second" },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ];
+  return (
+    <NativeSelect
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+      options={options}
+    />
+  );
+};
+
+<App />
+
+##### NativeSelect Error
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second" },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <NativeSelect error="This is an error" options={options} />
+</div>;
+```
+
+> Note: **error** can also be passed as a boolean.
+
+<NativeSelect
+  error="This is an error"
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second" },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### NativeSelect Rounded
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second" },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <NativeSelect
+    borderRadius={"60px"}
+    options={options}
+  />
+</div>;
+```
+
+<NativeSelect
+  borderRadius={"60px"}
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second" },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+### Props Reference
+
+| Attributes   |                                Values                                | Default Value | Optional ? |
+| :----------- | :------------------------------------------------------------------: | :-----------: | ---------: |
+| options      | ` Array of`<br/> { label:string , <br/> value:string &#124; number } |               |         No |
+| height       |                               `string`                               | `fit-content` |        Yes |
+| width        |                               `string`                               | `fit-content` |        Yes |
+| borderRadius |                               `string`                               |      `0`      |        Yes |
+| error        |                      `string` &#124; `boolean`                       |     false     |        Yes |
+
+> NativeSelect extends the props of **select tag** https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
