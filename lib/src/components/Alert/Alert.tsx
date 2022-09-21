@@ -74,7 +74,7 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
   });
 
   return (
-    <div
+    <Flex
       ref={ref}
       role="alert"
       className={`${alertStyles} ${getClassName()} ${className}`}
@@ -107,7 +107,7 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
           <CloseIcon onClick={onClose} height={18} width={18} />
         </Button>
       )}
-    </div>
+    </Flex>
   );
 };
 
