@@ -1,0 +1,47 @@
+# Breadcrumb
+
+To display hierarchy with respect to current location and help with navigation.
+
+### Quick start
+
+Here's a quick start guide to get started with the Breadcrumb component
+
+### Importing Component
+
+```jsx
+import { Breadcrumb } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+import "@hover-design/react/dist/style.css";
+import { Breadcrumb } from "@hover-design/react";
+
+```jsx
+onst App = () => {
+  const list = [
+    { title: "Hover" },
+    { title: "Components", href: "#" },
+    { title: "Docs", href: "#" },
+  ];
+  return (
+    <div className="App">
+      <Breadcrumb crumbs={list} separator={"/"} />
+    </div>
+  );
+};
+```
+
+### Breadcrumb
+
+| Property  | Description              | Type                | Default Version |
+| :-------- | :----------------------- | :------------------ | :-------------- |
+| className | The additional css class | string              | -               |
+| crumbs    | List of Breadcrumbs      | Array[crumb]        | -               |
+| separator | Separator between links  | string or ReactNode | -               |
+
+### crumbs
+
+| Property | Description                               | Type   | Default Version |
+| :------- | :---------------------------------------- | :----- | :-------------- |
+| crumb    | Object with title(must) & href properties | Object |                 |
