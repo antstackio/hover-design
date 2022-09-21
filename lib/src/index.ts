@@ -24,3 +24,4 @@ export * from "./components/Select";
 export * from "./components/NativeSelect";
 export * from "./components/Popover";
 export * from "./components/Tooltip";
+export * from "./components/Alert";

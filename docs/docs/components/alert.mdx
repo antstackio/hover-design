@@ -1,0 +1,150 @@
+# Alert
+
+### Quick start
+
+Here's a quick start guide to get started with the Alert component
+
+### Importing Component
+
+```jsx
+import { Alert } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+import "@hover-design/react/dist/style.css";
+import { Alert } from "@hover-design/react";
+
+##### Alert Info
+
+```jsx
+<div className="App">
+  <Alert title="Info">This is an Info Alert</Alert>
+</div>
+```
+
+<Alert title="Info">This is an Info Alert</Alert>
+
+##### Alert Success
+
+```jsx
+<div className="App">
+  <Alert title="Success" type="success">
+    This is a Success Alert
+  </Alert>
+</div>
+```
+
+<Alert title="Success" type="success">
+  This is a Success Alert
+</Alert>
+
+##### Alert Warning
+
+```jsx
+<div className="App">
+  <Alert title="Warning" type="warning">
+    This is a Warning Alert
+  </Alert>
+</div>
+```
+
+<Alert title="Warning" type="warning">
+  This is a Warning Alert
+</Alert>
+
+##### Alert Danger
+
+```jsx
+<div className="App">
+  <Alert title="Danger" type="danger">
+    This is a Danger Alert
+  </Alert>
+</div>
+```
+
+<Alert title="Danger" type="danger">
+  This is a Danger Alert
+</Alert>
+
+##### Alert Variant - Filled
+
+```jsx
+<div className="App">
+  <Alert title="Filled Alert" variant="filled">
+    This is a Filled Alert
+  </Alert>
+</div>
+```
+
+<Alert title="Filled Alert" variant="filled">
+  This is a Filled Alert
+</Alert>
+
+##### Alert Variant - Outline
+
+```jsx
+<div className="App">
+  <Alert title="Outline Alert" variant="outline">
+    This is an Outline Alert
+  </Alert>
+</div>
+```
+
+<Alert title="Outline Alert" variant="outline">
+  This is an Outline Alert
+</Alert>
+
+##### Alert - Custom Colors
+
+```jsx
+<Alert title="Custom Colors" color="hotpink" backgroundColor="lavenderblush">
+  This is an Info Alert
+</Alert>
+```
+
+<Alert title="Custom Colors" color="hotpink" backgroundColor="lavenderblush">
+  This is an Info Alert
+</Alert>
+
+##### Alert - with Close Button
+
+```jsx
+<div className="App">
+  <Alert title="Close Button" withCloseButton>
+    This alert has a Close Button
+  </Alert>
+</div>
+```
+
+> **Note:** Clicking on the close button triggers the onClose function which should be passed as a prop to the component
+
+<Alert title="Close Button" withCloseButton>
+  This alert has a Close Button
+</Alert>
+
+### Props Reference
+
+| Attributes       |                            Values                             | Default Value | Optional ? |
+| :--------------- | :-----------------------------------------------------------: | :-----------: | ---------: |
+| variant          |           `light` &#124; `filled` &#124; `outline`            |    `light`    |        Yes |
+| type             |    `info` &#124; `success` &#124; `warning`&#124; `danger`    |    `info`     |        Yes |
+| title            |                          `ReactNode`                          |               |        Yes |
+| icon             |                          `ReactNode`                          |               |        Yes |
+| color            |                           `string`                            |               |        Yes |
+| borderRadius     |                           `string`                            |     `4px`     |        Yes |
+| backgroundColor  |                           `string`                            |               |        Yes |
+| closeButtonLabel |          `aria-label` for close button:<br/>`string`          |               |        Yes |
+| withCloseButton  |                           `boolean`                           |    `false`    |        Yes |
+| onClose          | is triggered when the close button is clicked<br/> `()=>void` |               |        Yes |
+
+### Custom Styles
+
+> **Note:** It is advised to use these classNames scoped inside of the className given as prop to the main component.
+
+| ClassName                     |           Element           |
+| :---------------------------- | :-------------------------: |
+| `hover-alert-title`           |       Title container       |
+| `hover-alert-description`     |    Description Container    |
+| `hover-alert-closeButtonIcon` | Close Button Icon Container |
+| `hover-alert-icon`            |       Icon Container        |
