@@ -45,13 +45,9 @@ export const alertRecipe = recipe({
   },
 });
 
-export const alertTitleStyles = style({
-  fontWeight: "700",
-  marginBottom: "7px",
-});
-
 export const alertTitleRecipe = recipe({
   base: {
+    fontWeight: "700",
     marginBottom: "7px",
     color: alertVars.color,
   },

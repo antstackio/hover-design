@@ -11,7 +11,7 @@ import {
   alertInfoTheme,
   alertRecipe,
   alertSuccessTheme,
-  alertTitleStyles,
+  alertTitleRecipe,
   alertVars,
   alertWarningTheme,
 } from "./alert.styles.css";
@@ -70,6 +70,9 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
     variant,
   });
   const alertIconStyles = alertIconRecipe({
+    isFilled: variant === "filled",
+  });
+  const alertTitleStyles = alertTitleRecipe({
     isFilled: variant === "filled",
   });
 
