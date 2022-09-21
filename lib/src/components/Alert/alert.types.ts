@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 
-type divType = Omit<JSX.IntrinsicElements["div"], "ref">;
-export type AlertProps = divType & {
+export type AlertProps = JSX.IntrinsicElements["div"] & {
   color?: string;
   backgroundColor?: string;
   icon?: ReactNode;
