@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import {
   breadcrumbWrapper,
   crumbSeparator,
@@ -19,10 +19,14 @@ export interface BreadcrumbProps {
 const Breadcrumb: React.ForwardRefRenderFunction<
   HTMLDivElement,
   BreadcrumbProps
-> = ({ crumbs, separator = "/", className, ...nativeProps }) => {
+> = ({ crumbs, separator = "/", className, ...nativeProps }, ref) => {
   console.log(separator);
   return (
-    <div className={`${breadcrumbWrapper} ${className}`} {...nativeProps}>
+    <div
+      ref={ref}
+      className={`${breadcrumbWrapper} ${className}`}
+      {...nativeProps}
+    >
       {crumbs.map((b, index, arr) => {
         return (
           <React.Fragment key={index}>
@@ -38,4 +42,6 @@ const Breadcrumb: React.ForwardRefRenderFunction<
     </div>
   );
 };
-export { Breadcrumb };
+const BreadcrumbWithRef = forwardRef(Breadcrumb);
+
+export { BreadcrumbWithRef as Breadcrumb };
