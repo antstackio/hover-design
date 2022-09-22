@@ -17,6 +17,7 @@ const SpinnerComponent: ForwardRefRenderFunction<
     thickness,
     dashLength,
     isRoundedDash = false,
+    ...props
   },
   ref
 ) => {
@@ -33,7 +34,7 @@ const SpinnerComponent: ForwardRefRenderFunction<
   }, [dashLength, size]);
 
   return (
-    <svg width={size} height={size} viewBox={viewBox} ref={ref}>
+    <svg width={size} height={size} viewBox={viewBox} ref={ref} {...props}>
       <circle
         fill="none"
         stroke="#E5E9F2"
