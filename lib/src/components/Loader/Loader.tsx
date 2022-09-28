@@ -6,16 +6,16 @@ const LoaderComponent: ForwardRefRenderFunction<SVGSVGElement, LoaderProps> = (
   { variant = "spinner", ...props },
   ref
 ) => {
-  const getLoader = () => {
-    switch (variant) {
-      case "spinner":
-        return <Spinner {...props} ref={ref} />;
-      default:
-        return <Spinner {...props} ref={ref} />;
-    }
-  };
+  // const getLoader = () => {  // to be uncommented when more variants are added
+  //   switch (variant) {
+  //     case "spinner":
+  //       return <Spinner {...props} ref={ref} />;
+  //     default:
+  //       return <Spinner {...props} ref={ref} />;
+  //   }
+  // };
 
-  return getLoader();
+  return <Spinner {...props} ref={ref} />;
 };
 
 export const Loader = forwardRef(LoaderComponent);
