@@ -11,22 +11,29 @@ const StepperStepComponent: ForwardRefRenderFunction<
 > = (
   {
     isStepClickable = false,
-    isStepSelectable = false,
     isLoading = false,
     showIcon,
     children,
     className,
     style,
+    icon,
+    completedIcon,
+    progressIcon,
+    baseStyles,
+    completedStyles,
+    progressStyles,
+    borderRadius,
+    iconPosition,
     ...nativeProps
   },
   ref
 ) => {
   const assignVariables = assignInlineVars(eliminateUndefinedKeys({}));
 
-  const _icon = 1;
+  const _icon = icon;
 
   return (
-    <Flex display="inline-flex" justifyContent="center" alignItems="center">
+    <Flex display="inline-flex" alignItems="center">
       <Flex
         display="inline-flex"
         justifyContent="center"
@@ -38,7 +45,7 @@ const StepperStepComponent: ForwardRefRenderFunction<
       >
         {_icon}
       </Flex>
-      <div>{children}</div>
+      <div data-child>{children}</div>
     </Flex>
   );
 };

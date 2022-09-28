@@ -1,4 +1,4 @@
-import { Button, Radio, RadioGroup } from "@hover-design/react";
+import { Stepper, StepperStep } from "@hover-design/react";
 import { StyleWrapper } from "components/appWraper/StyleWrapper";
 import { BreakpointsExample } from "components/breakpointsExample/BreakpointsExample";
 import { ColorsPreview } from "components/colorsPreview/colorsPreview";
@@ -10,14 +10,66 @@ import { PageMain } from "components/pageMain/PageMain";
 import React, { useState } from "react";
 import { fonts, fontSizes } from "styles/index.css";
 import "styles/reset.css";
+import { FaBtc, FaAngellist } from "react-icons/fa";
+import { Divider } from "@hover-design/react";
+import { Flex } from "@hover-design/react";
 
 const App: React.FC = () => {
-  const [radioVal, setRadioVal] = useState("radio1");
   return (
     <StyleWrapper>
       <Header />
       <PageMain>
         <Container>
+          <Flex display="inline-flex" alignItems="center">
+            <Divider color="red" />
+          </Flex>
+          <br />
+          <br />
+          <br />
+          <div>
+            <Stepper activeStep={0}>
+              <StepperStep>
+                <div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                </div>
+              </StepperStep>
+              <div>First ele</div>
+              <StepperStep></StepperStep>
+              <StepperStep></StepperStep>
+            </Stepper>
+          </div>
+          <br />
+          <br />
+          <br />
+          <div>
+            <Stepper activeStep={0} orientation="vertical">
+              <StepperStep>
+                <div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                </div>
+              </StepperStep>
+
+              <StepperStep></StepperStep>
+              <StepperStep></StepperStep>
+            </Stepper>
+          </div>
+
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
           <ColorsPreview />

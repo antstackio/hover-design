@@ -7,11 +7,6 @@
   "module": "dist/hover-react.es.js",
   "types": "dist/types/index.d.ts",
   "private": false,
-  "repository": {
-    "url": "https://github.com/antstackio/hover-design.git",
-    "type": "git",
-    "directory": "lib"
-  },
   "keywords": [
     "react",
     "ui",
