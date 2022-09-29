@@ -1,4 +1,4 @@
-import { createVar, keyframes, style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 
 const spinAnimation = keyframes({
   to: {
