@@ -70,7 +70,7 @@ const PopoverComponent: ForwardRefRenderFunction<
     () => {
       isOpened === undefined && setIsOpen(false);
     },
-    isOpen as boolean
+    isOpen || false
   );
 
   const internalClickHandler = () => {
