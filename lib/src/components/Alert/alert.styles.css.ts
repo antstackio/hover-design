@@ -1,6 +1,5 @@
-import { createTheme, createVar, style } from "@vanilla-extract/css";
+import { createTheme, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { AlertTheme } from "./alert.types";
 
 export const [alertInfoTheme, alertVars]: any = createTheme({
   color: "#2F80ED",
