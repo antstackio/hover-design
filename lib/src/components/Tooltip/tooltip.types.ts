@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { positionType } from "../_internal/Types/types";
 
 type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;

@@ -54,7 +54,7 @@ const PopoverComponent: ForwardRefRenderFunction<
   }, [isOpened]);
 
   useEffect(() => {
-    isOpen !== null && onChange(isOpen!);
+    isOpen !== null && onChange(isOpen);
   }, [isOpen]);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const PopoverComponent: ForwardRefRenderFunction<
     () => {
       isOpened === undefined && setIsOpen(false);
     },
-    isOpen!
+    isOpen as boolean
   );
 
   const internalClickHandler = () => {

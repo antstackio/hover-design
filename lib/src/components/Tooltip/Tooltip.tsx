@@ -55,7 +55,7 @@ const TooltipComponent: ForwardRefRenderFunction<
   }, [isOpened]);
 
   useEffect(() => {
-    isOpen !== null && onChange(isOpen!);
+    isOpen !== null && onChange(isOpen);
   }, [isOpen]);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const TooltipComponent: ForwardRefRenderFunction<
     () => {
       isOpened === undefined && setIsOpen(false);
     },
-    isOpen!
+    isOpen as boolean
   );
 
   const internalClickHandler = () => {
