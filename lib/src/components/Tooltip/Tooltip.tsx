@@ -55,7 +55,7 @@ const TooltipComponent: ForwardRefRenderFunction<
   }, [isOpened]);
 
   useEffect(() => {
-    isOpen !== null && onChange(isOpen);
+    if (isOpen !== null) onChange(isOpen);
   }, [isOpen]);
 
   useEffect(() => {
