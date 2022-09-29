@@ -36,15 +36,8 @@ const App: React.FC = () => {
                   <div>
                     <label>desc</label>
                   </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
                 </div>
               </StepperStep>
-              <div>First ele</div>
               <StepperStep></StepperStep>
               <StepperStep></StepperStep>
             </Stepper>

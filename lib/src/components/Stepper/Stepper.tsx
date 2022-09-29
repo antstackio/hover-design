@@ -76,7 +76,7 @@ const StepperComponent: ForwardRefRenderFunction<
       })
     );
 
-    if (index !== _children.length - 1) {
+    if (orientation === "horizontal" && index !== _children.length - 1) {
       acc.push(<Divider orientation={orientation} size="2px" color="green" />);
     }
 
@@ -90,7 +90,8 @@ const StepperComponent: ForwardRefRenderFunction<
   return (
     <Flex
       display="inline-flex"
-      alignItems="center"
+      alignItems={orientation === "horizontal" ? "center" : "normal"}
+      // alignItems="center" ==> should depend on orientation
       flexDirection={orientation === "horizontal" ? "row" : "column"}
       style={{ border: "2px solid red" }}
       className={` ${className || ""}`}

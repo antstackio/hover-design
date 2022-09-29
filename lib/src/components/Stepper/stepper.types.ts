@@ -22,7 +22,7 @@ export type TStepperProps = JSX.IntrinsicElements["div"] & {
 };
 
 export type TStepperStepProps = JSX.IntrinsicElements["div"] &
-  Omit<TStepperProps, "activeStep"> & {
+  Omit<TStepperProps, "activeStep" | "children"> & {
     isStepClickable?: boolean;
     isLoading?: boolean;
     showIcon?: boolean;

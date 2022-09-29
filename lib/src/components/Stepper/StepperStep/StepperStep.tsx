@@ -1,5 +1,6 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import React, { ForwardRefRenderFunction } from "react";
+import { Divider } from "src/components/Divider";
 import { Flex } from "src/components/Flex";
 import { eliminateUndefinedKeys } from "src/utils/object-utils";
 import { StepperStepIconClass } from "../stepper.styles.css";
@@ -24,6 +25,7 @@ const StepperStepComponent: ForwardRefRenderFunction<
     progressStyles,
     borderRadius,
     iconPosition,
+    orientation,
     ...nativeProps
   },
   ref
@@ -33,18 +35,30 @@ const StepperStepComponent: ForwardRefRenderFunction<
   const _icon = icon;
 
   return (
-    <Flex display="inline-flex" alignItems="center">
-      <Flex
-        display="inline-flex"
-        justifyContent="center"
-        alignItems="center"
-        className={` ${StepperStepIconClass} ${className || ""}`}
-        style={{ ...assignVariables, ...(style || {}) }}
-        ref={ref}
-        {...nativeProps}
+    <Flex display="inline-flex">
+      <div
+        data-wrapper
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }}
       >
-        {_icon}
-      </Flex>
+        <Flex
+          display="inline-flex"
+          justifyContent="center"
+          alignItems="center"
+          className={` ${StepperStepIconClass} ${className || ""}`}
+          style={{ ...assignVariables, ...(style || {}) }}
+          ref={ref}
+          {...nativeProps}
+        >
+          {_icon}
+        </Flex>
+        {orientation === "vertical" && (
+          <Divider orientation={orientation} size="2px" color="green" />
+        )}
+      </div>
       <div data-child>{children}</div>
     </Flex>
   );
