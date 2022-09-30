@@ -1,4 +1,4 @@
-import { createTheme, globalStyle, style } from "@vanilla-extract/css";
+import { createTheme, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { SelectTheme } from "./select.types";
