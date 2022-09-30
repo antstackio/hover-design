@@ -1,0 +1,86 @@
+# Loader
+
+### Quick start
+
+Here's a quick start guide to get started with the Loader component
+
+### Importing Component
+
+```jsx
+import { Loader } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+import "@hover-design/react/dist/style.css";
+import { Loader } from "@hover-design/react";
+
+##### Loader - Default
+
+```jsx
+<div className="App">
+  <Loader />
+</div>
+```
+
+<Loader />
+
+##### Loader - Rounded Edges
+
+```jsx
+<div className="App">
+  <Loader isRoundedDash />
+</div>
+```
+
+<Loader isRoundedDash />
+
+##### Loader - Custom Color
+
+```jsx
+<div className="App">
+  <Loader color="coral" />
+</div>
+```
+
+<Loader color="coral" />
+
+##### Loader - Custom Thickness
+
+```jsx
+<div className="App">
+  <Loader thickness={15} />
+</div>
+```
+
+<Loader thickness={10} />
+
+##### Loader - Custom Dash Length
+
+```jsx
+<div className="App">
+  <Loader dashLength={60} />
+</div>
+```
+
+<Loader dashLength={60} />
+
+##### Loader - Custom Sizes
+
+```jsx
+<div className="App">
+  <Loader size={80} />
+</div>
+```
+
+<Loader size={80} />
+
+### Props Reference
+
+| Attributes    |  Values   |    Default Value    | Optional ? |
+| :------------ | :-------: | :-----------------: | ---------: |
+| size          | `number`  |         30          |        Yes |
+| thickness     | `number`  |     `size / 5`      |        Yes |
+| color         | `string`  |      `#408FEC`      |        Yes |
+| dashLength    | `number`  | `1/4 Circumference` |        Yes |
+| isRoundedDash | `boolean` |       `false`       |        Yes |
