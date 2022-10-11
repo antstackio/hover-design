@@ -1,4 +1,5 @@
-import { createTheme, style } from "@vanilla-extract/css";
+import { createTheme, createVar, style } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const [alertInfoTheme, alertVars]: any = createTheme({
@@ -19,6 +20,8 @@ export const alertDangerTheme: any = createTheme(alertVars, {
   color: "#F44336",
   backgroundColor: "#FFF6F8",
 });
+
+export const alertIconTitleSpace: string = createVar();
 
 export const alertRecipe = recipe({
   base: {
@@ -44,10 +47,13 @@ export const alertRecipe = recipe({
   },
 });
 
+export const alertHeaderStyles = style({
+  width: "fit-content",
+});
+
 export const alertTitleRecipe = recipe({
   base: {
     fontWeight: "700",
-    marginBottom: "7px",
     color: alertVars.color,
   },
   variants: {
@@ -56,14 +62,15 @@ export const alertTitleRecipe = recipe({
     },
   },
 });
-
-export const alertIconContainerStyles = style({
-  marginRight: "10px",
+export const alertDescriptionStyle = style({
+  marginTop: "7px",
+  marginLeft: alertIconTitleSpace,
 });
 
 export const alertIconRecipe = recipe({
   base: {
     color: alertVars.color,
+    marginRight: "8px",
   },
   variants: {
     isFilled: {
@@ -81,6 +88,7 @@ export const alertCloseIconStyles = style({
   top: "10px",
   border: "none",
   display: "flex",
+  margin: 0,
   padding: 0,
   justifyContent: "center",
   alignItems: "center",

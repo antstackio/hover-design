@@ -1,13 +1,22 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { forwardRef, ForwardRefRenderFunction } from "react";
+import {
+  forwardRef,
+  ForwardRefRenderFunction,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Flex } from "../Flex";
 import { Button } from "../Button";
 import { AlertProps } from "./alert.types";
 import {
   alertCloseIconStyles,
   alertDangerTheme,
-  alertIconContainerStyles,
+  alertDescriptionStyle,
+  alertHeaderStyles,
   alertIconRecipe,
+  alertIconTitleSpace,
   alertInfoTheme,
   alertRecipe,
   alertSuccessTheme,
@@ -26,6 +35,7 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
     color,
     backgroundColor,
     icon,
+    showIcon = true,
     title,
     variant = "light",
     borderRadius = "4px",
@@ -40,6 +50,21 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
   },
   ref
 ) => {
+  const iconRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const titleRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const [iconTitleSpace, setIconTitleSpace] = useState("0px");
+
+  useEffect(() => {
+    if (showIcon && title) {
+      const iconPosition = iconRef?.current.offsetLeft;
+      const titlePosition = titleRef?.current.offsetLeft;
+
+      iconRef.current &&
+        titleRef.current &&
+        setIconTitleSpace(`${titlePosition - iconPosition}px`);
+    }
+  }, [iconRef.current, titleRef.current]);
+
   const getClassName = () => {
     switch (type) {
       case "info":
@@ -81,26 +106,39 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
       ref={ref}
       role="alert"
       className={`${alertStyles} ${getClassName()} ${className}`}
+      flexDirection="column"
       style={{
         ...assignInlineVars({
           [alertVars.color]: color || "",
           [alertVars.backgroundColor]: backgroundColor || "",
+          [alertIconTitleSpace]: iconTitleSpace,
           borderRadius,
         }),
         ...style,
       }}
       {...nativeProps}
     >
-      <Flex className={`${alertIconContainerStyles}`}>
-        <div className={`${alertIconStyles} hover-alert-icon`}>
-          {icon || getIcon()}
-        </div>
-      </Flex>
-      <Flex flexDirection="column">
-        {title && (
-          <div className={`${alertTitleStyles} hover-alert-title`}>{title}</div>
+      <Flex alignItems="center" className={`${alertHeaderStyles}`}>
+        {showIcon && (
+          <div ref={iconRef} className={`${alertIconStyles} hover-alert-icon`}>
+            {icon || getIcon()}
+          </div>
         )}
-        <div className="hover-alert-description">{children}</div>
+        {title && (
+          <div
+            ref={titleRef}
+            className={`${alertTitleStyles} hover-alert-title`}
+          >
+            {title}
+          </div>
+        )}
+      </Flex>
+      <Flex>
+        {children && (
+          <div className={`${alertDescriptionStyle} hover-alert-description`}>
+            {children}
+          </div>
+        )}
       </Flex>
       {withCloseButton && (
         <Button
