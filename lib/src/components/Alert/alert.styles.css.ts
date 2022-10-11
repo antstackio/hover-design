@@ -1,5 +1,4 @@
 import { createTheme, createVar, style } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const [alertInfoTheme, alertVars]: any = createTheme({
