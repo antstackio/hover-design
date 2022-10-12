@@ -1,4 +1,4 @@
-import { createTheme, style } from "@vanilla-extract/css";
+import { createTheme } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { TStepperTheme } from "./stepper.types";
 

@@ -23,9 +23,6 @@ const App: React.FC = () => {
       <Header />
       <PageMain>
         <Container>
-          <br />
-          <br />
-          <br />
           <div>
             <Stepper
               onStepClick={setActive}
@@ -40,27 +37,15 @@ const App: React.FC = () => {
                   <div>
                     <label>desc</label>
                   </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
                 </div>
               </StepperStep>
               <StepperStep></StepperStep>
               <StepperStep></StepperStep>
             </Stepper>
           </div>
+
           <br />
-          <br />
-          <br />
+
           <div>
             <Stepper
               onStepClick={setActive}
@@ -73,22 +58,7 @@ const App: React.FC = () => {
                     <label>Label</label>
                   </div>
                   <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
+                    <label>desc</label>
                   </div>
                 </div>
               </StepperStep>
@@ -116,11 +86,8 @@ const App: React.FC = () => {
             </Stepper>
           </div>
 
-          {/* {asdasf} */}
+          <br />
 
-          <br />
-          <br />
-          <br />
           <div>
             <Stepper
               onStepClick={setActive}
@@ -135,27 +102,15 @@ const App: React.FC = () => {
                   <div>
                     <label>desc</label>
                   </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
-                  <div>
-                    <label>desc</label>
-                  </div>
                 </div>
               </StepperStep>
               <StepperStep></StepperStep>
               <StepperStep></StepperStep>
             </Stepper>
           </div>
+
           <br />
-          <br />
-          <br />
+
           <div>
             <Stepper
               onStepClick={setActive}
@@ -169,22 +124,7 @@ const App: React.FC = () => {
                     <label>Label</label>
                   </div>
                   <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
-                  </div>
-                  <div>
-                    <label>Label</label>
+                    <label>desc</label>
                   </div>
                 </div>
               </StepperStep>
@@ -195,7 +135,7 @@ const App: React.FC = () => {
                     <label>Label</label>
                   </div>
                   <div>
-                    <label>Label</label>
+                    <label>desc</label>
                   </div>
                 </div>
               </StepperStep>
@@ -205,12 +145,15 @@ const App: React.FC = () => {
                     <label>Label</label>
                   </div>
                   <div>
-                    <label>Label</label>
+                    <label>desc</label>
                   </div>
                 </div>
               </StepperStep>
             </Stepper>
           </div>
+
+          <br />
+
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
           <ColorsPreview />

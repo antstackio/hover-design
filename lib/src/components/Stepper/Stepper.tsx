@@ -36,6 +36,12 @@ const StepperComponent: ForwardRefRenderFunction<
         ? item.props.isStepClickable
         : typeof onStepClick === "function";
 
+    const getStepState = () => {
+      if (activeStep === index) return "stepProgress";
+      if (activeStep > index) return "stepCompleted";
+      return "stepInactive";
+    };
+
     acc.push(
       cloneElement(item, {
         icon: item.props.icon || icon || index + 1,
@@ -43,12 +49,7 @@ const StepperComponent: ForwardRefRenderFunction<
         progressIcon: item.props.progressIcon || progressIcon,
         key: index,
         isLastChild: _children.length === index + 1,
-        stepState:
-          activeStep === index
-            ? "stepProgress"
-            : activeStep > index
-            ? "stepCompleted"
-            : "stepInactive",
+        stepState: getStepState(),
         borderRadius: item.props.borderRadius || borderRadius,
         baseStyles: item.props.baseStyles || baseStyles,
         completedStyles: item.props.completedStyles || completedStyles,
