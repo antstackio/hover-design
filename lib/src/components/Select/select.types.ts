@@ -3,10 +3,10 @@ type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 export type SelectPropsType = divType & {
   placeholder?: string;
   options: OptionsType[];
-  value?: string | number | (string | number)[];
+  value?: OptionsType | OptionsType[] | null;
   width?: string;
   onChange?: (
-    value: string | number | (string | number)[],
+    value: OptionsType | OptionsType[] | null,
     event?:
       | MouseEvent<HTMLDivElement>
       | KeyboardEvent<HTMLDivElement>
