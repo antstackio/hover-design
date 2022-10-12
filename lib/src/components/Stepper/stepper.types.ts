@@ -25,9 +25,6 @@ export type TStepperProps = JSX.IntrinsicElements["div"] & {
 
 export type TStepperStepProps = JSX.IntrinsicElements["div"] &
   Omit<TStepperProps, "activeStep" | "children"> & {
-    isStepClickable?: boolean;
-    isLoading?: boolean;
-    showIcon?: boolean;
     children?: ReactNode;
     ref?: MutableRefObject<HTMLDivElement | null>;
   };

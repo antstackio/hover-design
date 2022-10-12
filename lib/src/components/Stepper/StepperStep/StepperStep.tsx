@@ -4,6 +4,7 @@ import { Divider } from "src/components/Divider";
 import { Flex } from "src/components/Flex";
 import { eliminateUndefinedKeys } from "src/utils/object-utils";
 import {
+  StepperDividerWrapperClass,
   StepperStepIconClass,
   stepperThemeClass,
   stepperThemeVars
@@ -16,9 +17,6 @@ const StepperStepComponent: ForwardRefRenderFunction<
   TStepperStepProps
 > = (
   {
-    isStepClickable = false,
-    isLoading = false,
-    showIcon,
     children,
     className,
     style,
@@ -56,7 +54,11 @@ const StepperStepComponent: ForwardRefRenderFunction<
 
   const StepperStepIconStyle = StepperStepIconClass({ stepState });
 
-  const renderIcon = () => {
+  const StepperDividerWrapperStyle = StepperDividerWrapperClass({
+    orientation
+  });
+
+  const _Icon = () => {
     if (stepState === "stepCompleted") {
       return completedIcon || <CheckIcon />;
     }
@@ -66,95 +68,71 @@ const StepperStepComponent: ForwardRefRenderFunction<
     return icon;
   };
 
+  const renderIcon = () => {
+    return (
+      <Flex
+        display="inline-flex"
+        alignItems="center"
+        justifyContent="center"
+        className={StepperStepIconStyle}
+        ref={ref}
+      >
+        {_Icon()}
+      </Flex>
+    );
+  };
+
+  const renderDivider = () => {
+    if (isLastChild) return null;
+    return (
+      <div className={StepperDividerWrapperStyle}>
+        <Divider
+          orientation={orientation}
+          size="2px"
+          color={
+            stepState === "stepCompleted"
+              ? stepperThemeVars.completedStyles.backgroundColor
+              : stepperThemeVars.baseStyles.backgroundColor
+          }
+        />
+      </div>
+    );
+  };
+
   return (
     <Flex
       display="inline-flex"
-      flexGrow={1}
-      alignItems={orientation === labelOrientation ? "center" : "flex-start"}
       flexDirection={labelOrientation === "vertical" ? "column" : "row"}
+      alignItems={orientation === labelOrientation ? "center" : "flex-start"}
+      flexGrow={1}
       style={{ ...assignVariables, ...(style || {}) }}
       className={`${stepperThemeClass} ${className || ""}`}
+      {...nativeProps}
     >
-      {labelOrientation === orientation ? (
+      {orientation === labelOrientation ? (
         <>
+          {renderIcon()}
           <Flex
-            display="inline-flex"
-            justifyContent="center"
+            display="flex"
             alignItems="center"
-            className={StepperStepIconStyle}
-            ref={ref}
-            {...nativeProps}
-          >
-            {renderIcon()}
-          </Flex>
-          <div
-            style={{
-              flexDirection: labelOrientation === "vertical" ? "column" : "row",
-              display: "flex",
-              alignItems: "center",
-              flexGrow: orientation === "vertical" ? 0 : 1
-            }}
+            alignSelf="stretch"
+            flexDirection={labelOrientation === "vertical" ? "column" : "row"}
           >
             <div>{children}</div>
-            {!isLastChild ? (
-              <div
-                style={{
-                  flexGrow: 1,
-                  margin: orientation === "vertical" ? "5px 0 0" : " 0 0 0 5px"
-                }}
-              >
-                <Divider
-                  orientation={orientation}
-                  size="2px"
-                  color={
-                    stepState === "stepCompleted"
-                      ? stepperThemeVars.completedStyles.backgroundColor
-                      : stepperThemeVars.baseStyles.backgroundColor
-                  }
-                />
-              </div>
-            ) : null}
-          </div>
+            {renderDivider()}
+          </Flex>
         </>
       ) : (
         <>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: labelOrientation === "vertical" ? "row" : "column",
-              alignItems: "center",
-              alignSelf: orientation === "vertical" ? "stretch" : "stretch"
-            }}
+          <Flex
+            display="flex"
+            alignItems="center"
+            alignSelf="stretch"
+            flexDirection={labelOrientation === "vertical" ? "row" : "column"}
           >
-            <Flex
-              display="inline-flex"
-              justifyContent="center"
-              alignItems="center"
-              className={StepperStepIconStyle}
-              ref={ref}
-              {...nativeProps}
-            >
-              {renderIcon()}
-            </Flex>
-            {!isLastChild ? (
-              <div
-                style={{
-                  flexGrow: 1,
-                  margin: orientation === "vertical" ? "5px 0 0" : " 0 0 0 5px"
-                }}
-              >
-                <Divider
-                  orientation={orientation}
-                  size="2px"
-                  color={
-                    stepState === "stepCompleted"
-                      ? stepperThemeVars.completedStyles.backgroundColor
-                      : stepperThemeVars.baseStyles.backgroundColor
-                  }
-                />
-              </div>
-            ) : null}
-          </div>
+            {renderIcon()}
+            {renderDivider()}
+          </Flex>
           <div>{children}</div>
         </>
       )}

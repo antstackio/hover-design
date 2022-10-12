@@ -46,16 +46,19 @@ export const [stepperThemeClass, stepperThemeVars]: TStepperTheme = createTheme(
   }
 );
 
-// export const stepperVerticalDividerWrapper = style({
-//   marginTop: "5px",
-//   marginBottom: "5px",
-//   flexGrow: 1
-// });
-
-// export const stepperHorizontalDividerWrapper = style({
-//   marginLeft: "5px",
-//   marginRight: "5px"
-// });
+export const StepperDividerWrapperClass = recipe({
+  base: { flexGrow: 1 },
+  variants: {
+    orientation: {
+      vertical: {
+        margin: "5px 0 0"
+      },
+      horizontal: {
+        margin: " 0 0 0 5px"
+      }
+    }
+  }
+});
 
 export const StepperStepIconClass = recipe({
   base: {
