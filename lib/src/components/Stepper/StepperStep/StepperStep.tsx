@@ -26,6 +26,7 @@ const StepperStepComponent: ForwardRefRenderFunction<
     baseStyles,
     completedStyles,
     progressStyles,
+    dividerProps,
     borderRadius,
     orientation,
     labelOrientation,
@@ -87,13 +88,14 @@ const StepperStepComponent: ForwardRefRenderFunction<
     return (
       <div className={StepperDividerWrapperStyle}>
         <Divider
-          orientation={orientation}
           size="2px"
           color={
             stepState === "stepCompleted"
               ? stepperThemeVars.completedStyles.backgroundColor
               : stepperThemeVars.baseStyles.backgroundColor
           }
+          {...dividerProps}
+          orientation={orientation}
         />
       </div>
     );

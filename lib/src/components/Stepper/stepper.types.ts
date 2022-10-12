@@ -1,4 +1,5 @@
 import { MutableRefObject, ReactNode } from "react";
+import { DividerProps } from "../Divider";
 
 export type TStepperSizes = "xs" | "sm" | "md" | "lg" | "xl";
 
@@ -21,6 +22,7 @@ export type TStepperProps = JSX.IntrinsicElements["div"] & {
   progressIcon?: ReactNode;
   isLastChild?: boolean;
   stepState?: "stepProgress" | "stepCompleted" | "stepInactive";
+  dividerProps?: DividerProps;
 };
 
 export type TStepperStepProps = JSX.IntrinsicElements["div"] &

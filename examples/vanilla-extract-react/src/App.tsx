@@ -27,7 +27,11 @@ const App: React.FC = () => {
           <br />
           <br />
           <div>
-            <Stepper onStepClick={setActive} activeStep={active}>
+            <Stepper
+              onStepClick={setActive}
+              activeStep={active}
+              dividerProps={{ type: "dashed", size: "5px" }}
+            >
               <StepperStep>
                 <div>
                   <div>
