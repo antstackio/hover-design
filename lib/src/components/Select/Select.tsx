@@ -159,9 +159,6 @@ const SelectComponent: ForwardRefRenderFunction<
       onChange(multiValue, event);
       setSelectValue(multiValue);
     } else {
-      isClearable &&
-        !Array.isArray(selectValue) &&
-        option.value === selectValue?.value;
       if (
         isClearable &&
         !Array.isArray(selectValue) &&
