@@ -1,5 +1,4 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 
 import { lightColors } from "src/styles/tokens";
 import { IInputTheme } from "./input.types";

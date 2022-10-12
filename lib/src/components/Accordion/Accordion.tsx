@@ -1,4 +1,4 @@
-import React, { ForwardRefRenderFunction, LegacyRef } from "react";
+import React, { ForwardRefRenderFunction } from "react";
 
 import { accordionThemeClass, detailsClass } from "./accordion.styles.css";
 import "./accordion.global.styles.css";

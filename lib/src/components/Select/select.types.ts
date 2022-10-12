@@ -1,9 +1,4 @@
-import {
-  ChangeEvent,
-  KeyboardEvent,
-  MouseEvent,
-  MutableRefObject,
-} from "react";
+import { KeyboardEvent, MouseEvent, MutableRefObject } from "react";
 type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 export type SelectPropsType = divType & {
   placeholder?: string;
@@ -34,7 +29,7 @@ export type SelectPropsType = divType & {
 export type OptionsType = {
   label: string;
   value: string | number;
-  disabled?: boolean | undefined;
+  disabled?: boolean;
   ref?: MutableRefObject<HTMLDivElement>;
 };
 

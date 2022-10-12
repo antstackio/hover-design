@@ -1,4 +1,4 @@
-import { createTheme, globalStyle, style } from "@vanilla-extract/css";
+import { createTheme, style } from "@vanilla-extract/css";
 import { ITheadThemeVars } from "./Thead.types";
 
 export const [theadThemeClass, theadThemeVars]: ITheadThemeVars = createTheme({
@@ -6,4 +6,3 @@ export const [theadThemeClass, theadThemeVars]: ITheadThemeVars = createTheme({
 });
 
 export const headerDefaults = style({});
-

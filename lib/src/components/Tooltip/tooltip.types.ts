@@ -1,19 +1,12 @@
-import { FC } from "react";
-import { positionType } from "../_internal/Types/types";
 
-type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
+import { PopoverType } from "../Popover/popover.types";
+
+
+type divType = Omit<JSX.IntrinsicElements["div"], "ref"> &
+  Omit<PopoverType, "content" | "ref">;
 
 export type TooltipType = divType & {
-  position?: positionType;
   label: string | number;
-  offset?: string;
-  borderRadius?: string;
-  width?: string;
-  withArrow?: boolean;
-  arrowSize?: string;
-  isOpened?: boolean;
-  onChange?: (isOpened: boolean) => void;
-  zIndex?: string;
   color?: string;
   labelColor?: string;
   multiLine?: boolean;

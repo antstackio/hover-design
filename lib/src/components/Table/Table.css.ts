@@ -1,4 +1,4 @@
-import { globalStyle, style, createTheme } from "@vanilla-extract/css";
+import { style, createTheme } from "@vanilla-extract/css";
 import { ITableContainerThemeVars, ITableThemeVars } from "./Table.types";
 
 export const [
