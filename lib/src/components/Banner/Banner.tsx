@@ -14,7 +14,6 @@ const BannerComponent: ForwardRefRenderFunction<
   BannerPropsType
 > = (
   {
-    withCloseButton = false,
     showIcon = false,
     children,
     alignment = "left",
@@ -52,12 +51,12 @@ const BannerComponent: ForwardRefRenderFunction<
     >
       <Alert
         showIcon={showIcon}
-        withCloseButton={false}
         className={`${
           alignment !== "left" && "hover-banner-not-left-aligned"
         } hover-banner-alert`}
         style={{ alignItems: getAlignment() }}
         {...props}
+        withCloseButton={false}
       >
         {children}
       </Alert>
