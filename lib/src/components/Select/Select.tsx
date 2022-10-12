@@ -60,7 +60,7 @@ const SelectComponent: ForwardRefRenderFunction<
 ) => {
   const [selectValue, setSelectValue] = useState<
     OptionsType | OptionsType[] | null
-  >(value!);
+  >(null);
   const [isDropped, setIsDropped] = useState(false);
   const [internalOptions, setInternalOptions] = useState(options);
   const [searchText, setSearchText] = useState("");
