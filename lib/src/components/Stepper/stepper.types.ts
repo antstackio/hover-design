@@ -9,16 +9,18 @@ export type TStepperProps = JSX.IntrinsicElements["div"] & {
   children: ReactNode;
   onStepClick?: (stepIndex: number) => void;
   orientation?: "horizontal" | "vertical";
+  labelOrientation?: "horizontal" | "vertical";
   size?: string;
-  iconPosition?: "left" | "right";
   borderRadius?: string;
-  baseStyles?: Partial<IStepperTheme[1]["baseStyles"]>;
-  completedStyles?: Partial<IStepperTheme[1]["completedStyles"]>;
-  progressStyles?: Partial<IStepperTheme[1]["progressStyles"]>;
+  baseStyles?: Partial<TStepperTheme[1]["baseStyles"]>;
+  completedStyles?: Partial<TStepperTheme[1]["completedStyles"]>;
+  progressStyles?: Partial<TStepperTheme[1]["progressStyles"]>;
   ref?: MutableRefObject<HTMLDivElement | null>;
   icon?: ReactNode;
   completedIcon?: ReactNode;
   progressIcon?: ReactNode;
+  isLastChild?: boolean;
+  stepState?: "stepProgress" | "stepCompleted" | "stepInactive";
 };
 
 export type TStepperStepProps = JSX.IntrinsicElements["div"] &
@@ -30,7 +32,7 @@ export type TStepperStepProps = JSX.IntrinsicElements["div"] &
     ref?: MutableRefObject<HTMLDivElement | null>;
   };
 
-export type IStepperTheme = [
+export type TStepperTheme = [
   string,
   {
     stepperStyleSize: TStepperSizes | string;

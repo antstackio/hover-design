@@ -1,10 +1,7 @@
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import React, { Children, cloneElement, ForwardRefRenderFunction } from "react";
-import { eliminateUndefinedKeys } from "src/utils/object-utils";
 import { Flex } from "src/components/Flex";
 
 import { TStepperProps } from "./stepper.types";
-import { Divider } from "src/components/Divider";
 
 const StepperComponent: ForwardRefRenderFunction<
   HTMLDivElement,
@@ -14,9 +11,9 @@ const StepperComponent: ForwardRefRenderFunction<
     activeStep,
     onStepClick,
     size,
-    iconPosition = "left",
     borderRadius,
     orientation = "horizontal",
+    labelOrientation = "horizontal",
     icon,
     completedIcon,
     progressIcon,
@@ -38,21 +35,14 @@ const StepperComponent: ForwardRefRenderFunction<
         ? item.props.isStepClickable
         : typeof onStepClick === "function";
 
-    // const assignDividerToChildren = () => {
-    //   return (
-    //     <div style={{ minHeight: "100px" }}>
-    //       <Divider size="2px" orientation={orientation} color="green" />
-    //     </div>
-    //   );
-    // };
-
     acc.push(
       cloneElement(item, {
         icon: item.props.icon || icon || index + 1,
         completedIcon: item.props.completedIcon || completedIcon,
         progressIcon: item.props.progressIcon || progressIcon,
         key: index,
-        state:
+        isLastChild: _children.length === index + 1,
+        stepState:
           activeStep === index
             ? "stepProgress"
             : activeStep > index
@@ -62,42 +52,28 @@ const StepperComponent: ForwardRefRenderFunction<
         baseStyles: item.props.baseStyles || baseStyles,
         completedStyles: item.props.completedStyles || completedStyles,
         progressStyles: item.props.progressStyles || progressStyles,
-        iconPosition: item.props.iconPosition || iconPosition,
         className: item.props.className || className,
         style: item.props.style || style,
         orientation,
-        // children:
-        //   index !== _children.length - 1
-        //     ? [item.props.children, assignDividerToChildren()]
-        //     : item.props.children,
+        labelOrientation,
         onClick: () =>
           allowClick && typeof onStepClick === "function" && onStepClick(index),
         size
       })
     );
-
-    if (orientation === "horizontal" && index !== _children.length - 1) {
-      acc.push(<Divider orientation={orientation} size="2px" color="green" />);
-    }
-
     return acc;
   }, []);
-
-  const assignVariables = assignInlineVars(eliminateUndefinedKeys({}));
-
-  console.log("items", items);
 
   return (
     <Flex
       display="inline-flex"
-      alignItems={orientation === "horizontal" ? "center" : "normal"}
-      // alignItems="center" ==> should depend on orientation
-      flexDirection={orientation === "horizontal" ? "row" : "column"}
-      style={{ border: "2px solid red" }}
-      className={` ${className || ""}`}
+      flexDirection={orientation === "vertical" ? "column" : "row"}
+      alignItems={orientation === labelOrientation ? "center" : "normal"}
+      gap="5px"
+      style={{ ...(style || {}) }}
+      className={className || ""}
       ref={ref}
       {...nativeProps}
-      data-Stepper
     >
       {items}
     </Flex>

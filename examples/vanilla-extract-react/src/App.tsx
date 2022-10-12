@@ -10,28 +10,40 @@ import { PageMain } from "components/pageMain/PageMain";
 import React, { useState } from "react";
 import { fonts, fontSizes } from "styles/index.css";
 import "styles/reset.css";
-import { FaBtc, FaAngellist } from "react-icons/fa";
-import { Divider } from "@hover-design/react";
-import { Flex } from "@hover-design/react";
 
 const App: React.FC = () => {
+  const [active, setActive] = useState(1);
+  const nextStep = () =>
+    setActive((current) => (current < 3 ? current + 1 : current));
+  const prevStep = () =>
+    setActive((current) => (current > 0 ? current - 1 : current));
+
   return (
     <StyleWrapper>
       <Header />
       <PageMain>
         <Container>
-          <Flex display="inline-flex" alignItems="center">
-            <Divider color="red" />
-          </Flex>
           <br />
           <br />
           <br />
           <div>
-            <Stepper activeStep={0}>
+            <Stepper onStepClick={setActive} activeStep={active}>
               <StepperStep>
                 <div>
                   <div>
                     <label>Label</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
                   </div>
                   <div>
                     <label>desc</label>
@@ -46,7 +58,71 @@ const App: React.FC = () => {
           <br />
           <br />
           <div>
-            <Stepper activeStep={0} orientation="vertical">
+            <Stepper
+              onStepClick={setActive}
+              activeStep={active}
+              orientation="vertical"
+            >
+              <StepperStep>
+                <div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                </div>
+              </StepperStep>
+
+              <StepperStep>
+                <div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                </div>
+              </StepperStep>
+              <StepperStep>
+                <div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                </div>
+              </StepperStep>
+            </Stepper>
+          </div>
+
+          {/* {asdasf} */}
+
+          <br />
+          <br />
+          <br />
+          <div>
+            <Stepper
+              onStepClick={setActive}
+              activeStep={active}
+              labelOrientation="vertical"
+            >
               <StepperStep>
                 <div>
                   <div>
@@ -55,14 +131,82 @@ const App: React.FC = () => {
                   <div>
                     <label>desc</label>
                   </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
+                  <div>
+                    <label>desc</label>
+                  </div>
                 </div>
               </StepperStep>
-
               <StepperStep></StepperStep>
               <StepperStep></StepperStep>
             </Stepper>
           </div>
+          <br />
+          <br />
+          <br />
+          <div>
+            <Stepper
+              onStepClick={setActive}
+              activeStep={active}
+              orientation="vertical"
+              labelOrientation="vertical"
+            >
+              <StepperStep>
+                <div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                </div>
+              </StepperStep>
 
+              <StepperStep>
+                <div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                </div>
+              </StepperStep>
+              <StepperStep>
+                <div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                  <div>
+                    <label>Label</label>
+                  </div>
+                </div>
+              </StepperStep>
+            </Stepper>
+          </div>
           <h1> 👋 &nbsp; Welcome to Hover Design System Example</h1>
           <h2>Colors</h2>
           <ColorsPreview />
