@@ -15,10 +15,18 @@ import { Breadcrumb } from "@hover-design/react";
 ### Code Snippets and Examples
 
 import "@hover-design/react/dist/style.css";
-import { Breadcrumb } from "@hover-design/react";
+import { Breadcrumb, Card } from "@hover-design/react";
+export const BreadcrumbComponent = ({ list, separator = "/" }) => (
+  <Breadcrumb crumbs={list} separator={separator} />
+);
+const list = [
+  { title: "Hover" },
+  { title: "Components", href: "#" },
+  { title: "Docs", href: "#" },
+];
 
 ```jsx
-onst App = () => {
+const App = () => {
   const list = [
     { title: "Hover" },
     { title: "Components", href: "#" },
@@ -31,6 +39,12 @@ onst App = () => {
   );
 };
 ```
+
+#### Example
+
+<Card variant="shadow">
+  <BreadcrumbComponent list={list} separator=">" />
+</Card>
 
 ### Breadcrumb
 

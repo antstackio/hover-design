@@ -20,7 +20,6 @@ const Breadcrumb: React.ForwardRefRenderFunction<
   HTMLDivElement,
   BreadcrumbProps
 > = ({ crumbs, separator = "/", className, ...nativeProps }, ref) => {
-  console.log(separator);
   return (
     <div
       ref={ref}
