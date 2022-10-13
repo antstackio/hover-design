@@ -1,5 +1,5 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import React, { useState } from "react";
+import React from "react";
 import { eliminateUndefinedKeys } from "../../utils/object-utils";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { Portal } from "../Portal/Portal";

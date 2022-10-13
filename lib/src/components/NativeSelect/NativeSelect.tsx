@@ -1,5 +1,5 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { Flex } from "../Flex";
 import { ArrowDown } from "../_internal/Icons/ArrowDown";
 import {

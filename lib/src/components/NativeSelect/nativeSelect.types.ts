@@ -9,7 +9,7 @@ export type NativeSelectPropsType = JSX.IntrinsicElements["select"] & {
 export type OptionsType = {
   label: string;
   value: string | number;
-  disabled?: boolean | undefined;
+  disabled?: boolean;
 };
 
 export type NativeSelectThemeType = [

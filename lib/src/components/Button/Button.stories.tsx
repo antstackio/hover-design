@@ -9,7 +9,6 @@ export const Controls: Story<ButtonProps> = ({
   margin,
   isBlock,
   children,
-  ...nativeProps
 }) => (
   <>
     <Button
@@ -18,7 +17,6 @@ export const Controls: Story<ButtonProps> = ({
       fontSize={fontSize}
       margin={margin}
       isBlock={isBlock}
-      {...nativeProps}
     >
       {children}
     </Button>
