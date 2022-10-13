@@ -1,0 +1,183 @@
+# Banner
+
+### Quick start
+
+Here's a quick start guide to get started with the Banner component
+
+### Importing Component
+
+```jsx
+import { Banner } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+import "@hover-design/react/dist/style.css";
+import { Banner } from "@hover-design/react";
+
+##### Banner Info (Default)
+
+```jsx
+<div className="App">
+  <Banner title="Info Banner" />
+</div>
+```
+
+<Banner title="Info Banner" />
+
+##### Banner Success
+
+```jsx
+<div className="App">
+  <Banner title="Bruce Banner" type="success" />
+</div>
+```
+
+<Banner title="Bruce Banner" type="success" />
+
+##### Banner Warning
+
+```jsx
+<div className="App">
+  <Banner title="Warning" type="warning" />
+</div>
+```
+
+<Banner title="Warning" type="warning" />
+
+##### Banner Danger
+
+```jsx
+<div className="App">
+  <Banner title="Danger" type="danger" />
+</div>
+```
+
+<Banner title="Danger" type="danger" />
+
+##### Banner With Icons
+
+```jsx
+<div className="App">
+  <Banner title="Banner with icons" showIcon />
+</div>
+```
+
+<Banner title="Banner with icons" showIcon />
+<br />
+
+> **Note:** Each Banner type has a default icon associated with it.
+
+##### Banner With Description
+
+```jsx
+<div className="App">
+  <Banner title="Banner with Description" type="warning" showIcon>
+    This is a Banner Description
+  </Banner>
+</div>
+```
+
+<Banner title="Banner with Description" type="warning" showIcon>
+  This is a Banner Description
+</Banner>
+
+##### Banner with CTA Button
+
+```jsx
+<div className="App">
+  <Banner
+    title="Banner has CTA"
+    showCtaButton
+    ctaAction={() => {
+      window.alert("Banner Clicked!");
+    }}
+  />
+</div>
+```
+
+<Banner
+  title="Banner has CTA"
+  showCtaButton
+  ctaAction={() => {
+    window.alert("Banner Clicked!");
+  }}
+/>
+
+##### Banner Alignment
+
+```jsx
+<div className="App">
+  <Banner title="Center Aligned Banner" alignment="center" />
+</div>
+```
+
+<Banner title="Center Aligned Banner" alignment="center" />
+
+##### Banner Variant - Filled
+
+```jsx
+<div className="App">
+  <Banner title="Filled Banner" variant="filled">
+    This is a Filled Banner
+  </Banner>
+</div>
+```
+
+<Banner title="Filled Banner" variant="filled">
+  This is a Filled Banner
+</Banner>
+
+##### Banner Variant - Outline
+
+```jsx
+<div className="App">
+  <Banner title="Outline Banner" variant="outline">
+    This is an Outline Banner
+  </Banner>
+</div>
+```
+
+<Banner title="Outline Banner" variant="outline">
+  This is an Outline Banner
+</Banner>
+
+##### Banner - Custom Colors
+
+```jsx
+<Banner title="Custom Colors" color="hotpink" backgroundColor="lavenderblush">
+  This is a Custom Banner
+</Banner>
+```
+
+<Banner title="Custom Colors" color="hotpink" backgroundColor="lavenderblush">
+  This is a Custom Banner
+</Banner>
+
+### Props Reference
+
+| Attributes      |                         Values                          | Default Value | Optional ? |
+| :-------------- | :-----------------------------------------------------: | :-----------: | ---------: |
+| variant         |        `light` &#124; `filled` &#124; `outline`         |    `light`    |        Yes |
+| type            | `info` &#124; `success` &#124; `warning`&#124; `danger` |    `info`     |        Yes |
+| title           |                       `ReactNode`                       |               |        Yes |
+| icon            |                       `ReactNode`                       |               |        Yes |
+| color           |                        `string`                         |               |        Yes |
+| borderRadius    |                        `string`                         |     `4px`     |        Yes |
+| backgroundColor |                        `string`                         |               |        Yes |
+| alignment       |          `left` &#124; `center` &#124; `right`          |    `left`     |        Yes |
+| showCtaButton   |                        `boolean`                        |    `false`    |        Yes |
+| ctaIcon         |                       `ReactNode`                       |               |        Yes |
+| ctaAction       |                       `()=>void`                        |               |        Yes |
+
+### Custom Styles
+
+> **Note:** It is advised to use these classNames scoped inside of the className given as prop to the main component.
+
+| ClassName                 |                Element                 |
+| :------------------------ | :------------------------------------: |
+| `hover-banner-alert`      | Alert Component Used in this component |
+| `hover-banner-cta-icon`   |           CTA Icon container           |
+| `hover-alert-title`       |            Title container             |
+| `hover-alert-description` |         Description Container          |
+| `hover-alert-icon`        |             Icon Container             |
