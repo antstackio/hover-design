@@ -29,37 +29,37 @@ import { Radio, RadioGroup } from "@hover-design/react";
 import { Radio, RadioGroup } from "@hover-design/react";
 
 const Demo = () => {
-  const [radioVal, setRadioVal] = useState("apple");
+  const [radioVal, setRadioVal] = useState("honeypot");
 
   return (
     <div>
       <label>
         <Radio
-          name="fruits"
-          value="apple"
-          checked={radioVal == "apple"}
+          name="antColony"
+          value="honeypot"
+          checked={radioVal == "honeypot"}
           onChange={(e) => setRadioVal(e.target.value)}
-        ></Radio>
-        Apple
+        />
+        Honeypot
       </label>
       <label>
         <Radio
-          name="fruits"
-          value="bannana"
-          checked={radioVal == "bannana"}
+          name="antColony"
+          value="rover"
+          checked={radioVal == "rover"}
           onChange={(e) => setRadioVal(e.target.value)}
-        ></Radio>
-        Bannana
+        />
+        Rover
       </label>
       <label>
         <Radio
-          name="fruits"
-          value="orange"
-          checked={radioVal == "orange"}
+          name="antColony"
+          value="weaver"
+          checked={radioVal == "weaver"}
           isDisabled
           onChange={(e) => setRadioVal(e.target.value)}
-        ></Radio>
-        Orange
+        />
+        Weaver
       </label>
     </div>
   );
@@ -73,24 +73,24 @@ const Demo = () => {
 ##### Radio Group
 
 ```jsx
-<RadioGroup orientation="verticle">
+<RadioGroup orientation="vertical">
   <label>
-    <Radio name="fruits" value="apple" checked></Radio>
-    Apple
+    <Radio name="antColony" value="honeypot" checked />
+    Honeypot
   </label>
   <label>
-    <Radio name="fruits" value="bannana"></Radio>
-    Bannana
+    <Radio name="antColony" value="rover" />
+    Rover
   </label>
   <label>
-    <Radio name="fruits" value="orange" isDisabled></Radio>
-    Orange
+    <Radio name="antColony" value="weaver" isDisabled />
+    Weaver
   </label>
 </RadioGroup>
 ```
 
 <RadioContainer>
-  <RadioGroupExample radioGroupProps={{ orientation: "verticle" }} />
+  <RadioGroupExample radioGroupProps={{ orientation: "vertical" }} />
 </RadioContainer>
 
 ##### Radio with styles
@@ -98,24 +98,22 @@ const Demo = () => {
 ```jsx
 <div>
   <Radio
-    name="fruits"
-    value="bannana"
+    name="antColony"
+    value="rover"
     checked
     radioSize="xs"
     selectedStyles={{
-      color: "rgb(250, 250, 250)",
       borderColor: "rgb(25, 113, 194)",
       backgroundColor: "rgb(25, 113, 194)"
     }}
   />
-  <Radio name="fruits" value="orange" radioSize="sm" checked />
+  <Radio name="antColony" value="weaver" radioSize="sm" checked />
   <Radio
-    name="fruits"
-    value="apple"
+    name="antColony"
+    value="honeypot"
     checked
     radioSize="md"
     selectedStyles={{
-      color: "rgb(250, 250, 250)",
       borderColor: "rgb(224, 49, 49)",
       backgroundColor: "rgb(224, 49, 49)"
     }}
@@ -128,7 +126,6 @@ const Demo = () => {
     checked
     radioSize="xs"
     selectedStyles={{
-      color: "rgb(250, 250, 250)",
       borderColor: "rgb(25, 113, 194)",
       backgroundColor: "rgb(25, 113, 194)"
     }}
@@ -138,7 +135,6 @@ const Demo = () => {
     checked
     radioSize="md"
     selectedStyles={{
-      color: "rgb(250, 250, 250)",
       borderColor: "rgb(224, 49, 49)",
       backgroundColor: "rgb(224, 49, 49)"
     }}
@@ -189,5 +185,5 @@ disabledStyles
 | :---------- | :-----------------------------: | --------: |
 | children    |        `React.ReactNode`        |        No |
 | spacing     | `xs` `sm` `md` `lg` `xl` string |       Yes |
-| orientation |     `verticle` `horizontal`     |       Yes |
+| orientation |     `vertical` `horizontal`     |       Yes |
 | ref         | `RefObject<HTMLButtonElement>;` |       Yes |

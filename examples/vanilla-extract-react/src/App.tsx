@@ -1,4 +1,3 @@
-import { Button, Radio, RadioGroup } from "@hover-design/react";
 import { StyleWrapper } from "components/appWraper/StyleWrapper";
 import { BreakpointsExample } from "components/breakpointsExample/BreakpointsExample";
 import { ColorsPreview } from "components/colorsPreview/colorsPreview";
@@ -7,12 +6,11 @@ import FontSizePreview from "components/fontSizePreview/FontSizePreview";
 import { Footer } from "components/footer/footer";
 import { Header } from "components/header/header";
 import { PageMain } from "components/pageMain/PageMain";
-import React, { useState } from "react";
+import React from "react";
 import { fonts, fontSizes } from "styles/index.css";
 import "styles/reset.css";
 
 const App: React.FC = () => {
-  const [radioVal, setRadioVal] = useState("radio1");
   return (
     <StyleWrapper>
       <Header />

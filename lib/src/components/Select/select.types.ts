@@ -3,12 +3,14 @@ type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 export type SelectPropsType = divType & {
   placeholder?: string;
   options: OptionsType[];
-  value?: string | number;
-  height?: string;
+  value?: string | number | (string | number)[];
   width?: string;
   onChange?: (
-    value: string | number,
-    event?: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>
+    value: string | number | (string | number)[],
+    event?:
+      | MouseEvent<HTMLDivElement>
+      | KeyboardEvent<HTMLDivElement>
+      | MouseEvent<SVGSVGElement>
   ) => void;
   isSearchable?: boolean;
   maxDropDownHeight?: string;
@@ -27,8 +29,8 @@ export type SelectPropsType = divType & {
 export type OptionsType = {
   label: string;
   value: string | number;
-  disabled?: boolean | undefined;
-  ref?: MutableRefObject<HTMLSpanElement>;
+  disabled?: boolean;
+  ref?: MutableRefObject<HTMLDivElement>;
 };
 
 export type SelectTheme = [
@@ -37,7 +39,6 @@ export type SelectTheme = [
     borderRadius: string;
     color: string;
     maxDropDownHeight: string;
-    height: string;
     width: string;
   }
 ];
