@@ -26,3 +26,4 @@ export * from "./components/Popover";
 export * from "./components/Tooltip";
 export * from "./components/Alert";
 export * from "./components/Loader";
+export * from "./components/Progress";
