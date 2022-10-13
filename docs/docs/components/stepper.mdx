@@ -1,0 +1,124 @@
+# Stepper
+
+### Quick start
+
+Here's a quick start guide to get started with the Stepper component.
+
+### Importing Component
+
+import "@hover-design/react/dist/style.css";
+import { Stepper, StepperStep, Card } from "@hover-design/react";
+
+export const StepperContainer = ({ children }) => (
+  <Card variant="shadow">{children}</Card>
+);
+
+```jsx
+import { Stepper, StepperStep } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Simple Stepper
+
+```jsx
+import { Stepper, StepperStep } from "@hover-design/react";
+
+const Demo = () => {
+  const [active, setActive] = useState(1);
+  const nextStep = () =>
+    setActive((current) => (current < 3 ? current + 1 : current));
+  const prevStep = () =>
+    setActive((current) => (current > 0 ? current - 1 : current));
+
+  return (
+    <div>
+      <Stepper onStepClick={setActive} activeStep={active}>
+        <StepperStep>
+          <label>Step 1</label>
+        </StepperStep>
+        <StepperStep>
+          <label>Step 2</label>
+        </StepperStep>
+        <StepperStep>
+          <label>Step 3</label>
+        </StepperStep>
+      </Stepper>
+    </div>
+  );
+};
+```
+
+### Stepper Props Reference
+
+| Key              |              type               | Optional? |
+| :--------------- | :-----------------------------: | --------: |
+| activeStep       |            `number`             |        No |
+| children         |        `React.ReactNode`        |        No |
+| onStepClick      |  `(stepIndex: number) => void`  |       Yes |
+| orientation      |     `verticle` `horizontal`     |       Yes |
+| labelOrientation |     `verticle` `horizontal`     |       Yes |
+| size             | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| borderRadius     | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| baseStyles       |       `baseStyles object`       |       Yes |
+| completedStyles  |    `completedStyles object`     |       Yes |
+| progressStyles   |     `progressStyles object`     |       Yes |
+| icon             |        `React.ReactNode`        |       Yes |
+| progressIcon     |        `React.ReactNode`        |       Yes |
+| completedIcon    |        `React.ReactNode`        |       Yes |
+| dividerProps     |     `dividerStyles object`      |       Yes |
+| ref              | `RefObject<HTMLButtonElement>;` |       Yes |
+
+### StepperStep Props Reference
+
+| Key              |              type               | Optional? |
+| :--------------- | :-----------------------------: | --------: |
+| children         |        `React.ReactNode`        |       Yes |
+| orientation      |     `verticle` `horizontal`     |       Yes |
+| labelOrientation |     `verticle` `horizontal`     |       Yes |
+| size             | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| borderRadius     | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| baseStyles       |       `baseStyles object`       |       Yes |
+| completedStyles  |    `completedStyles object`     |       Yes |
+| progressStyles   |     `progressStyles object`     |       Yes |
+| icon             |        `React.ReactNode`        |       Yes |
+| progressIcon     |        `React.ReactNode`        |       Yes |
+| completedIcon    |        `React.ReactNode`        |       Yes |
+| dividerProps     |     `dividerStyles object`      |       Yes |
+| ref              | `RefObject<HTMLButtonElement>;` |       Yes |
+
+##### Customizing Stepper Base, Progress, Completed and Divider Styles.
+
+You can customize the base, progress, completed and divider styles of the Stepper by passing in the baseStyles, progressStyles, completedStyles and dividerProps props. Refer below Spec for this:
+
+baseStyles
+
+| Property        | Description | Default |
+| --------------- | ----------- | ------- |
+| backgroundColor | Background  | #ebf0f5 |
+| color           | Color       | #495057 |
+| border          | Border      | none    |
+
+progressStyles
+
+| Property        | Description | Default           |
+| --------------- | ----------- | ----------------- |
+| backgroundColor | Background  | #ebf0f5           |
+| color           | Color       | #495057           |
+| border          | Border      | 2px solid #2eb85c |
+
+completedStyles
+
+| Property        | Description | Default |
+| --------------- | ----------- | ------- |
+| backgroundColor | Background  | #2eb85c |
+| color           | Color       | #fff    |
+| border          | Border      | none    |
+
+dividerProps
+
+| Property |               Description               | Default Value | Optional ? |
+| :------- | :-------------------------------------: | :-----------: | ---------: |
+| type     | `solid` &#124; `dashed` &#124; `dotted` |    `solid`    |        Yes |
+| size     |                `string`                 |     `2px`     |        Yes |
+| color    |                `string`                 |   `#2eb85c`   |        Yes |

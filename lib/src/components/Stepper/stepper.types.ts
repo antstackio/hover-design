@@ -5,7 +5,11 @@ export type TStepperSizes = "xs" | "sm" | "md" | "lg" | "xl";
 
 export type TStepperBorderRadius = "xs" | "sm" | "md" | "lg" | "xl";
 
-export type TStepperProps = JSX.IntrinsicElements["div"] & {
+export interface IStepperProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
   activeStep: number;
   children: ReactNode;
   onStepClick?: (stepIndex: number) => void;
@@ -23,13 +27,18 @@ export type TStepperProps = JSX.IntrinsicElements["div"] & {
   isLastChild?: boolean;
   stepState?: "stepProgress" | "stepCompleted" | "stepInactive";
   dividerProps?: DividerProps;
-};
+}
 
-export type TStepperStepProps = JSX.IntrinsicElements["div"] &
-  Omit<TStepperProps, "activeStep" | "children"> & {
-    children?: ReactNode;
-    ref?: MutableRefObject<HTMLDivElement | null>;
-  };
+export interface IStepperStepProps
+  extends React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLDivElement>,
+      HTMLDivElement
+    >,
+    Omit<IStepperProps, "activeStep" | "children" | "onStepClick"> {
+  children?: ReactNode;
+  ref?: MutableRefObject<HTMLDivElement | null>;
+  dividerProps?: DividerProps;
+}
 
 export type TStepperTheme = [
   string,

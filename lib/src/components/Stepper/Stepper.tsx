@@ -1,11 +1,11 @@
 import React, { Children, cloneElement, ForwardRefRenderFunction } from "react";
 import { Flex } from "src/components/Flex";
 
-import { TStepperProps } from "./stepper.types";
+import { IStepperProps } from "./stepper.types";
 
 const StepperComponent: ForwardRefRenderFunction<
   HTMLDivElement,
-  TStepperProps
+  IStepperProps
 > = (
   {
     activeStep,

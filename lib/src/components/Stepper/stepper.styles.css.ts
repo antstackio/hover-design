@@ -36,11 +36,11 @@ export const [stepperThemeClass, stepperThemeVars]: TStepperTheme = createTheme(
     progressStyles: {
       color: "#495057",
       backgroundColor: "#ebf0f5",
-      border: "2px solid green"
+      border: "2px solid #2eb85c"
     },
     completedStyles: {
       color: "#fff",
-      backgroundColor: "green",
+      backgroundColor: "#2eb85c",
       border: "none"
     }
   }

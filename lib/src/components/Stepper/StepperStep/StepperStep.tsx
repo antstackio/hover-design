@@ -9,12 +9,12 @@ import {
   stepperThemeClass,
   stepperThemeVars
 } from "../stepper.styles.css";
-import { TStepperStepProps } from "../stepper.types";
+import { IStepperStepProps } from "../stepper.types";
 import { CheckIcon } from "../../_internal/Icons";
 
 const StepperStepComponent: ForwardRefRenderFunction<
   HTMLDivElement,
-  TStepperStepProps
+  IStepperStepProps
 > = (
   {
     children,
