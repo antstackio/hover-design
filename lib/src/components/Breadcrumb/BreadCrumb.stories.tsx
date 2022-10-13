@@ -1,7 +1,9 @@
-import { Breadcrumb, BreadcrumbProps } from "./Breadcrumb";
-import type { Story } from "@ladle/react";
+import { Breadcrumb } from "./Breadcrumb";
 
-export const Controls: Story<BreadcrumbProps> = ({
+import type { Story } from "@ladle/react";
+import { IBreadcrumbProps } from "./breadcrumb.types";
+
+export const Controls: Story<IBreadcrumbProps> = ({
   crumbs,
   separator = "/",
   className,
