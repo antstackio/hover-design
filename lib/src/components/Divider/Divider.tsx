@@ -6,7 +6,7 @@ import {
   dividerThemeVar,
   dividerVertical,
   labelHorizontal,
-  labelVertical,
+  labelVertical
 } from "./divider.css";
 import { DividerProps } from "./divider.types";
 
@@ -21,27 +21,31 @@ export const Divider = ({
   className,
   style,
   size = "1px",
+  minHeight = "40px",
+  minWidth = "40px",
   ...nativeProps
 }: DividerProps) => {
   const dividerClass =
     orientation === "horizontal"
       ? dividerHorizontal({
-          type,
+          type
         })
       : dividerVertical({
-          type,
+          type
         });
   const labelClass =
     orientation === "horizontal"
       ? labelHorizontal({
-          labelPosition,
+          labelPosition
         })
       : labelVertical({
-          labelPosition,
+          labelPosition
         });
   const dividerStyles = assignInlineVars({
     [dividerThemeVar.dividerColor]: color,
     [dividerThemeVar.dividerSize]: size,
+    [dividerThemeVar.dividerStyleMinHeight]: minHeight,
+    [dividerThemeVar.dividerStyleMinWidth]: minWidth
   });
 
   Object.assign(dividerStyles, style);
@@ -65,7 +69,7 @@ export const Divider = ({
           style={assignInlineVars({
             [dividerThemeVar.labelColor]: labelColor,
             [dividerThemeVar.labelBackground]:
-              typeof label === "string" ? labelBackground : "transparent",
+              typeof label === "string" ? labelBackground : "transparent"
           })}
           className={`${labelClass}`} //If label has to be customized then user is supposed to add JSX element
         >
