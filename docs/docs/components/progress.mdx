@@ -1,0 +1,115 @@
+# Progress
+
+### Quick start
+
+Here's a quick start guide to get started with the Progress component, Progress are for indicating progress usually out of 100.
+
+### Importing Component
+
+import "@hover-design/react/dist/style.css";
+import { Progress, Flex } from "@hover-design/react";
+
+```jsx
+import { Progress } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### Simple Progress
+
+```jsx
+import { Progress } from "@hover-design/react";
+
+const Demo = () => {
+  return <Progress value={90} />;
+};
+```
+
+<Progress value={90} />
+
+##### Progress Sizes
+
+```jsx
+const Demo = () => {
+  return (
+  <Progress value={20} size="sm" />
+  <Progress value={30} size="md" />
+  <Progress value={40} size="lg" />
+  <Progress value={50} size="xl" />
+  <Progress value={60} size="64px" />);
+};
+```
+
+<Flex flexDirection="column" gap="7px">
+  <Progress value={20} size="sm" />
+  <Progress value={30} size="md" />
+  <Progress value={40} size="lg" />
+  <Progress value={50} size="xl" />
+  <Progress value={60} size="64px" />
+</Flex>
+
+##### Progress Radius
+
+```jsx
+const Demo = () => {
+  return (
+  <Progress value={50} radius="sm" />
+  <Progress value={30} radius="md" />
+  <Progress value={20} radius="lg" />
+  <Progress value={100} radius="xl" />
+  <Progress value={60} radius="64px" />);
+};
+```
+
+<Flex flexDirection="column" gap="7px">
+  <Progress value={20} radius="sm" />
+  <Progress value={30} radius="md" />
+  <Progress value={40} radius="lg" />
+  <Progress value={50} radius="xl" />
+  <Progress value={60} radius="64px" />
+</Flex>
+
+##### Progress Color change and Base Styles
+
+```jsx
+const Demo = () => {
+  return <Progress progressColor="red" value={20} radius="sm" />;
+};
+```
+
+<Progress progressColor="red" value={20} radius="sm" />
+
+```jsx
+const Demo = () => {
+  return (
+    <Progress
+      progressBaseStyles={{ backgroundColor: "blue" }}
+      progressColor="red"
+      value={20}
+      radius="sm"
+    />
+  );
+};
+```
+
+<Progress
+  progressBaseStyles={{ backgroundColor: "blue" }}
+  progressColor="red"
+  value={20}
+  radius="sm"
+/>
+
+### Progress Props Reference
+
+| Key                   |              type               | Optional? |
+| :-------------------- | :-----------------------------: | --------: |
+| value                 |            `number`             |        No |
+| progressSize          | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| progressRadius        | `xs` `sm` `md` `lg` `xl` string |       Yes |
+| progressBaseStyles    |      `React Style Object`       |       Yes |
+| progressBaseClassName |            `string`             |       Yes |
+| progressColor         |            `string`             |       Yes |
+
+```
+
+```
