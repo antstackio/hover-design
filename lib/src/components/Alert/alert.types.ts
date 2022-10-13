@@ -11,6 +11,7 @@ export type AlertProps = divType & {
   borderRadius?: string;
   closeButtonLabel?: string;
   onClose?: () => void;
+  showIcon?: boolean;
   withCloseButton?: boolean;
 };
 
