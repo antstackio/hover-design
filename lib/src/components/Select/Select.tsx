@@ -59,8 +59,8 @@ const SelectComponent: ForwardRefRenderFunction<
   ref
 ) => {
   const [selectValue, setSelectValue] = useState<
-    string | number | (string | number)[] | undefined
-  >(value);
+    OptionsType | OptionsType[] | null
+  >(null);
   const [isDropped, setIsDropped] = useState(false);
   const [internalOptions, setInternalOptions] = useState(options);
   const [searchText, setSearchText] = useState("");
@@ -77,13 +77,17 @@ const SelectComponent: ForwardRefRenderFunction<
 
   useEffect(() => {
     if (isMulti) {
-      typeof selectValue === "object" &&
+      Array.isArray(selectValue) &&
         setInternalOptions(
-          options.filter((option) => !selectValue.includes(option.value))
+          options.filter(
+            (option) => !selectValue.find((data) => data.value === option.value)
+          )
         );
     } else {
       setInternalOptions(options);
-      setSearchText(getLabel());
+      selectValue
+        ? !Array.isArray(selectValue) && setSearchText(selectValue?.label)
+        : setSearchText("");
     }
   }, [selectValue, isMulti]);
 
@@ -118,13 +122,6 @@ const SelectComponent: ForwardRefRenderFunction<
     }
   }, [isDropped]);
 
-  const getLabel = (extValue?: string | number) => {
-    return (
-      options.find((option) => option.value === (extValue || selectValue))
-        ?.label || ""
-    );
-  };
-
   const focusElement = (pointer: number) => {
     const optionsList = getOptionsRefAsArray();
     optionsList?.map((option, index) => {
@@ -157,23 +154,21 @@ const SelectComponent: ForwardRefRenderFunction<
   ) => {
     if (isMulti) {
       setSearchText("");
-      const multiValue =
-        typeof selectValue === "object" ? [...selectValue] : [];
-      multiValue.push(option.value);
-      if (value !== undefined) {
-        onChange(multiValue, event);
-      } else {
-        setSelectValue(multiValue);
-      }
+      const multiValue = Array.isArray(selectValue) ? [...selectValue] : [];
+      multiValue.push(option);
+      onChange(multiValue, event);
+      setSelectValue(multiValue);
     } else {
-      if (value !== undefined) {
-        isClearable && option.value === selectValue
-          ? onChange("", event)
-          : onChange(option.value, event);
+      if (
+        isClearable &&
+        !Array.isArray(selectValue) &&
+        option.value === selectValue?.value
+      ) {
+        setSelectValue(null);
+        onChange(null, event);
       } else {
-        isClearable && option.value === selectValue
-          ? setSelectValue("")
-          : setSelectValue(option.value);
+        setSelectValue(option);
+        onChange(option, event);
       }
       setIsDropped(false);
       setInternalOptions(options);
@@ -185,8 +180,10 @@ const SelectComponent: ForwardRefRenderFunction<
     event.stopPropagation();
     const text = event.target.value;
     const mainOptions =
-      isMulti && typeof selectValue === "object"
-        ? options.filter((option) => !selectValue.includes(option.value))
+      isMulti && Array.isArray(selectValue)
+        ? options.filter(
+            (option) => !selectValue.find((data) => data.value === option.value)
+          )
         : options;
     setIsDropped(true);
     setSearchText(text);
@@ -204,10 +201,12 @@ const SelectComponent: ForwardRefRenderFunction<
   const handleIconClick = (event: MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
     if (isClearable) {
-      if (value !== undefined) {
-        isMulti ? onChange([], event) : onChange("", event);
+      if (isMulti) {
+        onChange([], event);
+        setSelectValue([]);
       } else {
-        isMulti ? setSelectValue([]) : setSelectValue("");
+        onChange(null, event);
+        setSelectValue(null);
       }
     } else {
       setIsDropped(!isDropped);
@@ -224,21 +223,18 @@ const SelectComponent: ForwardRefRenderFunction<
     clearValue: string | number,
     event: MouseEvent<SVGSVGElement> | KeyboardEvent<HTMLDivElement>
   ) => {
-    let tempArr = typeof selectValue === "object" ? [...selectValue] : [];
-    tempArr = tempArr.filter((arr) => arr !== clearValue);
-    if (value !== undefined) {
-      onChange(tempArr, event);
-    } else {
-      setSelectValue(tempArr);
-    }
+    let tempArr = Array.isArray(selectValue) ? [...selectValue] : [];
+    tempArr = tempArr.filter((arr) => arr.value !== clearValue);
+    onChange(tempArr, event);
+    setSelectValue(tempArr);
     setIsDropped(true);
   };
 
   const checkIfAllValuesSelected = () => {
     return (
-      typeof selectValue === "object" &&
+      Array.isArray(selectValue) &&
       selectValue.length === options.length &&
-      options.every((el) => selectValue.includes(el.value))
+      options.every((el) => selectValue.find((data) => data.value === el.value))
     );
   };
 
@@ -274,10 +270,10 @@ const SelectComponent: ForwardRefRenderFunction<
       isMulti &&
       event.code === "Backspace" &&
       searchText === "" &&
-      typeof selectValue === "object"
+      Array.isArray(selectValue)
     ) {
       let lastValue = selectValue[selectValue.length - 1];
-      clearPill(lastValue, event);
+      clearPill(lastValue?.value, event);
     }
 
     if (event.key === "Enter" || event.code === "Space") {
@@ -420,12 +416,13 @@ const SelectComponent: ForwardRefRenderFunction<
           alignItems="center"
         >
           {isMulti &&
-            (typeof selectValue === "object" && selectValue.length !== 0
-              ? selectValue?.map((arr) => {
+            (Array.isArray(selectValue) && selectValue.length !== 0
+              ? selectValue?.map((arr, ind) => {
                   return (
                     <Pill
-                      value={getLabel(arr)}
-                      clearValue={(event) => clearPill(arr, event)}
+                      key={ind}
+                      value={arr.label}
+                      clearValue={(event) => clearPill(arr.value, event)}
                     />
                   );
                 })
@@ -446,7 +443,8 @@ const SelectComponent: ForwardRefRenderFunction<
           )}
           {!isMulti &&
             !isSearchable &&
-            (getLabel() || (
+            !Array.isArray(selectValue) &&
+            (selectValue?.label || (
               <div className={selectPlaceholder}>
                 {placeholder || "Pick one"}
               </div>
@@ -476,7 +474,10 @@ const SelectComponent: ForwardRefRenderFunction<
             internalOptions.map((option, ind) => {
               const selectListClass = selectListRecipe({
                 disabled: option.disabled,
-                active: !isMulti && option.value === selectValue,
+                active:
+                  !isMulti &&
+                  !Array.isArray(selectValue) &&
+                  option.value === selectValue?.value,
               });
               return (
                 <div
@@ -484,7 +485,10 @@ const SelectComponent: ForwardRefRenderFunction<
                   ref={option.ref}
                   role="option"
                   data-value={option.value}
-                  aria-selected={option.value === selectValue}
+                  aria-selected={
+                    !Array.isArray(selectValue) &&
+                    option.value === selectValue?.value
+                  }
                   className={selectListClass}
                   onClick={(event) =>
                     !option.disabled && internalClickHandler(option, event)
