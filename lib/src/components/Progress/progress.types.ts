@@ -1,7 +1,7 @@
 export type IProgressProps = JSX.IntrinsicElements["div"] & {
   value: number;
-  progressBaseStyles?: Partial<React.CSSProperties> | undefined;
-  progressBaseClassName?: string | undefined;
+  progressBaseStyles?: Partial<React.CSSProperties>;
+  progressBaseClassName?: string;
   radius?: IProgressTheme[1]["radius"];
   size?: IProgressTheme[1]["progressStyleSize"];
   progressColor?: string;

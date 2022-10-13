@@ -22,16 +22,8 @@ const Progress = ({
 }: IProgressProps) => {
   const assignVariables = assignInlineVars(
     eliminateUndefinedKeys({
-      [progressThemeVars.progressStyleSize]: size
-        ? progressSizes[size]
-          ? progressSizes[size]
-          : size
-        : undefined,
-      [progressThemeVars.radius]: radius
-        ? progressRadiusMap[radius]
-          ? progressRadiusMap[radius]
-          : radius
-        : undefined,
+      [progressThemeVars.progressStyleSize]: progressSizes[size || ""] || size,
+      [progressThemeVars.radius]: progressRadiusMap[radius || ""] || radius,
       [progressThemeVars.progressColor]: progressColor,
       [progressThemeVars.progressValue]: `${value}%`,
     })
