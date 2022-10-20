@@ -89,7 +89,7 @@ const SelectComponent: ForwardRefRenderFunction<
         ? !Array.isArray(selectValue) && setSearchText(selectValue?.label)
         : setSearchText("");
     }
-  }, [selectValue, isMulti]);
+  }, [selectValue, isMulti, options]);
 
   useEffect(() => {
     focusElement(cursor);
