@@ -77,26 +77,28 @@ const SelectComponent: ForwardRefRenderFunction<
 
   useEffect(() => {
     if (isMulti) {
-      Array.isArray(selectValue) &&
-        setInternalOptions(
-          options.filter(
-            (option) => !selectValue.find((data) => data.value === option.value)
+      Array.isArray(selectValue)
+        ? setInternalOptions(
+            options?.filter(
+              (option) =>
+                !selectValue.find((data) => data.value === option.value)
+            )
           )
-        );
+        : setInternalOptions(options);
     } else {
       setInternalOptions(options);
       selectValue
         ? !Array.isArray(selectValue) && setSearchText(selectValue?.label)
         : setSearchText("");
     }
-  }, [selectValue, isMulti]);
+  }, [selectValue, isMulti, options]);
 
   useEffect(() => {
     focusElement(cursor);
   }, [cursor]);
 
   useEffect(() => {
-    if (internalOptions.length !== 0) {
+    if (Array.isArray(internalOptions)) {
       let skipCount = cursor;
       while (internalOptions[skipCount]?.disabled) {
         skipCount++;
@@ -181,13 +183,13 @@ const SelectComponent: ForwardRefRenderFunction<
     const text = event.target.value;
     const mainOptions =
       isMulti && Array.isArray(selectValue)
-        ? options.filter(
+        ? options?.filter(
             (option) => !selectValue.find((data) => data.value === option.value)
           )
         : options;
     setIsDropped(true);
     setSearchText(text);
-    const filteredOptions = mainOptions.filter((option) => {
+    const filteredOptions = mainOptions?.filter((option) => {
       return option.label
         .trim()
         .toLowerCase()
@@ -233,6 +235,7 @@ const SelectComponent: ForwardRefRenderFunction<
   const checkIfAllValuesSelected = () => {
     return (
       Array.isArray(selectValue) &&
+      Array.isArray(options) &&
       selectValue.length === options.length &&
       options.every((el) => selectValue.find((data) => data.value === el.value))
     );
@@ -416,7 +419,7 @@ const SelectComponent: ForwardRefRenderFunction<
           alignItems="center"
         >
           {isMulti &&
-            (Array.isArray(selectValue) && selectValue.length !== 0
+            (Array.isArray(selectValue)
               ? selectValue?.map((arr, ind) => {
                   return (
                     <Pill
@@ -470,7 +473,7 @@ const SelectComponent: ForwardRefRenderFunction<
           className={`${selectListContainerStyle}`}
           role={"listbox"}
         >
-          {internalOptions.length !== 0 ? (
+          {Array.isArray(internalOptions) && internalOptions?.length !== 0 ? (
             internalOptions.map((option, ind) => {
               const selectListClass = selectListRecipe({
                 disabled: option.disabled,
