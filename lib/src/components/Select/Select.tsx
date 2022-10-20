@@ -288,10 +288,11 @@ const SelectComponent: ForwardRefRenderFunction<
       if (isDropped) {
         optionsList?.map((option) => {
           if (option.getAttribute("data-hover") === "true") {
-            const optionValue = internalOptions.find(
-              (arr) => arr.value === option.getAttribute("data-value")
+            const optionValue = internalOptions?.find(
+              (arr) =>
+                JSON.stringify(arr.value) === option.getAttribute("data-value")
             ) as OptionsType;
-            !optionValue.disabled && internalClickHandler(optionValue, event);
+            !optionValue?.disabled && internalClickHandler(optionValue, event);
           }
         });
       } else if (!isDropped) {
@@ -301,51 +302,60 @@ const SelectComponent: ForwardRefRenderFunction<
   };
 
   const focusNextOption = () => {
-    let skipStep = 1;
-    while (
+    if (Array.isArray(internalOptions)) {
+      let skipStep = 1;
+      while (
+        cursor + skipStep < internalOptions.length &&
+        internalOptions[cursor + skipStep].disabled
+      ) {
+        skipStep++;
+      }
       cursor + skipStep < internalOptions.length &&
-      internalOptions[cursor + skipStep].disabled
-    ) {
-      skipStep++;
+        setCursor(cursor + skipStep);
     }
-    cursor + skipStep < internalOptions.length && setCursor(cursor + skipStep);
   };
 
   const focusPrevOption = () => {
-    let skipStep = 1;
-    while (
-      cursor - skipStep >= 0 &&
-      internalOptions[cursor - skipStep].disabled
-    ) {
-      skipStep++;
+    if (Array.isArray(internalOptions)) {
+      let skipStep = 1;
+      while (
+        cursor - skipStep >= 0 &&
+        internalOptions[cursor - skipStep].disabled
+      ) {
+        skipStep++;
+      }
+      cursor - skipStep >= 0 && setCursor(cursor - skipStep);
     }
-    cursor - skipStep >= 0 && setCursor(cursor - skipStep);
   };
 
   const focusFirstOption = () => {
-    let skipStep = 0;
-    while (
-      skipStep < internalOptions.length &&
-      internalOptions[skipStep].disabled
-    ) {
-      skipStep++;
-    }
-    if (skipStep < internalOptions.length) {
-      setCursor(skipStep);
-      focusElement(skipStep);
+    if (Array.isArray(internalOptions)) {
+      let skipStep = 0;
+      while (
+        skipStep < internalOptions.length &&
+        internalOptions[skipStep].disabled
+      ) {
+        skipStep++;
+      }
+      if (skipStep < internalOptions.length) {
+        setCursor(skipStep);
+        focusElement(skipStep);
+      }
     }
   };
 
   const focusLastOption = () => {
-    let skipStep = 1;
-    while (
+    if (Array.isArray(internalOptions)) {
+      let skipStep = 1;
+      while (
+        internalOptions.length - skipStep >= 0 &&
+        internalOptions[internalOptions.length - skipStep].disabled
+      ) {
+        skipStep++;
+      }
       internalOptions.length - skipStep >= 0 &&
-      internalOptions[internalOptions.length - skipStep].disabled
-    ) {
-      skipStep++;
+        setCursor(internalOptions.length - skipStep);
     }
-    internalOptions.length - skipStep >= 0 &&
-      setCursor(internalOptions.length - skipStep);
   };
 
   const inputKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
