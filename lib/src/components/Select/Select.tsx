@@ -96,7 +96,7 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [cursor]);
 
   useEffect(() => {
-    if (internalOptions.length !== 0) {
+    if (Array.isArray(internalOptions)) {
       let skipCount = cursor;
       while (internalOptions[skipCount]?.disabled) {
         skipCount++;
@@ -470,7 +470,7 @@ const SelectComponent: ForwardRefRenderFunction<
           className={`${selectListContainerStyle}`}
           role={"listbox"}
         >
-          {internalOptions.length !== 0 ? (
+          {Array.isArray(internalOptions) ? (
             internalOptions.map((option, ind) => {
               const selectListClass = selectListRecipe({
                 disabled: option.disabled,
