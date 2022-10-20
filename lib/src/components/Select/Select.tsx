@@ -289,8 +289,7 @@ const SelectComponent: ForwardRefRenderFunction<
         optionsList?.map((option) => {
           if (option.getAttribute("data-hover") === "true") {
             const optionValue = internalOptions?.find(
-              (arr) =>
-                JSON.stringify(arr.value) === option.getAttribute("data-value")
+              (arr) => String(arr.value) === option.getAttribute("data-value")
             ) as OptionsType;
             !optionValue?.disabled && internalClickHandler(optionValue, event);
           }
