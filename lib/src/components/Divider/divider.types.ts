@@ -7,6 +7,8 @@ export type DividerProps = JSX.IntrinsicElements["div"] & {
   labelColor?: string;
   labelBackground?: string;
   labelPosition?: "start" | "end" | "center";
+  minHeight?: string;
+  minWidth?: string;
 };
 
 export type DividerTheme = [
@@ -16,5 +18,7 @@ export type DividerTheme = [
     labelColor: string;
     labelBackground: string;
     dividerSize: string;
+    dividerStyleMinHeight: string;
+    dividerStyleMinWidth: string;
   }
 ];

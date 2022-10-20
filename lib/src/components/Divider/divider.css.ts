@@ -8,24 +8,26 @@ export const [dividerThemeClass, dividerThemeVar]: DividerTheme = createTheme({
   labelColor: "#000",
   labelBackground: "#fff",
   dividerSize: "1px",
+  dividerStyleMinHeight: "40px",
+  dividerStyleMinWidth: "40px"
 });
 
 export const dividerContainerHorizontal = style({
   position: "relative",
   width: "100%",
-  height: "fit-content",
+  height: "fit-content"
 });
 
 export const dividerContainerVertical = style({
   position: "relative",
   height: "100%",
-  width: "fit-content",
+  width: "fit-content"
 });
 
 const dividerBaseStyles = style({
   position: "relative",
   background: "none",
-  backgroundPosition: "center",
+  backgroundPosition: "center"
 });
 
 export const dividerHorizontal = recipe({
@@ -35,7 +37,8 @@ export const dividerHorizontal = recipe({
       backgroundRepeat: "repeat-x",
       height: `${dividerThemeVar.dividerSize}`,
       width: "100%",
-    },
+      minWidth: dividerThemeVar.dividerStyleMinWidth
+    }
   ],
 
   variants: {
@@ -48,7 +51,7 @@ export const dividerHorizontal = recipe({
         )`,
         backgroundSize: `${calc.multiply(dividerThemeVar.dividerSize, 5)} ${
           dividerThemeVar.dividerSize
-        }`,
+        }`
       },
       dotted: {
         backgroundImage: `linear-gradient(
@@ -58,13 +61,13 @@ export const dividerHorizontal = recipe({
         )`,
         backgroundSize: `${calc.multiply(dividerThemeVar.dividerSize, 3)} ${
           dividerThemeVar.dividerSize
-        }`,
+        }`
       },
       solid: {
-        background: dividerThemeVar.dividerColor,
-      },
-    },
-  },
+        background: dividerThemeVar.dividerColor
+      }
+    }
+  }
 });
 
 export const dividerVertical = recipe({
@@ -74,7 +77,8 @@ export const dividerVertical = recipe({
       backgroundRepeat: "repeat-y",
       height: "100%",
       width: `${dividerThemeVar.dividerSize}`,
-    },
+      minHeight: dividerThemeVar.dividerStyleMinHeight
+    }
   ],
 
   variants: {
@@ -88,7 +92,7 @@ export const dividerVertical = recipe({
         backgroundSize: `${dividerThemeVar.dividerSize} ${calc.multiply(
           dividerThemeVar.dividerSize,
           5
-        )}`,
+        )}`
       },
       dotted: {
         backgroundImage: `linear-gradient(
@@ -99,20 +103,20 @@ export const dividerVertical = recipe({
         backgroundSize: `${dividerThemeVar.dividerSize} ${calc.multiply(
           dividerThemeVar.dividerSize,
           3
-        )}`,
+        )}`
       },
       solid: {
-        background: dividerThemeVar.dividerColor,
-      },
-    },
-  },
+        background: dividerThemeVar.dividerColor
+      }
+    }
+  }
 });
 
 const labelBaseStyles = style({
   background: dividerThemeVar.labelBackground,
   color: dividerThemeVar.labelColor,
   padding: "4px 8px",
-  position: "absolute",
+  position: "absolute"
 });
 
 export const labelHorizontal = recipe({
@@ -121,18 +125,18 @@ export const labelHorizontal = recipe({
     labelPosition: {
       start: {
         left: 0,
-        right: "auto",
+        right: "auto"
       },
       center: {
         left: "50%",
-        transform: "translate(-50%,-50%)",
+        transform: "translate(-50%,-50%)"
       },
       end: {
         left: "auto",
-        right: 0,
-      },
-    },
-  },
+        right: 0
+      }
+    }
+  }
 });
 
 export const labelVertical = recipe({
@@ -141,16 +145,16 @@ export const labelVertical = recipe({
     labelPosition: {
       start: {
         top: 0,
-        bottom: "auto",
+        bottom: "auto"
       },
       center: {
         top: "50%",
-        transform: "translate(-50%,-50%)",
+        transform: "translate(-50%,-50%)"
       },
       end: {
         top: "auto",
-        bottom: 0,
-      },
-    },
-  },
+        bottom: 0
+      }
+    }
+  }
 });

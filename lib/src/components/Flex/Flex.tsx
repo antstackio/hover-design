@@ -9,6 +9,7 @@ export const FlexComponent: ForwardRefRenderFunction<
   {
     alignContent = "normal",
     alignItems = "flex-start",
+    alignSelf = "auto",
     flexDirection = "row",
     flexWrap = "nowrap",
     justifyContent = "normal",
@@ -27,6 +28,7 @@ export const FlexComponent: ForwardRefRenderFunction<
     display,
     alignContent,
     alignItems,
+    alignSelf,
     flexDirection,
     flexWrap,
     justifyContent,
