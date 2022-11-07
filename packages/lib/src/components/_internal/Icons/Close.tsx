@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "../../../components/Icon";
-import { IIconProps } from "../../../components/Icon/icon.type";
+import { Icon } from "../../Icon";
+import { IIconProps } from "../../Icon/icon.type";
 
 const CloseIcon: React.FC<IIconProps> = (props) => {
   return (

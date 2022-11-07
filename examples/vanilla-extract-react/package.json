@@ -4,10 +4,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint *.ts*"
   },
   "dependencies": {
     "@hover-design/react": "*",
+    "@hover-design/eslint-config": "*",
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/vite-plugin": "^3.1.2",
     "polished": "^4.1.3",
