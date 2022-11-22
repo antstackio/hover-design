@@ -1,4 +1,4 @@
-import { KeyboardEvent, MouseEvent, MutableRefObject } from "react";
+import { KeyboardEvent, MouseEvent, MutableRefObject, ReactNode } from "react";
 type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 export type SelectPropsType = divType & {
   placeholder?: string;
@@ -24,6 +24,11 @@ export type SelectPropsType = divType & {
   error?: boolean | string;
   onDropDownClose?: () => void;
   onDropDownOpen?: () => void;
+  isLoading?: boolean;
+  loadingOptions?: {
+    loadingContent?: ReactNode;
+    loader?: ReactNode;
+  };
 };
 
 export type OptionsType = {

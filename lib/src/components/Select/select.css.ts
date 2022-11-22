@@ -169,3 +169,8 @@ export const inputTextContainer = style({
   overflow: "hidden",
   height: "100%",
 });
+
+export const loadingContentContainer = style({
+  padding: "10px 16px",
+  cursor: "default",
+});

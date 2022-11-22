@@ -27,9 +27,11 @@ import {
   noDataFoundStyles,
   selectPlaceholderRecipe,
   inputRecipe,
+  loadingContentContainer,
 } from "./select.css";
 import { SelectPropsType, OptionsType } from "./select.types";
 import "./select.global.styles.css";
+import { Loader } from "../Loader";
 
 const SelectComponent: ForwardRefRenderFunction<
   HTMLDivElement,
@@ -55,6 +57,8 @@ const SelectComponent: ForwardRefRenderFunction<
     style,
     onDropDownClose = () => {},
     onDropDownOpen = () => {},
+    isLoading = false,
+    loadingOptions,
   },
   ref
 ) => {
@@ -462,17 +466,20 @@ const SelectComponent: ForwardRefRenderFunction<
               </div>
             ))}
         </Flex>
-
-        <Flex
-          alignItems="center"
-          className={selectIconClass}
-          onClick={handleIconClick}
-        >
-          {DropIcon
-            ? !isClearable && DropIcon
-            : !isClearable && <ArrowDown width={18} height={18} />}
-          {isClearable && <Clear width={18} height={18} />}
-        </Flex>
+        {!isLoading ? (
+          <Flex
+            alignItems="center"
+            className={selectIconClass}
+            onClick={handleIconClick}
+          >
+            {DropIcon
+              ? !isClearable && DropIcon
+              : !isClearable && <ArrowDown width={18} height={18} />}
+            {isClearable && <Clear width={18} height={18} />}
+          </Flex>
+        ) : (
+          loadingOptions?.loader || <Loader color={color} />
+        )}
       </Flex>
 
       {isDropped && (
@@ -482,48 +489,54 @@ const SelectComponent: ForwardRefRenderFunction<
           className={`${selectListContainerStyle}`}
           role={"listbox"}
         >
-          {Array.isArray(internalOptions) && internalOptions?.length !== 0 ? (
-            internalOptions.map((option, ind) => {
-              const selectListClass = selectListRecipe({
-                disabled: option.disabled,
-                active:
-                  !isMulti &&
-                  !Array.isArray(selectValue) &&
-                  option.value === selectValue?.value,
-              });
-              return (
-                <div
-                  key={ind}
-                  ref={option.ref}
-                  role="option"
-                  data-value={option.value}
-                  aria-selected={
+          {!isLoading ? (
+            Array.isArray(internalOptions) && internalOptions?.length !== 0 ? (
+              internalOptions.map((option, ind) => {
+                const selectListClass = selectListRecipe({
+                  disabled: option.disabled,
+                  active:
+                    !isMulti &&
                     !Array.isArray(selectValue) &&
-                    option.value === selectValue?.value
-                  }
-                  className={selectListClass}
-                  onClick={(event) =>
-                    !option.disabled && internalClickHandler(option, event)
-                  }
-                  onMouseEnter={(event) => {
-                    if (!option.disabled) {
-                      setCursor(ind);
-                      focusElement(ind);
+                    option.value === selectValue?.value,
+                });
+                return (
+                  <div
+                    key={ind}
+                    ref={option.ref}
+                    role="option"
+                    data-value={option.value}
+                    aria-selected={
+                      !Array.isArray(selectValue) &&
+                      option.value === selectValue?.value
                     }
-                  }}
-                  onMouseLeave={(event) => {
-                    event.currentTarget.setAttribute("data-hover", "false");
-                  }}
-                >
-                  <span>{option.label}</span>
-                </div>
-              );
-            })
+                    className={selectListClass}
+                    onClick={(event) =>
+                      !option.disabled && internalClickHandler(option, event)
+                    }
+                    onMouseEnter={(event) => {
+                      if (!option.disabled) {
+                        setCursor(ind);
+                        focusElement(ind);
+                      }
+                    }}
+                    onMouseLeave={(event) => {
+                      event.currentTarget.setAttribute("data-hover", "false");
+                    }}
+                  >
+                    <span>{option.label}</span>
+                  </div>
+                );
+              })
+            ) : (
+              <div className={noDataFoundStyles}>
+                {checkIfAllValuesSelected()
+                  ? "No more Data!"
+                  : nothingFoundLabel || "Nothing Found!"}
+              </div>
+            )
           ) : (
-            <div className={noDataFoundStyles}>
-              {checkIfAllValuesSelected()
-                ? "No more Data!"
-                : nothingFoundLabel || "Nothing Found!"}
+            <div className={loadingContentContainer}>
+              {loadingOptions?.loadingContent || "Loading..."}
             </div>
           )}
         </Flex>
