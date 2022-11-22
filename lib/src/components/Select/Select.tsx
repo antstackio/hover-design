@@ -383,6 +383,52 @@ const SelectComponent: ForwardRefRenderFunction<
     isMulti,
   });
 
+  const renderDropDown = () => {
+    return Array.isArray(internalOptions) && internalOptions?.length !== 0 ? (
+      internalOptions.map((option, ind) => {
+        const selectListClass = selectListRecipe({
+          disabled: option.disabled,
+          active:
+            !isMulti &&
+            !Array.isArray(selectValue) &&
+            option.value === selectValue?.value,
+        });
+        return (
+          <div
+            key={ind}
+            ref={option.ref}
+            role="option"
+            data-value={option.value}
+            aria-selected={
+              !Array.isArray(selectValue) && option.value === selectValue?.value
+            }
+            className={selectListClass}
+            onClick={(event) =>
+              !option.disabled && internalClickHandler(option, event)
+            }
+            onMouseEnter={(event) => {
+              if (!option.disabled) {
+                setCursor(ind);
+                focusElement(ind);
+              }
+            }}
+            onMouseLeave={(event) => {
+              event.currentTarget.setAttribute("data-hover", "false");
+            }}
+          >
+            <span>{option.label}</span>
+          </div>
+        );
+      })
+    ) : (
+      <div className={noDataFoundStyles}>
+        {checkIfAllValuesSelected()
+          ? "No more Data!"
+          : nothingFoundLabel || "Nothing Found!"}
+      </div>
+    );
+  };
+
   useClickOutside(
     selectRef,
     () => {
@@ -490,50 +536,7 @@ const SelectComponent: ForwardRefRenderFunction<
           role={"listbox"}
         >
           {!isLoading ? (
-            Array.isArray(internalOptions) && internalOptions?.length !== 0 ? (
-              internalOptions.map((option, ind) => {
-                const selectListClass = selectListRecipe({
-                  disabled: option.disabled,
-                  active:
-                    !isMulti &&
-                    !Array.isArray(selectValue) &&
-                    option.value === selectValue?.value,
-                });
-                return (
-                  <div
-                    key={ind}
-                    ref={option.ref}
-                    role="option"
-                    data-value={option.value}
-                    aria-selected={
-                      !Array.isArray(selectValue) &&
-                      option.value === selectValue?.value
-                    }
-                    className={selectListClass}
-                    onClick={(event) =>
-                      !option.disabled && internalClickHandler(option, event)
-                    }
-                    onMouseEnter={(event) => {
-                      if (!option.disabled) {
-                        setCursor(ind);
-                        focusElement(ind);
-                      }
-                    }}
-                    onMouseLeave={(event) => {
-                      event.currentTarget.setAttribute("data-hover", "false");
-                    }}
-                  >
-                    <span>{option.label}</span>
-                  </div>
-                );
-              })
-            ) : (
-              <div className={noDataFoundStyles}>
-                {checkIfAllValuesSelected()
-                  ? "No more Data!"
-                  : nothingFoundLabel || "Nothing Found!"}
-              </div>
-            )
+            renderDropDown()
           ) : (
             <div className={loadingContentContainer}>
               {loadingOptions?.loadingContent || "Loading..."}
