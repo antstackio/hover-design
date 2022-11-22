@@ -13,7 +13,7 @@ import { Select } from "@hover-design/react";
 ### Code Snippets and Examples
 
 import "@hover-design/react/dist/style.css";
-import { Select } from "@hover-design/react";
+import { Select, Loader } from "@hover-design/react";
 import { useState } from "react";
 
 ##### Select Default
@@ -146,6 +146,67 @@ const options = [
   ]}
 />
 
+##### Select Loading
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+<div className="App">
+  <Select options={options} isLoading />
+</div>;
+```
+
+<Select
+  width="40%"
+  isLoading
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
+##### Select with Loading Options
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" },
+];
+
+const loadingOptions = {
+    loadingContent: "Data is Loading",
+    loader: <Loader color="orange" />,
+  }
+
+<div className="App">
+  <Select options={options} isLoading loadingOptions={loadingOptions} />
+</div>;
+```
+
+<Select
+  width="40%"
+  isLoading
+  loadingOptions={{
+    loadingContent: "Data is Loading",
+    loader: <Loader color="orange" />,
+  }}
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" },
+  ]}
+/>
+
 ##### Select Disabled
 
 ```jsx
@@ -263,6 +324,8 @@ const options = [
 | DropIcon          |                                                              `JSX Element`                                                              |                  |        Yes |
 | onDropDownOpen    |                                                              `()=> void `                                                               |                  |        Yes |
 | onDropDownClose   |                                                              `()=> void `                                                               |                  |        Yes |
+| isLoading         |                                                                `boolean`                                                                |     `false`      |        Yes |
+| loadingOptions    |                                                 **[Loading Options](#loading-option)**                                                  |     `false`      |        Yes |
 
 ### Option Object
 
@@ -272,6 +335,13 @@ const options = [
 | value    |      `string` &#124; `number`      |         No |
 | disabled |             `boolean`              |        Yes |
 | ref      | `MutableRefObject<HTMLDivElement>` |        Yes |
+
+### Loading Option
+
+| Key            |    type     | Optional ? |
+| :------------- | :---------: | ---------: |
+| loadingContent | `ReactNode` |        Yes |
+| loader         | `ReactNode` |        Yes |
 
 ### Keyboard Controls
 
