@@ -159,7 +159,6 @@ export const inputRecipe = recipe({
         width: 0,
         minWidth: "50px",
         flex: 1,
-        fontSize: "14px",
       },
     },
   },

@@ -61,8 +61,8 @@ const SelectComponent: ForwardRefRenderFunction<
     onDropDownOpen = () => {},
     isLoading = false,
     loadingOptions,
-    useDropdownPortal = false,
-    zIndex = "0",
+    useDropdownPortal = true,
+    zIndex = "1",
   },
   ref
 ) => {
@@ -75,7 +75,6 @@ const SelectComponent: ForwardRefRenderFunction<
   const selectRef = useRef() as MutableRefObject<HTMLDivElement>;
   const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
   const optionsListRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const portalRef = useRef() as MutableRefObject<HTMLDivElement>;
   const [cursor, setCursor] = useState(-1);
 
   useEffect(() => {
@@ -120,16 +119,8 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [internalOptions]);
 
   useEffect(() => {
-    applyDropDownPortalPosition();
-    applyDropDownPosition();
-  }, [
-    inputRef,
-    useDropdownPortal,
-    optionsListRef,
-    portalRef,
-    isDropped,
-    selectValue,
-  ]);
+    useDropdownPortal ? applyDropDownPortalPosition() : applyDropDownPosition();
+  }, [inputRef, useDropdownPortal, optionsListRef, isDropped, selectValue]);
 
   useEffect(() => {
     if (!isDropped) {
@@ -138,8 +129,9 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [isDropped]);
 
   const applyDropDownPortalPosition = () => {
-    const selectPortal = portalRef.current;
-    if (selectPortal && inputRef.current && window) {
+    if (inputRef.current && optionsListRef.current && window) {
+      const selectPortal = optionsListRef.current
+        .parentElement as HTMLDivElement;
       const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const inputWidth = `${inputRef.current.getBoundingClientRect().width}px`;
@@ -176,17 +168,31 @@ const SelectComponent: ForwardRefRenderFunction<
   });
 
   useClickOutside(
-    optionsListRef,
+    selectRef,
     () => {
-      document.body.addEventListener("click", (event) => {
+      closeOnOutsideClick();
+    },
+    isDropped
+  );
+
+  const closeOnOutsideClick = () => {
+    document.body.addEventListener("click", (event) => {
+      if (isMulti) {
+        if (
+          !inputRef.current.contains(event.target as Node) &&
+          !optionsListRef.current.contains(event.target as Node)
+        ) {
+          isDropped && setIsDropped(false);
+          onDropDownClose();
+        }
+      } else {
         if (!inputRef.current.contains(event.target as Node)) {
           isDropped && setIsDropped(false);
           onDropDownClose();
         }
-      });
-    },
-    isDropped
-  );
+      }
+    });
+  };
 
   const focusElement = (pointer: number) => {
     const optionsList = getOptionsRefAsArray();
@@ -482,7 +488,7 @@ const SelectComponent: ForwardRefRenderFunction<
         });
         return (
           <div
-            key={`${option.label}-${ind}`}
+            key={`${option.value}`}
             ref={option.ref}
             role="option"
             data-value={option.value}
@@ -493,7 +499,7 @@ const SelectComponent: ForwardRefRenderFunction<
             onClick={(event) =>
               !option.disabled && internalClickHandler(option, event)
             }
-            onMouseEnter={(event) => {
+            onMouseEnter={() => {
               if (!option.disabled) {
                 setCursor(ind);
                 focusElement(ind);
@@ -518,9 +524,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const renderDropDownContainer = () => {
     return useDropdownPortal ? (
-      <Portal element="div" ref={portalRef}>
-        {renderDropDown()}
-      </Portal>
+      <Portal element="div">{renderDropDown()}</Portal>
     ) : (
       renderDropDown()
     );
@@ -568,11 +572,11 @@ const SelectComponent: ForwardRefRenderFunction<
           alignItems="center"
         >
           {isMulti &&
-            (Array.isArray(selectValue)
-              ? selectValue?.map((arr, ind) => {
+            (Array.isArray(selectValue) && selectValue.length
+              ? selectValue?.map((arr) => {
                   return (
                     <Pill
-                      key={`${arr.label}-${ind}`}
+                      key={`${arr.value}`}
                       value={arr.label}
                       clearValue={(event) => {
                         clearPill(arr.value, event);
