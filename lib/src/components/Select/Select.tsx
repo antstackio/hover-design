@@ -61,7 +61,7 @@ const SelectComponent: ForwardRefRenderFunction<
     onDropDownOpen = () => {},
     isLoading = false,
     loadingOptions,
-    useDropdownPortal = true,
+    useDropdownPortal = false,
     zIndex = "1",
   },
   ref
@@ -161,16 +161,22 @@ const SelectComponent: ForwardRefRenderFunction<
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("resize", applyDropDownPortalPosition);
-    return () =>
-      window.removeEventListener("resize", applyDropDownPortalPosition);
-  });
+  useDropdownPortal &&
+    useEffect(() => {
+      window.addEventListener("resize", applyDropDownPortalPosition);
+      return () =>
+        window.removeEventListener("resize", applyDropDownPortalPosition);
+    });
 
   useClickOutside(
     selectRef,
     () => {
-      closeOnOutsideClick();
+      if (useDropdownPortal) {
+        closeOnOutsideClick();
+      } else {
+        isDropped && setIsDropped(false);
+        onDropDownClose();
+      }
     },
     isDropped
   );
