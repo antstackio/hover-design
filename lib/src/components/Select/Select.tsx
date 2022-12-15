@@ -471,7 +471,7 @@ const SelectComponent: ForwardRefRenderFunction<
               });
               return (
                 <div
-                  key={`${ind}-${Math.random()}`}
+                  key={`${ind}-${Math.floor(Math.random() * 10)}`}
                   ref={option.ref}
                   role="option"
                   data-value={option.value}
@@ -559,7 +559,7 @@ const SelectComponent: ForwardRefRenderFunction<
               ? selectValue?.map((arr, ind) => {
                   return (
                     <Pill
-                      key={`${ind}-${Math.random()}`}
+                      key={`${ind}-${Math.floor(Math.random() * 10)}`}
                       value={arr.label}
                       clearValue={function (event) {
                         clearPill(arr.value, event);
