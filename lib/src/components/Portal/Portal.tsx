@@ -26,7 +26,7 @@ const PortalComponent: ForwardRefRenderFunction<HTMLDivElement, PortalType> = (
   );
 
   return createPortal(
-    //@ts-ignore  //TODO: figure out children types
+    //@ts-ignore
     <MountPortalElement>{children}</MountPortalElement>,
     portalRoot
   );
