@@ -1,30 +1,35 @@
-import { useEffect, useMemo } from "react";
+import {
+  createElement,
+  forwardRef,
+  ForwardRefRenderFunction,
+  useCallback,
+} from "react";
 import { createPortal } from "react-dom";
 import { portalStyles } from "./portal.style.css";
 import { PortalType } from "./portal.types";
 
-const Portal = ({
-  element = "dialog",
-  role = "dialog",
-  children,
-  className = "",
-  style,
-  id,
-}: PortalType & JSX.IntrinsicElements["div"]): JSX.Element => {
+const PortalComponent: ForwardRefRenderFunction<HTMLDivElement, PortalType> = (
+  { element = "dialog", children, className = "", ...props },
+  ref
+) => {
   const portalRoot = document.body;
-  const mountElement = useMemo(() => document.createElement(element), []);
-  mountElement.setAttribute("open", "true");
-  mountElement.setAttribute("id", id as string);
-  mountElement.setAttribute("role", role as string);
-  mountElement.setAttribute("class", `${portalStyles} ${className}`);
-  Object.assign(mountElement.style, style);
-  useEffect(() => {
-    portalRoot.appendChild(mountElement);
-    return () => {
-      portalRoot.removeChild(mountElement);
-    };
-  }, [mountElement, portalRoot]);
-  return createPortal(children, mountElement);
+  const MountPortalElement = useCallback(
+    () =>
+      createElement(element, {
+        open: true,
+        children,
+        class: `${portalStyles} ${className}`,
+        ref,
+        ...props,
+      }),
+    []
+  );
+
+  return createPortal(
+    //@ts-ignore  //TODO: figure out children types
+    <MountPortalElement>{children}</MountPortalElement>,
+    portalRoot
+  );
 };
 
-export { Portal };
+export const Portal = forwardRef(PortalComponent);

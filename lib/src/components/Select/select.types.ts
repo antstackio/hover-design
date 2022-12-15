@@ -30,6 +30,8 @@ export type SelectPropsType = divType & {
     loadingContent?: ReactNode;
     loader?: ReactNode;
   };
+  zIndex?: string;
+  useDropdownPortal?: boolean;
 };
 
 export type OptionsType = {
@@ -47,5 +49,6 @@ export type SelectTheme = [
     maxDropDownHeight: string;
     width: string;
     minHeight: string;
+    zIndex: string;
   }
 ];

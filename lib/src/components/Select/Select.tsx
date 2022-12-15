@@ -61,6 +61,8 @@ const SelectComponent: ForwardRefRenderFunction<
     onDropDownOpen = () => {},
     isLoading = false,
     loadingOptions,
+    useDropdownPortal = false,
+    zIndex = "0",
   },
   ref
 ) => {
@@ -73,6 +75,7 @@ const SelectComponent: ForwardRefRenderFunction<
   const selectRef = useRef() as MutableRefObject<HTMLDivElement>;
   const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
   const optionsListRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const portalRef = useRef() as MutableRefObject<HTMLDivElement>;
   const [cursor, setCursor] = useState(-1);
 
   useEffect(() => {
@@ -117,8 +120,16 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [internalOptions]);
 
   useEffect(() => {
+    applyDropDownPortalPosition();
     applyDropDownPosition();
-  }, [inputRef, isDropped, selectValue]);
+  }, [
+    inputRef,
+    useDropdownPortal,
+    optionsListRef,
+    portalRef,
+    isDropped,
+    selectValue,
+  ]);
 
   useEffect(() => {
     if (!isDropped) {
@@ -126,13 +137,11 @@ const SelectComponent: ForwardRefRenderFunction<
     }
   }, [isDropped]);
 
-  const applyDropDownPosition = () => {
-    const selectPortal = document.getElementById("hover-select-portal");
+  const applyDropDownPortalPosition = () => {
+    const selectPortal = portalRef.current;
     if (selectPortal && inputRef.current && window) {
-      const scrollLeft =
-        window.pageXOffset || document.documentElement.scrollLeft;
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const inputWidth = `${inputRef.current.getBoundingClientRect().width}px`;
       const inputHeight = inputRef.current.getBoundingClientRect().height;
       const inputPosition = {
@@ -140,7 +149,7 @@ const SelectComponent: ForwardRefRenderFunction<
           scrollTop +
           inputHeight +
           inputRef.current.getBoundingClientRect().top -
-          3
+          5
         }px`,
         left: `${scrollLeft + inputRef.current.getBoundingClientRect().left}px`,
       };
@@ -151,9 +160,19 @@ const SelectComponent: ForwardRefRenderFunction<
       });
     }
   };
+
+  const applyDropDownPosition = () => {
+    if (optionsListRef.current && inputRef.current && !useDropdownPortal) {
+      optionsListRef.current.style.top = `${
+        inputRef.current.offsetHeight - 5
+      }px`;
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener("resize", applyDropDownPosition);
-    return () => window.removeEventListener("resize", applyDropDownPosition);
+    window.addEventListener("resize", applyDropDownPortalPosition);
+    return () =>
+      window.removeEventListener("resize", applyDropDownPortalPosition);
   });
 
   useClickOutside(
@@ -245,7 +264,7 @@ const SelectComponent: ForwardRefRenderFunction<
       : setInternalOptions(filteredOptions);
   };
 
-  const handleIconClick = (event: MouseEvent<HTMLDivElement>) => {
+  const handleIconClick = function (event: MouseEvent<HTMLDivElement>) {
     event.stopPropagation();
     if (isClearable) {
       if (isMulti) {
@@ -261,7 +280,7 @@ const SelectComponent: ForwardRefRenderFunction<
     }
   };
 
-  const changeDrop = () => {
+  const changeDrop = function () {
     setIsDropped(!isDropped);
     isDropped ? onDropDownClose() : onDropDownOpen();
   };
@@ -286,7 +305,7 @@ const SelectComponent: ForwardRefRenderFunction<
     );
   };
 
-  const handleInputKeyChange = (event: KeyboardEvent<HTMLDivElement>) => {
+  const handleInputKeyChange = function (event: KeyboardEvent<HTMLDivElement>) {
     const optionsList = getOptionsRefAsArray();
     switch (event.key) {
       case "ArrowDown":
@@ -425,48 +444,72 @@ const SelectComponent: ForwardRefRenderFunction<
   });
 
   const renderDropDown = () => {
-    return Array.isArray(internalOptions) && internalOptions?.length !== 0 ? (
-      internalOptions.map((option, ind) => {
-        const selectListClass = selectListRecipe({
-          disabled: option.disabled,
-          active:
-            !isMulti &&
-            !Array.isArray(selectValue) &&
-            option.value === selectValue?.value,
-        });
-        return (
-          <div
-            key={ind}
-            ref={option.ref}
-            role="option"
-            data-value={option.value}
-            aria-selected={
-              !Array.isArray(selectValue) && option.value === selectValue?.value
-            }
-            className={selectListClass}
-            onClick={(event) =>
-              !option.disabled && internalClickHandler(option, event)
-            }
-            onMouseEnter={(event) => {
-              if (!option.disabled) {
-                setCursor(ind);
-                focusElement(ind);
-              }
-            }}
-            onMouseLeave={(event) => {
-              event.currentTarget.setAttribute("data-hover", "false");
-            }}
-          >
-            <span>{option.label}</span>
+    return (
+      <Flex
+        ref={optionsListRef}
+        flexDirection="column"
+        className={`${selectListContainerStyle}`}
+        role={"listbox"}
+        style={assignInlineVars({
+          [selectVars.borderRadius]: borderRadius,
+          [selectVars.color]: color,
+          [selectVars.width]: width,
+          [selectVars.minHeight]: minHeight,
+          [selectVars.zIndex]: zIndex,
+          [selectVars.maxDropDownHeight]: maxDropDownHeight,
+        })}
+      >
+        {!isLoading ? (
+          Array.isArray(internalOptions) && internalOptions?.length !== 0 ? (
+            internalOptions.map((option, ind) => {
+              const selectListClass = selectListRecipe({
+                disabled: option.disabled,
+                active:
+                  !isMulti &&
+                  !Array.isArray(selectValue) &&
+                  option.value === selectValue?.value,
+              });
+              return (
+                <div
+                  key={`${ind}-${Math.random()}`}
+                  ref={option.ref}
+                  role="option"
+                  data-value={option.value}
+                  aria-selected={
+                    !Array.isArray(selectValue) &&
+                    option.value === selectValue?.value
+                  }
+                  className={selectListClass}
+                  onClick={(event) =>
+                    !option.disabled && internalClickHandler(option, event)
+                  }
+                  onMouseEnter={(event) => {
+                    if (!option.disabled) {
+                      setCursor(ind);
+                      focusElement(ind);
+                    }
+                  }}
+                  onMouseLeave={(event) => {
+                    event.currentTarget.setAttribute("data-hover", "false");
+                  }}
+                >
+                  <span>{option.label}</span>
+                </div>
+              );
+            })
+          ) : (
+            <div className={noDataFoundStyles}>
+              {checkIfAllValuesSelected()
+                ? "No more Data!"
+                : nothingFoundLabel || "Nothing Found!"}
+            </div>
+          )
+        ) : (
+          <div className={loadingContentContainer}>
+            {loadingOptions?.loadingContent || "Loading..."}
           </div>
-        );
-      })
-    ) : (
-      <div className={noDataFoundStyles}>
-        {checkIfAllValuesSelected()
-          ? "No more Data!"
-          : nothingFoundLabel || "Nothing Found!"}
-      </div>
+        )}
+      </Flex>
     );
   };
 
@@ -489,6 +532,7 @@ const SelectComponent: ForwardRefRenderFunction<
           [selectVars.color]: color,
           [selectVars.width]: width,
           [selectVars.minHeight]: minHeight,
+          [selectVars.zIndex]: zIndex,
           [selectVars.maxDropDownHeight]: maxDropDownHeight,
         }),
       }}
@@ -515,9 +559,11 @@ const SelectComponent: ForwardRefRenderFunction<
               ? selectValue?.map((arr, ind) => {
                   return (
                     <Pill
-                      key={ind}
+                      key={`${ind}-${Math.random()}`}
                       value={arr.label}
-                      clearValue={(event) => clearPill(arr.value, event)}
+                      clearValue={function (event) {
+                        clearPill(arr.value, event);
+                      }}
                     />
                   );
                 })
@@ -561,31 +607,14 @@ const SelectComponent: ForwardRefRenderFunction<
         )}
       </Flex>
 
-      {isDropped && (
-        <Portal element="div" id="hover-select-portal">
-          <Flex
-            ref={optionsListRef}
-            flexDirection="column"
-            className={`${selectListContainerStyle}`}
-            role={"listbox"}
-            style={assignInlineVars({
-              [selectVars.borderRadius]: borderRadius,
-              [selectVars.color]: color,
-              [selectVars.width]: width,
-              [selectVars.minHeight]: minHeight,
-              [selectVars.maxDropDownHeight]: maxDropDownHeight,
-            })}
-          >
-            {!isLoading ? (
-              renderDropDown()
-            ) : (
-              <div className={loadingContentContainer}>
-                {loadingOptions?.loadingContent || "Loading..."}
-              </div>
-            )}
-          </Flex>
-        </Portal>
-      )}
+      {isDropped &&
+        (useDropdownPortal ? (
+          <Portal element="div" ref={portalRef}>
+            {renderDropDown()}
+          </Portal>
+        ) : (
+          renderDropDown()
+        ))}
 
       {error && typeof error !== "boolean" && (
         <span className={selectErrorMsg}>{error}</span>
