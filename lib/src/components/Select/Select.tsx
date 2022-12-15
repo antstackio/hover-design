@@ -161,12 +161,13 @@ const SelectComponent: ForwardRefRenderFunction<
     }
   };
 
-  useDropdownPortal &&
-    useEffect(() => {
+  useEffect(() => {
+    if (useDropdownPortal) {
       window.addEventListener("resize", applyDropDownPortalPosition);
       return () =>
         window.removeEventListener("resize", applyDropDownPortalPosition);
-    });
+    }
+  });
 
   useClickOutside(
     selectRef,
