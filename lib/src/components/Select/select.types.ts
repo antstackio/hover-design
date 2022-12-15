@@ -14,6 +14,7 @@ export type SelectPropsType = divType & {
   ) => void;
   isSearchable?: boolean;
   maxDropDownHeight?: string;
+  minHeight?: string;
   isDisabled?: boolean;
   isClearable?: boolean;
   nothingFoundLabel?: string | JSX.Element;
@@ -45,5 +46,6 @@ export type SelectTheme = [
     color: string;
     maxDropDownHeight: string;
     width: string;
+    minHeight: string;
   }
 ];

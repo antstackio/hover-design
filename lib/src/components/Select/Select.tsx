@@ -32,6 +32,7 @@ import {
 import { SelectPropsType, OptionsType } from "./select.types";
 import "./select.global.styles.css";
 import { Loader } from "../Loader";
+import { Portal } from "../Portal";
 
 const SelectComponent: ForwardRefRenderFunction<
   HTMLDivElement,
@@ -45,6 +46,7 @@ const SelectComponent: ForwardRefRenderFunction<
     borderRadius = "0",
     color = "#2F80ED",
     maxDropDownHeight = "200px",
+    minHeight = "40px",
     onChange = () => {},
     isSearchable = false,
     isClearable = false,
@@ -115,18 +117,57 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [internalOptions]);
 
   useEffect(() => {
-    if (optionsListRef.current && inputRef.current) {
-      optionsListRef.current.style.top = `${
-        inputRef.current.offsetHeight - 5
-      }px`;
-    }
-  }, [inputRef, optionsListRef, isDropped, selectValue]);
+    applyDropDownPosition();
+  }, [inputRef, isDropped, selectValue]);
 
   useEffect(() => {
     if (!isDropped) {
       setCursor(-1);
     }
   }, [isDropped]);
+
+  const applyDropDownPosition = () => {
+    const selectPortal = document.getElementById("hover-select-portal");
+    if (selectPortal && inputRef.current && window) {
+      const scrollLeft =
+        window.pageXOffset || document.documentElement.scrollLeft;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const inputWidth = `${inputRef.current.getBoundingClientRect().width}px`;
+      const inputHeight = inputRef.current.getBoundingClientRect().height;
+      const inputPosition = {
+        top: `${
+          scrollTop +
+          inputHeight +
+          inputRef.current.getBoundingClientRect().top -
+          3
+        }px`,
+        left: `${scrollLeft + inputRef.current.getBoundingClientRect().left}px`,
+      };
+      Object.assign(selectPortal.style, {
+        width: inputWidth,
+        top: inputPosition.top,
+        left: inputPosition.left,
+      });
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("resize", applyDropDownPosition);
+    return () => window.removeEventListener("resize", applyDropDownPosition);
+  });
+
+  useClickOutside(
+    optionsListRef,
+    () => {
+      document.body.addEventListener("click", (event) => {
+        if (!inputRef.current.contains(event.target as Node)) {
+          isDropped && setIsDropped(false);
+          onDropDownClose();
+        }
+      });
+    },
+    isDropped
+  );
 
   const focusElement = (pointer: number) => {
     const optionsList = getOptionsRefAsArray();
@@ -429,15 +470,6 @@ const SelectComponent: ForwardRefRenderFunction<
     );
   };
 
-  useClickOutside(
-    selectRef,
-    () => {
-      isDropped && setIsDropped(false);
-      onDropDownClose();
-    },
-    isDropped
-  );
-
   return (
     <Flex
       ref={(node) => {
@@ -456,6 +488,7 @@ const SelectComponent: ForwardRefRenderFunction<
           [selectVars.borderRadius]: borderRadius,
           [selectVars.color]: color,
           [selectVars.width]: width,
+          [selectVars.minHeight]: minHeight,
           [selectVars.maxDropDownHeight]: maxDropDownHeight,
         }),
       }}
@@ -529,20 +562,29 @@ const SelectComponent: ForwardRefRenderFunction<
       </Flex>
 
       {isDropped && (
-        <Flex
-          ref={optionsListRef}
-          flexDirection="column"
-          className={`${selectListContainerStyle}`}
-          role={"listbox"}
-        >
-          {!isLoading ? (
-            renderDropDown()
-          ) : (
-            <div className={loadingContentContainer}>
-              {loadingOptions?.loadingContent || "Loading..."}
-            </div>
-          )}
-        </Flex>
+        <Portal element="div" id="hover-select-portal">
+          <Flex
+            ref={optionsListRef}
+            flexDirection="column"
+            className={`${selectListContainerStyle}`}
+            role={"listbox"}
+            style={assignInlineVars({
+              [selectVars.borderRadius]: borderRadius,
+              [selectVars.color]: color,
+              [selectVars.width]: width,
+              [selectVars.minHeight]: minHeight,
+              [selectVars.maxDropDownHeight]: maxDropDownHeight,
+            })}
+          >
+            {!isLoading ? (
+              renderDropDown()
+            ) : (
+              <div className={loadingContentContainer}>
+                {loadingOptions?.loadingContent || "Loading..."}
+              </div>
+            )}
+          </Flex>
+        </Portal>
       )}
 
       {error && typeof error !== "boolean" && (
