@@ -6,13 +6,13 @@ import {
   Flex,
   Switch,
 } from "@hover-design/react";
-const AccordionAdvancedExample = ({}) => {
+const AccordionAdvancedExample = () => {
   const [open, setOpen] = useState(false);
   return (
     <div>
       <Accordion
         onToggle={(e) => {
-          setOpen(e.target.open);
+          setOpen(e.target["open"]);
         }}
         open={open}
       >
