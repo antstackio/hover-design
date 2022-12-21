@@ -213,7 +213,7 @@ const SelectComponent: ForwardRefRenderFunction<
       };
     })();
     if (useDropdownPortal) {
-      ElementsWithScrolls().map((arr: HTMLElement) =>
+      ElementsWithScrolls().forEach((arr: HTMLElement) =>
         arr?.addEventListener("scroll", () => {
           closeOnScroll();
           applyDropDownPortalPosition();
@@ -222,7 +222,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
       window.addEventListener("resize", applyDropDownPortalPosition);
       return () => {
-        ElementsWithScrolls().map((arr: HTMLElement) =>
+        ElementsWithScrolls().forEach((arr: HTMLElement) =>
           arr?.removeEventListener("scroll", () => {
             closeOnScroll();
             applyDropDownPortalPosition();
