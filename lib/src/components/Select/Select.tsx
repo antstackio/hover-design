@@ -7,6 +7,7 @@ import {
   MouseEvent,
   MutableRefObject,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
 } from "react";
@@ -47,7 +48,7 @@ const SelectComponent: ForwardRefRenderFunction<
     color = "#2F80ED",
     maxDropDownHeight = "200px",
     minHeight = "40px",
-    onChange = () => {},
+    onChange,
     isSearchable = false,
     isClearable = false,
     isDisabled = false,
@@ -57,12 +58,14 @@ const SelectComponent: ForwardRefRenderFunction<
     nothingFoundLabel,
     className,
     style,
-    onDropDownClose = () => {},
-    onDropDownOpen = () => {},
+    onDropDownClose,
+    onDropDownOpen,
     isLoading = false,
     loadingOptions,
     useDropdownPortal = false,
-    zIndex = "1",
+    closeDropdownPortalOnScroll = false,
+    zIndex = "300",
+    useSerialSearch = false,
   },
   ref
 ) => {
@@ -129,7 +132,7 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [isDropped]);
 
   const applyDropDownPortalPosition = () => {
-    if (inputRef.current && optionsListRef.current && window) {
+    if (inputRef.current && optionsListRef.current && useDropdownPortal) {
       const selectPortal = optionsListRef.current
         .parentElement as HTMLDivElement;
       const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
@@ -161,13 +164,74 @@ const SelectComponent: ForwardRefRenderFunction<
     }
   };
 
-  useEffect(() => {
-    if (useDropdownPortal) {
-      window.addEventListener("resize", applyDropDownPortalPosition);
-      return () =>
-        window.removeEventListener("resize", applyDropDownPortalPosition);
+  const closeOnScroll = () => {
+    if (closeDropdownPortalOnScroll) {
+      setIsDropped(false);
+      onDropDownClose && onDropDownClose();
     }
-  });
+  };
+
+  useLayoutEffect(() => {
+    const ElementsWithScrolls = (function () {
+      const getComputedStyle =
+        //@ts-ignore
+        document.body && document.body.currentStyle
+          ? function (elem: any) {
+              return elem.currentStyle;
+            }
+          : function (elem: any) {
+              return document.defaultView?.getComputedStyle(elem, null);
+            };
+
+      function getActualCss(elem: HTMLElement, style: any) {
+        return getComputedStyle(elem)[style];
+      }
+
+      function isXScrollable(elem: HTMLElement) {
+        return (
+          elem.offsetWidth < elem.scrollWidth &&
+          autoOrScroll(getActualCss(elem, "overflow-x"))
+        );
+      }
+
+      function isYScrollable(elem: HTMLElement) {
+        return (
+          elem.offsetHeight < elem.scrollHeight &&
+          autoOrScroll(getActualCss(elem, "overflow-y"))
+        );
+      }
+
+      function autoOrScroll(text: string) {
+        return text == "scroll" || text == "auto";
+      }
+
+      function hasScroller(elem: HTMLElement) {
+        return isYScrollable(elem) || isXScrollable(elem);
+      }
+      return function ElemenetsWithScrolls() {
+        return [].filter.call(document.querySelectorAll("*"), hasScroller);
+      };
+    })();
+    if (useDropdownPortal) {
+      ElementsWithScrolls().map((arr: HTMLElement) =>
+        arr?.addEventListener("scroll", () => {
+          closeOnScroll();
+          applyDropDownPortalPosition();
+        })
+      );
+
+      window.addEventListener("resize", applyDropDownPortalPosition);
+      return () => {
+        ElementsWithScrolls().map((arr: HTMLElement) =>
+          arr?.removeEventListener("scroll", () => {
+            closeOnScroll();
+            applyDropDownPortalPosition();
+          })
+        );
+        window.removeEventListener("resize", applyDropDownPortalPosition);
+      };
+    }
+  }, [inputRef.current]);
 
   useClickOutside(
     selectRef,
@@ -176,7 +240,7 @@ const SelectComponent: ForwardRefRenderFunction<
         closeOnOutsideClick();
       } else {
         isDropped && setIsDropped(false);
-        onDropDownClose();
+        onDropDownClose && onDropDownClose();
       }
     },
     isDropped
@@ -186,16 +250,16 @@ const SelectComponent: ForwardRefRenderFunction<
     document.body.addEventListener("click", (event) => {
       if (isMulti) {
         if (
-          !inputRef.current.contains(event.target as Node) &&
-          !optionsListRef.current.contains(event.target as Node)
+          !inputRef.current?.contains(event.target as Node) &&
+          !optionsListRef.current?.contains(event.target as Node)
         ) {
           isDropped && setIsDropped(false);
-          onDropDownClose();
+          onDropDownClose && onDropDownClose();
         }
       } else {
-        if (!inputRef.current.contains(event.target as Node)) {
+        if (!inputRef.current?.contains(event.target as Node)) {
           isDropped && setIsDropped(false);
-          onDropDownClose();
+          onDropDownClose && onDropDownClose();
         }
       }
     });
@@ -235,7 +299,7 @@ const SelectComponent: ForwardRefRenderFunction<
       setSearchText("");
       const multiValue = Array.isArray(selectValue) ? [...selectValue] : [];
       multiValue.push(option);
-      onChange(multiValue, event);
+      onChange && onChange(multiValue, event);
       setSelectValue(multiValue);
     } else {
       if (
@@ -244,15 +308,35 @@ const SelectComponent: ForwardRefRenderFunction<
         option.value === selectValue?.value
       ) {
         setSelectValue(null);
-        onChange(null, event);
+        onChange && onChange(null, event);
       } else {
         setSelectValue(option);
-        onChange(option, event);
+        onChange && onChange(option, event);
       }
       setIsDropped(false);
       setInternalOptions(options);
-      onDropDownClose();
+      onDropDownClose && onDropDownClose();
     }
+  };
+
+  const searchOptions = (
+    options: OptionsType[],
+    value: string
+  ): OptionsType[] => {
+    return options?.filter((option) => {
+      if (useSerialSearch) {
+        return (
+          option.label
+            .trim()
+            .toLowerCase()
+            .indexOf(value.trim().toLowerCase()) === 0
+        );
+      }
+      return option.label
+        .trim()
+        .toLowerCase()
+        .includes(value.trim().toLowerCase());
+    });
   };
 
   const internalChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -266,12 +350,7 @@ const SelectComponent: ForwardRefRenderFunction<
         : options;
     setIsDropped(true);
     setSearchText(text);
-    const filteredOptions = mainOptions?.filter((option) => {
-      return option.label
-        .trim()
-        .toLowerCase()
-        .includes(text.trim().toLowerCase());
-    });
+    const filteredOptions = searchOptions(mainOptions, text);
     text === ""
       ? setInternalOptions(mainOptions)
       : setInternalOptions(filteredOptions);
@@ -281,21 +360,25 @@ const SelectComponent: ForwardRefRenderFunction<
     event.stopPropagation();
     if (isClearable) {
       if (isMulti) {
-        onChange([], event);
+        onChange && onChange([], event);
         setSelectValue([]);
       } else {
-        onChange(null, event);
+        onChange && onChange(null, event);
         setSelectValue(null);
       }
     } else {
       setIsDropped(!isDropped);
-      isDropped ? onDropDownClose() : onDropDownOpen();
+      isDropped
+        ? onDropDownClose && onDropDownClose()
+        : onDropDownOpen && onDropDownOpen();
     }
   };
 
   const changeDrop = () => {
     setIsDropped(!isDropped);
-    isDropped ? onDropDownClose() : onDropDownOpen();
+    isDropped
+      ? onDropDownClose && onDropDownClose()
+      : onDropDownOpen && onDropDownOpen();
   };
 
   const clearPill = (
@@ -304,7 +387,7 @@ const SelectComponent: ForwardRefRenderFunction<
   ) => {
     let tempArr = Array.isArray(selectValue) ? [...selectValue] : [];
     tempArr = tempArr.filter((arr) => arr.value !== clearValue);
-    onChange(tempArr, event);
+    onChange && onChange(tempArr, event);
     setSelectValue(tempArr);
     setIsDropped(true);
   };
@@ -352,7 +435,7 @@ const SelectComponent: ForwardRefRenderFunction<
       searchText === "" &&
       Array.isArray(selectValue)
     ) {
-      let lastValue = selectValue[selectValue.length - 1];
+      const lastValue = selectValue[selectValue.length - 1];
       clearPill(lastValue?.value, event);
     }
 
@@ -531,7 +614,9 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const renderDropDownContainer = () => {
     return useDropdownPortal ? (
-      <Portal element="div">{renderDropDown()}</Portal>
+      <Portal element="div" style={assignInlineVars({ zIndex })}>
+        {renderDropDown()}
+      </Portal>
     ) : (
       renderDropDown()
     );

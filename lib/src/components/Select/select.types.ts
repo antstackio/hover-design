@@ -32,6 +32,8 @@ export type SelectPropsType = divType & {
   };
   zIndex?: string;
   useDropdownPortal?: boolean;
+  closeDropdownPortalOnScroll?: boolean;
+  useSerialSearch?: boolean;
 };
 
 export type OptionsType = {
