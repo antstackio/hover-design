@@ -34,9 +34,6 @@ const Modal: React.FC<IModalProps> = ({
     useClickOutside(modalSurfaceRef, onClose);
   }
 
-  if (isOpen === false) {
-    return null;
-  }
   const customStyles = assignInlineVars(
     eliminateUndefinedKeys({
       [modalThemeVars.base.backgroundColor]: baseStyles?.backgroundColor,
@@ -62,6 +59,9 @@ const Modal: React.FC<IModalProps> = ({
       [modalThemeVars.overlay.filter]: overlayStyles?.filter,
     })
   );
+  if (isOpen === false) {
+    return null;
+  }
   return (
     <Portal>
       <div style={customStyles} className={modalThemeClass}>
