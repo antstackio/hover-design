@@ -3145,7 +3145,7 @@ packages:
   /@vanilla-extract/integration/5.0.0:
     resolution: {integrity: sha512-HwglsIxGYtV4IXFfyQ6GzZLFoaWaW+QkNx8UhXbgsCWUoPqpSbioukCOA+SuSuzsIcEZ3hkD0Y5ixITQNtnzjQ==}
     dependencies:
-      '@vanilla-extract/css': 1.9.2
+      '@vanilla-extract/css': 1.7.2
       esbuild: 0.11.23
       eval: 0.1.6
       find-up: 5.0.0
