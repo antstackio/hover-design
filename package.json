@@ -27,5 +27,9 @@
     "design system"
   ],
   "author": "AntStack <connect@antstak.com> (https://antstack.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@hover-design/react": "^0.1.12",
+    "@vanilla-extract/css": "^1.9.2"
+  }
 }
