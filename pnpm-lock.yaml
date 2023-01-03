@@ -3136,22 +3136,6 @@ packages:
       outdent: 0.8.0
     dev: false
 
-  /@vanilla-extract/css/1.9.2:
-    resolution: {integrity: sha512-CE5+R89LOl9XG5dRwEIvVyl/YcS2GkqjdE/XnGJ+p7Fp6Exu08fifv7tY87XxFeCIRAbc9psM+h4lF+wC3Y0fg==}
-    dependencies:
-      '@emotion/hash': 0.9.0
-      '@vanilla-extract/private': 1.0.3
-      ahocorasick: 1.0.2
-      chalk: 4.1.2
-      css-what: 5.1.0
-      cssesc: 3.0.0
-      csstype: 3.1.0
-      deep-object-diff: 1.1.7
-      deepmerge: 4.2.2
-      media-query-parser: 2.0.2
-      outdent: 0.8.0
-    dev: false
-
   /@vanilla-extract/dynamic/2.0.2:
     resolution: {integrity: sha512-U4nKaEQ8Kuz+exXEr51DUpyaOuzo24/S/k1YbDPQR06cYcNjQqvwFRnwWtZ+9ImocqM1wTKtzrdUgSTtLGIwAg==}
     dependencies:
