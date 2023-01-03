@@ -4,8 +4,6 @@ importers:
 
   .:
     specifiers:
-      '@hover-design/react': ^0.1.12
-      '@vanilla-extract/css': ^1.9.2
       pnpm: '6'
       turbo: ^1.1.6
     dependencies:
