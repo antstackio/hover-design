@@ -8841,7 +8841,6 @@ packages:
   /unified/9.2.2:
     resolution: {integrity: sha512-Sg7j110mtefBD+qunSLO1lqOEKdrwBFBrR6Qd8f4uwkhWNlbkaqwHse6e7QvD3AP/MNoJdEDLaf8OxYyoWgorQ==}
     dependencies:
-      '@types/unist': 2.0.6
       bail: 1.0.5
       extend: 3.0.2
       is-buffer: 2.0.5
