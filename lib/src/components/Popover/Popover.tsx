@@ -92,7 +92,7 @@ const PopoverComponent: ForwardRefRenderFunction<
     }
   };
 
-  const internalContentKeyDownHandler = (
+  const InternalContentKeyDownHandler = (
     event: KeyboardEvent<HTMLDivElement>
   ) => {
     trapFocus && useTrapFocus(event, contentRef);
@@ -147,7 +147,7 @@ const PopoverComponent: ForwardRefRenderFunction<
             }),
             ...style,
           }}
-          onKeyDown={internalContentKeyDownHandler}
+          onKeyDown={InternalContentKeyDownHandler}
           className={`${contentContainerStyles} ${className}`}
         >
           {content}
