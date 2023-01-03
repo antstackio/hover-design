@@ -2,7 +2,7 @@ import { Button } from ".";
 import type { Story } from "@ladle/react";
 import { ButtonProps } from "./button.types";
 
-export const Controls: Story<ButtonProps> = ({
+export const buttonControls: Story<ButtonProps> = ({
   variant,
   padding,
   fontSize,
@@ -23,12 +23,12 @@ export const Controls: Story<ButtonProps> = ({
   </>
 );
 
-Controls.args = {
+buttonControls.args = {
   children: <>This is a Button</>,
   disabled: false,
   variant: "default",
 };
-Controls.argTypes = {
+buttonControls.argTypes = {
   variant: {
     options: ["default", "light", "ghost", "hallow"],
     control: { type: "radio" },
