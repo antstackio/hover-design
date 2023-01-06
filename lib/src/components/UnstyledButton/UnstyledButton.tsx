@@ -8,7 +8,7 @@ const UnstyledButtonComponent: ForwardRefRenderFunction<
 > = ({ children, className, ...nativeProps }, ref) => {
   return (
     <button
-      className={`${unstyledButtonClass} ${className}`}
+      className={`${unstyledButtonClass} ${className || ""}`}
       ref={ref}
       {...nativeProps}
     >
