@@ -1,4 +1,3 @@
-import React from "react";
 import { Checkbox } from "./Checkbox";
 import type { Story } from "@ladle/react";
 import { ICheckboxProps } from "./checkbox.types";
