@@ -9,7 +9,6 @@ import { PageMain } from "components/pageMain/PageMain";
 import React from "react";
 import { fonts, fontSizes } from "styles/index.css";
 import "styles/reset.css";
-import { Button } from "@hover-design/react";
 
 const App: React.FC = () => {
   return (
@@ -36,7 +35,6 @@ const App: React.FC = () => {
         </Container>
       </PageMain>
       <Footer />
-      <Button variant="hallow">Hi</Button>
     </StyleWrapper>
   );
 };

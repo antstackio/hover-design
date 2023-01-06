@@ -5,7 +5,6 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import { Button } from "@hover-design/react";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -31,7 +30,6 @@ function HomepageHeader() {
             >
               Github
             </a>
-            <Button>Hello</Button>
           </div>
         </div>
       </div>
