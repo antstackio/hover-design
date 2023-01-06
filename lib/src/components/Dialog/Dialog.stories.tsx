@@ -1,5 +1,5 @@
 import { Story } from "@ladle/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Dialog } from "./Dialog";
 import { IDialogProps } from "./dialog.types";
 

@@ -1,5 +1,4 @@
 import { Breadcrumb } from "./Breadcrumb";
-import React from "react";
 import type { Story } from "@ladle/react";
 import { IBreadcrumbProps } from "./breadcrumb.types";
 
