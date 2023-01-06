@@ -1,5 +1,5 @@
-import { Icon } from "src/components/Icon";
-import { IIconProps } from "src/components/Icon/icon.type";
+import { Icon } from "../../Icon";
+import { IIconProps } from "../../Icon/icon.type";
 
 const CheckIcon: React.FC<IIconProps> = (props) => {
   return (

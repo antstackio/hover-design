@@ -1,10 +1,10 @@
 import React, { ForwardRefRenderFunction } from "react";
 
 import { TRadioGroupProps } from "../radio.types";
-import { Flex } from "src/components/Flex";
+import { Flex } from "../../Flex";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { radioGroupChildClass, radioGroupSpacing } from "../radio.styles.css";
-import { eliminateUndefinedKeys } from "src/utils/object-utils";
+import { eliminateUndefinedKeys } from "../../../utils/object-utils";
 
 const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
   {

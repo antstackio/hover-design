@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "src/components/Icon/Icon";
-import { IIconProps } from "src/components/Icon/icon.type";
+import { Icon } from "../../Icon/Icon";
+import { IIconProps } from "../../Icon/icon.type";
 
 const ChevronIcon: React.FC<IIconProps> = (props) => {
   return (

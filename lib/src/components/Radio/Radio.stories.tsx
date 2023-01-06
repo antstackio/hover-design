@@ -1,3 +1,4 @@
+import React from "react";
 import { Radio } from "./Radio";
 import type { Story } from "@ladle/react";
 import { IRadioProps } from "./radio.types";
@@ -18,6 +19,6 @@ export const RadioStory: Story<Omit<IRadioProps, "ref">> = ({
 RadioStory.args = {
   isDisabled: false,
   checked: false,
-  radioSize: "xs"
+  radioSize: "xs",
 };
 RadioStory.argTypes = {};

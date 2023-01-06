@@ -1,11 +1,11 @@
 import React, { ForwardRefRenderFunction } from "react";
 
-import { Flex } from "src/components/Flex";
+import { Flex } from "../../Flex";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { eliminateUndefinedKeys } from "src/utils/object-utils";
+import { eliminateUndefinedKeys } from "../../../utils/object-utils";
 import {
   checkboxGroupChildClass,
-  checkboxGroupSpacing
+  checkboxGroupSpacing,
 } from "../checkbox.styles.css";
 import { TCheckboxGroupProps } from "../checkbox.types";
 

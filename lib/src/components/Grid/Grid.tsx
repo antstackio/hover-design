@@ -1,7 +1,7 @@
 import React, { ForwardRefRenderFunction } from "react";
 import { GridProps } from "./grid.types";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { eliminateUndefinedKeys } from "src/utils/object-utils";
+import { eliminateUndefinedKeys } from "../../utils/object-utils";
 
 export const GridComponent: ForwardRefRenderFunction<
   HTMLDivElement,

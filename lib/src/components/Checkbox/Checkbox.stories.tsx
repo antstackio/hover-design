@@ -1,7 +1,7 @@
+import React from "react";
 import { Checkbox } from "./Checkbox";
 import type { Story } from "@ladle/react";
 import { ICheckboxProps } from "./checkbox.types";
-
 export const CheckboxStory: Story<Omit<ICheckboxProps, "ref">> = ({
   ...nativeProps
 }) => {
@@ -20,6 +20,6 @@ CheckboxStory.args = {
   indeterminate: false,
   checked: false,
   checkboxSize: "xs",
-  borderRadius: "sm"
+  borderRadius: "sm",
 };
 CheckboxStory.argTypes = {};

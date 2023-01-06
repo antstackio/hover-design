@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Icon } from "src/components/Icon";
-import { IIconProps } from "src/components/Icon/icon.type";
+import { Icon } from "../../Icon";
+import { IIconProps } from "../../Icon/icon.type";
 
 export const ArrowDown: FC<IIconProps> = (props) => {
   return (

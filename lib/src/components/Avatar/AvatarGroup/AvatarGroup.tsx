@@ -1,12 +1,12 @@
 import React, { ForwardRefRenderFunction } from "react";
-import { Flex } from "src/components/Flex";
+import { Flex } from "../../Flex";
 import { IAvatarGroupProps } from "../avatar.types";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import {
   avatarChildClass,
   avatarGaps,
   avatarGroupThemeClass,
-  avatarGroupThemeVars
+  avatarGroupThemeVars,
 } from "../avatar.styles.css";
 import "../avatar.global.styles.css";
 
@@ -15,7 +15,7 @@ const AvatarGroup: ForwardRefRenderFunction<
   IAvatarGroupProps
 > = ({ children, gap = "xs", className, style, ...nativeProps }, ref) => {
   const assignVariables = assignInlineVars({
-    [avatarGroupThemeVars.avatarStyleGap]: avatarGaps[gap]
+    [avatarGroupThemeVars.avatarStyleGap]: avatarGaps[gap],
   });
 
   return (

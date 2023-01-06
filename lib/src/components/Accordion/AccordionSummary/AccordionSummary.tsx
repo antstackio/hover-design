@@ -1,7 +1,7 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import React, { ForwardRefRenderFunction } from "react";
-import { Flex } from "src/components/Flex";
-import ChevronIcon from "src/components/_internal/Icons/Chevron";
+import { Flex } from "../../Flex";
+import ChevronIcon from "../../_internal/Icons/Chevron";
 import {
   accordionIconClass,
   accordionThemeVars,

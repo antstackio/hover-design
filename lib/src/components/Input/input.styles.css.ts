@@ -1,6 +1,6 @@
 import { createTheme, style } from "@vanilla-extract/css";
 
-import { lightColors } from "src/styles/tokens";
+import { lightColors } from "../../styles/tokens";
 import { IInputTheme } from "./input.types";
 
 export const inputWrapperClass = style({

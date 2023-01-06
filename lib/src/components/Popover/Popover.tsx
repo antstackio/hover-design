@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { useTrapFocus } from "src/hooks/useTrapFocus";
+import { useTrapFocus } from "../../hooks/useTrapFocus";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import {
   contentRecipe,

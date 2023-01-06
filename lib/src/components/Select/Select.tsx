@@ -11,7 +11,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { useClickOutside } from "src/hooks/useClickOutside";
+import { useClickOutside } from "../../hooks/useClickOutside";
 import { Flex } from "../Flex";
 import { ArrowDown } from "../_internal/Icons/ArrowDown";
 import { Clear } from "../_internal/Icons/Clear";

@@ -11,7 +11,7 @@ import {
 } from "./input.styles.css";
 import { Flex } from "../Flex";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { lightColors } from "src/styles/tokens";
+import { lightColors } from "../../styles/tokens";
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   {

@@ -1,4 +1,4 @@
-import { Icon } from "src/components/Icon";
+import { Icon } from "../../Icon";
 
 const SvgDot = () => {
   return (

@@ -2,7 +2,7 @@ import { Story } from "@ladle/react";
 import { useState } from "react";
 import { Modal } from "./Modal";
 import { IModalProps } from "./modal.types";
-
+import React from "react";
 export const ModalStory: Story<IModalProps> = ({
   title,
   children,

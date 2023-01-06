@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from ".";
 import type { Story } from "@ladle/react";
 import { ButtonProps } from "./button.types";

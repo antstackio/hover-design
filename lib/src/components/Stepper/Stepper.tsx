@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, ForwardRefRenderFunction } from "react";
-import { Flex } from "src/components/Flex";
+import { Flex } from "../Flex";
 
 import { IStepperProps } from "./stepper.types";
 
@@ -61,7 +61,7 @@ const StepperComponent: ForwardRefRenderFunction<
         labelOrientation,
         onClick: () =>
           allowClick && typeof onStepClick === "function" && onStepClick(index),
-        size
+        size,
       })
     );
     return acc;
