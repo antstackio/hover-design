@@ -24,10 +24,8 @@ const Dialog: React.FC<IDialogProps> = ({
   style,
   ...nativeProps
 }) => {
-  if (isOpen === false) {
-    return null;
-  }
   const dialogSurfaceRef = useRef<HTMLDivElement>(null);
+
   const customStyles = assignInlineVars(
     eliminateUndefinedKeys({
       [dialogThemeVars.backgroundColor]: styles?.backgroundColor,
@@ -47,6 +45,9 @@ const Dialog: React.FC<IDialogProps> = ({
   );
   if (closeOnClickOutside) {
     useClickOutside(dialogSurfaceRef, onClose);
+  }
+  if (isOpen === false) {
+    return null;
   }
   return (
     <Portal>

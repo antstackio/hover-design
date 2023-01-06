@@ -8,11 +8,14 @@ export const [selectClass, selectVars]: SelectTheme = createTheme({
   color: "#2F80ED",
   maxDropDownHeight: "auto",
   width: "100%",
+  minHeight: "40px",
+  zIndex: "0",
 });
 
 export const selectContainerStyles = style({
   position: "relative",
   width: selectVars.width,
+  zIndex: selectVars.zIndex,
 });
 
 export const selectInputRecipe = recipe({
@@ -21,7 +24,7 @@ export const selectInputRecipe = recipe({
     padding: "8px 16px",
     width: "100%",
     height: "auto",
-    minHeight: "40px",
+    minHeight: selectVars.minHeight,
     border: "1px solid #ced4da ",
     borderRadius: selectVars.borderRadius,
     cursor: "default",
@@ -156,7 +159,6 @@ export const inputRecipe = recipe({
         width: 0,
         minWidth: "50px",
         flex: 1,
-        fontSize: "14px",
       },
     },
   },

@@ -2,11 +2,11 @@ export type NativeSelectPropsType = JSX.IntrinsicElements["select"] & {
   height?: string;
   width?: string;
   borderRadius?: string;
-  options: OptionsType[];
+  options: nativeSelectOptionsType[];
   error?: boolean | string;
 };
 
-export type OptionsType = {
+export type nativeSelectOptionsType = {
   label: string;
   value: string | number;
   disabled?: boolean;
