@@ -35,3 +35,4 @@ export * from "./components/Tab";
 export * from "./components/Table";
 export * from "./components/TextArea";
 export * from "./components/Tooltip";
+export * from "./components/UnstyledButton";
