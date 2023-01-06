@@ -1,0 +1,60 @@
+# UnstyledButton
+
+### Quick start
+
+Here's a quick start guide to get started with the Unstyled Button component, It resets all button styles and used to create custom button
+
+### Importing Component
+
+import "@hover-design/react/dist/style.css";
+import { UnstyledButton, Flex, Card, Avatar } from "@hover-design/react";
+
+```jsx
+import { UnstyledButton } from "@hover-design/react";
+```
+
+### Code Snippets and Examples
+
+##### UnstyledButton Default
+
+```jsx
+<div className="App">
+  <UnstyledButton onClick={() => alert("Alert!")}>Click here</UnstyledButton>
+</div>
+```
+
+<div className="App">
+  <Card variant="shadow">
+    <Flex justifyContent="center" alignItems="center" gap="16px">
+      <UnstyledButton onClick={() => alert("Alert!")}>
+        Click here
+      </UnstyledButton>
+    </Flex>
+  </Card>
+</div>
+
+##### UnstyledButton with Avatar
+
+```jsx
+<div className="App">
+  <UnstyledButton onClick={() => alert("Avatar")}>
+    <Avatar
+      src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+      alt="random-image"
+    />
+  </UnstyledButton>
+</div>
+```
+
+<div className="App">
+  <Card variant="shadow">
+    <Flex justifyContent="center" alignItems="center" gap="16px">
+      <UnstyledButton onClick={() => alert("Avatar!")}>
+        <Avatar
+          src="https://avatars.githubusercontent.com/u/30571073?v=4?s=200&v=4"
+          alt="random-image"
+        />
+      </UnstyledButton>
+    </Flex>
+  </Card>
+</div>
