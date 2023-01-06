@@ -29,8 +29,6 @@
     "hover"
   ],
   "scripts": {
-    "devv": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
-    "buildd": "tsc && vite build && tsc --emitDeclarationOnly",
     "tsc": "tsc",
     "ladle": "ladle serve",
     "serve": "vite preview",
