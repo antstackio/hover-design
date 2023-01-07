@@ -1,6 +1,6 @@
 import { MouseEvent } from "react";
-import { Flex } from "src/components/Flex";
-import CloseIcon from "src/components/_internal/Icons/Close";
+import { Flex } from "../../Flex";
+import CloseIcon from "../../_internal/Icons/Close";
 import { pillIconStyles, pillStyles } from "./pill.css";
 
 type pillPropTypes = {

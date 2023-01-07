@@ -1,5 +1,5 @@
 import { KeyboardEvent, MutableRefObject } from "react";
-import { focusableElements } from "src/components/_internal/Constants/constants";
+import { focusableElements } from "../components/_internal/Constants/constants";
 
 export const useTrapFocus = (
   e: KeyboardEvent<HTMLDivElement>,

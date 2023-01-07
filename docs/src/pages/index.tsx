@@ -5,7 +5,6 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import "@hover-design/react/dist/style.css";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (

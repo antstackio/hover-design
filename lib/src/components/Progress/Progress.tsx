@@ -9,7 +9,7 @@ import {
   progressThemeVars,
 } from "./progress.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { eliminateUndefinedKeys } from "src/utils/object-utils";
+import { eliminateUndefinedKeys } from "../../utils/object-utils";
 const Progress = ({
   value,
   progressBaseStyles,

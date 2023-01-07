@@ -5,11 +5,11 @@ import {
   radioCheckMarkClass,
   radioThemeVars,
   radioSizes,
-  radioThemeClass
+  radioThemeClass,
 } from "./radio.styles.css";
 import "./radio.global.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { eliminateUndefinedKeys } from "src/utils/object-utils";
+import { eliminateUndefinedKeys } from "../../utils/object-utils";
 import { SvgDot } from "../_internal/Icons/SvgDot";
 
 const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
@@ -41,7 +41,7 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
       [radioThemeVars.selectedStyles.color]: selectedStyles?.color,
       [radioThemeVars.disabledStyles.backgroundColor]:
         disabledStyles?.backgroundColor,
-      [radioThemeVars.disabledStyles.borderColor]: disabledStyles?.borderColor
+      [radioThemeVars.disabledStyles.borderColor]: disabledStyles?.borderColor,
     })
   );
 
