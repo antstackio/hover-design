@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint *.ts*"
+    "lint": "eslint *.ts* --fix"
   },
   "dependencies": {
     "@hover-design/react": "*",

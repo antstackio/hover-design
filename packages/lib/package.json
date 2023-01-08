@@ -32,7 +32,7 @@
     "tsc": "tsc",
     "ladle": "ladle serve",
     "serve": "vite preview",
-    "lint": "eslint 'src/**/*.ts?(x)'",
+    "lint": "eslint 'src/**/*.ts?(x)' --fix",
     "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "test": "vitest",
     "coverage": "vitest run --coverage"
