@@ -11,7 +11,8 @@ export const buttonStyles = recipe({
     variant: {
       default: {
         background: "#1AB5EB",
-        border: 0,
+        border: "1px solid transparent",
+
       },
       light: {
         background: "#F9F9F9",
@@ -20,7 +21,7 @@ export const buttonStyles = recipe({
       },
       ghost: {
         background: "none",
-        border: 0,
+        border: "1px solid transparent",
         color: "#1AB5EB",
       },
       hallow: {
