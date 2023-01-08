@@ -32,11 +32,13 @@
     "tsc": "tsc",
     "ladle": "ladle serve",
     "serve": "vite preview",
+    "lint": "eslint src/**/**.{ts,tsx}",
     "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@hover-design/eslint-config": "*",
     "@ladle/react": "^2.3.0",
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/css-utils": "^0.1.2",
