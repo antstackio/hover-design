@@ -18,9 +18,9 @@ module.exports = {
     node: true
   },
   extends: [
-    "./base",
     "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "./base"
   ],
   rules: {
     "react/react-in-jsx-scope": OFF,

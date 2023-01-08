@@ -4,9 +4,9 @@ const ERROR = 2;
 module.exports = {
   extends: [
     "eslint:recommended",
-    "prettier",
     "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier" // Make sure this is the last
   ],
   plugins: ["import"],
   rules: {
