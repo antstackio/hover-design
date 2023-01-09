@@ -5,26 +5,26 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: "module",
-    ecmaFeatures: { jsx: true }
+    ecmaFeatures: { jsx: true },
   },
   settings: {
     react: {
-      version: "detect"
-    }
+      version: "detect",
+    },
   },
   env: {
     browser: true,
     amd: true,
-    node: true
+    node: true,
   },
   extends: [
-    "./base",
     "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "./base",
   ],
   rules: {
     "react/react-in-jsx-scope": OFF,
     "jsx-a11y/accessible-emoji": ERROR,
-    "react/prop-types": OFF
-  }
+    "react/prop-types": OFF,
+  },
 };

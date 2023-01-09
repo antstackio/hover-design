@@ -20,7 +20,8 @@
     "dev": "turbo run dev --no-cache --parallel --continue",
     "publish-build": "turbo run build --filter=@hover-design/react --no-deps --include-dependencies",
     "ladle": "turbo run ladle --filter=@hover-design/react --no-deps --include-dependencies",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\""
   },
   "keywords": [
     "hover",

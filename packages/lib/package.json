@@ -35,7 +35,7 @@
     "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "lint": "eslint src/**/**.{ts,tsx}"
+    "lint": "eslint 'src/**/*.ts?(x)' --fix"
   },
   "dependencies": {
     "@ladle/react": "^2.3.0",

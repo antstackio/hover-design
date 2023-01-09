@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ["@hover-design/eslint-config/react"],
+  extends: ["@hover-design/eslint-config/react"]
 };

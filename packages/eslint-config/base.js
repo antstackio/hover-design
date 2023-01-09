@@ -4,12 +4,12 @@ const ERROR = 2;
 module.exports = {
   extends: [
     "eslint:recommended",
-    "prettier",
     "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
   ],
   plugins: ["import"],
   rules: {
-    "no-console": ERROR
-  }
+    "no-console": ERROR,
+  },
 };
