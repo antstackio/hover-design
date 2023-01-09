@@ -4,13 +4,13 @@ export const switchLayout = style({
   position: "relative",
   display: "inline-block",
   width: "52px",
-  height: "28px",
+  height: "28px"
 });
 
 export const switchInputStyle = style({
   width: 0,
   height: 0,
-  opacity: 0,
+  opacity: 0
 });
 
 export const slider = style({
@@ -33,7 +33,7 @@ export const slider = style({
       left: "1px",
       bottom: "1px",
       transition: "0.3s",
-      backgroundColor: "#DDD",
-    },
-  },
+      backgroundColor: "#DDD"
+    }
+  }
 });

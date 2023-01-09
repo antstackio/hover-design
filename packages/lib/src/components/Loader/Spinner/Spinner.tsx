@@ -2,7 +2,7 @@ import {
   forwardRef,
   ForwardRefRenderFunction,
   useEffect,
-  useState,
+  useState
 } from "react";
 import { spinnerStyle } from "./spinner.styles.css";
 import { SpinnerProps } from "./spinner.types";

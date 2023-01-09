@@ -4,9 +4,9 @@ export const pillStyles = style({
   padding: "6px 8px 6px 12px",
   fontSize: "12px",
   borderRadius: "50px",
-  background: "#ededed",
+  background: "#ededed"
 });
 
 export const pillIconStyles = style({
-  cursor: "pointer",
+  cursor: "pointer"
 });

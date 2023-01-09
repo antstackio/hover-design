@@ -19,6 +19,6 @@ export const RadioStory: Story<Omit<IRadioProps, "ref">> = ({
 RadioStory.args = {
   isDisabled: false,
   checked: false,
-  radioSize: "xs",
+  radioSize: "xs"
 };
 RadioStory.argTypes = {};

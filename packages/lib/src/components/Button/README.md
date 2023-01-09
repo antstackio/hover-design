@@ -6,15 +6,15 @@
 
 Here's a quick start guide to get started with the button component
 
-| Attributes |             Values                            | Optional ? |
-| :--------- | :-------------------------------------------: | ---------: | 
-| variant    |   `default`  &#124; `light`  &#124; `ghost`  &#124; `hallow` | Yes |
-| padding    |   `small`  &#124;   `medium`  &#124; `large` | Yes        |
-| fontSize   |   `small`  &#124;   `medium`  &#124; `large` | Yes        |
-| margin     |   `small`  &#124;   `medium`  &#124; `large` | Yes        |
-| onClick    |          `() => void;`          |        Yes |
-| onHover    |          `() => void;`          |        Yes |
-| ref        | `RefObject<HTMLButtonElement>;` |        Yes |
+| Attributes |                         Values                          | Optional ? |
+| :--------- | :-----------------------------------------------------: | ---------: |
+| variant    | `default` &#124; `light` &#124; `ghost` &#124; `hallow` |        Yes |
+| padding    |         `small` &#124; `medium` &#124; `large`          |        Yes |
+| fontSize   |         `small` &#124; `medium` &#124; `large`          |        Yes |
+| margin     |         `small` &#124; `medium` &#124; `large`          |        Yes |
+| onClick    |                      `() => void;`                      |        Yes |
+| onHover    |                      `() => void;`                      |        Yes |
+| ref        |             `RefObject<HTMLButtonElement>;`             |        Yes |
 
 ### Code Snippets and Examples
 
@@ -22,7 +22,7 @@ Here's a quick start guide to get started with the button component
 
 ```html
 <div className="App">
-	<button>Button default</button>
+  <button>Button default</button>
 </div>
 ```
 
@@ -34,7 +34,7 @@ Here's a quick start guide to get started with the button component
 
 ```html
 <div className="App">
-	<button variant="light">Button light</button>
+  <button variant="light">Button light</button>
 </div>
 ```
 
@@ -46,7 +46,7 @@ Here's a quick start guide to get started with the button component
 
 ```html
 <div className="App">
-	<button variant="ghost">Button ghost</button>
+  <button variant="ghost">Button ghost</button>
 </div>
 ```
 
@@ -58,7 +58,7 @@ Here's a quick start guide to get started with the button component
 
 ```html
 <div className="App">
-	<button variant="hallow">Button Hallow</button>
+  <button variant="hallow">Button Hallow</button>
 </div>
 ```
 

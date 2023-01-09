@@ -7,29 +7,29 @@ export const [tabsTheme, tabsVars]: TabTheme = createTheme({
   backgroundColor: "#BDDBFF60",
   outlineColor: "#EBECF0",
   tabSize: "40px",
-  roundness: "4px",
+  roundness: "4px"
 });
 
 export const tabsHeaderContainerRecipe = recipe({
   base: {
-    position: "relative",
+    position: "relative"
   },
   variants: {
     orientation: {
       vertical: {
-        width: tabsVars.tabSize,
+        width: tabsVars.tabSize
       },
       horizontal: {
         width: "100%",
-        height: tabsVars.tabSize,
-      },
-    },
-  },
+        height: tabsVars.tabSize
+      }
+    }
+  }
 });
 
 export const extendingBorderStyle = style({
   height: "100%",
-  borderBottom: `2px solid ${tabsVars.outlineColor}`,
+  borderBottom: `2px solid ${tabsVars.outlineColor}`
 });
 
 export const tabsRecipe = recipe({
@@ -41,34 +41,34 @@ export const tabsRecipe = recipe({
     padding: "8px 10px",
     ":hover": {
       background: tabsVars.backgroundColor,
-      color: tabsVars.color,
-    },
+      color: tabsVars.color
+    }
   },
   variants: {
     orientation: {
       horizontal: {
         borderBottom: `2px solid ${tabsVars.outlineColor}`,
-        borderRadius: `${tabsVars.roundness} ${tabsVars.roundness}  0 0`,
+        borderRadius: `${tabsVars.roundness} ${tabsVars.roundness}  0 0`
       },
       vertical: {
         borderRight: `2px solid ${tabsVars.outlineColor}`,
         borderRadius: `${tabsVars.roundness}0 0 ${tabsVars.roundness}`,
         minHeight: "40px",
-        width: "100%",
-      },
+        width: "100%"
+      }
     },
     variant: {
       default: {},
       outline: {
-        border: "2px solid transparent",
+        border: "2px solid transparent"
       },
       pill: {
         border: "none",
-        borderRadius: tabsVars.roundness,
-      },
+        borderRadius: tabsVars.roundness
+      }
     },
     active: {
-      true: {},
+      true: {}
     },
     disabled: {
       true: {
@@ -76,17 +76,17 @@ export const tabsRecipe = recipe({
         cursor: "not-allowed",
         ":hover": {
           background: "none",
-          color: "#a0a8b7",
-        },
-      },
-    },
+          color: "#a0a8b7"
+        }
+      }
+    }
   },
   compoundVariants: [
     {
       variants: {
         variant: "default",
         orientation: "horizontal",
-        active: true,
+        active: true
       },
       style: {
         color: tabsVars.color,
@@ -99,15 +99,15 @@ export const tabsRecipe = recipe({
           borderRadius: "20px",
           height: "2px",
           width: "100%",
-          zIndex: 0,
-        },
-      },
+          zIndex: 0
+        }
+      }
     },
     {
       variants: {
         variant: "default",
         orientation: "vertical",
-        active: true,
+        active: true
       },
       style: {
         color: tabsVars.color,
@@ -120,28 +120,28 @@ export const tabsRecipe = recipe({
           borderRadius: "20px",
           width: "2px",
           height: "100%",
-          zIndex: 0,
-        },
-      },
+          zIndex: 0
+        }
+      }
     },
     {
       variants: {
         variant: "outline",
         orientation: "horizontal",
-        active: true,
+        active: true
       },
       style: {
         color: tabsVars.color,
         borderInline: `2px solid ${tabsVars.outlineColor}`,
         borderTop: `2px solid ${tabsVars.outlineColor}`,
-        borderBottom: "none",
-      },
+        borderBottom: "none"
+      }
     },
     {
       variants: {
         variant: "outline",
         orientation: "horizontal",
-        active: false,
+        active: false
       },
       style: {
         borderBottom: "none",
@@ -152,27 +152,27 @@ export const tabsRecipe = recipe({
           width: "calc(100% + 4px)",
           bottom: 0,
           left: "-2px",
-          background: tabsVars.outlineColor,
-        },
-      },
+          background: tabsVars.outlineColor
+        }
+      }
     },
     {
       variants: {
         variant: "outline",
         orientation: "vertical",
-        active: true,
+        active: true
       },
       style: {
         color: tabsVars.color,
         border: `2px solid ${tabsVars.outlineColor}`,
-        borderRight: "none",
-      },
+        borderRight: "none"
+      }
     },
     {
       variants: {
         variant: "outline",
         orientation: "vertical",
-        active: false,
+        active: false
       },
       style: {
         borderRight: "none",
@@ -183,31 +183,31 @@ export const tabsRecipe = recipe({
           height: "calc(100% + 4px)",
           right: 0,
           top: "-2px",
-          background: tabsVars.outlineColor,
-        },
-      },
+          background: tabsVars.outlineColor
+        }
+      }
     },
     {
       variants: {
         variant: "pill",
-        active: true,
+        active: true
       },
       style: {
         color: tabsVars.color,
-        background: tabsVars.backgroundColor,
-      },
-    },
-  ],
+        background: tabsVars.backgroundColor
+      }
+    }
+  ]
 });
 
 export const contentStyles = style({
-  padding: "10px",
+  padding: "10px"
 });
 
 export const iconStyles = style({
-  marginRight: "6px",
+  marginRight: "6px"
 });
 
 export const badgeStyles = style({
-  marginLeft: "6px",
+  marginLeft: "6px"
 });

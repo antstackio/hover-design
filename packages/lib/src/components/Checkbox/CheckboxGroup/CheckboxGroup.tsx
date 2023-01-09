@@ -5,7 +5,7 @@ import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { eliminateUndefinedKeys } from "../../../utils/object-utils";
 import {
   checkboxGroupChildClass,
-  checkboxGroupSpacing,
+  checkboxGroupSpacing
 } from "../checkbox.styles.css";
 import { TCheckboxGroupProps } from "../checkbox.types";
 

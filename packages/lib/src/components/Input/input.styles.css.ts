@@ -5,7 +5,7 @@ import { IInputTheme } from "./input.types";
 
 export const inputWrapperClass = style({
   position: "relative",
-  display: "inline-block",
+  display: "inline-block"
 });
 
 export const [inputThemeClass, inputThemeVars]: IInputTheme = createTheme({
@@ -14,8 +14,8 @@ export const [inputThemeClass, inputThemeVars]: IInputTheme = createTheme({
     left: "14px",
     right: "14px",
     top: "10px",
-    bottom: "10px",
-  },
+    bottom: "10px"
+  }
 });
 export const inputClass = style({
   fontSize: "16px",
@@ -24,19 +24,19 @@ export const inputClass = style({
   paddingRight: inputThemeVars.padding.right,
   paddingBottom: inputThemeVars.padding.bottom,
   paddingLeft: inputThemeVars.padding.left,
-  border: `1px solid ${inputThemeVars.borderColor}`,
+  border: `1px solid ${inputThemeVars.borderColor}`
 });
 
 export const rightIconWrapper = style({
-  right: "14px",
+  right: "14px"
 });
 
 export const leftIconWrapper = style({
-  left: "14px",
+  left: "14px"
 });
 
 export const iconWrapper = style({
   position: "absolute",
   height: "100%",
-  top: "0",
+  top: "0"
 });

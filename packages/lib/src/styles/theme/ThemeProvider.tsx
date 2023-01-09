@@ -14,7 +14,7 @@ export interface ThemeProviderProps {
 export function ThemeProvider(props: ThemeProviderProps) {
   const value = React.useMemo(() => {
     return {
-      themeClass: props.themeClass,
+      themeClass: props.themeClass
     };
   }, [props.themeClass]);
 

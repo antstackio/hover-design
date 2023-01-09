@@ -7,7 +7,7 @@ import {
   StepperDividerWrapperClass,
   StepperStepIconClass,
   stepperThemeClass,
-  stepperThemeVars,
+  stepperThemeVars
 } from "../stepper.styles.css";
 import { IStepperStepProps } from "../stepper.types";
 import { CheckIcon } from "../../_internal/Icons";
@@ -49,14 +49,14 @@ const StepperStepComponent: ForwardRefRenderFunction<
       [stepperThemeVars.progressStyles.backgroundColor]:
         progressStyles?.backgroundColor,
       [stepperThemeVars.progressStyles.color]: progressStyles?.color,
-      [stepperThemeVars.progressStyles.border]: progressStyles?.border,
+      [stepperThemeVars.progressStyles.border]: progressStyles?.border
     })
   );
 
   const StepperStepIconStyle = StepperStepIconClass({ stepState });
 
   const StepperDividerWrapperStyle = StepperDividerWrapperClass({
-    orientation,
+    orientation
   });
 
   const _Icon = () => {

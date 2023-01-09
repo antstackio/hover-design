@@ -7,7 +7,7 @@ import {
   MutableRefObject,
   useEffect,
   useRef,
-  useState,
+  useState
 } from "react";
 import { Badge } from "../Badge";
 import { Flex } from "../Flex";
@@ -18,7 +18,7 @@ import {
   iconStyles,
   tabsHeaderContainerRecipe,
   tabsRecipe,
-  tabsVars,
+  tabsVars
 } from "./tabs.css";
 import { TabsObjectProps, TabsProps } from "./tabs.types";
 
@@ -71,7 +71,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
   };
 
   const tabsHeaderContainerClass = tabsHeaderContainerRecipe({
-    orientation,
+    orientation
   });
 
   const getAlignment = () => {
@@ -151,7 +151,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
 
   const focusAndSelectTab: (tabData: TabsObjectProps) => void = (tabData) => {
     const tabsList = [
-      ...tabsContainer.current.querySelectorAll("[role=tab]"),
+      ...tabsContainer.current.querySelectorAll("[role=tab]")
     ] as HTMLElement[];
     setSelectedTab(tabData);
     tabsList.find((tab) => tab.ariaLabel === tabData.label)?.focus();
@@ -191,9 +191,9 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
           [tabsVars.backgroundColor]: backgroundColor,
           [tabsVars.outlineColor]: outlineColor,
           [tabsVars.roundness]: roundness,
-          [tabsVars.tabSize]: size,
+          [tabsVars.tabSize]: size
         }),
-        ...style,
+        ...style
       }}
       {...nativeProps}
     >
@@ -210,7 +210,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
             active: tabItem.value === selectedTab?.value,
             variant,
             disabled: tabItem.disabled,
-            orientation,
+            orientation
           });
           return (
             <Flex

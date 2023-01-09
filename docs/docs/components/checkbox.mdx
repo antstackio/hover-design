@@ -9,7 +9,7 @@ Here's a quick start guide to get started with the Checkbox component, Checkboxe
 import { Checkbox, CheckboxGroup, Card } from "@hover-design/react";
 import {
   CheckboxExample,
-  CheckboxGroupExample,
+  CheckboxGroupExample
 } from "@site/src/components/examples/CheckboxExample";
 
 export const CheckboxContainer = ({ children }) => (
@@ -31,7 +31,7 @@ const Demo = () => {
   const [checkboxVal, setCheckboxVal] = useState({
     honeypot: false,
     rover: false,
-    weaver: false,
+    weaver: false
   });
 
   return (
@@ -44,7 +44,7 @@ const Demo = () => {
           onChange={() =>
             setCheckboxVal({
               ...checkboxVal,
-              honeypot: !checkboxVal.honeypot,
+              honeypot: !checkboxVal.honeypot
             })
           }
         />
@@ -58,7 +58,7 @@ const Demo = () => {
           onChange={() =>
             setCheckboxVal({
               ...checkboxVal,
-              rover: !checkboxVal.rover,
+              rover: !checkboxVal.rover
             })
           }
         />
@@ -72,7 +72,7 @@ const Demo = () => {
           onChange={() =>
             setCheckboxVal({
               ...checkboxVal,
-              weaver: !checkboxVal.weaver,
+              weaver: !checkboxVal.weaver
             })
           }
         />
@@ -169,7 +169,7 @@ const Demo = () => {
     checkboxSize="xs"
     selectedStyles={{
       borderColor: "rgb(102, 168, 15)",
-      backgroundColor: "rgb(102, 168, 15)",
+      backgroundColor: "rgb(102, 168, 15)"
     }}
   />
   <Checkbox checkboxSize="sm" checked />
@@ -178,7 +178,7 @@ const Demo = () => {
     checkboxSize="md"
     selectedStyles={{
       borderColor: "rgb(224, 49, 49)",
-      backgroundColor: "rgb(224, 49, 49)",
+      backgroundColor: "rgb(224, 49, 49)"
     }}
   />
   <Checkbox
@@ -186,7 +186,7 @@ const Demo = () => {
     checkboxSize="md"
     indeterminateStyles={{
       borderColor: "rgb(240, 140, 0)",
-      backgroundColor: "rgb(240, 140, 0)",
+      backgroundColor: "rgb(240, 140, 0)"
     }}
   />
   <Checkbox
@@ -195,7 +195,7 @@ const Demo = () => {
     borderRadius="md"
     disabledStyles={{
       borderColor: "rgb(255, 255, 255)",
-      backgroundColor: "rgb(0, 0, 0)",
+      backgroundColor: "rgb(0, 0, 0)"
     }}
   />
   <Checkbox
@@ -204,7 +204,7 @@ const Demo = () => {
     borderRadius="xl"
     indeterminateStyles={{
       borderColor: "rgb(156, 54, 181)",
-      backgroundColor: "rgb(156, 54, 181)",
+      backgroundColor: "rgb(156, 54, 181)"
     }}
   />
 </div>
@@ -216,7 +216,7 @@ const Demo = () => {
     checkboxSize="xs"
     selectedStyles={{
       borderColor: "rgb(102, 168, 15)",
-      backgroundColor: "rgb(102, 168, 15)",
+      backgroundColor: "rgb(102, 168, 15)"
     }}
   />
   <CheckboxExample checkboxSize="sm" checked />
@@ -225,7 +225,7 @@ const Demo = () => {
     checkboxSize="md"
     selectedStyles={{
       borderColor: "rgb(224, 49, 49)",
-      backgroundColor: "rgb(224, 49, 49)",
+      backgroundColor: "rgb(224, 49, 49)"
     }}
   />
   <CheckboxExample
@@ -233,7 +233,7 @@ const Demo = () => {
     checkboxSize="md"
     indeterminateStyles={{
       borderColor: "rgb(240, 140, 0)",
-      backgroundColor: "rgb(240, 140, 0)",
+      backgroundColor: "rgb(240, 140, 0)"
     }}
   />
   <CheckboxExample
@@ -242,7 +242,7 @@ const Demo = () => {
     borderRadius="md"
     disabledStyles={{
       borderColor: "rgb(255, 255, 255)",
-      backgroundColor: "rgb(0, 0, 0)",
+      backgroundColor: "rgb(0, 0, 0)"
     }}
   />
   <CheckboxExample
@@ -251,7 +251,7 @@ const Demo = () => {
     borderRadius="xl"
     indeterminateStyles={{
       borderColor: "rgb(156, 54, 181)",
-      backgroundColor: "rgb(156, 54, 181)",
+      backgroundColor: "rgb(156, 54, 181)"
     }}
   />
 </CheckboxContainer>

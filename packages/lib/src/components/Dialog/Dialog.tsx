@@ -9,7 +9,7 @@ import {
   dialogContentContainer,
   dialogStyleClass,
   dialogThemeClass,
-  dialogThemeVars,
+  dialogThemeVars
 } from "./dialog.styles.css";
 import { IDialogProps } from "./dialog.types";
 
@@ -40,7 +40,7 @@ const Dialog: React.FC<IDialogProps> = ({
       [dialogThemeVars.position]: styles?.position,
       [dialogThemeVars.padding]: styles?.padding,
       [dialogThemeVars.zIndex]: styles?.zIndex,
-      [dialogThemeVars.boxShadow]: styles?.boxShadow,
+      [dialogThemeVars.boxShadow]: styles?.boxShadow
     })
   );
   if (closeOnClickOutside) {

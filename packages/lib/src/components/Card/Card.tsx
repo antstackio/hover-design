@@ -18,7 +18,7 @@ const Card: ForwardRefRenderFunction<HTMLDivElement, CardProps> = (
     variant,
     padding,
     fontSize,
-    margin,
+    margin
   });
 
   return (

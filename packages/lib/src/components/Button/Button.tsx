@@ -20,7 +20,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     padding,
     fontSize,
     margin,
-    isBlock,
+    isBlock
   });
 
   return (

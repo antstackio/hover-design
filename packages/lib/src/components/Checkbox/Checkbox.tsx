@@ -10,7 +10,7 @@ import {
   checkboxSizes,
   checkboxThemeClass,
   checkboxThemeVars,
-  checkboxWrapperClass,
+  checkboxWrapperClass
 } from "./checkbox.styles.css";
 import { CheckIcon, DashIcon } from "../_internal/Icons";
 
@@ -59,7 +59,7 @@ const Checkbox: ForwardRefRenderFunction<HTMLInputElement, ICheckboxProps> = (
         indeterminateStyles?.backgroundColor,
       [checkboxThemeVars.indeterminateStyles.borderColor]:
         indeterminateStyles?.borderColor,
-      [checkboxThemeVars.indeterminateStyles.color]: indeterminateStyles?.color,
+      [checkboxThemeVars.indeterminateStyles.color]: indeterminateStyles?.color
     })
   );
 

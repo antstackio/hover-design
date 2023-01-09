@@ -3,7 +3,7 @@ import {
   headerContentStyle,
   headerLegend,
   headerStyle,
-  themeToggleButton,
+  themeToggleButton
 } from "./header.styles.css";
 import { ThemeContext } from "components/appWraper/StyleWrapper";
 import { lightTheme } from "styles/themes.css";

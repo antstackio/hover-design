@@ -14,7 +14,7 @@ export const [dialogThemeClass, dialogThemeVars]: IDialogTheme = createTheme({
   padding: "16px",
   zIndex: "10",
   height: "auto",
-  width: "auto",
+  width: "auto"
 });
 export const dialogStyleClass = style({
   backgroundColor: dialogThemeVars.backgroundColor,
@@ -39,7 +39,7 @@ export const dialogStyleClass = style({
   padding: dialogThemeVars.padding,
   zIndex: dialogThemeVars.zIndex,
   width: dialogThemeVars.width,
-  height: dialogThemeVars.height,
+  height: dialogThemeVars.height
 });
 export const dialogCloseStyleClass = style({
   background: "none",
@@ -48,9 +48,9 @@ export const dialogCloseStyleClass = style({
   padding: "0",
   position: "absolute",
   right: "8px",
-  top: "8px",
+  top: "8px"
 });
 
 export const dialogContentContainer = style({
-  minWidth: "220px",
+  minWidth: "220px"
 });

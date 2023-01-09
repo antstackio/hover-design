@@ -63,7 +63,7 @@ export const GridComponent: ForwardRefRenderFunction<
       placeItems,
       justifyContent,
       alignContent,
-      display,
+      display
     })
   );
   /**

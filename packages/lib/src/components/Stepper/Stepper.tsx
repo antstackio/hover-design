@@ -61,7 +61,7 @@ const StepperComponent: ForwardRefRenderFunction<
         labelOrientation,
         onClick: () =>
           allowClick && typeof onStepClick === "function" && onStepClick(index),
-        size,
+        size
       })
     );
     return acc;

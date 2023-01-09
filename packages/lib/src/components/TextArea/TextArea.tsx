@@ -4,7 +4,7 @@ import {
   textAreaStyle,
   textAreaResize,
   textAreaColorClass,
-  textAreaColorVars,
+  textAreaColorVars
 } from "./text-area.css";
 import { TextAreaProps } from "./text-area.types";
 
@@ -23,7 +23,7 @@ const TextAreaComponent: ForwardRefRenderFunction<
   ref
 ) => {
   let textAreaBorder = assignInlineVars({
-    [textAreaColorVars.textAreaBorderColor.statusBorderColor]: statusBorder,
+    [textAreaColorVars.textAreaBorderColor.statusBorderColor]: statusBorder
   });
 
   /**

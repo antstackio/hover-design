@@ -1,6 +1,4 @@
-
 import { PopoverType } from "../Popover/popover.types";
-
 
 type divType = Omit<JSX.IntrinsicElements["div"], "ref"> &
   Omit<PopoverType, "content" | "ref">;

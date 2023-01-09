@@ -11,7 +11,7 @@ import {
   modalThemeClass,
   modalThemeVars,
   modalTitleStyleClass,
-  overlayStyleClass,
+  overlayStyleClass
 } from "./modal.styles.css";
 import { IModalProps } from "./modal.types";
 
@@ -56,7 +56,7 @@ const Modal: React.FC<IModalProps> = ({
       [modalThemeVars.overlay.left]: overlayStyles?.left,
       [modalThemeVars.overlay.right]: overlayStyles?.right,
       [modalThemeVars.overlay.bottom]: overlayStyles?.bottom,
-      [modalThemeVars.overlay.filter]: overlayStyles?.filter,
+      [modalThemeVars.overlay.filter]: overlayStyles?.filter
     })
   );
   if (isOpen === false) {

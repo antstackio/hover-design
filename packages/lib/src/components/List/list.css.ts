@@ -3,12 +3,12 @@ import { recipe } from "@vanilla-extract/recipes";
 import { IListTheme } from "./list.types";
 export const [listThemeClass, listThemeVars]: IListTheme = createTheme({
   listStyles: {
-    listStyleType: "none",
-  },
+    listStyleType: "none"
+  }
 });
 export const listStyles = recipe({
   base: {
-    listStyleType: listThemeVars.listStyles.listStyleType,
+    listStyleType: listThemeVars.listStyles.listStyleType
   },
   variants: {
     variant: {
@@ -16,11 +16,11 @@ export const listStyles = recipe({
         display: "inline-flex",
         gap: "24px",
         verticalAlign: "middle",
-        alignItems: "baseline",
+        alignItems: "baseline"
       },
       vertical: {
-        display: "block",
-      },
-    },
-  },
+        display: "block"
+      }
+    }
+  }
 });

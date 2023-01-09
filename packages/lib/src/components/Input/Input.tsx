@@ -7,7 +7,7 @@ import {
   inputWrapperClass,
   iconWrapper,
   leftIconWrapper,
-  rightIconWrapper,
+  rightIconWrapper
 } from "./input.styles.css";
 import { Flex } from "../Flex";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
@@ -26,7 +26,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 ) => {
   const paddingForIcon = {
     left: iconPosition === "left" && Icon ? "38px" : "14px",
-    right: iconPosition === "right" && Icon ? "38px" : "14px",
+    right: iconPosition === "right" && Icon ? "38px" : "14px"
   };
 
   return (
@@ -46,9 +46,9 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
           ...assignInlineVars({
             [inputThemeVars.borderColor]: statusBorder,
             [inputThemeVars.padding.left]: paddingForIcon.left,
-            [inputThemeVars.padding.right]: paddingForIcon.right,
+            [inputThemeVars.padding.right]: paddingForIcon.right
           }),
-          ...style,
+          ...style
         }}
         className={`${inputClass} ${inputThemeClass} ${className || ""}`}
         {...props}

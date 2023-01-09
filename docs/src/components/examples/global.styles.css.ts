@@ -4,17 +4,17 @@ import { resetTableStyles } from "./resetTableStyles.css";
 globalStyle(
   `${resetTableStyles} td, ${resetTableStyles} th,  ${resetTableStyles} tr`,
   {
-    border: "none",
+    border: "none"
   }
 );
 
 globalStyle(
   `${resetTableStyles} tr:nth-child(even), ${resetTableStyles} thead`,
   {
-    backgroundColor: "transparent",
+    backgroundColor: "transparent"
   }
 );
 
 globalStyle(`${resetTableStyles} table`, {
-  marginBottom: 0,
+  marginBottom: 0
 });

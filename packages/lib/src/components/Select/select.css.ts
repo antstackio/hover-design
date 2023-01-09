@@ -9,13 +9,13 @@ export const [selectClass, selectVars]: SelectTheme = createTheme({
   maxDropDownHeight: "auto",
   width: "100%",
   minHeight: "40px",
-  zIndex: "0",
+  zIndex: "0"
 });
 
 export const selectContainerStyles = style({
   position: "relative",
   width: selectVars.width,
-  zIndex: selectVars.zIndex,
+  zIndex: selectVars.zIndex
 });
 
 export const selectInputRecipe = recipe({
@@ -30,24 +30,24 @@ export const selectInputRecipe = recipe({
     cursor: "default",
     ":focus-within": {
       border: `1px solid ${selectVars.color} `,
-      outline: "none",
-    },
+      outline: "none"
+    }
   },
   variants: {
     error: {
       true: {
         border: "1px solid #DA2C2C",
-        color: "#DA2C2C",
-      },
+        color: "#DA2C2C"
+      }
     },
     disabled: {
       true: {
         background: "#ededed",
         color: "#545454",
-        pointerEvents: "none",
-      },
-    },
-  },
+        pointerEvents: "none"
+      }
+    }
+  }
 });
 
 export const selectListContainerStyle = style({
@@ -66,14 +66,14 @@ export const selectListContainerStyle = style({
   boxShadow:
     "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
   "::-webkit-scrollbar": {
-    width: "10px",
+    width: "10px"
   },
   "::-webkit-scrollbar-thumb": {
     background: "#ced4da",
     border: "4px solid rgba(0, 0, 0, 0)",
     borderLeft: "none",
-    backgroundClip: "padding-box",
-  },
+    backgroundClip: "padding-box"
+  }
 });
 
 export const selectListRecipe = recipe({
@@ -82,35 +82,35 @@ export const selectListRecipe = recipe({
     padding: "10px 16px",
     background: "white",
     cursor: "pointer",
-    borderRadius: `${calc.subtract(selectVars.borderRadius, "4px")}`,
+    borderRadius: `${calc.subtract(selectVars.borderRadius, "4px")}`
   },
   variants: {
     disabled: {
       true: {
         color: "#eee",
-        pointerEvents: "none",
-      },
+        pointerEvents: "none"
+      }
     },
     active: {
       true: {
         background: selectVars.color,
-        color: "white",
-      },
-    },
-  },
+        color: "white"
+      }
+    }
+  }
 });
 
 export const noDataFoundStyles = style({
   width: "100%",
   padding: "10px 16px",
   background: "white",
-  cursor: "not-allowed",
+  cursor: "not-allowed"
 });
 
 export const selectErrorMsg = style({
   fontSize: "12px",
   color: "#DA2C2C",
-  margin: "4px 0",
+  margin: "4px 0"
 });
 
 export const selectPlaceholderRecipe = recipe({
@@ -118,24 +118,24 @@ export const selectPlaceholderRecipe = recipe({
   variants: {
     error: {
       true: {
-        color: "#DA2C2C",
-      },
-    },
-  },
+        color: "#DA2C2C"
+      }
+    }
+  }
 });
 
 export const selectIconRecipe = recipe({
   base: {
     transition: "0.2s ease",
-    cursor: "pointer",
+    cursor: "pointer"
   },
   variants: {
     isDropped: {
       true: {
-        transform: "rotate(180deg)",
-      },
-    },
-  },
+        transform: "rotate(180deg)"
+      }
+    }
+  }
 });
 
 export const inputRecipe = recipe({
@@ -145,23 +145,23 @@ export const inputRecipe = recipe({
     outline: "none",
     padding: 0,
     fontSize: "16px",
-    background: "transparent",
+    background: "transparent"
   },
   variants: {
     error: {
       true: {
         color: "#DA2C2C",
-        "::placeholder": { color: "#DA2C2C" },
-      },
+        "::placeholder": { color: "#DA2C2C" }
+      }
     },
     isMulti: {
       true: {
         width: 0,
         minWidth: "50px",
-        flex: 1,
-      },
-    },
-  },
+        flex: 1
+      }
+    }
+  }
 });
 
 export const inputTextContainer = style({
@@ -169,10 +169,10 @@ export const inputTextContainer = style({
   fontSize: "16px",
   whiteSpace: "nowrap",
   overflow: "hidden",
-  height: "100%",
+  height: "100%"
 });
 
 export const loadingContentContainer = style({
   padding: "10px 16px",
-  cursor: "default",
+  cursor: "default"
 });

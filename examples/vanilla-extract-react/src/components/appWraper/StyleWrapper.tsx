@@ -3,10 +3,10 @@ import { lightTheme, darkTheme } from "styles/index.css";
 import { styleWrapperStyles } from "./styleWrapper.styles.css";
 const ThemeContext = createContext({
   theme: "",
-  toggleTheme: () => console.log(),
+  toggleTheme: () => console.log()
 });
 const StyleWrapper: React.FC<{ children: React.ReactNode }> = ({
-  children,
+  children
 }) => {
   const [theme, setTheme] = useState(lightTheme);
   const toggleTheme = () => {

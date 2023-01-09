@@ -35,6 +35,6 @@ export const DialogStory: Story<IDialogProps> = ({
 DialogStory.args = {
   children: <div>Dialog Content</div>,
   closeOnClickOutside: false,
-  isCloseIconVisible: true,
+  isCloseIconVisible: true
 };
 DialogStory.argTypes = {};

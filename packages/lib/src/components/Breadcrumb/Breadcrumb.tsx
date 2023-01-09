@@ -3,7 +3,7 @@ import { IBreadcrumbProps } from "./breadcrumb.types";
 import {
   breadcrumbWrapper,
   crumbSeparator,
-  crumbTitle,
+  crumbTitle
 } from "./breadcrumb.css";
 
 const Breadcrumb: React.ForwardRefRenderFunction<

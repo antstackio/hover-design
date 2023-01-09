@@ -9,7 +9,7 @@ const Portal = ({
   children,
   className = "",
   style,
-  id,
+  id
 }: PortalType): JSX.Element => {
   const portalRoot = document.body;
   const mountElement = useMemo(() => document.createElement(element), []);

@@ -5,7 +5,7 @@ import ChevronIcon from "../../_internal/Icons/Chevron";
 import {
   accordionIconClass,
   accordionThemeVars,
-  summaryClass,
+  summaryClass
 } from "../accordion.styles.css";
 import { IAccordionSummaryProps } from "./accordionSummary.types";
 
@@ -33,7 +33,7 @@ const AccordionSummary: ForwardRefRenderFunction<
   const summaryStyle = Object.assign(
     assignInlineVars({
       [accordionThemeVars.accordionTransition]: iconTransition,
-      [accordionThemeVars.accordionTransform]: iconTransform,
+      [accordionThemeVars.accordionTransform]: iconTransform
     }),
     style
   );
