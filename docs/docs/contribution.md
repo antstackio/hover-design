@@ -18,7 +18,7 @@ The file structure of the project is as follows:
 hover-design
 ┣ docs      // codebase for documentation
 ┣ examples  // has examples for usage
-┗ lib       // main codebase of library
+┗ packages/lib       // main codebase of library
 ```
 
 The project is a Monorepo making use of [Turborepo](https://turborepo.org/) for managing everything. With [PNPM](https://pnpm.io/) as the package manager
