@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <a href='https://github.com/antstackio/hover-design' target='_blank'>
+          <a href='https://github.com/antstackio/hover-design' target='_blank' rel="noreferrer">
             Get started by editing
             <code className={styles.code}>GitHub</code>
           </a>
@@ -64,7 +64,7 @@ export default function Home() {
           </div>
           
           <div className={styles.hoverLogo}> 
-            <a href="https://hover.style/" target="_blank">
+            <a href="https://hover.style/" target="_blank" rel="noreferrer">
               <Image src="/logo.svg"
                 alt="13"
                 width={50}
