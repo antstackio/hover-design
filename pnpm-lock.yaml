@@ -31,7 +31,7 @@ importers:
     dependencies:
       '@docusaurus/core': 2.0.1_3tgeifm2vmwrlpqlopppsnjtcu
       '@docusaurus/preset-classic': 2.0.1_xnubhbqvwjowf6myhyxz7pbr2i
-      '@hover-design/react': link:../lib
+      '@hover-design/react': link:../packages/lib
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@vanilla-extract/css': 1.7.2
       '@vanilla-extract/webpack-plugin': 2.1.11
@@ -63,7 +63,7 @@ importers:
       vite: ^2.7.2
       vite-tsconfig-paths: ^3.3.17
     dependencies:
-      '@hover-design/react': link:../../lib
+      '@hover-design/react': link:../../packages/lib
       '@vanilla-extract/css': 1.7.2
       '@vanilla-extract/vite-plugin': 3.3.0_vite@2.9.15
       polished: 4.2.2
@@ -78,7 +78,7 @@ importers:
       typescript: 4.7.4
       vite: 2.9.15
 
-  lib:
+  packages/lib:
     specifiers:
       '@ladle/react': ^2.3.0
       '@types/node': ^17.0.21
@@ -4072,7 +4072,7 @@ packages:
     dev: false
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
 
   /configstore/5.0.1:
     resolution: {integrity: sha512-aMKprgk5YhBNyH25hj8wGt2+D52Sw1DRRIzqBwLp2Ya9mFmY8KPvvtvmna8SxVR9JMZ4kzMD68N22vlaRpkeFA==}
@@ -8234,6 +8234,7 @@ packages:
 
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
     dev: false
 
   /space-separated-tokens/1.1.5:
