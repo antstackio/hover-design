@@ -34,7 +34,8 @@
     "serve": "vite preview",
     "watch": "nodemon --watch src/ -e ts,tsx --exec \"tsc && vite build && tsc --emitDeclarationOnly\"",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "lint": "eslint 'src/**/*.ts?(x)' --fix"
   },
   "dependencies": {
     "@ladle/react": "^2.3.0",
@@ -50,6 +51,7 @@
     "react-dom": ">=17.0.0"
   },
   "devDependencies": {
+    "@hover-design/eslint-config": "*",
     "@types/node": "^17.0.21",
     "@types/react": "^18.0.6",
     "@types/react-dom": "^18.0.6",

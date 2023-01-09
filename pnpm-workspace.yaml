@@ -1,5 +1,5 @@
 packages:
-  - "lib/**"
+  - "packages/**"
   - "docs/**"
   - "examples/**"
   # exclude packages that are inside test directories
