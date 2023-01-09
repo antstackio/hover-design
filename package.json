@@ -15,11 +15,11 @@
   "packageManager": "pnpm@6.32.3",
   "scripts": {
     "prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skiping pnpm install",
-    "build": "turbo run build --no-cache",
-    "test": "turbo run test",
+    "build": "turbo run build --filter=!./examples/*",
+    "test": "turbo run test --filter=@hover-design/react",
     "dev": "turbo run dev --no-cache --parallel --continue",
-    "publish-build": "turbo run build --scope=@hover-design/react --no-deps --include-dependencies",
-    "ladle": "turbo run ladle --scope=@hover-design/react --no-deps --include-dependencies",
+    "publish-build": "turbo run build --filter=@hover-design/react --no-deps --include-dependencies",
+    "ladle": "turbo run ladle --filter=@hover-design/react --no-deps --include-dependencies",
     "lint": "turbo run lint"
   },
   "keywords": [
