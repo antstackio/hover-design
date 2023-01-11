@@ -11,7 +11,7 @@ export const popArrowOffset: string = createVar();
 export const popoverContainerStyles = style({
   position: "relative",
   height: "fit-content",
-  width: "fit-content",
+  width: "fit-content"
 });
 
 export const contentRecipe = recipe({
@@ -23,62 +23,62 @@ export const contentRecipe = recipe({
     padding: "10px",
     backgroundColor: "white",
     width: popWidth,
-    boxShadow: " rgba(0, 0, 0, 0.08) 0px 4px 12px",
+    boxShadow: " rgba(0, 0, 0, 0.08) 0px 4px 12px"
   },
   variants: {
     position: {
       bottom: {
         top: calc.add("100%", popOffset),
         left: "50%",
-        transform: "translateX(-50%)",
+        transform: "translateX(-50%)"
       },
       left: {
         top: "50%",
         right: calc.add("100%", popOffset),
-        transform: "translateY(-50%)",
+        transform: "translateY(-50%)"
       },
       right: {
         top: "50%",
         left: calc.add("100%", popOffset),
-        transform: "translateY(-50%)",
+        transform: "translateY(-50%)"
       },
       top: {
         bottom: calc.add("100%", popOffset),
         left: "50%",
-        transform: "translateX(-50%)",
+        transform: "translateX(-50%)"
       },
       "bottom-end": {
         top: calc.add(popOffset, "100%"),
-        right: 0,
+        right: 0
       },
       "bottom-start": {
         top: calc.add("100%", popOffset),
-        left: 0,
+        left: 0
       },
       "left-end": {
         bottom: 0,
-        right: calc.add("100%", popOffset),
+        right: calc.add("100%", popOffset)
       },
       "left-start": {
         top: 0,
-        right: calc.add("100%", popOffset),
+        right: calc.add("100%", popOffset)
       },
       "right-end": {
         bottom: 0,
-        left: calc.add("100%", popOffset),
+        left: calc.add("100%", popOffset)
       },
       "right-start": {
         top: 0,
-        left: calc.add("100%", popOffset),
+        left: calc.add("100%", popOffset)
       },
       "top-end": {
         bottom: calc.add("100%", popOffset),
-        right: 0,
+        right: 0
       },
       "top-start": {
         bottom: calc.add("100%", popOffset),
-        left: 0,
-      },
+        left: 0
+      }
     },
     withArrow: {
       true: {
@@ -90,10 +90,10 @@ export const contentRecipe = recipe({
           borderTop: "1px solid #eee",
           borderLeft: "1px solid #eee",
 
-          backgroundColor: "inherit",
-        },
-      },
-    },
+          backgroundColor: "inherit"
+        }
+      }
+    }
   },
   compoundVariants: [
     {
@@ -102,9 +102,9 @@ export const contentRecipe = recipe({
         ":after": {
           left: calc.subtract("50%", calc.divide(popArrowSize, 2)),
           top: popArrowOffset,
-          transform: "rotate(45deg)",
-        },
-      },
+          transform: "rotate(45deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "bottom-start" },
@@ -112,9 +112,9 @@ export const contentRecipe = recipe({
         ":after": {
           left: popRadius,
           top: popArrowOffset,
-          transform: "rotate(45deg)",
-        },
-      },
+          transform: "rotate(45deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "bottom-end" },
@@ -122,9 +122,9 @@ export const contentRecipe = recipe({
         ":after": {
           right: popRadius,
           top: popArrowOffset,
-          transform: "rotate(45deg)",
-        },
-      },
+          transform: "rotate(45deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "left" },
@@ -132,9 +132,9 @@ export const contentRecipe = recipe({
         ":after": {
           top: calc.subtract("50%", calc.divide(popArrowSize, 2)),
           right: popArrowOffset,
-          transform: "rotate(135deg)",
-        },
-      },
+          transform: "rotate(135deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "left-end" },
@@ -142,9 +142,9 @@ export const contentRecipe = recipe({
         ":after": {
           bottom: popRadius,
           right: popArrowOffset,
-          transform: "rotate(135deg)",
-        },
-      },
+          transform: "rotate(135deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "left-start" },
@@ -152,9 +152,9 @@ export const contentRecipe = recipe({
         ":after": {
           top: popRadius,
           right: popArrowOffset,
-          transform: "rotate(135deg)",
-        },
-      },
+          transform: "rotate(135deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "right" },
@@ -162,9 +162,9 @@ export const contentRecipe = recipe({
         ":after": {
           top: calc.subtract("50%", calc.divide(popArrowSize, 2)),
           left: popArrowOffset,
-          transform: "rotate(-45deg)",
-        },
-      },
+          transform: "rotate(-45deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "right-start" },
@@ -172,9 +172,9 @@ export const contentRecipe = recipe({
         ":after": {
           top: popRadius,
           left: popArrowOffset,
-          transform: "rotate(-45deg)",
-        },
-      },
+          transform: "rotate(-45deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "right-end" },
@@ -182,9 +182,9 @@ export const contentRecipe = recipe({
         ":after": {
           bottom: popRadius,
           left: popArrowOffset,
-          transform: "rotate(-45deg)",
-        },
-      },
+          transform: "rotate(-45deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "top" },
@@ -192,9 +192,9 @@ export const contentRecipe = recipe({
         ":after": {
           left: calc.subtract("50%", calc.divide(popArrowSize, 2)),
           bottom: popArrowOffset,
-          transform: "rotate(-135deg)",
-        },
-      },
+          transform: "rotate(-135deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "top-start" },
@@ -202,9 +202,9 @@ export const contentRecipe = recipe({
         ":after": {
           left: popRadius,
           bottom: popArrowOffset,
-          transform: "rotate(-135deg)",
-        },
-      },
+          transform: "rotate(-135deg)"
+        }
+      }
     },
     {
       variants: { withArrow: true, position: "top-end" },
@@ -212,9 +212,9 @@ export const contentRecipe = recipe({
         ":after": {
           right: popRadius,
           bottom: popArrowOffset,
-          transform: "rotate(-135deg)",
-        },
-      },
-    },
-  ],
+          transform: "rotate(-135deg)"
+        }
+      }
+    }
+  ]
 });

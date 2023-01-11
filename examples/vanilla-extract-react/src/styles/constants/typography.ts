@@ -13,10 +13,10 @@ export const fontSizeVars = {
   "2x": fontSizeScale(2),
   "3x": fontSizeScale(3),
   "4x": fontSizeScale(4),
-  "5x": fontSizeScale(5),
+  "5x": fontSizeScale(5)
 };
 
 export const fontVars = {
   primary: "'Poppins', system-ui",
-  secondary: "'Overpass', system-ui",
+  secondary: "'Overpass', system-ui"
 };

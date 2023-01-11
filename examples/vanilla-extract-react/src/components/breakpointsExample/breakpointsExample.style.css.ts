@@ -5,16 +5,16 @@ export const laptopText = style({
   display: "none",
   "@media": {
     [breakpoints.laptop]: {
-      display: "block",
-    },
-  },
+      display: "block"
+    }
+  }
 });
 
 export const tabletText = style({
   display: "none",
   "@media": {
     [breakpoints.tablet]: {
-      display: "block",
-    },
-  },
+      display: "block"
+    }
+  }
 });

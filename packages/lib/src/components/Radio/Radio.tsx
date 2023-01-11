@@ -5,7 +5,7 @@ import {
   radioCheckMarkClass,
   radioThemeVars,
   radioSizes,
-  radioThemeClass,
+  radioThemeClass
 } from "./radio.styles.css";
 import "./radio.global.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
@@ -41,7 +41,7 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
       [radioThemeVars.selectedStyles.color]: selectedStyles?.color,
       [radioThemeVars.disabledStyles.backgroundColor]:
         disabledStyles?.backgroundColor,
-      [radioThemeVars.disabledStyles.borderColor]: disabledStyles?.borderColor,
+      [radioThemeVars.disabledStyles.borderColor]: disabledStyles?.borderColor
     })
   );
 

@@ -4,7 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 export const bannerContainerStyles = style({
   position: "relative",
   width: "100%",
-  display: "flex",
+  display: "flex"
 });
 
 export const bannerCtaIconRecipe = recipe({
@@ -16,7 +16,7 @@ export const bannerCtaIconRecipe = recipe({
     right: "10px",
     top: "50%",
     cursor: "pointer",
-    transform: "translateY(-50%) rotate(-90deg)",
+    transform: "translateY(-50%) rotate(-90deg)"
   },
   variants: {
     alignment: {
@@ -25,8 +25,8 @@ export const bannerCtaIconRecipe = recipe({
       right: {
         right: "auto",
         left: "10px",
-        transform: "translateY(-50%) rotate(90deg)",
-      },
-    },
-  },
+        transform: "translateY(-50%) rotate(90deg)"
+      }
+    }
+  }
 });

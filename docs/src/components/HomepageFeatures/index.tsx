@@ -18,7 +18,7 @@ const FeatureList: FeatureItem[] = [
         would use a native element, no need to learn fancy complex apis to do
         simple things.
       </>
-    ),
+    )
   },
   {
     title: "Focus on What Matters",
@@ -28,7 +28,7 @@ const FeatureList: FeatureItem[] = [
         Easily extend the components and use it to conform to your brand
         identity.
       </>
-    ),
+    )
   },
   {
     title: "Platform agnostic",
@@ -38,8 +38,8 @@ const FeatureList: FeatureItem[] = [
         Hover uses vanilla extract behind the hood, meainig most of the styles
         are platform agnostic, if it can run css and js then hover works!
       </>
-    ),
-  },
+    )
+  }
 ];
 
 function Feature({ title, Svg, description }: FeatureItem) {

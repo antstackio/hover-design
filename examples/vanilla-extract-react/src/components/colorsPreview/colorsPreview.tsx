@@ -4,7 +4,7 @@ import ColorPreviewTile from "./ColorPreviewTile";
 import {
   colorsPreviewItem,
   colorsPreviewWrapper,
-  colorName,
+  colorName
 } from "./colorsPreview.styles.css";
 
 export const ColorsPreview: React.FC = () => {

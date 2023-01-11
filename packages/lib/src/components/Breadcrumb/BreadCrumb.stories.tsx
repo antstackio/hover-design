@@ -15,10 +15,10 @@ export const Controls: Story<IBreadcrumbProps> = ({
 const crumbs = [
   { title: "Hover" },
   { title: "Documantation", href: "#" },
-  { title: "About", href: "#" },
+  { title: "About", href: "#" }
 ];
 const separator = ">";
 Controls.args = {
   crumbs,
-  separator,
+  separator
 };

@@ -5,7 +5,7 @@ import {
   MutableRefObject,
   useEffect,
   useRef,
-  useState,
+  useState
 } from "react";
 import { Flex } from "../Flex";
 import { Button } from "../Button";
@@ -22,7 +22,7 @@ import {
   alertSuccessTheme,
   alertTitleRecipe,
   alertVars,
-  alertWarningTheme,
+  alertWarningTheme
 } from "./alert.styles.css";
 import { Clear } from "../_internal/Icons/Clear";
 import InfoCircle from "../_internal/Icons/InfoCircle";
@@ -92,13 +92,13 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
   };
 
   const alertStyles = alertRecipe({
-    variant,
+    variant
   });
   const alertIconStyles = alertIconRecipe({
-    isFilled: variant === "filled",
+    isFilled: variant === "filled"
   });
   const alertTitleStyles = alertTitleRecipe({
-    isFilled: variant === "filled",
+    isFilled: variant === "filled"
   });
 
   return (
@@ -112,9 +112,9 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
           [alertVars.color]: color || "",
           [alertVars.backgroundColor]: backgroundColor || "",
           [alertIconTitleSpace]: iconTitleSpace,
-          borderRadius,
+          borderRadius
         }),
-        ...style,
+        ...style
       }}
       {...nativeProps}
     >

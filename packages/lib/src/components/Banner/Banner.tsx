@@ -3,7 +3,7 @@ import { BannerPropsType } from "./banner.types";
 import { Alert } from "../Alert";
 import {
   bannerContainerStyles,
-  bannerCtaIconRecipe,
+  bannerCtaIconRecipe
 } from "./banner.styles.css";
 import { ArrowDown } from "../_internal/Icons/ArrowDown";
 import "./banner.global.styles.css";
@@ -40,7 +40,7 @@ const BannerComponent: ForwardRefRenderFunction<
   };
 
   const bannerCtaIconStyles = bannerCtaIconRecipe({
-    alignment,
+    alignment
   });
 
   return (

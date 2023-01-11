@@ -9,7 +9,7 @@ const Thead: ForwardRefRenderFunction<HTMLTableSectionElement, TheadProps> = (
   ref
 ) => {
   const assignVars = assignInlineVars({
-    [theadThemeVars.customBackgroundColor]: backgroundColor,
+    [theadThemeVars.customBackgroundColor]: backgroundColor
   });
 
   return (

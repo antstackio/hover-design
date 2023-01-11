@@ -6,7 +6,7 @@ import {
   tableContainerThemeVars,
   tableThemeVars,
   tableContainerThemeClass,
-  tableThemeClass,
+  tableThemeClass
 } from "./Table.css";
 import "./Table.global.styles.css";
 import { InitialTableProps } from "./Table.types";
@@ -36,7 +36,7 @@ const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
     [tableContainerThemeVars.customBorderRadius]: borderRadius,
     [tableContainerThemeVars.customBorderColor]: addBorder
       ? borderColor
-      : "transparent",
+      : "transparent"
   });
 
   const tableInlineVars = assignInlineVars({
@@ -45,7 +45,7 @@ const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
     [tableThemeVars.contentAlignment]: alignContent,
     [tableThemeVars.headerAlignment]: alignHeading,
     [tableThemeVars.customCellPadding]: cellPadding,
-    [tableThemeVars.customHorizontalSpacing]: horizontalSpacing,
+    [tableThemeVars.customHorizontalSpacing]: horizontalSpacing
   });
 
   return (

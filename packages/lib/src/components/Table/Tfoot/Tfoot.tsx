@@ -9,7 +9,7 @@ const Tfoot: ForwardRefRenderFunction<HTMLTableSectionElement, TfootProps> = (
   ref
 ) => {
   const assignVars = assignInlineVars({
-    [tfootThemeVars.customBackgroundColor]: backgroundColor,
+    [tfootThemeVars.customBackgroundColor]: backgroundColor
   });
 
   return (

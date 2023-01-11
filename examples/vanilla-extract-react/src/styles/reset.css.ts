@@ -4,14 +4,14 @@ import { globalStyle } from "@vanilla-extract/css";
 globalStyle(
   "article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section",
   {
-    display: "block",
+    display: "block"
   }
 );
 globalStyle("body", { lineHeight: 1 });
 globalStyle("ol,ul", { listStyle: "none" });
 globalStyle("blockquote,q", { quotes: "none" });
 globalStyle("blockquote:before,blockquote:after,q:before,q:after", {
-  content: "",
+  content: ""
 });
 globalStyle("table", { borderCollapse: "collapse", borderSpacing: 0 });
 globalStyle("button", { border: 0 });

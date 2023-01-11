@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionSummary,
   Flex,
-  Switch,
+  Switch
 } from "@hover-design/react";
 const AccordionAdvancedExample = () => {
   const [open, setOpen] = useState(false);

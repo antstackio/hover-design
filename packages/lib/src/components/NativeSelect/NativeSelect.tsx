@@ -7,7 +7,7 @@ import {
   nativeSelectErrorMsg,
   nativeSelectIconStyle,
   nativeSelectRecipe,
-  nativeSelectVars,
+  nativeSelectVars
 } from "./nativeSelect.css";
 import { NativeSelectPropsType } from "./nativeSelect.types";
 
@@ -24,7 +24,7 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
 }) => {
   const nativeSelectClass = nativeSelectRecipe({
     error: error ? true : false,
-    isMulti: multiple ? true : false,
+    isMulti: multiple ? true : false
   });
 
   return (
@@ -34,7 +34,7 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
         style={assignInlineVars({
           [nativeSelectVars.height]: height,
           [nativeSelectVars.width]: width,
-          [nativeSelectVars.borderRadius]: borderRadius,
+          [nativeSelectVars.borderRadius]: borderRadius
         })}
       >
         <select

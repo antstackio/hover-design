@@ -3,21 +3,21 @@ import { recipe } from "@vanilla-extract/recipes";
 
 export const [alertInfoTheme, alertVars]: any = createTheme({
   color: "#2F80ED",
-  backgroundColor: "#DEEBFF",
+  backgroundColor: "#DEEBFF"
 });
 
 export const alertSuccessTheme: any = createTheme(alertVars, {
   color: "#23A047",
-  backgroundColor: "#EEFFF3",
+  backgroundColor: "#EEFFF3"
 });
 
 export const alertWarningTheme: any = createTheme(alertVars, {
   color: "#FCA004",
-  backgroundColor: "#FFFBED",
+  backgroundColor: "#FFFBED"
 });
 export const alertDangerTheme: any = createTheme(alertVars, {
   color: "#F44336",
-  backgroundColor: "#FFF6F8",
+  backgroundColor: "#FFF6F8"
 });
 
 export const alertIconTitleSpace: string = createVar();
@@ -26,58 +26,58 @@ export const alertRecipe = recipe({
   base: {
     position: "relative",
     width: "100%",
-    padding: "12px 16px",
+    padding: "12px 16px"
   },
   variants: {
     variant: {
       light: {
         border: `1px solid ${alertVars.color}`,
-        backgroundColor: alertVars.backgroundColor,
+        backgroundColor: alertVars.backgroundColor
       },
       outline: {
         border: `1px solid ${alertVars.color}`,
-        backgroundColor: "transparent",
+        backgroundColor: "transparent"
       },
       filled: {
         color: "white",
-        backgroundColor: alertVars.color,
-      },
-    },
-  },
+        backgroundColor: alertVars.color
+      }
+    }
+  }
 });
 
 export const alertHeaderStyles = style({
-  width: "fit-content",
+  width: "fit-content"
 });
 
 export const alertTitleRecipe = recipe({
   base: {
     fontWeight: "700",
-    color: alertVars.color,
+    color: alertVars.color
   },
   variants: {
     isFilled: {
-      true: { color: "white" },
-    },
-  },
+      true: { color: "white" }
+    }
+  }
 });
 export const alertDescriptionStyle = style({
   marginTop: "7px",
-  marginLeft: alertIconTitleSpace,
+  marginLeft: alertIconTitleSpace
 });
 
 export const alertIconRecipe = recipe({
   base: {
     color: alertVars.color,
-    marginRight: "8px",
+    marginRight: "8px"
   },
   variants: {
     isFilled: {
       true: {
-        color: "white",
-      },
-    },
-  },
+        color: "white"
+      }
+    }
+  }
 });
 
 export const alertCloseIconStyles = style({
@@ -91,5 +91,5 @@ export const alertCloseIconStyles = style({
   padding: 0,
   justifyContent: "center",
   alignItems: "center",
-  background: "transparent",
+  background: "transparent"
 });

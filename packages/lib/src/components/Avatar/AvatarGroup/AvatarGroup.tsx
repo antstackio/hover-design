@@ -6,7 +6,7 @@ import {
   avatarChildClass,
   avatarGaps,
   avatarGroupThemeClass,
-  avatarGroupThemeVars,
+  avatarGroupThemeVars
 } from "../avatar.styles.css";
 import "../avatar.global.styles.css";
 
@@ -15,7 +15,7 @@ const AvatarGroup: ForwardRefRenderFunction<
   IAvatarGroupProps
 > = ({ children, gap = "xs", className, style, ...nativeProps }, ref) => {
   const assignVariables = assignInlineVars({
-    [avatarGroupThemeVars.avatarStyleGap]: avatarGaps[gap],
+    [avatarGroupThemeVars.avatarStyleGap]: avatarGaps[gap]
   });
 
   return (

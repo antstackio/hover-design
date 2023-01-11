@@ -19,6 +19,6 @@ CheckboxStory.args = {
   indeterminate: false,
   checked: false,
   checkboxSize: "xs",
-  borderRadius: "sm",
+  borderRadius: "sm"
 };
 CheckboxStory.argTypes = {};

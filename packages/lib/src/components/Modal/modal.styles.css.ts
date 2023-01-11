@@ -16,7 +16,7 @@ export const [modalThemeClass, modalThemeVars]: IModalTheme = createTheme({
     padding: "12px",
     zIndex: "10",
     width: sizes.md.width,
-    height: "auto",
+    height: "auto"
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0)",
@@ -27,8 +27,8 @@ export const [modalThemeClass, modalThemeVars]: IModalTheme = createTheme({
     right: "0",
     bottom: "0",
     filter: "unset",
-    opacity: "0.5",
-  },
+    opacity: "0.5"
+  }
 });
 export const overlayStyleClass = style({
   position: modalThemeVars.overlay.position as
@@ -44,7 +44,7 @@ export const overlayStyleClass = style({
   backgroundColor: modalThemeVars.overlay.backgroundColor,
   zIndex: modalThemeVars.overlay.zIndex,
   filter: modalThemeVars.overlay.filter,
-  opacity: modalThemeVars.overlay.opacity,
+  opacity: modalThemeVars.overlay.opacity
 });
 
 export const modalStyleClass = style({
@@ -71,13 +71,13 @@ export const modalStyleClass = style({
   padding: modalThemeVars.base.padding,
   zIndex: modalThemeVars.base.zIndex,
   width: modalThemeVars.base.width,
-  height: modalThemeVars.base.height,
+  height: modalThemeVars.base.height
 });
 
 export const modalHeaderStyleClass = style({
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 export const modalTitleStyleClass = style({
@@ -86,7 +86,7 @@ export const modalTitleStyleClass = style({
   marginRight: "16px",
   textOverflow: "ellipsis",
   display: "block",
-  wordBreak: "break-word",
+  wordBreak: "break-word"
 });
 
 export const modalCloseStyleClass = style({
@@ -94,5 +94,5 @@ export const modalCloseStyleClass = style({
   border: "none",
   cursor: "pointer",
   padding: "0",
-  marginLeft: "auto",
+  marginLeft: "auto"
 });

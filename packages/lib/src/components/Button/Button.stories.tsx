@@ -9,7 +9,7 @@ export const buttonControls: Story<ButtonProps> = ({
   fontSize,
   margin,
   isBlock,
-  children,
+  children
 }) => (
   <>
     <Button
@@ -27,12 +27,12 @@ export const buttonControls: Story<ButtonProps> = ({
 buttonControls.args = {
   children: <>This is a Button</>,
   disabled: false,
-  variant: "default",
+  variant: "default"
 };
 buttonControls.argTypes = {
   variant: {
     options: ["default", "light", "ghost", "hallow"],
     control: { type: "radio" },
-    defaultValue: "default",
-  },
+    defaultValue: "default"
+  }
 };

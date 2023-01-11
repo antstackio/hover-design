@@ -6,7 +6,7 @@ import {
   MutableRefObject,
   useEffect,
   useRef,
-  useState,
+  useState
 } from "react";
 import { useTrapFocus } from "../../hooks/useTrapFocus";
 import { useClickOutside } from "../../hooks/useClickOutside";
@@ -17,7 +17,7 @@ import {
   popOffset,
   popoverContainerStyles,
   popRadius,
-  popWidth,
+  popWidth
 } from "./popover.styles.css";
 import { PopoverType } from "./popover.types";
 
@@ -39,7 +39,7 @@ const PopoverComponent: ForwardRefRenderFunction<
     className,
     style,
     zIndex = "1",
-    trapFocus = false,
+    trapFocus = false
   },
   ref
 ) => {
@@ -104,7 +104,7 @@ const PopoverComponent: ForwardRefRenderFunction<
 
   const contentContainerStyles = contentRecipe({
     position,
-    withArrow: withArrow ? true : false,
+    withArrow: withArrow ? true : false
   });
 
   return (
@@ -118,7 +118,7 @@ const PopoverComponent: ForwardRefRenderFunction<
         [popRadius]: borderRadius,
         [popWidth]: targetWidth,
         [popArrowSize]: arrowSize,
-        [popArrowOffset]: `-${Math.hypot(parseInt(arrowSize) + 2) / 2}px`,
+        [popArrowOffset]: `-${Math.hypot(parseInt(arrowSize) + 2) / 2}px`
       })}
     >
       <div
@@ -143,9 +143,9 @@ const PopoverComponent: ForwardRefRenderFunction<
           }}
           style={{
             ...assignInlineVars({
-              zIndex,
+              zIndex
             }),
-            ...style,
+            ...style
           }}
           onKeyDown={InternalContentKeyDownHandler}
           className={`${contentContainerStyles} ${className}`}

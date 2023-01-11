@@ -3,10 +3,10 @@ import { ITableContainerThemeVars, ITableThemeVars } from "./Table.types";
 
 export const [
   tableContainerThemeClass,
-  tableContainerThemeVars,
+  tableContainerThemeVars
 ]: ITableContainerThemeVars = createTheme({
   customBorderRadius: "4px",
-  customBorderColor: "black",
+  customBorderColor: "black"
 });
 
 export const [tableThemeClass, tableThemeVars]: ITableThemeVars = createTheme({
@@ -15,7 +15,7 @@ export const [tableThemeClass, tableThemeVars]: ITableThemeVars = createTheme({
   contentAlignment: "left",
   customCellPadding: "10px",
   customStripeColor: "#eee",
-  customHorizontalSpacing: "0",
+  customHorizontalSpacing: "0"
 });
 
 export const tableContainerDefaults = style({
@@ -24,9 +24,9 @@ export const tableContainerDefaults = style({
   display: "inline-block",
   overflow: "auto",
   maxWidth: "100%",
-  paddingBottom: "10px",
+  paddingBottom: "10px"
 });
 
 export const tableDefaults = style({
-  borderCollapse: "collapse",
+  borderCollapse: "collapse"
 });

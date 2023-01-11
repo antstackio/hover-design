@@ -3,7 +3,7 @@ import { fontSizeVars, fontVars } from "./constants/typography";
 
 export const { fontSizes, fonts } = createGlobalTheme(":root", {
   fontSizes: fontSizeVars,
-  fonts: fontVars,
+  fonts: fontVars
 });
 
 export * from "./themes.css";

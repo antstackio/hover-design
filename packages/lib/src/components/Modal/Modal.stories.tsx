@@ -38,6 +38,6 @@ ModalStory.args = {
   title: "Modal Title",
   children: <div>Modal Content</div>,
   closeOnClickOutside: true,
-  isCloseIconVisible: true,
+  isCloseIconVisible: true
 };
 ModalStory.argTypes = {};

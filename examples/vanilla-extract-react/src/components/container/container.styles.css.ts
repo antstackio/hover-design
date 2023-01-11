@@ -6,5 +6,5 @@ export const containerStyles = style({
   minWidth: "320px",
   backgroundColor: themeVars.colors.brand[300],
   margin: "0 auto",
-  padding: "30px",
+  padding: "30px"
 });

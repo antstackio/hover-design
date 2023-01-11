@@ -7,7 +7,7 @@ export default mergeConfig(
   defineConfig({
     test: {
       exclude: ["dist/*", ".turbo/*", "node_modules/*"],
-      include: ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    },
+      include: ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"]
+    }
   })
 );

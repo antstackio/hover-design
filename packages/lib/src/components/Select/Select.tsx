@@ -9,7 +9,7 @@ import {
   useEffect,
   useLayoutEffect,
   useRef,
-  useState,
+  useState
 } from "react";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { Flex } from "../Flex";
@@ -28,7 +28,7 @@ import {
   noDataFoundStyles,
   selectPlaceholderRecipe,
   inputRecipe,
-  loadingContentContainer,
+  loadingContentContainer
 } from "./select.css";
 import { SelectPropsType, OptionsType } from "./select.types";
 import "./select.global.styles.css";
@@ -65,7 +65,7 @@ const SelectComponent: ForwardRefRenderFunction<
     useDropdownPortal = false,
     closeDropdownPortalOnScroll = false,
     zIndex = "300",
-    useSerialSearch = false,
+    useSerialSearch = false
   },
   ref
 ) => {
@@ -146,12 +146,12 @@ const SelectComponent: ForwardRefRenderFunction<
           inputRef.current.getBoundingClientRect().top -
           5
         }px`,
-        left: `${scrollLeft + inputRef.current.getBoundingClientRect().left}px`,
+        left: `${scrollLeft + inputRef.current.getBoundingClientRect().left}px`
       };
       Object.assign(selectPortal.style, {
         width: inputWidth,
         top: inputPosition.top,
-        left: inputPosition.left,
+        left: inputPosition.left
       });
     }
   };
@@ -282,7 +282,7 @@ const SelectComponent: ForwardRefRenderFunction<
   const getOptionsRefAsArray = () => {
     if (optionsListRef.current) {
       const optionsList = [
-        ...optionsListRef.current.childNodes,
+        ...optionsListRef.current.childNodes
       ] as HTMLElement[];
       return optionsList;
     }
@@ -523,20 +523,20 @@ const SelectComponent: ForwardRefRenderFunction<
   };
 
   const selectIconClass = selectIconRecipe({
-    isDropped,
+    isDropped
   });
 
   const selectInputStyles = selectInputRecipe({
     error: error ? true : false,
-    disabled: isDisabled,
+    disabled: isDisabled
   });
 
   const selectPlaceholder = selectPlaceholderRecipe({
-    error: error ? true : false,
+    error: error ? true : false
   });
   const inputStyles = inputRecipe({
     error: error ? true : false,
-    isMulti,
+    isMulti
   });
 
   const renderDropDown = () => {
@@ -552,7 +552,7 @@ const SelectComponent: ForwardRefRenderFunction<
           [selectVars.width]: width,
           [selectVars.minHeight]: minHeight,
           [selectVars.zIndex]: zIndex,
-          [selectVars.maxDropDownHeight]: maxDropDownHeight,
+          [selectVars.maxDropDownHeight]: maxDropDownHeight
         })}
       >
         {!isLoading ? (
@@ -574,7 +574,7 @@ const SelectComponent: ForwardRefRenderFunction<
           active:
             !isMulti &&
             !Array.isArray(selectValue) &&
-            option.value === selectValue?.value,
+            option.value === selectValue?.value
         });
         return (
           <div
@@ -642,8 +642,8 @@ const SelectComponent: ForwardRefRenderFunction<
           [selectVars.width]: width,
           [selectVars.minHeight]: minHeight,
           [selectVars.zIndex]: zIndex,
-          [selectVars.maxDropDownHeight]: maxDropDownHeight,
-        }),
+          [selectVars.maxDropDownHeight]: maxDropDownHeight
+        })
       }}
     >
       <Flex

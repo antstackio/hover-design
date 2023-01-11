@@ -28,9 +28,9 @@ const TooltipComponent: ForwardRefRenderFunction<
         ...assignInlineVars({
           backgroundColor: color,
           color: labelColor,
-          whiteSpace: multiLine ? "wrap" : "nowrap",
+          whiteSpace: multiLine ? "wrap" : "nowrap"
         }),
-        ...style,
+        ...style
       }}
       content={label}
       className={`${tooltipContainerStyles} ${className}`}
