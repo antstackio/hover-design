@@ -5,7 +5,7 @@ type AnyEvent = MouseEvent | TouchEvent;
 function useClickOutside<T extends HTMLElement = HTMLElement>(
   ref: RefObject<T>,
   handler: (event: AnyEvent) => void,
-  isCallbackEnabled: boolean = true //to avoid unnecessary outside clicks
+  isCallbackEnabled = true //to avoid unnecessary outside clicks
 ): void {
   useEffect(() => {
     const listener = (event: AnyEvent) => {

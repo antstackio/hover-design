@@ -5,7 +5,6 @@ import { IBreadcrumbProps } from "./breadcrumb.types";
 export const Controls: Story<IBreadcrumbProps> = ({
   crumbs,
   separator = "/",
-  className,
   ...nativeProps
 }) => (
   <>

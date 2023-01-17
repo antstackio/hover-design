@@ -8,7 +8,7 @@ type pillPropTypes = {
   clearValue: (event: MouseEvent<SVGSVGElement>) => void;
 };
 
-export const Pill = ({ value, clearValue = () => {} }: pillPropTypes) => {
+export const Pill = ({ value, clearValue }: pillPropTypes) => {
   return (
     <Flex className={pillStyles} alignItems="center" gap="8px">
       <span>{value}</span>

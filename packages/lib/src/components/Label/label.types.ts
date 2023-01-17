@@ -1,5 +1,4 @@
-export interface ILabelProps
-  extends React.DetailedHTMLProps<
+export type ILabelProps = React.DetailedHTMLProps<
     React.LabelHTMLAttributes<HTMLLabelElement>,
     HTMLLabelElement
-  > {}
+  >

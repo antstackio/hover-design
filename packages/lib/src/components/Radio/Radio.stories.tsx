@@ -8,7 +8,7 @@ export const RadioStory: Story<Omit<IRadioProps, "ref">> = ({
 }) => {
   return (
     <>
-      <label>
+      <label htmlFor="radio">
         <Radio {...nativeProps} />
         Radio button
       </label>

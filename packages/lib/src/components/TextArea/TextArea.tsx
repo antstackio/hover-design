@@ -22,7 +22,7 @@ const TextAreaComponent: ForwardRefRenderFunction<
   },
   ref
 ) => {
-  let textAreaBorder = assignInlineVars({
+  const textAreaBorder = assignInlineVars({
     [textAreaColorVars.textAreaBorderColor.statusBorderColor]: statusBorder
   });
 

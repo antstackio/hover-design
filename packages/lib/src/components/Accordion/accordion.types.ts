@@ -1,5 +1,5 @@
 export interface IAccordionTypes {
-  Summary: React.FC<{}>;
+  Summary: React.ReactNode;
 }
 export type IAccordionTheme = [
   string,

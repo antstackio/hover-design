@@ -6,7 +6,7 @@ export const CheckboxStory: Story<Omit<ICheckboxProps, "ref">> = ({
 }) => {
   return (
     <>
-      <label>
+      <label htmlFor="checkbox">
         <Checkbox {...nativeProps} />
         Checkbox
       </label>

@@ -12,7 +12,7 @@ export const useTrapFocus = (
   const lastFocusableElement = focusableContent[
     focusableContent.length - 1
   ] as HTMLElement;
-  let isTabPressed = e.key === "Tab";
+  const isTabPressed = e.key === "Tab";
 
   if (!isTabPressed) {
     return;
