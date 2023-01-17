@@ -4,12 +4,13 @@ import type { Story } from "@ladle/react";
 import { IRadioProps } from "./radio.types";
 
 export const RadioStory: Story<Omit<IRadioProps, "ref">> = ({
+  name,
   ...nativeProps
 }) => {
   return (
     <>
-      <label>
-        <Radio {...nativeProps} />
+      <label htmlFor={name}>
+        <Radio name={name} {...nativeProps} />
         Radio button
       </label>
     </>

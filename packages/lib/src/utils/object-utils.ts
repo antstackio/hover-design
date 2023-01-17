@@ -1,10 +1,12 @@
-export const eliminateUndefinedKeys = (record: Record<any, any>) => {
+type TObjectKey = string | number | symbol;
+
+export const eliminateUndefinedKeys = (record: Record<TObjectKey, unknown>) => {
   const keys = Object.keys(record);
-  const eliminated: Record<any, any> = {};
+  const eliminated: Record<string, string> = {};
   for (const key of keys) {
     const value = record[key];
     if (value !== undefined) {
-      eliminated[key] = value;
+      eliminated[key] = value as unknown as string;
     }
   }
   return eliminated;

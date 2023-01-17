@@ -19,7 +19,7 @@ const BannerComponent: ForwardRefRenderFunction<
     alignment = "left",
     showCtaButton = false,
     ctaIcon,
-    ctaAction = () => {},
+    ctaAction,
     className,
     style,
     ...props

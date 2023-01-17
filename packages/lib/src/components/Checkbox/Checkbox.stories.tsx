@@ -2,12 +2,13 @@ import { Checkbox } from "./Checkbox";
 import type { Story } from "@ladle/react";
 import { ICheckboxProps } from "./checkbox.types";
 export const CheckboxStory: Story<Omit<ICheckboxProps, "ref">> = ({
+  name,
   ...nativeProps
 }) => {
   return (
     <>
-      <label>
-        <Checkbox {...nativeProps} />
+      <label htmlFor={name}>
+        <Checkbox name={name} {...nativeProps} />
         Checkbox
       </label>
     </>

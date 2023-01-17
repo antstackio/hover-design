@@ -30,7 +30,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
     color = "#2F80ED",
     backgroundColor = "#d7e9ff",
     outlineColor = "#EBECF0",
-    onChange = () => {},
+    onChange,
     grow = false,
     tabSize,
     textAlign = "center",
@@ -66,7 +66,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (
     event: MouseEvent<HTMLDivElement>,
     tabItem: TabsObjectProps
   ) => {
-    onChange(tabItem, event);
+    onChange && onChange(tabItem, event);
     !value && setSelectedTab(tabItem);
   };
 

@@ -1,4 +1,4 @@
-export type DividerProps = JSX.IntrinsicElements["div"] & {
+export type DividerProps = JSX.IntrinsicElements["hr"] & {
   orientation?: "vertical" | "horizontal";
   type?: "dashed" | "dotted" | "solid";
   size?: string;

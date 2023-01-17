@@ -58,12 +58,11 @@ export const Divider = ({
           : dividerContainerVertical
       }`}
     >
-      <div
-        role="seperator"
+      <hr
         className={`${dividerClass} ${className}`}
         style={dividerStyles}
         {...nativeProps}
-      ></div>
+      />
       {label && (
         <span
           style={assignInlineVars({

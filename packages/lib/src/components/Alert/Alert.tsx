@@ -44,7 +44,7 @@ const AlertComponent: ForwardRefRenderFunction<HTMLDivElement, AlertProps> = (
     type = "info",
     className,
     style,
-    onClose = () => {},
+    onClose,
     children,
     ...nativeProps
   },

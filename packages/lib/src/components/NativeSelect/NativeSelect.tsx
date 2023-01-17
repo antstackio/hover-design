@@ -43,8 +43,8 @@ export const NativeSelect: FC<NativeSelectPropsType> = ({
           multiple={multiple}
           {...nativeProps}
         >
-          {options.map((option) => (
-            <option disabled={option.disabled} value={option.value}>
+          {options.map((option, index) => (
+            <option key={index} disabled={option.disabled} value={option.value}>
               {option.label}
             </option>
           ))}
