@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { Button, Flex, Input, Label } from "@hover-design/react";
-import reactLogo from "./assets/react.svg";
+import { Flex } from "@hover-design/react";
 import "./App.css";
 import Hero from "./components/Hero";
 import { useForm } from "react-hook-form";
@@ -9,11 +7,7 @@ import SubmitButton from "./components/form-components/button-component/SubmitBu
 import { IStudentForm } from "./hooks/useStudentForm";
 
 function App() {
-  const {
-    handleSubmit,
-    control,
-    formState: { errors }
-  } = useForm<IStudentForm>();
+  const { handleSubmit, control } = useForm<IStudentForm>();
   const onSubmit = (data: IStudentForm) => alert(JSON.stringify(data));
   return (
     <div className="App">
