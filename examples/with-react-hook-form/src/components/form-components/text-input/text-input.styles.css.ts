@@ -36,3 +36,13 @@ export const FieldLabelFilled = style({
   color: "#a0e8f4",
   opacity: "0.6"
 });
+
+export const FieldLabelContainer = style({
+  position: "relative"
+});
+
+globalStyle(`${FieldLabelContainer}:focus-within ${FieldLabel}`, {
+  transform: "translateY(-125%)",
+  fontSize: "0.75em",
+  color: "#a0e8f4"
+});

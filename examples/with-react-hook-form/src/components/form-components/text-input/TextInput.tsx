@@ -1,7 +1,13 @@
 import { Input, Label } from "@hover-design/react";
 import React from "react";
 import { useController } from "react-hook-form";
-import { inputErrorStyles, inputStyles } from "./text-input.styles.css";
+import {
+  FieldLabel,
+  FieldLabelContainer,
+  FieldLabelFilled,
+  inputErrorStyles,
+  inputStyles
+} from "./text-input.styles.css";
 import { ITextInputProps } from "./text-input.types";
 
 const TextInput = <T extends Record<string, any>>({
@@ -24,13 +30,21 @@ const TextInput = <T extends Record<string, any>>({
     name
   });
   return (
-    <Label htmlFor={name}>
-      {label}
+    <div className={FieldLabelContainer}>
+      <Label
+        className={`${FieldLabel} ${
+          field.value?.length ? FieldLabelFilled : ""
+        }`}
+        htmlFor={name}
+      >
+        {label}
+      </Label>
+
       <Input
         {...props}
         onWheel={(e) => e.currentTarget.blur()}
         style={style}
-        placeholder={placeholder}
+        placeholder={""}
         className={`${className} ${inputStyles} ${
           error ? inputErrorStyles : ""
         }}`}
@@ -39,7 +53,7 @@ const TextInput = <T extends Record<string, any>>({
         autoComplete="off"
         {...field}
       ></Input>
-    </Label>
+    </div>
   );
 };
 
