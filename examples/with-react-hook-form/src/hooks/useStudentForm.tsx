@@ -12,12 +12,8 @@ export interface IStudentForm {
   branch: IOptionType;
 }
 export const useStudentForm = () => {
-  const { control, formState } = useForm<IStudentForm>({
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      branch: { label: "", value: "" }
-    }
-  });
+  const { handleSubmit, control } = useForm<IStudentForm>();
+  const onSubmit = (data: IStudentForm) => alert(JSON.stringify(data));
+
+  return { handleSubmit, control, onSubmit };
 };

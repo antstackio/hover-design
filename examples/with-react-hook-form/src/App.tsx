@@ -1,14 +1,13 @@
 import { Flex } from "@hover-design/react";
 import "./App.css";
 import Hero from "./components/Hero";
-import { useForm } from "react-hook-form";
+
 import TextInput from "./components/form-components/text-input/TextInput";
 import SubmitButton from "./components/form-components/button-component/SubmitButton";
-import { IStudentForm } from "./hooks/useStudentForm";
+import { useStudentForm } from "./hooks/useStudentForm";
 
 function App() {
-  const { handleSubmit, control } = useForm<IStudentForm>();
-  const onSubmit = (data: IStudentForm) => alert(JSON.stringify(data));
+  const { handleSubmit, control, onSubmit } = useStudentForm();
   return (
     <div className="App">
       <Hero />

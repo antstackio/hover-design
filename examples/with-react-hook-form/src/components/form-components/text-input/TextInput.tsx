@@ -42,7 +42,6 @@ const TextInput = <T extends Record<string, any>>({
 
       <Input
         {...props}
-        onWheel={(e) => e.currentTarget.blur()}
         style={style}
         placeholder={""}
         className={`${className} ${inputStyles} ${
