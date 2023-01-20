@@ -2,6 +2,7 @@
 node_modules/
 .turbo
 .DS_Store
+dist/
 
 # pnpm
 .pnpm-debug.log
