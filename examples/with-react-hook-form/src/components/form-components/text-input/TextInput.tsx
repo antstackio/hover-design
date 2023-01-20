@@ -21,7 +21,6 @@ const TextInput = <T extends Record<string, any>>({
   viewMode = false,
   ...props
 }: ITextInputProps<T>): JSX.Element => {
-  const {} = useController({ control, name });
   const {
     field,
     fieldState: { error }
