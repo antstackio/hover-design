@@ -2,8 +2,8 @@ import { Flex } from "@hover-design/react";
 import "./App.css";
 import Hero from "./components/Hero";
 
-import TextInput from "./components/form-components/text-input/TextInput";
-import SubmitButton from "./components/form-components/button-component/SubmitButton";
+import { TextInput, SubmitButton } from "./components/form-components";
+
 import { useStudentForm } from "./hooks/useStudentForm";
 
 function App() {

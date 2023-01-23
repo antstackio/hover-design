@@ -15,4 +15,4 @@ const SubmitButton: React.FC<ButtonProps> = ({
   );
 };
 
-export default SubmitButton;
+export { SubmitButton };

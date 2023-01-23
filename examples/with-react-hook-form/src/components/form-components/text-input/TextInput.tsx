@@ -55,4 +55,4 @@ const TextInput = <T extends Record<string, any>>({
   );
 };
 
-export default TextInput;
+export { TextInput };
