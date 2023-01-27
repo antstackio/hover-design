@@ -15,6 +15,7 @@ export * from "./components/Dialog";
 export * from "./components/Divider";
 export * from "./components/Flex";
 export * from "./components/Grid";
+export * from "./components/HoverProvider";
 export * from "./components/Icon";
 export * from "./components/Input";
 export * from "./components/Label";
