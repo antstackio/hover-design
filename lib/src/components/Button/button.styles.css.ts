@@ -1,68 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { createTheme } from "@vanilla-extract/css";
-import { ButtonTheme } from "./button.types";
 
-export const [defaultButtonTheme, defaultButtonVars]: ButtonTheme = createTheme(
-	{
-		color: "#FFFFFF",
-		backgroundColor: "#1AB5EB",
-		borderColor: "none",
-		hoverBackgroundColor: "#008FCB",
-		hoverColor: "#FFFFFF",
-		hoverBorderColor: "none",
-		focusBackgroundColor: "#1AB5EB40",
-		focusColor: "#FFFFFF",
-		focusBorderColor: "#C6EDFB",
-		disabledBackgroundColor: "#8CDAF5",
-		disabledColor: "#FFFFFF",
-		disabledBorderColor: "none",
-	}
-);
-
-export const [lightButtonTheme, lightButtonVars]: ButtonTheme = createTheme({
-	color: "#1AB5EB",
-	backgroundColor: "#F9F9F9",
-	borderColor: "#DDDDDD",
-	hoverBackgroundColor: "#F0F0F0",
-	hoverColor: "#008FCB",
-	hoverBorderColor: "none",
-	focusBackgroundColor: "#F9F9F9",
-	focusColor: "#1AB5EB",
-	focusBorderColor: "#C6EDFB",
-	disabledBackgroundColor: "#F9F9F9",
-	disabledColor: "#1AB5EB",
-	disabledBorderColor: "#DDDDDD",
-});
-
-export const [ghostButtonTheme, ghostButtonVars]: ButtonTheme = createTheme({
-	color: "#1AB5EB",
-	backgroundColor: "none",
-	borderColor: "none",
-	hoverBackgroundColor: "#0000000D",
-	hoverColor: "#008FCB",
-	hoverBorderColor: "none",
-	focusBackgroundColor: "none",
-	focusColor: "#1AB5EB",
-	focusBorderColor: "#C6EDFB",
-	disabledBackgroundColor: "none",
-	disabledColor: "#1AB5EB",
-	disabledBorderColor: "",
-});
-
-export const [hallowButtonTheme, hallowButtonVars]: ButtonTheme = createTheme({
-	color: "#1AB5EB",
-	backgroundColor: "none",
-	borderColor: "#1AB5EB",
-	hoverBackgroundColor: "none",
-	hoverColor: "#1AB5EB",
-	hoverBorderColor: "#AAAAAA",
-	focusBackgroundColor: "none",
-	focusColor: "#101010",
-	focusBorderColor: "#C6EDFB",
-	disabledBackgroundColor: "none",
-	disabledColor: "#878787",
-	disabledBorderColor: "#EEEEEE",
-});
+import { defaultVars, lightVars, ghostVars, hallowVars } from "src/themes";
 
 export const buttonStyles = recipe({
 	base: {
@@ -74,90 +12,90 @@ export const buttonStyles = recipe({
 	variants: {
 		variant: {
 			default: {
-				background: defaultButtonVars.backgroundColor,
-				color: defaultButtonVars.color,
-				borderColor: defaultButtonVars.borderColor,
+				background: defaultVars.backgroundColor,
+				color: defaultVars.color,
+				borderColor: defaultVars.borderColor,
 				border: 0,
 				":hover": {
-					background: defaultButtonVars.hoverBackgroundColor,
-					color: defaultButtonVars.hoverColor,
-					borderColor: defaultButtonVars.hoverBorderColor,
+					background: defaultVars.hoverBackgroundColor,
+					color: defaultVars.hoverColor,
+					borderColor: defaultVars.hoverBorderColor,
 				},
 				":focus": {
 					borderWidth: "2px",
-					background: defaultButtonVars.focusBackgroundColor,
-					color: defaultButtonVars.focusColor,
-					borderColor: defaultButtonVars.focusBorderColor,
+					background: defaultVars.focusBackgroundColor,
+					color: defaultVars.focusColor,
+					borderColor: defaultVars.focusBorderColor,
 				},
 				":disabled": {
-					background: defaultButtonVars.disabledBackgroundColor,
-					color: defaultButtonVars.disabledColor,
-					borderColor: defaultButtonVars.disabledBorderColor,
+					background: defaultVars.disabledBackgroundColor,
+					color: defaultVars.disabledColor,
+					borderColor: defaultVars.disabledBorderColor,
 				},
 			},
 			light: {
-				background: lightButtonVars.backgroundColor,
-				color: lightButtonVars.color,
+				background: lightVars.backgroundColor,
+				color: lightVars.color,
 				border: "1px solid",
-				borderColor: lightButtonVars.borderColor,
+				borderColor: lightVars.borderColor,
 				":hover": {
-					background: lightButtonVars.hoverBackgroundColor,
-					color: lightButtonVars.hoverColor,
-					borderColor: lightButtonVars.hoverBorderColor,
+					background: lightVars.hoverBackgroundColor,
+					color: lightVars.hoverColor,
+					borderColor: lightVars.hoverBorderColor,
 				},
 				":focus": {
 					borderWidth: "2px",
-					background: lightButtonVars.focusBackgroundColor,
-					color: lightButtonVars.focusColor,
-					borderColor: lightButtonVars.focusBorderColor,
+					background: lightVars.focusBackgroundColor,
+					color: lightVars.focusColor,
+					borderColor: lightVars.focusBorderColor,
 				},
 				":disabled": {
-					background: lightButtonVars.disabledBackgroundColor,
-					color: lightButtonVars.disabledColor,
-					borderColor: lightButtonVars.disabledBorderColor,
+					background: lightVars.disabledBackgroundColor,
+					color: lightVars.disabledColor,
+					borderColor: lightVars.disabledBorderColor,
 				},
 			},
 			ghost: {
-				background: ghostButtonVars.backgroundColor,
+				background: ghostVars.backgroundColor,
 				border: 0,
-				color: ghostButtonVars.color,
+				color: ghostVars.color,
 				":hover": {
-					background: ghostButtonVars.hoverBackgroundColor,
-					color: ghostButtonVars.hoverColor,
-					borderColor: ghostButtonVars.hoverBorderColor,
+					background: ghostVars.hoverBackgroundColor,
+					color: ghostVars.hoverColor,
+					borderColor: ghostVars.hoverBorderColor,
 				},
 				":focus": {
 					borderWidth: "2px",
-					background: ghostButtonVars.focusBackgroundColor,
-					color: ghostButtonVars.focusColor,
-					borderColor: ghostButtonVars.focusBorderColor,
+					background: ghostVars.focusBackgroundColor,
+					color: ghostVars.focusColor,
+					borderColor: ghostVars.focusBorderColor,
 				},
 				":disabled": {
-					background: ghostButtonVars.disabledBackgroundColor,
-					color: ghostButtonVars.disabledColor,
-					borderColor: ghostButtonVars.disabledBorderColor,
+					background: ghostVars.disabledBackgroundColor,
+					color: ghostVars.disabledColor,
+					borderColor: ghostVars.disabledBorderColor,
 				},
 			},
 			hallow: {
-				background: hallowButtonVars.backgroundColor,
+				background: hallowVars.backgroundColor,
 				border: "1px solid",
-				color: hallowButtonVars.color,
-				borderColor: hallowButtonVars.borderColor,
+				color: hallowVars.color,
+				borderColor: hallowVars.borderColor,
 				":hover": {
-					background: hallowButtonVars.hoverBackgroundColor,
-					color: hallowButtonVars.hoverColor,
-					borderColor: hallowButtonVars.hoverBorderColor,
+					background: hallowVars.hoverBackgroundColor,
+					color: hallowVars.hoverColor,
+					borderColor: hallowVars.hoverBorderColor,
 				},
 				":focus": {
 					borderWidth: "2px",
-					background: hallowButtonVars.focusBackgroundColor,
-					color: hallowButtonVars.focusColor,
-					borderColor: hallowButtonVars.focusBorderColor,
+					background: hallowVars.focusBackgroundColor,
+					color: hallowVars.focusColor,
+					borderColor: hallowVars.focusBorderColor,
 				},
 				":disabled": {
-					background: hallowButtonVars.disabledBackgroundColor,
-					color: hallowButtonVars.disabledColor,
-					borderColor: hallowButtonVars.disabledBorderColor,
+					background: hallowVars.disabledBackgroundColor,
+					color: hallowVars.disabledColor,
+					borderColor: hallowVars.disabledBorderColor,
 				},
 			},
 		},

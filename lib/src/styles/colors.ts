@@ -1,0 +1,15 @@
+export const Colors = {
+	white: "#FFFFFF",
+	defaultBackground: "#1AB5EB",
+	defaultHover: "#008FCB",
+	defaultFocus: "#1AB5EB40",
+	defaultFocusBorder: "#C6EDFB",
+	defaultDisabledBlue: "#8CDAF5",
+	lightBackground: "#F9F9F9",
+	lightBorder: "#DDDDDD",
+	lightHover: "#F0F0F0",
+	hallowHover: "#AAAAAA",
+	hallowDisabled: "#878787",
+	hallowDisabledBorder: "#EEEEEE",
+	hallowFocus: "#101010",
+};
