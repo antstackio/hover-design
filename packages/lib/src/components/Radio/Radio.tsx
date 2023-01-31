@@ -9,8 +9,8 @@ import {
 } from "./radio.styles.css";
 import "./radio.global.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { eliminateUndefinedKeys } from "../../utils/object-utils";
 import { SvgDot } from "../_internal/Icons/SvgDot";
+import { accessDefinedValues, eliminateUndefinedKeys } from "../../utils";
 
 const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
   {
@@ -19,20 +19,21 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
     value,
     name,
     checked,
-    radioSize = "xs",
-    isDisabled = false,
+    radioSize,
     baseStyles,
     disabledStyles,
     selectedStyles,
+    isDisabled = false,
     ...nativeProps
   },
   ref
 ) => {
   const assignVariables = assignInlineVars(
     eliminateUndefinedKeys({
-      [radioThemeVars.radioStyleSize]: radioSizes[radioSize]
-        ? radioSizes[radioSize]
-        : undefined,
+      [radioThemeVars.radioStyleSize]: accessDefinedValues(
+        radioSize,
+        radioSizes
+      ),
       [radioThemeVars.baseStyles.backgroundColor]: baseStyles?.backgroundColor,
       [radioThemeVars.baseStyles.borderColor]: baseStyles?.borderColor,
       [radioThemeVars.selectedStyles.backgroundColor]:
@@ -51,8 +52,8 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
       style={{ ...assignVariables, ...(style || {}) }}
     >
       <input
+        {...nativeProps} //This should always be at the top
         ref={ref}
-        {...nativeProps}
         type="radio"
         value={value}
         name={name}
@@ -61,7 +62,7 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, IRadioProps> = (
       />
       <div
         aria-hidden="true"
-        className={`${radioCheckMarkClass}`}
+        className={radioCheckMarkClass}
         data-checked={checked ? "true" : "false"}
         data-disabled={isDisabled ? "true" : "false"}
       >
