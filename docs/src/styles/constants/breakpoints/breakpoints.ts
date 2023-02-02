@@ -5,7 +5,7 @@ export const breakpoints = {
 };
 
 export const breakpointMediaQueries = {
-  desktop: `(min-width: ${breakpoints.desktop}px)`,
-  tablet: `(min-width: ${breakpoints.tablet}px)`,
-  mobile: `(min-width: ${breakpoints.mobile}px)`
+  desktop: `screen and (min-width: ${breakpoints.desktop}px)`,
+  tablet: `screen and (min-width: ${breakpoints.tablet}px)`,
+  mobile: `screen and (min-width: ${breakpoints.mobile}px)`
 };
