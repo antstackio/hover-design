@@ -23,7 +23,6 @@ export const radioSizes: Record<TRadioTheme[1]["radioStyleSize"], string> = {
   xl: "48px"
 };
 
-//Radio Default Values
 export const [radioThemeClass, radioThemeVars]: TRadioTheme = createTheme({
   radioStyleSize: radioSizes.xs,
   baseStyles: {
