@@ -18,4 +18,11 @@ export interface IColors {
   green: IColorWeights;
   yellow: IColorWeights;
   gray: IColorWeights;
+  white: string;
+  baseBackground: string;
+  transparent: {
+    black: {
+      20: IColorWeights[20];
+    };
+  };
 }

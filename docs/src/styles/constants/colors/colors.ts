@@ -74,5 +74,10 @@ export const colors: IColors = {
     80: "#393939",
     90: "#262626",
     100: "#161616"
+  },
+  white: "#ffffff",
+  baseBackground: "#0A0C12",
+  transparent: {
+    black: { 20: " #1d1d1d66" }
   }
 };
