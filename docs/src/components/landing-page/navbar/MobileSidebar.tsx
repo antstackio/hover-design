@@ -7,11 +7,7 @@ import {
 } from "./mobile-sidebar.styles.css";
 import { Hamburger } from "../icons/Hamburger";
 import { Flex, UnstyledButton } from "@hover-design/react";
-import {
-  hideLinkOnMobileStyle,
-  navbarStyles,
-  unstyledLinkStyles
-} from "./navbar.styles.css";
+import { navbarStyles, unstyledLinkStyles } from "./navbar.styles.css";
 import HoverLogo from "@site/static/img/hover_logo_letters.svg";
 import { Close } from "../icons/Close";
 import { navbarLinks } from "./navbar.data";
@@ -52,7 +48,7 @@ const MobileSidebar = () => {
               </Flex>
               <Flex flexDirection="column" gap={"12px"}>
                 {navbarLinks.map((link) => (
-                  <p className={mobileSideBarLinkStyles}>
+                  <p key={link.label} className={mobileSideBarLinkStyles}>
                     <a className={unstyledLinkStyles} href={link.href}>
                       {link.label}
                     </a>
