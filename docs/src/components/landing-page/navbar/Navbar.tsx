@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  hideLinkOnMobileStyle,
   navbarLinkStyles,
   navbarStyles,
   unstyledLinkStyles
@@ -8,9 +9,9 @@ import HoverLogo from "@site/static/img/hover_logo_letters.svg";
 import GithubLogo from "@site/static/logos/github.svg";
 import { Flex } from "@hover-design/react";
 import { navbarLinks } from "./navbar.data";
-type Props = {};
+import { MobileSidebar } from "./MobileSidebar";
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
   return (
     <nav className={navbarStyles}>
       <Flex justifyContent={"space-between"} alignItems={"center"}>
@@ -19,18 +20,23 @@ const Navbar = (props: Props) => {
         </a>
         <Flex gap={"55px"}>
           {navbarLinks.map((link) => (
-            <a key={link.label} className={navbarLinkStyles} href={link.href}>
+            <a
+              key={link.label}
+              className={`${navbarLinkStyles} ${hideLinkOnMobileStyle}`}
+              href={link.href}
+            >
               {link.label}
             </a>
           ))}
         </Flex>
         <a
-          className={unstyledLinkStyles}
+          className={`${unstyledLinkStyles} ${hideLinkOnMobileStyle}`}
           href={"https://github.com/antstackio/hover-design"}
           target="_blank"
         >
           <GithubLogo />
         </a>
+        <MobileSidebar />
       </Flex>
     </nav>
   );

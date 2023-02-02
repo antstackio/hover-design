@@ -16,6 +16,7 @@ export const navbarLinkStyles = style({
   textDecoration: "none",
   fontWeight: 500,
   lineHeight: "19px",
+
   ":hover": {
     color: themeVars.colors.white
   },
@@ -27,9 +28,18 @@ export const navbarLinkStyles = style({
   }
 });
 
+export const hideLinkOnMobileStyle = style({
+  display: "none",
+  "@media": {
+    [breakpointMediaQueries.tablet]: {
+      display: "inline"
+    }
+  }
+});
 export const unstyledLinkStyles = style({
   textDecoration: "none",
   color: "inherit",
+  lineHeight: 0,
   ":hover": {
     color: "inherit"
   },
