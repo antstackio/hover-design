@@ -21,10 +21,9 @@ export interface IRadioProps
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  color?: string;
-  value: string;
-  name: string;
-  radioSize?: string;
+  value?: string;
+  name?: string;
+  radioSize?: Partial<TRadioTheme[1]["radioStyleSize"]>;
   isDisabled?: boolean;
   baseStyles?: Partial<TRadioTheme[1]["baseStyles"]>;
   disabledStyles?: Partial<TRadioTheme[1]["disabledStyles"]>;
