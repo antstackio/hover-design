@@ -37,7 +37,6 @@ export interface IStepperStepProps
     Omit<IStepperProps, "activeStep" | "children" | "onStepClick"> {
   children?: ReactNode;
   ref?: MutableRefObject<HTMLDivElement | null>;
-  dividerProps?: DividerProps;
 }
 
 export type TStepperTheme = [
