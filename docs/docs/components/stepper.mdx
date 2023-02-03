@@ -6,10 +6,13 @@ Here's a quick start guide to get started with the Stepper component.
 
 ### Importing Component
 
-import { Stepper, StepperStep, Card } from "@hover-design/react";
+import { Stepper, StepperStep, Card, Flex } from "@hover-design/react";
+import { StepperExample } from "@site/src/components/examples/StepperExample";
 
 export const StepperContainer = ({ children }) => (
-  <Card variant="shadow">{children}</Card>
+  <Flex alignItems="center" justifyContent="center">
+    <Card variant="shadow">{children}</Card>
+  </Flex>
 );
 
 ```jsx
@@ -24,15 +27,26 @@ import { Stepper, StepperStep } from "@hover-design/react";
 import { Stepper, StepperStep } from "@hover-design/react";
 
 const Demo = () => {
-  const [active, setActive] = useState(1);
-  const nextStep = () =>
-    setActive((current) => (current < 3 ? current + 1 : current));
-  const prevStep = () =>
-    setActive((current) => (current > 0 ? current - 1 : current));
+  const [activeStep, setActiveStep] = useState(1);
 
   return (
     <div>
-      <Stepper onStepClick={setActive} activeStep={active}>
+      <Stepper onStepClick={setActiveStep} activeStep={activeStep}>
+        <StepperStep>
+          <label>Step 1</label>
+        </StepperStep>
+        <StepperStep>
+          <label>Step 2</label>
+        </StepperStep>
+        <StepperStep>
+          <label>Step 3</label>
+        </StepperStep>
+      </Stepper>
+      <Stepper
+        onStepClick={setActiveStep}
+        activeStep={activeStep}
+        labelOrientation="vertical"
+      >
         <StepperStep>
           <label>Step 1</label>
         </StepperStep>
@@ -47,6 +61,67 @@ const Demo = () => {
   );
 };
 ```
+
+<Flex alignItems="center" justifyContent="space-around" >
+<StepperContainer>
+  <StepperExample />
+</StepperContainer>
+
+<StepperContainer>
+  <StepperExample StepperProps={{ labelOrientation: "vertical" }} />
+</StepperContainer>
+</Flex>
+
+##### Stepper with orientation
+
+```jsx
+<div>
+  <Stepper
+    onStepClick={setActiveStep}
+    activeStep={activeStep}
+    orientation="vertical"
+  >
+    <StepperStep>
+      <label>Step 1</label>
+    </StepperStep>
+    <StepperStep>
+      <label>Step 2</label>
+    </StepperStep>
+    <StepperStep>
+      <label>Step 3</label>
+    </StepperStep>
+  </Stepper>
+
+  <Stepper
+    onStepClick={setActiveStep}
+    activeStep={activeStep}
+    orientation="vertical"
+    labelOrientation="vertical"
+  >
+    <StepperStep>
+      <label>Step 1</label>
+    </StepperStep>
+    <StepperStep>
+      <label>Step 2</label>
+    </StepperStep>
+    <StepperStep>
+      <label>Step 3</label>
+    </StepperStep>
+  </Stepper>
+</div>
+```
+
+<Flex alignItems="center" justifyContent="space-around" >
+<StepperContainer>
+  <StepperExample StepperProps={{ orientation: "vertical" }} />
+</StepperContainer>
+
+<StepperContainer>
+  <StepperExample
+    StepperProps={{ orientation: "vertical", labelOrientation: "vertical" }}
+  />
+</StepperContainer>
+</Flex>
 
 ### Stepper Props Reference
 

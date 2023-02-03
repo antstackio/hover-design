@@ -57,11 +57,11 @@ const StepperComponent: ForwardRefRenderFunction<
         dividerProps: item.props.dividerProps || dividerProps,
         className: item.props.className || className,
         style: item.props.style || style,
+        size: item.props.size || size,
         orientation,
         labelOrientation,
         onClick: () =>
-          allowClick && typeof onStepClick === "function" && onStepClick(index),
-        size
+          allowClick && typeof onStepClick === "function" && onStepClick(index)
       })
     );
     return acc;

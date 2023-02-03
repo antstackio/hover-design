@@ -1,4 +1,4 @@
-import { createTheme } from "@vanilla-extract/css";
+import { createTheme, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { TStepperTheme } from "./stepper.types";
 
@@ -72,7 +72,8 @@ export const StepperStepIconClass = recipe({
     height: stepperThemeVars.stepperStyleSize,
     backgroundColor: stepperThemeVars.baseStyles.backgroundColor,
     color: stepperThemeVars.baseStyles.color,
-    borderRadius: stepperThemeVars.stepperStyleBorderRadius
+    borderRadius: stepperThemeVars.stepperStyleBorderRadius,
+    cursor: "pointer"
   },
   variants: {
     stepState: {
@@ -93,4 +94,8 @@ export const StepperStepIconClass = recipe({
       }
     }
   }
+});
+
+export const StepperChildrenClass = style({
+  cursor: "pointer"
 });

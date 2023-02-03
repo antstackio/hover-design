@@ -15,8 +15,8 @@ export interface IStepperProps
   onStepClick?: (stepIndex: number) => void;
   orientation?: "horizontal" | "vertical";
   labelOrientation?: "horizontal" | "vertical";
-  size?: string;
-  borderRadius?: string;
+  size?: Partial<TStepperTheme[1]["stepperStyleSize"]>;
+  borderRadius?: Partial<TStepperTheme[1]["stepperStyleBorderRadius"]>;
   baseStyles?: Partial<TStepperTheme[1]["baseStyles"]>;
   completedStyles?: Partial<TStepperTheme[1]["completedStyles"]>;
   progressStyles?: Partial<TStepperTheme[1]["progressStyles"]>;
