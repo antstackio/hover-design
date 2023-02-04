@@ -37,12 +37,12 @@ Always commit and push code with a WIP in the description if changes are not yet
 When pair programming add a co-author, to add a co-author write your message like this
 
 ```jsx
-git commit -m "c**ommit title
+git commit -m "**commit title
 
 Commit body
 
 Co-authored-by: name <additional-dev-1@example.com>
-Co-authored-by: name <additional-dev-2@example.com>"**
+Co-authored-by: name <additional-dev-2@example.com>**"
 ```
 
 Helps to know the people who have contributed to a specific piece of code and can help with context switch and KT
@@ -51,7 +51,7 @@ Do not commit editor specific files and always make sure your Linter and Formatt
 
 ## Reviews take top priority
 
-When a PR is up for review it will will reviewed so that no one is blocked on review. also at a time one developer should work on 1 issue unless it’s blocked.
+When a PR is up for review it will be reviewed so that no one is blocked on review. also at a time one developer should work on 1 issue unless it’s blocked.
 
 ## Use squash and merge for PR’s to main
 
@@ -69,7 +69,7 @@ Reviews should be clear too, raising nitpicks and possible questions that you ma
 
 ## Never mix tasks in one PR
 
-Its always better to raise 2 different PRs if you think that you are covering more than one concise feature. Eg: you modify the way padding is applied throughout the app while making a navbar, seperate the padding calculation into a different PR so that its clear.
+Its always better to raise 2 different PRs if you think that you are covering more than one concise feature. Eg: you modify the way padding is applied throughout the app while making a navbar, separate the padding calculation into a different PR so that its clear.
 
 ## Always link the proper milestone and project
 

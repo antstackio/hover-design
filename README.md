@@ -31,7 +31,7 @@ export const Component = () => <Button>I am a Button</Button>;
 
 ## Contribution
 
-Intrested in contributing to hover? visit our [Contribution Guide](https://hover.style/docs/contribution)
+Interested in contributing to hover? visit our [Contribution Guide](https://hover.antstack.com/docs/contribution)
 
 <p style="display: inline-block; margin-top:8px">Made with ❤️ by</p> 
 <a href="https://www.antstack.com/">
