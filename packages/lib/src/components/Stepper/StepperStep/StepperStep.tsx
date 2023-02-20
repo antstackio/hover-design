@@ -8,10 +8,10 @@ import { Divider } from "../../Divider";
 import { Flex } from "../../Flex";
 import { eliminateUndefinedKeys, accessDefinedValues } from "../../../utils";
 import {
-  stepperBorderRadius,
+  StepperBorderRadius,
   StepperChildrenClass,
   StepperDividerWrapperClass,
-  stepperSizes,
+  StepperSizes,
   StepperStepIconClass,
   stepperThemeClass,
   stepperThemeVars
@@ -97,11 +97,11 @@ const StepperStepComponent: ForwardRefRenderFunction<
     eliminateUndefinedKeys({
       [stepperThemeVars.stepperStyleBorderRadius]: accessDefinedValues(
         borderRadius,
-        stepperBorderRadius
+        StepperBorderRadius
       ),
       [stepperThemeVars.stepperStyleSize]: accessDefinedValues(
         size,
-        stepperSizes
+        StepperSizes
       ),
       [stepperThemeVars.baseStyles.backgroundColor]:
         baseStyles?.backgroundColor,
