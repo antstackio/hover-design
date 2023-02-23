@@ -11,10 +11,6 @@ import {
   useRef,
   useState
 } from "react";
-import { useClickOutside } from "../../hooks/useClickOutside";
-import { Flex } from "../Flex";
-import { ArrowDown } from "../_internal/Icons/ArrowDown";
-import { Clear } from "../_internal/Icons/Clear";
 import { Pill } from "./Pill/Pill";
 import {
   selectContainerStyles,
@@ -26,14 +22,17 @@ import {
   selectVars,
   inputTextContainer,
   noDataFoundStyles,
-  selectPlaceholderRecipe,
+  selectInputElementRecipe,
   inputRecipe,
   loadingContentContainer
 } from "./select.css";
 import { SelectPropsType, OptionsType } from "./select.types";
 import "./select.global.styles.css";
-import { Loader } from "../Loader";
 import { Portal } from "../Portal";
+import { useClickOutside } from "../../hooks/useClickOutside";
+import { Flex } from "../Flex";
+import { Loader } from "../Loader";
+import { ArrowDown, Clear } from "../_internal/Icons";
 
 const SelectComponent: ForwardRefRenderFunction<
   HTMLDivElement,
@@ -47,7 +46,7 @@ const SelectComponent: ForwardRefRenderFunction<
     borderRadius = "0",
     color = "#2F80ED",
     maxDropDownHeight = "200px",
-    minHeight = "40px",
+    minHeight = "48px",
     onChange,
     isSearchable = false,
     isClearable = false,
@@ -132,7 +131,12 @@ const SelectComponent: ForwardRefRenderFunction<
   }, [isDropped]);
 
   const applyDropDownPortalPosition = () => {
-    if (inputRef.current && optionsListRef.current && useDropdownPortal) {
+    if (
+      inputRef.current &&
+      optionsListRef.current &&
+      window &&
+      useDropdownPortal
+    ) {
       const selectPortal = optionsListRef.current
         .parentElement as HTMLDivElement;
       const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
@@ -172,48 +176,8 @@ const SelectComponent: ForwardRefRenderFunction<
   };
 
   useLayoutEffect(() => {
-    const ElementsWithScrolls = (function () {
-      const getComputedStyle =
-        //@ts-ignore
-        document.body && document.body.currentStyle
-          ? function (elem: any) {
-              return elem.currentStyle;
-            }
-          : function (elem: any) {
-              return document.defaultView?.getComputedStyle(elem, null);
-            };
-
-      function getActualCss(elem: HTMLElement, style: any) {
-        return getComputedStyle(elem)[style];
-      }
-
-      function isXScrollable(elem: HTMLElement) {
-        return (
-          elem.offsetWidth < elem.scrollWidth &&
-          autoOrScroll(getActualCss(elem, "overflow-x"))
-        );
-      }
-
-      function isYScrollable(elem: HTMLElement) {
-        return (
-          elem.offsetHeight < elem.scrollHeight &&
-          autoOrScroll(getActualCss(elem, "overflow-y"))
-        );
-      }
-
-      function autoOrScroll(text: string) {
-        return text == "scroll" || text == "auto";
-      }
-
-      function hasScroller(elem: HTMLElement) {
-        return isYScrollable(elem) || isXScrollable(elem);
-      }
-      return function ElemenetsWithScrolls() {
-        return [].filter.call(document.querySelectorAll("*"), hasScroller);
-      };
-    })();
     if (useDropdownPortal) {
-      ElementsWithScrolls().forEach((arr: HTMLElement) =>
+      ElementsWithScrolls().map((arr: HTMLElement) =>
         arr?.addEventListener("scroll", () => {
           closeOnScroll();
           applyDropDownPortalPosition();
@@ -222,7 +186,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
       window.addEventListener("resize", applyDropDownPortalPosition);
       return () => {
-        ElementsWithScrolls().forEach((arr: HTMLElement) =>
+        ElementsWithScrolls().map((arr: HTMLElement) =>
           arr?.removeEventListener("scroll", () => {
             closeOnScroll();
             applyDropDownPortalPosition();
@@ -232,6 +196,48 @@ const SelectComponent: ForwardRefRenderFunction<
       };
     }
   }, [inputRef.current]);
+
+  const ElementsWithScrolls = (function () {
+    const getComputedStyle =
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      document.body && document.body.currentStyle
+        ? function (elem: any) {
+            return elem.currentStyle;
+          }
+        : function (elem: any) {
+            return document.defaultView?.getComputedStyle(elem, null);
+          };
+
+    function getActualCss(elem: HTMLElement, style: any) {
+      return getComputedStyle(elem)[style];
+    }
+
+    function isXScrollable(elem: HTMLElement) {
+      return (
+        elem.offsetWidth < elem.scrollWidth &&
+        autoOrScroll(getActualCss(elem, "overflow-x"))
+      );
+    }
+
+    function isYScrollable(elem: HTMLElement) {
+      return (
+        elem.offsetHeight < elem.scrollHeight &&
+        autoOrScroll(getActualCss(elem, "overflow-y"))
+      );
+    }
+
+    function autoOrScroll(text: string) {
+      return text == "scroll" || text == "auto";
+    }
+
+    function hasScroller(elem: HTMLElement) {
+      return isYScrollable(elem) || isXScrollable(elem);
+    }
+    return function ElemenetsWithScrolls() {
+      return [].filter.call(document.querySelectorAll("*"), hasScroller);
+    };
+  })();
 
   useClickOutside(
     selectRef,
@@ -293,7 +299,7 @@ const SelectComponent: ForwardRefRenderFunction<
     event:
       | MouseEvent<HTMLDivElement>
       | KeyboardEvent<HTMLDivElement>
-      | MouseEvent<SVGSVGElement>
+      | MouseEvent<SVGElement>
   ) => {
     if (isMulti) {
       setSearchText("");
@@ -383,7 +389,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const clearPill = (
     clearValue: string | number,
-    event: MouseEvent<SVGSVGElement> | KeyboardEvent<HTMLDivElement>
+    event: MouseEvent<SVGElement> | KeyboardEvent<HTMLDivElement>
   ) => {
     let tempArr = Array.isArray(selectValue) ? [...selectValue] : [];
     tempArr = tempArr.filter((arr) => arr.value !== clearValue);
@@ -531,7 +537,7 @@ const SelectComponent: ForwardRefRenderFunction<
     disabled: isDisabled
   });
 
-  const selectPlaceholder = selectPlaceholderRecipe({
+  const selectInputElement = selectInputElementRecipe({
     error: error ? true : false
   });
   const inputStyles = inputRecipe({
@@ -577,10 +583,12 @@ const SelectComponent: ForwardRefRenderFunction<
             option.value === selectValue?.value
         });
         return (
+          // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/interactive-supports-focus
           <div
             key={`${option.value}`}
             ref={option.ref}
             role="option"
+            data-disabled={option.disabled}
             data-value={option.value}
             aria-selected={
               !Array.isArray(selectValue) && option.value === selectValue?.value
@@ -677,9 +685,11 @@ const SelectComponent: ForwardRefRenderFunction<
                   );
                 })
               : !isSearchable && (
-                  <div className={selectPlaceholder}>
-                    {placeholder || "Pick anything!"}
-                  </div>
+                  <input
+                    className={selectInputElement}
+                    disabled
+                    placeholder={placeholder || "Pick anything!"}
+                  />
                 ))}
           {isSearchable && (
             <input
@@ -691,14 +701,14 @@ const SelectComponent: ForwardRefRenderFunction<
               onKeyDown={inputKeyDownHandler}
             />
           )}
-          {!isMulti &&
-            !isSearchable &&
-            !Array.isArray(selectValue) &&
-            (selectValue?.label || (
-              <div className={selectPlaceholder}>
-                {placeholder || "Pick one"}
-              </div>
-            ))}
+          {!isMulti && !isSearchable && !Array.isArray(selectValue) && (
+            <input
+              className={selectInputElement}
+              value={selectValue?.label ? selectValue.label : ""}
+              disabled
+              placeholder={placeholder || "Pick one"}
+            />
+          )}
         </Flex>
         {!isLoading ? (
           <Flex
