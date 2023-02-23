@@ -36,7 +36,7 @@ export type SelectPropsType = divType & {
   useSerialSearch?: boolean;
 };
 
-export type SelectValueType = OptionsType | OptionsType[] | null; //TODO: add in Hover
+export type SelectValueType = OptionsType | OptionsType[] | null;
 
 export type OptionsType = {
   label: string;

@@ -46,7 +46,7 @@ const SelectComponent: ForwardRefRenderFunction<
     borderRadius = "0",
     color = "#2F80ED",
     maxDropDownHeight = "200px",
-    minHeight = "48px",
+    minHeight = "42px",
     onChange,
     isSearchable = false,
     isClearable = false,
@@ -176,6 +176,48 @@ const SelectComponent: ForwardRefRenderFunction<
   };
 
   useLayoutEffect(() => {
+    const ElementsWithScrolls = (function () {
+      const getComputedStyle =
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        document.body && document.body.currentStyle
+          ? function (elem: any) {
+              return elem.currentStyle;
+            }
+          : function (elem: any) {
+              return document.defaultView?.getComputedStyle(elem, null);
+            };
+
+      function getActualCss(elem: HTMLElement, style: any) {
+        return getComputedStyle(elem)[style];
+      }
+
+      function isXScrollable(elem: HTMLElement) {
+        return (
+          elem.offsetWidth < elem.scrollWidth &&
+          autoOrScroll(getActualCss(elem, "overflow-x"))
+        );
+      }
+
+      function isYScrollable(elem: HTMLElement) {
+        return (
+          elem.offsetHeight < elem.scrollHeight &&
+          autoOrScroll(getActualCss(elem, "overflow-y"))
+        );
+      }
+
+      function autoOrScroll(text: string) {
+        return text == "scroll" || text == "auto";
+      }
+
+      function hasScroller(elem: HTMLElement) {
+        return isYScrollable(elem) || isXScrollable(elem);
+      }
+      return function ElemenetsWithScrolls() {
+        return [].filter.call(document.querySelectorAll("*"), hasScroller);
+      };
+    })();
+
     if (useDropdownPortal) {
       ElementsWithScrolls().map((arr: HTMLElement) =>
         arr?.addEventListener("scroll", () => {
@@ -196,48 +238,6 @@ const SelectComponent: ForwardRefRenderFunction<
       };
     }
   }, [inputRef.current]);
-
-  const ElementsWithScrolls = (function () {
-    const getComputedStyle =
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      document.body && document.body.currentStyle
-        ? function (elem: any) {
-            return elem.currentStyle;
-          }
-        : function (elem: any) {
-            return document.defaultView?.getComputedStyle(elem, null);
-          };
-
-    function getActualCss(elem: HTMLElement, style: any) {
-      return getComputedStyle(elem)[style];
-    }
-
-    function isXScrollable(elem: HTMLElement) {
-      return (
-        elem.offsetWidth < elem.scrollWidth &&
-        autoOrScroll(getActualCss(elem, "overflow-x"))
-      );
-    }
-
-    function isYScrollable(elem: HTMLElement) {
-      return (
-        elem.offsetHeight < elem.scrollHeight &&
-        autoOrScroll(getActualCss(elem, "overflow-y"))
-      );
-    }
-
-    function autoOrScroll(text: string) {
-      return text == "scroll" || text == "auto";
-    }
-
-    function hasScroller(elem: HTMLElement) {
-      return isYScrollable(elem) || isXScrollable(elem);
-    }
-    return function ElemenetsWithScrolls() {
-      return [].filter.call(document.querySelectorAll("*"), hasScroller);
-    };
-  })();
 
   useClickOutside(
     selectRef,
