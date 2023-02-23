@@ -1,5 +1,4 @@
 import { MouseEvent } from "react";
-import React from "react";
 import { pillIconStyles, pillStyles } from "./pill.css";
 import { Flex } from "../../Flex";
 import { Clear } from "../../_internal/Icons/Clear";
