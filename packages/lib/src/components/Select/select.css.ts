@@ -14,8 +14,7 @@ export const [selectClass, selectVars]: SelectTheme = createTheme({
 
 export const selectContainerStyles = style({
   position: "relative",
-  width: selectVars.width,
-  zIndex: selectVars.zIndex
+  width: selectVars.width
 });
 
 export const selectInputRecipe = recipe({
@@ -60,7 +59,7 @@ export const selectListContainerStyle = style({
   width: "100%",
   maxHeight: selectVars.maxDropDownHeight,
   padding: "4px",
-  zIndex: "1",
+  zIndex: selectVars.zIndex,
   border: "1px solid #ced4da ",
   borderRadius: selectVars.borderRadius,
   boxShadow:
@@ -113,8 +112,22 @@ export const selectErrorMsg = style({
   margin: "4px 0"
 });
 
-export const selectPlaceholderRecipe = recipe({
-  base: { color: "#787878", padding: "2px" },
+export const selectInputElementRecipe = recipe({
+  base: {
+    display: "flex",
+    alignItems: "center",
+    height: "100%",
+    width: "100%",
+    color: "inherit",
+    outline: "none",
+    border: "none",
+    background: "none",
+    fontSize: "inherit",
+    fontWeight: "inherit",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
+  },
   variants: {
     error: {
       true: {
@@ -127,7 +140,8 @@ export const selectPlaceholderRecipe = recipe({
 export const selectIconRecipe = recipe({
   base: {
     transition: "0.2s ease",
-    cursor: "pointer"
+    cursor: "pointer",
+    marginLeft: "8px"
   },
   variants: {
     isDropped: {
@@ -144,7 +158,7 @@ export const inputRecipe = recipe({
     border: "none",
     outline: "none",
     padding: 0,
-    fontSize: "16px",
+    fontSize: "inherit",
     background: "transparent"
   },
   variants: {
@@ -165,8 +179,8 @@ export const inputRecipe = recipe({
 });
 
 export const inputTextContainer = style({
-  width: "80%",
-  fontSize: "16px",
+  width: "100%",
+  fontSize: "inherit",
   whiteSpace: "nowrap",
   overflow: "hidden",
   height: "100%"

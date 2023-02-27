@@ -3,14 +3,14 @@ type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 export type SelectPropsType = divType & {
   placeholder?: string;
   options: OptionsType[];
-  value?: OptionsType | OptionsType[] | null;
+  value?: SelectValueType;
   width?: string;
   onChange?: (
-    value: OptionsType | OptionsType[] | null,
+    value: SelectValueType,
     event?:
       | MouseEvent<HTMLDivElement>
       | KeyboardEvent<HTMLDivElement>
-      | MouseEvent<SVGSVGElement>
+      | MouseEvent<SVGElement>
   ) => void;
   isSearchable?: boolean;
   maxDropDownHeight?: string;
@@ -35,6 +35,8 @@ export type SelectPropsType = divType & {
   closeDropdownPortalOnScroll?: boolean;
   useSerialSearch?: boolean;
 };
+
+export type SelectValueType = OptionsType | OptionsType[] | null;
 
 export type OptionsType = {
   label: string;

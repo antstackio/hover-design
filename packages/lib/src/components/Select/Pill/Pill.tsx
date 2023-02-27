@@ -1,18 +1,18 @@
 import { MouseEvent } from "react";
-import { Flex } from "../../Flex";
-import CloseIcon from "../../_internal/Icons/Close";
 import { pillIconStyles, pillStyles } from "./pill.css";
+import { Flex } from "../../Flex";
+import { Clear } from "../../_internal/Icons/Clear";
 
 type pillPropTypes = {
   value: string;
-  clearValue: (event: MouseEvent<SVGSVGElement>) => void;
+  clearValue: (event: MouseEvent<SVGElement>) => void;
 };
 
-export const Pill = ({ value, clearValue }: pillPropTypes) => {
+export const Pill = ({ clearValue, value }: pillPropTypes) => {
   return (
-    <Flex className={pillStyles} alignItems="center" gap="8px">
+    <Flex className={pillStyles} alignItems="center" gap="6px">
       <span>{value}</span>
-      <CloseIcon
+      <Clear
         className={pillIconStyles}
         width={14}
         height={14}
