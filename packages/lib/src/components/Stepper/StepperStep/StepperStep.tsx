@@ -1,16 +1,72 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import React, { ForwardRefRenderFunction } from "react";
+import React, {
+  ForwardedRef,
+  ForwardRefRenderFunction,
+  ReactNode
+} from "react";
 import { Divider } from "../../Divider";
 import { Flex } from "../../Flex";
-import { eliminateUndefinedKeys } from "../../../utils/object-utils";
+import { eliminateUndefinedKeys, accessDefinedValues } from "../../../utils";
 import {
+  StepperBorderRadius,
+  StepperChildrenClass,
   StepperDividerWrapperClass,
+  StepperSizes,
   StepperStepIconClass,
   stepperThemeClass,
   stepperThemeVars
 } from "../stepper.styles.css";
 import { IStepperStepProps } from "../stepper.types";
 import { CheckIcon } from "../../_internal/Icons";
+
+const RenderDivider = ({
+  isLastChild,
+  StepperDividerWrapperStyle,
+  stepState,
+  dividerProps,
+  orientation
+}: Pick<
+  IStepperStepProps,
+  "isLastChild" | "stepState" | "dividerProps" | "orientation"
+> & { StepperDividerWrapperStyle: string }) => {
+  if (isLastChild) return <></>;
+  return (
+    <div className={StepperDividerWrapperStyle}>
+      <Divider
+        size="2px"
+        color={
+          stepState === "stepCompleted"
+            ? stepperThemeVars.completedStyles.backgroundColor
+            : stepperThemeVars.baseStyles.backgroundColor
+        }
+        {...dividerProps}
+        orientation={orientation}
+      />
+    </div>
+  );
+};
+
+const RenderIcon = ({
+  StepperStepIconStyle,
+  _Icon,
+  ref
+}: {
+  StepperStepIconStyle: string;
+  _Icon: () => ReactNode;
+  ref: ForwardedRef<HTMLDivElement>;
+}) => {
+  return (
+    <Flex
+      display="inline-flex"
+      alignItems="center"
+      justifyContent="center"
+      className={StepperStepIconStyle}
+      ref={ref}
+    >
+      {_Icon()}
+    </Flex>
+  );
+};
 
 const StepperStepComponent: ForwardRefRenderFunction<
   HTMLDivElement,
@@ -27,6 +83,7 @@ const StepperStepComponent: ForwardRefRenderFunction<
     completedStyles,
     progressStyles,
     dividerProps,
+    size,
     borderRadius,
     orientation,
     labelOrientation,
@@ -38,6 +95,14 @@ const StepperStepComponent: ForwardRefRenderFunction<
 ) => {
   const assignVariables = assignInlineVars(
     eliminateUndefinedKeys({
+      [stepperThemeVars.stepperStyleBorderRadius]: accessDefinedValues(
+        borderRadius,
+        StepperBorderRadius
+      ),
+      [stepperThemeVars.stepperStyleSize]: accessDefinedValues(
+        size,
+        StepperSizes
+      ),
       [stepperThemeVars.baseStyles.backgroundColor]:
         baseStyles?.backgroundColor,
       [stepperThemeVars.baseStyles.color]: baseStyles?.color,
@@ -69,38 +134,6 @@ const StepperStepComponent: ForwardRefRenderFunction<
     return icon;
   };
 
-  const renderIcon = () => {
-    return (
-      <Flex
-        display="inline-flex"
-        alignItems="center"
-        justifyContent="center"
-        className={StepperStepIconStyle}
-        ref={ref}
-      >
-        {_Icon()}
-      </Flex>
-    );
-  };
-
-  const renderDivider = () => {
-    if (isLastChild) return null;
-    return (
-      <div className={StepperDividerWrapperStyle}>
-        <Divider
-          size="2px"
-          color={
-            stepState === "stepCompleted"
-              ? stepperThemeVars.completedStyles.backgroundColor
-              : stepperThemeVars.baseStyles.backgroundColor
-          }
-          {...dividerProps}
-          orientation={orientation}
-        />
-      </div>
-    );
-  };
-
   return (
     <Flex
       display="inline-flex"
@@ -113,15 +146,25 @@ const StepperStepComponent: ForwardRefRenderFunction<
     >
       {orientation === labelOrientation ? (
         <>
-          {renderIcon()}
+          <RenderIcon
+            StepperStepIconStyle={StepperStepIconStyle}
+            _Icon={_Icon}
+            ref={ref}
+          />
           <Flex
             display="flex"
             alignItems="center"
             alignSelf="stretch"
             flexDirection={labelOrientation === "vertical" ? "column" : "row"}
           >
-            <div>{children}</div>
-            {renderDivider()}
+            <div className={StepperChildrenClass}>{children}</div>
+            <RenderDivider
+              isLastChild={isLastChild}
+              StepperDividerWrapperStyle={StepperDividerWrapperStyle}
+              stepState={stepState}
+              dividerProps={dividerProps}
+              orientation={orientation}
+            />
           </Flex>
         </>
       ) : (
@@ -132,10 +175,20 @@ const StepperStepComponent: ForwardRefRenderFunction<
             alignSelf="stretch"
             flexDirection={labelOrientation === "vertical" ? "row" : "column"}
           >
-            {renderIcon()}
-            {renderDivider()}
+            <RenderIcon
+              StepperStepIconStyle={StepperStepIconStyle}
+              _Icon={_Icon}
+              ref={ref}
+            />
+            <RenderDivider
+              isLastChild={isLastChild}
+              StepperDividerWrapperStyle={StepperDividerWrapperStyle}
+              stepState={stepState}
+              dividerProps={dividerProps}
+              orientation={orientation}
+            />
           </Flex>
-          <div>{children}</div>
+          <div className={StepperChildrenClass}>{children}</div>
         </>
       )}
     </Flex>

@@ -58,7 +58,8 @@ export const Divider = ({
           : dividerContainerVertical
       }`}
     >
-      <hr
+      <div
+        role="separator"
         className={`${dividerClass} ${className}`}
         style={dividerStyles}
         {...nativeProps}
