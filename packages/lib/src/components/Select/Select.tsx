@@ -573,13 +573,10 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const renderIcon = () => {
     if (isClearable) {
-      if (Array.isArray(selectValue)) {
-        if (selectValue.length)
-          return <Clear onClick={clearMultiValues} width={18} height={18} />;
-      } else {
-        if (selectValue?.value) {
-          return <Clear onClick={clearValues} width={18} height={18} />;
-        }
+      if (Array.isArray(selectValue) && selectValue.length) {
+        return <Clear onClick={clearMultiValues} width={18} height={18} />;
+      } else if (!Array.isArray(selectValue) && selectValue?.value) {
+        return <Clear onClick={clearValues} width={18} height={18} />;
       }
     }
     return DropIcon || <ArrowDown width={18} height={18} />;
