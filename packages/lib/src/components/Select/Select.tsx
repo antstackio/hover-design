@@ -24,7 +24,8 @@ import {
   noDataFoundStyles,
   selectInputElementRecipe,
   inputRecipe,
-  loadingContentContainer
+  loadingContentContainer,
+  labelStyles
 } from "./select.css";
 import { SelectPropsType, OptionsType } from "./select.types";
 import "./select.global.styles.css";
@@ -33,12 +34,15 @@ import { useClickOutside } from "../../hooks/useClickOutside";
 import { Flex } from "../Flex";
 import { Loader } from "../Loader";
 import { ArrowDown, Clear } from "../_internal/Icons";
+import { Label } from "../Label";
 
 const SelectComponent: ForwardRefRenderFunction<
   HTMLDivElement,
   SelectPropsType
 > = (
   {
+    label,
+    id,
     placeholder,
     options,
     value,
@@ -64,7 +68,8 @@ const SelectComponent: ForwardRefRenderFunction<
     useDropdownPortal = false,
     closeDropdownPortalOnScroll = false,
     zIndex = "300",
-    useSerialSearch = false
+    useSerialSearch = false,
+    ...props
   },
   ref
 ) => {
@@ -362,24 +367,6 @@ const SelectComponent: ForwardRefRenderFunction<
       : setInternalOptions(filteredOptions);
   };
 
-  const handleIconClick = (event: MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-    if (isClearable) {
-      if (isMulti) {
-        onChange && onChange([], event);
-        setSelectValue([]);
-      } else {
-        onChange && onChange(null, event);
-        setSelectValue(null);
-      }
-    } else {
-      setIsDropped(!isDropped);
-      isDropped
-        ? onDropDownClose && onDropDownClose()
-        : onDropDownOpen && onDropDownOpen();
-    }
-  };
-
   const changeDrop = () => {
     setIsDropped(!isDropped);
     isDropped
@@ -545,6 +532,18 @@ const SelectComponent: ForwardRefRenderFunction<
     isMulti
   });
 
+  const clearMultiValues = (event: MouseEvent<SVGElement>) => {
+    event.stopPropagation();
+    onChange && onChange([], event);
+    setSelectValue([]);
+  };
+
+  const clearValues = (event: MouseEvent<SVGElement>) => {
+    event.stopPropagation();
+    onChange && onChange(null, event);
+    setSelectValue(null);
+  };
+
   const renderDropDown = () => {
     return (
       <Flex
@@ -570,6 +569,20 @@ const SelectComponent: ForwardRefRenderFunction<
         )}
       </Flex>
     );
+  };
+
+  const renderIcon = () => {
+    if (isClearable) {
+      if (Array.isArray(selectValue)) {
+        if (selectValue.length)
+          return <Clear onClick={clearMultiValues} width={18} height={18} />;
+      } else {
+        if (selectValue?.value) {
+          return <Clear onClick={clearValues} width={18} height={18} />;
+        }
+      }
+    }
+    return DropIcon || <ArrowDown width={18} height={18} />;
   };
 
   const renderDropDownList = () => {
@@ -653,7 +666,17 @@ const SelectComponent: ForwardRefRenderFunction<
           [selectVars.maxDropDownHeight]: maxDropDownHeight
         })
       }}
+      {...props}
     >
+      {label && (
+        <Label
+          className={labelStyles}
+          htmlFor={id || "hover-select-input"}
+          id={`${id || "hover-select"}-label`}
+        >
+          {label}
+        </Label>
+      )}
       <Flex
         role="combobox"
         ref={inputRef}
@@ -693,6 +716,7 @@ const SelectComponent: ForwardRefRenderFunction<
                 ))}
           {isSearchable && (
             <input
+              id={id || "hover-select-input"}
               disabled={isDisabled}
               className={inputStyles}
               value={searchText}
@@ -703,6 +727,7 @@ const SelectComponent: ForwardRefRenderFunction<
           )}
           {!isMulti && !isSearchable && !Array.isArray(selectValue) && (
             <input
+              id={id || "hover-select-input"}
               className={selectInputElement}
               value={selectValue?.label ? selectValue.label : ""}
               disabled
@@ -711,15 +736,8 @@ const SelectComponent: ForwardRefRenderFunction<
           )}
         </Flex>
         {!isLoading ? (
-          <Flex
-            alignItems="center"
-            className={selectIconClass}
-            onClick={handleIconClick}
-          >
-            {DropIcon
-              ? !isClearable && DropIcon
-              : !isClearable && <ArrowDown width={18} height={18} />}
-            {isClearable && <Clear width={18} height={18} />}
+          <Flex alignItems="center" className={selectIconClass}>
+            {renderIcon()}
           </Flex>
         ) : (
           loadingOptions?.loader || <Loader color={color} />

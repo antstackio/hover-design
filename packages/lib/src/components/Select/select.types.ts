@@ -1,6 +1,7 @@
 import { KeyboardEvent, MouseEvent, MutableRefObject, ReactNode } from "react";
-type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
+type divType = Omit<JSX.IntrinsicElements["div"], "onChange" | "ref">;
 export type SelectPropsType = divType & {
+  label?: ReactNode;
   placeholder?: string;
   options: OptionsType[];
   value?: SelectValueType;
