@@ -574,12 +574,21 @@ const SelectComponent: ForwardRefRenderFunction<
   const renderIcon = () => {
     if (isClearable) {
       if (Array.isArray(selectValue) && selectValue.length) {
-        return <Clear onClick={clearMultiValues} width={18} height={18} />;
+        return (
+          <Clear
+            role="button"
+            onClick={clearMultiValues}
+            width={18}
+            height={18}
+          />
+        );
       } else if (!Array.isArray(selectValue) && selectValue?.value) {
-        return <Clear onClick={clearValues} width={18} height={18} />;
+        return (
+          <Clear role="button" onClick={clearValues} width={18} height={18} />
+        );
       }
     }
-    return DropIcon || <ArrowDown width={18} height={18} />;
+    return DropIcon || <ArrowDown role="button" width={18} height={18} />;
   };
 
   const renderDropDownList = () => {

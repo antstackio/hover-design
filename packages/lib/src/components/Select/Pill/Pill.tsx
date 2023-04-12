@@ -10,7 +10,7 @@ type pillPropTypes = {
 
 export const Pill = ({ clearValue, value }: pillPropTypes) => {
   return (
-    <Flex className={pillStyles} alignItems="center" gap="6px">
+    <Flex role="listitem" className={pillStyles} alignItems="center" gap="6px">
       <span>{value}</span>
       <Clear
         className={pillIconStyles}
