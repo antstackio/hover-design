@@ -1,5 +1,5 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { buttonStyles } from "./button.styles.css";
+import { buttonStyles } from "@hover-design/core";
 import { ButtonProps } from "./button.types";
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
