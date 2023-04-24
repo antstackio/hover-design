@@ -2,8 +2,8 @@ const glob = require("glob");
 const fs = require("fs");
 const path = require("path");
 
-const reactFolder = "./packages/react";
-const coreFolder = "./packages/core";
+const reactFolder = "../packages/react";
+const coreFolder = "../packages/core";
 
 const cssFilePattern = "**/*.{styles.css.ts,global.styles.css.ts}";
 const filesToMove = glob.sync(cssFilePattern, {
