@@ -2,8 +2,8 @@ const glob = require("glob");
 const fs = require("fs");
 const path = require("path");
 
-const reactFolder = "../packages/react";
-const coreFolder = "../packages/core";
+const reactFolder = "../packages/react/src/components";
+const coreFolder = "../packages/core/src/components";
 
 const cssFilePattern = "**/*.{styles.css.ts,global.styles.css.ts}";
 const filesToMove = glob.sync(cssFilePattern, {
@@ -54,3 +54,17 @@ Object.keys(exportedFiles).forEach((dir) => {
     fs.writeFileSync(indexFilePath, exports, { encoding: "utf8" });
   }
 });
+
+// Create top-level index file for core folder
+const coreIndexPath = path.join(coreFolder, "index.ts");
+const subdirectories = fs
+  .readdirSync(coreFolder, { withFileTypes: true })
+  .filter((dirent) => dirent.isDirectory())
+  .map((dirent) => dirent.name);
+
+const directoryExports = subdirectories
+  .map((dir) => `export * from './${dir}';`)
+  .join("\n");
+if (!fs.existsSync(coreIndexPath)) {
+  fs.writeFileSync(coreIndexPath, directoryExports, { encoding: "utf8" });
+}
