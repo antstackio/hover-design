@@ -8,6 +8,10 @@
     "type": "git",
     "url": "git+https://github.com/antstackio/hover-design.git"
   },
+  "postinstall": "manypkg check",
+  "dependencies": {
+    "@manypkg/cli": "latest"
+  },
   "devDependencies": {
     "pnpm": "6",
     "turbo": "^1.6.3"

@@ -1,6 +1,6 @@
 {
   "name": "@hover-design/core",
-  "version": "0.0.1",
+  "version": "0.0.1-beta",
   "description": "Hover Component library created by bunch of ants from antstack",
   "license": "MIT",
   "main": "index.js",
