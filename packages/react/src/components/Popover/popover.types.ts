@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+
 import { positionType } from "../_internal/Types/types";
 
 type divType = Omit<JSX.IntrinsicElements["div"], "onChange">;
 
 export type PopoverType = divType & {
   position?: positionType;
-  content: ReactNode;
+  content: JSX.Element;
   offset?: string;
   borderRadius?: string;
   width?: string;

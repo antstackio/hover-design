@@ -32,7 +32,7 @@ const TooltipComponent: ForwardRefRenderFunction<
         }),
         ...style
       }}
-      content={label}
+      content={label as any}
       className={`${tooltipContainerStyles} ${className}`}
       {...props}
     >

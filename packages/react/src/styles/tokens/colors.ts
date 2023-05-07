@@ -1,4 +1,6 @@
-import { Tokens } from "@vanilla-extract/css/dist/declarations/src/types";
+type Tokens = {
+  [key: string]: string | Tokens;
+};
 
 export const lightColors: IThemeColors = {
   brand: {
