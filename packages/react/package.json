@@ -48,7 +48,7 @@
     "polished": "^4.1.3",
     "react": "^18.0.6",
     "react-dom": "^18.0.6",
-    "@hover-design/core": "*"
+    "@hover-design/core": "0.0.1-beta"
   },
   "devDependencies": {
     "@hover-design/eslint-config": "*",
@@ -64,8 +64,9 @@
     "vitest": "^0.23.4"
   },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react": "^18.0.6",
+    "react-dom": "^18.0.6",
+    "@hover-design/core": "0.0.1-beta"
   },
   "publishConfig": {
     "access": "public"
