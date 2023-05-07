@@ -1,6 +1,6 @@
 {
   "name": "@hover-design/react",
-  "version": "0.2.3-beta",
+  "version": "0.2.4-beta",
   "description": "Hover Component library created by bunch of ants from antstack",
   "license": "MIT",
   "exports": {
