@@ -2,12 +2,13 @@ const glob = require("glob");
 const fs = require("fs");
 const path = require("path");
 
-const reactFolder = "../packages/react/src/components";
-const coreFolder = "../packages/core/src/components";
+const coreFolder = "../packages/core/src";
+const reactComponentFolder = "../packages/react/src/components";
+const coreComponentFolder = "../packages/core/src/components";
 
 const cssFilePattern = "**/*.{styles.css.ts,global.styles.css.ts}";
 const filesToMove = glob.sync(cssFilePattern, {
-  cwd: reactFolder,
+  cwd: reactComponentFolder,
   nodir: true
 });
 
@@ -16,8 +17,8 @@ const exportedFiles = {};
 
 // Move files and keep track of exported files
 filesToMove.forEach((file) => {
-  const sourceFilePath = path.join(reactFolder, file);
-  const targetFilePath = path.join(coreFolder, file);
+  const sourceFilePath = path.join(reactComponentFolder, file);
+  const targetFilePath = path.join(coreComponentFolder, file);
   const targetDirPath = path.dirname(targetFilePath);
 
   if (!fs.existsSync(targetDirPath)) {
@@ -58,7 +59,7 @@ Object.keys(exportedFiles).forEach((dir) => {
 // Create top-level index file for core folder
 const coreIndexPath = path.join(coreFolder, "index.ts");
 const subdirectories = fs
-  .readdirSync(coreFolder, { withFileTypes: true })
+  .readdirSync(coreComponentFolder, { withFileTypes: true })
   .filter((dirent) => dirent.isDirectory())
   .map((dirent) => dirent.name);
 
