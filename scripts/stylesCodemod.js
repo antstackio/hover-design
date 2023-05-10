@@ -66,6 +66,5 @@ const subdirectories = fs
 const directoryExports = subdirectories
   .map((dir) => `export * from './${dir}';`)
   .join("\n");
-if (!fs.existsSync(coreIndexPath)) {
-  fs.writeFileSync(coreIndexPath, directoryExports, { encoding: "utf8" });
-}
+
+fs.writeFileSync(coreIndexPath, directoryExports, { encoding: "utf8" });
