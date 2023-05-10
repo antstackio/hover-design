@@ -64,7 +64,7 @@ const subdirectories = fs
   .map((dirent) => dirent.name);
 
 const directoryExports = subdirectories
-  .map((dir) => `export * from './${dir}';`)
+  .map((dir) => `export * from './components/${dir}';`)
   .join("\n");
 
 fs.writeFileSync(coreIndexPath, directoryExports, { encoding: "utf8" });
