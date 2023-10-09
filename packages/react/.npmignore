@@ -1,0 +1,7 @@
+node_modules
+test
+src/test/**
+.DS_Store
+**/*.test.ts
+**/*.test.tsx
+src/**/*.stories.{js,jsx,ts,tsx}

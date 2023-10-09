@@ -1,0 +1,53 @@
+{
+  "name": "@hover-design/core",
+  "version": "0.0.1",
+  "description": "Hover Component library created by bunch of ants from antstack",
+  "license": "MIT",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "types": "./src/index.ts",
+  "files": [
+    "src"
+  ],
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antstackio/hover-design.git"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "design",
+    "vanilla-extract",
+    "hover"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "@vanilla-extract/css": "^1.6.8",
+    "@vanilla-extract/css-utils": "^0.1.2",
+    "@vanilla-extract/dynamic": "^2.0.2",
+    "@vanilla-extract/recipes": "^0.2.3",
+    "@vanilla-extract/sprinkles": "^1.3.3"
+  },
+  "devDependencies": {
+    "@hover-design/eslint-config": "*",
+    "@types/node": "^17.0.21",
+    "typescript": "^4.3.2"
+  },
+  "peerDependencies": {
+    "@vanilla-extract/css": "^1.6.8",
+    "@vanilla-extract/css-utils": "^0.1.2",
+    "@vanilla-extract/dynamic": "^2.0.2",
+    "@vanilla-extract/recipes": "^0.2.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

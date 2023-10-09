@@ -23,7 +23,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en"]
   },
 
   presets: [
@@ -32,7 +32,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve("./sidebars.js")
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
@@ -40,13 +40,13 @@ const config = {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/antstackio/hover-design/issues/new",
+          editUrl: "https://github.com/antstackio/hover-design/issues/new"
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
-        },
-      }),
-    ],
+          customCss: require.resolve("./src/css/custom.css")
+        }
+      })
+    ]
   ],
 
   themeConfig:
@@ -56,28 +56,28 @@ const config = {
         title: "Hover Design",
         logo: {
           alt: "My Site Logo",
-          src: "img/logo.svg",
+          src: "img/logo.svg"
         },
         items: [
           {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Documentation",
+            label: "Documentation"
           },
           {
             type: "doc",
             docId: "wiki/home",
             position: "left",
             sidebarId: "wiki",
-            label: "Wiki",
+            label: "Wiki"
           },
           {
             href: "https://github.com/antstackio/hover-design",
             label: "GitHub",
-            position: "right",
-          },
-        ],
+            position: "right"
+          }
+        ]
       },
       footer: {
         style: "dark",
@@ -87,13 +87,13 @@ const config = {
             items: [
               {
                 label: "Tutorial",
-                to: "/docs/intro",
+                to: "/docs/intro"
               },
               {
                 label: "Wiki",
-                to: "/docs/wiki/home",
-              },
-            ],
+                to: "/docs/wiki/home"
+              }
+            ]
           },
 
           {
@@ -101,19 +101,19 @@ const config = {
             items: [
               {
                 label: "GitHub",
-                href: "https://github.com/antstackio/hover-design",
-              },
-            ],
-          },
-        ],
+                href: "https://github.com/antstackio/hover-design"
+              }
+            ]
+          }
+        ]
         // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
+        darkTheme: darkCodeTheme
+      }
     }),
-  plugins: ["docusaurus-plugin-vanilla-extract"],
+  plugins: ["docusaurus-plugin-vanilla-extract"]
 };
 
 module.exports = config;
