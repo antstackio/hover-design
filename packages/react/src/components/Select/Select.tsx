@@ -176,7 +176,7 @@ const SelectComponent: ForwardRefRenderFunction<
   const closeOnScroll = () => {
     if (closeDropdownPortalOnScroll) {
       setIsDropped(false);
-      onDropDownClose && onDropDownClose();
+      onDropDownClose?.();
     }
   };
 
@@ -185,7 +185,7 @@ const SelectComponent: ForwardRefRenderFunction<
       const getComputedStyle =
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
-        document.body && document.body.currentStyle
+        document?.body?.currentStyle
           ? function (elem: any) {
               return elem.currentStyle;
             }
@@ -251,7 +251,7 @@ const SelectComponent: ForwardRefRenderFunction<
         closeOnOutsideClick();
       } else {
         isDropped && setIsDropped(false);
-        onDropDownClose && onDropDownClose();
+        onDropDownClose?.();
       }
     },
     isDropped
@@ -265,13 +265,11 @@ const SelectComponent: ForwardRefRenderFunction<
           !optionsListRef.current?.contains(event.target as Node)
         ) {
           isDropped && setIsDropped(false);
-          onDropDownClose && onDropDownClose();
+          onDropDownClose?.();
         }
-      } else {
-        if (!inputRef.current?.contains(event.target as Node)) {
-          isDropped && setIsDropped(false);
-          onDropDownClose && onDropDownClose();
-        }
+      } else if (!inputRef.current?.contains(event.target as Node)) {
+        isDropped && setIsDropped(false);
+        onDropDownClose?.();
       }
     });
   };
@@ -310,7 +308,7 @@ const SelectComponent: ForwardRefRenderFunction<
       setSearchText("");
       const multiValue = Array.isArray(selectValue) ? [...selectValue] : [];
       multiValue.push(option);
-      onChange && onChange(multiValue, event);
+      onChange?.(multiValue, event);
       setSelectValue(multiValue);
     } else {
       if (
@@ -319,14 +317,14 @@ const SelectComponent: ForwardRefRenderFunction<
         option.value === selectValue?.value
       ) {
         setSelectValue(null);
-        onChange && onChange(null, event);
+        onChange?.(null, event);
       } else {
         setSelectValue(option);
-        onChange && onChange(option, event);
+        onChange?.(option, event);
       }
       setIsDropped(false);
       setInternalOptions(options);
-      onDropDownClose && onDropDownClose();
+      onDropDownClose?.();
     }
   };
 
@@ -336,12 +334,10 @@ const SelectComponent: ForwardRefRenderFunction<
   ): OptionsType[] => {
     return options?.filter((option) => {
       if (useSerialSearch) {
-        return (
-          option.label
-            .trim()
-            .toLowerCase()
-            .indexOf(value.trim().toLowerCase()) === 0
-        );
+        return option.label
+          .trim()
+          .toLowerCase()
+          .startsWith(value.trim().toLowerCase());
       }
       return option.label
         .trim()
@@ -369,9 +365,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const changeDrop = () => {
     setIsDropped(!isDropped);
-    isDropped
-      ? onDropDownClose && onDropDownClose()
-      : onDropDownOpen && onDropDownOpen();
+    isDropped ? onDropDownClose?.() : onDropDownOpen?.();
   };
 
   const clearPill = (
@@ -380,7 +374,7 @@ const SelectComponent: ForwardRefRenderFunction<
   ) => {
     let tempArr = Array.isArray(selectValue) ? [...selectValue] : [];
     tempArr = tempArr.filter((arr) => arr.value !== clearValue);
-    onChange && onChange(tempArr, event);
+    onChange?.(tempArr, event);
     setSelectValue(tempArr);
     setIsDropped(true);
   };
@@ -520,15 +514,15 @@ const SelectComponent: ForwardRefRenderFunction<
   });
 
   const selectInputStyles = selectInputRecipe({
-    error: error ? true : false,
+    error: !!error,
     disabled: isDisabled
   });
 
   const selectInputElement = selectInputElementRecipe({
-    error: error ? true : false
+    error: !!error
   });
   const inputStyles = inputRecipe({
-    error: error ? true : false,
+    error: !!error,
     isMulti
   });
 
@@ -540,7 +534,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const clearValues = (event: MouseEvent<SVGElement>) => {
     event.stopPropagation();
-    onChange && onChange(null, event);
+    onChange?.(null, event);
     setSelectValue(null);
   };
 
