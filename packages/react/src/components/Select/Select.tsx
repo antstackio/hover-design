@@ -528,7 +528,7 @@ const SelectComponent: ForwardRefRenderFunction<
 
   const clearMultiValues = (event: MouseEvent<SVGElement>) => {
     event.stopPropagation();
-    onChange && onChange([], event);
+    onChange?.([], event);
     setSelectValue([]);
   };
 
