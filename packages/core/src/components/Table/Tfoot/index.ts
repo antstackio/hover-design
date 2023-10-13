@@ -1,0 +1,1 @@
+export * from './Tfoot.global.styles.css';
