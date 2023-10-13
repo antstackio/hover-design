@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
-import { portalStyles } from "./portal.style.css";
+import { portalStyles } from "./portal.styles.css";
 import { PortalType } from "./portal.types";
 
 const Portal = ({

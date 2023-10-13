@@ -1,1 +1,1 @@
-export * from "./reset.css";
+export * from "./reset.styles.css";

@@ -1,6 +1,6 @@
-import { slider, switchInputStyle, switchLayout } from "./switch.css";
+import { slider, switchInputStyle, switchLayout } from "./switch.styles.css";
 import { ISwitchProps } from "./switch.types";
-import "./switch-global-styles.css";
+import "./switch.global.styles.css";
 
 type SwitchProps = ISwitchProps & JSX.IntrinsicElements["input"];
 

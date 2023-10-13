@@ -8,7 +8,7 @@ import {
   nativeSelectIconStyle,
   nativeSelectRecipe,
   nativeSelectVars
-} from "./nativeSelect.css";
+} from "./nativeSelect.styles.css";
 import { NativeSelectPropsType } from "./nativeSelect.types";
 
 export const NativeSelect: FC<NativeSelectPropsType> = ({

@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction } from "react";
-import { unstyledButtonClass } from "./UnstyledButton.css";
+import { unstyledButtonClass } from "./UnstyledButton.styles.css";
 import { TUnstyledButtonProps } from "./UnstyledButton.types";
 
 const UnstyledButtonComponent: ForwardRefRenderFunction<

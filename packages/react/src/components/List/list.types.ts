@@ -1,5 +1,5 @@
 import { RecipeVariants } from "@vanilla-extract/recipes";
-import { listStyles } from "./list.css";
+import { listStyles } from "./list.styles.css";
 
 export type IListProps = JSX.IntrinsicElements["ul"] &
   RecipeVariants<typeof listStyles> & {

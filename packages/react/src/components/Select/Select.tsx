@@ -26,7 +26,7 @@ import {
   inputRecipe,
   loadingContentContainer,
   labelStyles
-} from "./select.css";
+} from "./select.styles.css";
 import { SelectPropsType, OptionsType } from "./select.types";
 import "./select.global.styles.css";
 import { Portal } from "../Portal";

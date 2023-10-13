@@ -7,7 +7,7 @@ import {
   dividerVertical,
   labelHorizontal,
   labelVertical
-} from "./divider.css";
+} from "./divider.styles.css";
 import { DividerProps } from "./divider.types";
 
 export const Divider = ({

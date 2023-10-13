@@ -5,7 +5,7 @@ import {
   textAreaResize,
   textAreaColorClass,
   textAreaColorVars
-} from "./text-area.css";
+} from "./text-area.styles.css";
 import { TextAreaProps } from "./text-area.types";
 
 const TextAreaComponent: ForwardRefRenderFunction<

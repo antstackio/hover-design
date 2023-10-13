@@ -1,5 +1,5 @@
 export * from "./Select";
-export * from "./select.css";
+export * from "./select.styles.css";
 export * from "./select.types";
 export * from "./Pill/Pill";
-export * from "./Pill/pill.css";
+export * from "./Pill/pill.styles.css";

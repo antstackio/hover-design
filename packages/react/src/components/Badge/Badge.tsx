@@ -4,7 +4,7 @@ import {
   badgeWrapper,
   badgeThemeClass,
   badgeThemeVars
-} from "./badge.css";
+} from "./badge.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { IBadgesProps } from "./badge.types";
 
