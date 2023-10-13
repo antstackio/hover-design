@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction } from "react";
-import { labelClass } from "./label.styles.css";
+import { labelClass } from "@hover-design/core";
 import { ILabelProps } from "./label.types";
 
 const Label: ForwardRefRenderFunction<HTMLLabelElement, ILabelProps> = (

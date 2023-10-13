@@ -1,5 +1,5 @@
 import React, { ForwardRefRenderFunction } from "react";
-import { accordionGroupClass } from "../accordion.styles.css";
+import { accordionGroupClass } from "@hover-design/core";
 
 const AccordionGroup: ForwardRefRenderFunction<
   HTMLDivElement,

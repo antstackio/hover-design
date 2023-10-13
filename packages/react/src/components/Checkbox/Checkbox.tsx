@@ -11,7 +11,7 @@ import {
   checkboxThemeClass,
   checkboxThemeVars,
   checkboxWrapperClass
-} from "./checkbox.styles.css";
+} from "@hover-design/core";
 import { CheckIcon, DashIcon } from "../_internal/Icons";
 
 const Checkbox: ForwardRefRenderFunction<HTMLInputElement, ICheckboxProps> = (

@@ -7,7 +7,7 @@ import {
   progressStyle,
   progressThemeClass,
   progressThemeVars
-} from "./progress.styles.css";
+} from "@hover-design/core";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { eliminateUndefinedKeys } from "../../utils/object-utils";
 const Progress = ({

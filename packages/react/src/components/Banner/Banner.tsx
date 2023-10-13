@@ -1,10 +1,7 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
 import { BannerPropsType } from "./banner.types";
 import { Alert } from "../Alert";
-import {
-  bannerContainerStyles,
-  bannerCtaIconRecipe
-} from "./banner.styles.css";
+import { bannerContainerStyles, bannerCtaIconRecipe } from "@hover-design/core";
 import { ArrowDown } from "../_internal/Icons/ArrowDown";
 import "./banner.global.styles.css";
 import { Button } from "../Button";

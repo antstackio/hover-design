@@ -23,7 +23,7 @@ import {
   alertTitleRecipe,
   alertVars,
   alertWarningTheme
-} from "./alert.styles.css";
+} from "@hover-design/core";
 import { Clear } from "../_internal/Icons/Clear";
 import InfoCircle from "../_internal/Icons/InfoCircle";
 import CheckCircle from "../_internal/Icons/CheckCircle";

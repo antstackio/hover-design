@@ -10,7 +10,7 @@ import {
   dialogStyleClass,
   dialogThemeClass,
   dialogThemeVars
-} from "./dialog.styles.css";
+} from "@hover-design/core";
 import { IDialogProps } from "./dialog.types";
 
 const Dialog: React.FC<IDialogProps> = ({

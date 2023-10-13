@@ -8,7 +8,7 @@ import {
   iconWrapper,
   leftIconWrapper,
   rightIconWrapper
-} from "./input.styles.css";
+} from "@hover-design/core";
 import { Flex } from "../Flex";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { lightColors } from "../../styles/tokens";

@@ -6,7 +6,7 @@ import { eliminateUndefinedKeys } from "../../../utils/object-utils";
 import {
   checkboxGroupChildClass,
   checkboxGroupSpacing
-} from "../checkbox.styles.css";
+} from "@hover-design/core";
 import { TCheckboxGroupProps } from "../checkbox.types";
 
 const CheckboxGroup: ForwardRefRenderFunction<

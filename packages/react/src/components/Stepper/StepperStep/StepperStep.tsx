@@ -8,7 +8,7 @@ import {
   StepperStepIconClass,
   stepperThemeClass,
   stepperThemeVars
-} from "../stepper.styles.css";
+} from "@hover-design/core";
 import { IStepperStepProps } from "../stepper.types";
 import { CheckIcon } from "../../_internal/Icons";
 
