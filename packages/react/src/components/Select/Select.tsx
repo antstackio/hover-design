@@ -24,7 +24,8 @@ import {
   noDataFoundStyles,
   selectInputElementRecipe,
   inputRecipe,
-  loadingContentContainer
+  loadingContentContainer,
+  labelStyles
 } from "./select.css";
 import { SelectPropsType, OptionsType } from "./select.types";
 import "./select.global.styles.css";
@@ -33,12 +34,15 @@ import { useClickOutside } from "../../hooks/useClickOutside";
 import { Flex } from "../Flex";
 import { Loader } from "../Loader";
 import { ArrowDown, Clear } from "../_internal/Icons";
+import { Label } from "../Label";
 
 const SelectComponent: ForwardRefRenderFunction<
   HTMLDivElement,
   SelectPropsType
 > = (
   {
+    label,
+    id,
     placeholder,
     options,
     value,
@@ -64,7 +68,8 @@ const SelectComponent: ForwardRefRenderFunction<
     useDropdownPortal = false,
     closeDropdownPortalOnScroll = false,
     zIndex = "300",
-    useSerialSearch = false
+    useSerialSearch = false,
+    ...props
   },
   ref
 ) => {
@@ -171,7 +176,7 @@ const SelectComponent: ForwardRefRenderFunction<
   const closeOnScroll = () => {
     if (closeDropdownPortalOnScroll) {
       setIsDropped(false);
-      onDropDownClose && onDropDownClose();
+      onDropDownClose?.();
     }
   };
 
@@ -180,7 +185,7 @@ const SelectComponent: ForwardRefRenderFunction<
       const getComputedStyle =
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
-        document.body && document.body.currentStyle
+        document?.body?.currentStyle
           ? function (elem: any) {
               return elem.currentStyle;
             }
@@ -246,7 +251,7 @@ const SelectComponent: ForwardRefRenderFunction<
         closeOnOutsideClick();
       } else {
         isDropped && setIsDropped(false);
-        onDropDownClose && onDropDownClose();
+        onDropDownClose?.();
       }
     },
     isDropped
@@ -260,13 +265,11 @@ const SelectComponent: ForwardRefRenderFunction<
           !optionsListRef.current?.contains(event.target as Node)
         ) {
           isDropped && setIsDropped(false);
-          onDropDownClose && onDropDownClose();
+          onDropDownClose?.();
         }
-      } else {
-        if (!inputRef.current?.contains(event.target as Node)) {
-          isDropped && setIsDropped(false);
-          onDropDownClose && onDropDownClose();
-        }
+      } else if (!inputRef.current?.contains(event.target as Node)) {
+        isDropped && setIsDropped(false);
+        onDropDownClose?.();
       }
     });
   };
@@ -305,7 +308,7 @@ const SelectComponent: ForwardRefRenderFunction<
       setSearchText("");
       const multiValue = Array.isArray(selectValue) ? [...selectValue] : [];
       multiValue.push(option);
-      onChange && onChange(multiValue, event);
+      onChange?.(multiValue, event);
       setSelectValue(multiValue);
     } else {
       if (
@@ -314,14 +317,14 @@ const SelectComponent: ForwardRefRenderFunction<
         option.value === selectValue?.value
       ) {
         setSelectValue(null);
-        onChange && onChange(null, event);
+        onChange?.(null, event);
       } else {
         setSelectValue(option);
-        onChange && onChange(option, event);
+        onChange?.(option, event);
       }
       setIsDropped(false);
       setInternalOptions(options);
-      onDropDownClose && onDropDownClose();
+      onDropDownClose?.();
     }
   };
 
@@ -331,12 +334,10 @@ const SelectComponent: ForwardRefRenderFunction<
   ): OptionsType[] => {
     return options?.filter((option) => {
       if (useSerialSearch) {
-        return (
-          option.label
-            .trim()
-            .toLowerCase()
-            .indexOf(value.trim().toLowerCase()) === 0
-        );
+        return option.label
+          .trim()
+          .toLowerCase()
+          .startsWith(value.trim().toLowerCase());
       }
       return option.label
         .trim()
@@ -362,29 +363,9 @@ const SelectComponent: ForwardRefRenderFunction<
       : setInternalOptions(filteredOptions);
   };
 
-  const handleIconClick = (event: MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-    if (isClearable) {
-      if (isMulti) {
-        onChange && onChange([], event);
-        setSelectValue([]);
-      } else {
-        onChange && onChange(null, event);
-        setSelectValue(null);
-      }
-    } else {
-      setIsDropped(!isDropped);
-      isDropped
-        ? onDropDownClose && onDropDownClose()
-        : onDropDownOpen && onDropDownOpen();
-    }
-  };
-
   const changeDrop = () => {
     setIsDropped(!isDropped);
-    isDropped
-      ? onDropDownClose && onDropDownClose()
-      : onDropDownOpen && onDropDownOpen();
+    isDropped ? onDropDownClose?.() : onDropDownOpen?.();
   };
 
   const clearPill = (
@@ -393,7 +374,7 @@ const SelectComponent: ForwardRefRenderFunction<
   ) => {
     let tempArr = Array.isArray(selectValue) ? [...selectValue] : [];
     tempArr = tempArr.filter((arr) => arr.value !== clearValue);
-    onChange && onChange(tempArr, event);
+    onChange?.(tempArr, event);
     setSelectValue(tempArr);
     setIsDropped(true);
   };
@@ -533,17 +514,29 @@ const SelectComponent: ForwardRefRenderFunction<
   });
 
   const selectInputStyles = selectInputRecipe({
-    error: error ? true : false,
+    error: !!error,
     disabled: isDisabled
   });
 
   const selectInputElement = selectInputElementRecipe({
-    error: error ? true : false
+    error: !!error
   });
   const inputStyles = inputRecipe({
-    error: error ? true : false,
+    error: !!error,
     isMulti
   });
+
+  const clearMultiValues = (event: MouseEvent<SVGElement>) => {
+    event.stopPropagation();
+    onChange?.([], event);
+    setSelectValue([]);
+  };
+
+  const clearValues = (event: MouseEvent<SVGElement>) => {
+    event.stopPropagation();
+    onChange?.(null, event);
+    setSelectValue(null);
+  };
 
   const renderDropDown = () => {
     return (
@@ -570,6 +563,26 @@ const SelectComponent: ForwardRefRenderFunction<
         )}
       </Flex>
     );
+  };
+
+  const renderIcon = () => {
+    if (isClearable) {
+      if (Array.isArray(selectValue) && selectValue.length) {
+        return (
+          <Clear
+            role="button"
+            onClick={clearMultiValues}
+            width={18}
+            height={18}
+          />
+        );
+      } else if (!Array.isArray(selectValue) && selectValue?.value) {
+        return (
+          <Clear role="button" onClick={clearValues} width={18} height={18} />
+        );
+      }
+    }
+    return DropIcon || <ArrowDown role="button" width={18} height={18} />;
   };
 
   const renderDropDownList = () => {
@@ -653,7 +666,17 @@ const SelectComponent: ForwardRefRenderFunction<
           [selectVars.maxDropDownHeight]: maxDropDownHeight
         })
       }}
+      {...props}
     >
+      {label && (
+        <Label
+          className={labelStyles}
+          htmlFor={id || "hover-select-input"}
+          id={`${id || "hover-select"}-label`}
+        >
+          {label}
+        </Label>
+      )}
       <Flex
         role="combobox"
         ref={inputRef}
@@ -693,6 +716,7 @@ const SelectComponent: ForwardRefRenderFunction<
                 ))}
           {isSearchable && (
             <input
+              id={id || "hover-select-input"}
               disabled={isDisabled}
               className={inputStyles}
               value={searchText}
@@ -703,6 +727,7 @@ const SelectComponent: ForwardRefRenderFunction<
           )}
           {!isMulti && !isSearchable && !Array.isArray(selectValue) && (
             <input
+              id={id || "hover-select-input"}
               className={selectInputElement}
               value={selectValue?.label ? selectValue.label : ""}
               disabled
@@ -711,15 +736,8 @@ const SelectComponent: ForwardRefRenderFunction<
           )}
         </Flex>
         {!isLoading ? (
-          <Flex
-            alignItems="center"
-            className={selectIconClass}
-            onClick={handleIconClick}
-          >
-            {DropIcon
-              ? !isClearable && DropIcon
-              : !isClearable && <ArrowDown width={18} height={18} />}
-            {isClearable && <Clear width={18} height={18} />}
+          <Flex alignItems="center" className={selectIconClass}>
+            {renderIcon()}
           </Flex>
         ) : (
           loadingOptions?.loader || <Loader color={color} />

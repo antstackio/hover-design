@@ -9,6 +9,7 @@
     }
   },
   "types": "./src/index.ts",
+  "type": "module",
   "files": [
     "src"
   ],

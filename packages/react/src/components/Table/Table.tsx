@@ -27,6 +27,8 @@ const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
     children,
     className,
     style,
+    wrapperStyle,
+    wrapperClassName,
     horizontalSpacing = "0",
     ...nativeProps
   },
@@ -50,9 +52,9 @@ const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (
 
   return (
     <div
-      style={{ ...tableContainerInlineVars, ...(style || {}) }}
+      style={{ ...tableContainerInlineVars, ...(wrapperStyle || {}) }}
       className={`${tableContainerDefaults} ${tableContainerThemeClass} ${overrideTableContainerClass} ${
-        className || ""
+        wrapperClassName || ""
       }`}
     >
       <table

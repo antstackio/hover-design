@@ -190,3 +190,9 @@ export const loadingContentContainer = style({
   padding: "10px 16px",
   cursor: "default"
 });
+
+export const labelStyles = style({
+  fontWeight: 500,
+  fontSize: "inherit",
+  marginBottom: "5px"
+});

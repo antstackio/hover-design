@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
 export interface InitialTableProps
   extends React.DetailedHTMLProps<
@@ -19,6 +19,8 @@ export interface InitialTableProps
   overrideTableClass?: string;
   className?: string;
   horizontalSpacing?: string;
+  wrapperStyle?: CSSProperties;
+  wrapperClassName?: string;
 }
 
 export type ITableThemeVars = [
