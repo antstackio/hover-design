@@ -7,7 +7,7 @@ import {
   dividerVertical,
   labelHorizontal,
   labelVertical
-} from "./divider.styles.css";
+} from "@hover-design/core";
 import { DividerProps } from "./divider.types";
 
 export const Divider = ({

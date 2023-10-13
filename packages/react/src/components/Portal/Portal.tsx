@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
-import { portalStyles } from "./portal.styles.css";
+import { portalStyles } from "@hover-design/core";
 import { PortalType } from "./portal.types";
 
 const Portal = ({

@@ -1,4 +1,4 @@
-import { slider, switchInputStyle, switchLayout } from "./switch.styles.css";
+import { slider, switchInputStyle, switchLayout } from "@hover-design/core";
 import { ISwitchProps } from "./switch.types";
 import "./switch.global.styles.css";
 
