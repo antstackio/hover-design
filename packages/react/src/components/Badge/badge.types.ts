@@ -1,5 +1,5 @@
 import { RecipeVariants } from "@vanilla-extract/recipes";
-import { badges } from "./badge.styles.css";
+import { badges } from "@hover-design/core";
 import { ReactNode } from "react";
 
 export type IBadgesProps = JSX.IntrinsicElements["span"] &

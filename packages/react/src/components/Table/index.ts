@@ -1,5 +1,4 @@
 export * from "./Table";
-export * from "./Table.styles.css";
 export * from "./Table.types";
 export * from "./TableCaption";
 export * from "./Tbody";
