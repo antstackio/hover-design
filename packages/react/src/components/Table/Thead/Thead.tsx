@@ -4,7 +4,7 @@ import {
   headerDefaults,
   theadThemeClass,
   theadThemeVars
-} from "./Thead.styles.css";
+} from "@hover-design/core";
 import { TheadProps } from "./Thead.types";
 
 const Thead: ForwardRefRenderFunction<HTMLTableSectionElement, TheadProps> = (

@@ -4,7 +4,7 @@ import {
   useEffect,
   useState
 } from "react";
-import { spinnerStyle } from "./spinner.styles.css";
+import { spinnerStyle } from "@hover-design/core";
 import { SpinnerProps } from "./spinner.types";
 
 const SpinnerComponent: ForwardRefRenderFunction<

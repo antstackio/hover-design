@@ -26,7 +26,7 @@ import {
   inputRecipe,
   loadingContentContainer,
   labelStyles
-} from "./select.styles.css";
+} from "@hover-design/core";
 import { SelectPropsType, OptionsType } from "./select.types";
 import "./select.global.styles.css";
 import { Portal } from "../Portal";

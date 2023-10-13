@@ -4,7 +4,7 @@ import {
   footerDefaults,
   tfootThemeClass,
   tfootThemeVars
-} from "./Tfoot.styles.css";
+} from "@hover-design/core";
 import { TfootProps } from "./Tfoot.types";
 import "./Tfoot.global.styles.css";
 
