@@ -40,6 +40,32 @@ const options = [
   ]}
 />
 
+##### Select with Label
+
+```jsx
+const options = [
+  { label: "First", value: "first" },
+  { label: "Second", value: "second", disabled: true },
+  { label: "Third", value: "third" },
+  { label: "Fourth", value: "fourth" }
+];
+
+<div className="App">
+  <Select label="This is a Select Label" options={options} />
+</div>;
+```
+
+<Select
+  width="40%"
+  label="This is a Select Label"
+  options={[
+    { label: "First", value: "first" },
+    { label: "Second", value: "second", disabled: true },
+    { label: "Third", value: "third" },
+    { label: "Fourth", value: "fourth" }
+  ]}
+/>
+
 ##### Select Rounded
 
 ```jsx
@@ -307,6 +333,7 @@ const options = [
 | Attributes                  |                                                                 Values                                                                  |  Default Value   | Optional ? |
 | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------: | :--------------: | ---------: |
 | placeholder                 |                                                                `string`                                                                 |    `Pick one`    |        Yes |
+| label                       |                                                                `string`                                                                 |                  |        Yes |
 | options                     |                                            `Array of` **_[Options Object](#option-object)_**                                            |                  |         No |
 | value                       | **_[Options Object](#option-object)_** <br/> when isMulti is `true` then value is <br/> Array of **_[Options Object](#option-object)_** |                  |        Yes |
 | isMulti                     |                                                                `boolean`                                                                |     `false`      |        Yes |
