@@ -10,6 +10,6 @@
   "author": "Rahul Sawant <rahulsawanth06@gmail.com> (https://raalzz.com)",
   "license": "ISC",
   "devDependencies": {
-    "glob": "^10.2.2"
+    "glob": "^10.3.10"
   }
 }
