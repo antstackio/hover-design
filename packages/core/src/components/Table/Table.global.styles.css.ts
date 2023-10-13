@@ -1,5 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
-import { tableDefaults, tableThemeVars } from "./Table.css";
+import { tableDefaults, tableThemeVars } from "./Table.styles.css";
 
 globalStyle(`${tableDefaults} tr`, {
   lineHeight: tableThemeVars.customRowHeight

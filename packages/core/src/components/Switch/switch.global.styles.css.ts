@@ -1,5 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
-import { switchInputStyle, slider } from ".";
+import { switchInputStyle, slider } from "./switch.styles.css";
 
 globalStyle(`${switchInputStyle}:checked + ${slider}`, {
   background: "#1AB5EB",
