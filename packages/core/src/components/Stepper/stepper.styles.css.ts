@@ -1,6 +1,6 @@
 import { createTheme } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { TStepperTheme } from "./stepper.types";
+import { TStepperTheme } from "./stepper.styles.types";
 
 export const stepperSizes: Record<
   TStepperTheme[1]["stepperStyleSize"],

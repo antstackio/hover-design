@@ -1,7 +1,7 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { SelectTheme } from "./select.types";
+import { SelectTheme } from "./select.styles.types";
 
 export const [selectClass, selectVars]: SelectTheme = createTheme({
   borderRadius: "0",

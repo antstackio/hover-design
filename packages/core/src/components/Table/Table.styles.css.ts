@@ -1,5 +1,8 @@
 import { style, createTheme } from "@vanilla-extract/css";
-import { ITableContainerThemeVars, ITableThemeVars } from "./Table.types";
+import {
+  ITableContainerThemeVars,
+  ITableThemeVars
+} from "./table.styles.types";
 
 export const [
   tableContainerThemeClass,

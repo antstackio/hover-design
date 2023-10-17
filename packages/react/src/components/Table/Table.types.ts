@@ -22,23 +22,3 @@ export interface InitialTableProps
   wrapperStyle?: CSSProperties;
   wrapperClassName?: string;
 }
-
-export type ITableThemeVars = [
-  string,
-  {
-    customRowHeight: string;
-    headerAlignment: string;
-    contentAlignment: string;
-    customCellPadding: string;
-    customStripeColor: string;
-    customHorizontalSpacing: string;
-  }
-];
-
-export type ITableContainerThemeVars = [
-  string,
-  {
-    customBorderRadius: string;
-    customBorderColor: string;
-  }
-];

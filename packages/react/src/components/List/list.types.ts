@@ -5,4 +5,3 @@ export type IListProps = JSX.IntrinsicElements["ul"] &
   RecipeVariants<typeof listStyles> & {
     type?: CSSStyleDeclaration["listStyleType"];
   };
-export type IListTheme = [string, { listStyles: { listStyleType: string } }];

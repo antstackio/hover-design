@@ -1,7 +1,7 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { IProgressTheme } from "./progress.types";
+import { TProgressTheme } from "./progress.styles.types";
 
-export const progressRadiusMap: Record<IProgressTheme[1]["radius"], string> = {
+export const progressRadiusMap: Record<TProgressTheme[1]["radius"], string> = {
   xs: "1px",
   sm: "2px",
   md: "4px",
@@ -10,7 +10,7 @@ export const progressRadiusMap: Record<IProgressTheme[1]["radius"], string> = {
 };
 
 export const progressSizes: Record<
-  IProgressTheme[1]["progressStyleSize"],
+  TProgressTheme[1]["progressStyleSize"],
   string
 > = {
   xs: "3px",
@@ -20,7 +20,7 @@ export const progressSizes: Record<
   xl: "16px"
 };
 
-export const [progressThemeClass, progressThemeVars]: IProgressTheme =
+export const [progressThemeClass, progressThemeVars]: TProgressTheme =
   createTheme({
     radius: progressRadiusMap.md,
     progressStyleSize: progressSizes.md,

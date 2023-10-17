@@ -1,5 +1,5 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { TextAreaBorder } from "./text-area.types";
+import { TextAreaBorder } from "./textArea.styles.types";
 
 export const [textAreaColorClass, textAreaColorVars]: TextAreaBorder =
   createTheme({

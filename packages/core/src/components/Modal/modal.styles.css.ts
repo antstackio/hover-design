@@ -1,8 +1,26 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { sizes } from "./modal.constants";
-import { IModalTheme } from "./modal.types";
+import { TModalTheme } from "./modal.styles.types";
 
-export const [modalThemeClass, modalThemeVars]: IModalTheme = createTheme({
+export const ModalSizes = {
+  sm: {
+    width: "320px"
+  },
+  md: {
+    width: "440px"
+  },
+  lg: {
+    width: "550px"
+  },
+  xl: {
+    width: "720px"
+  },
+  full: {
+    height: "100%",
+    width: "100%"
+  }
+};
+
+export const [modalThemeClass, modalThemeVars]: TModalTheme = createTheme({
   base: {
     backgroundColor: "#fff",
     borderRadius: "4px",
@@ -15,7 +33,7 @@ export const [modalThemeClass, modalThemeVars]: IModalTheme = createTheme({
     right: "unset",
     padding: "12px",
     zIndex: "10",
-    width: sizes.md.width,
+    width: ModalSizes.md.width,
     height: "auto"
   },
   overlay: {

@@ -17,8 +17,3 @@ export type IBadgesProps = JSX.IntrinsicElements["span"] &
     shape?: "rounded" | "rounded-circle";
     hide?: boolean;
   };
-
-export type IBadgeTheme = [
-  string,
-  { badgeStyleColor: string; badgeStyleTextColor: string }
-];

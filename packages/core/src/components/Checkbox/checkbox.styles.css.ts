@@ -1,5 +1,5 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { TCheckboxGroupTheme, TCheckboxTheme } from "./checkbox.types";
+import { TCheckboxGroupTheme, TCheckboxTheme } from "./checkbox.styles.types";
 
 export const checkboxGroupChildClass = style({});
 

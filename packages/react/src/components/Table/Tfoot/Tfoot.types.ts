@@ -5,10 +5,3 @@ interface ITfootProps {
 }
 
 export type TfootProps = ITfootProps & JSX.IntrinsicElements["tfoot"];
-
-export type ITfootThemeVars = [
-  string,
-  {
-    customBackgroundColor: string;
-  }
-];

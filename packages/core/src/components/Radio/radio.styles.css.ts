@@ -1,5 +1,5 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { TRadioGroupTheme, TRadioTheme } from "./radio.types";
+import { TRadioGroupTheme, TRadioTheme } from "./radio.styles.types";
 import { calc } from "@vanilla-extract/css-utils";
 
 export const radioGroupChildClass = style({});

@@ -1,7 +1,7 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { IDialogTheme } from "./dialog.types";
+import { TDialogTheme } from "./dialog.styles.types";
 
-export const [dialogThemeClass, dialogThemeVars]: IDialogTheme = createTheme({
+export const [dialogThemeClass, dialogThemeVars]: TDialogTheme = createTheme({
   backgroundColor: "unset",
   borderRadius: "4px",
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",

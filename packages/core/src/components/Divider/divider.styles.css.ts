@@ -1,9 +1,9 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { DividerTheme } from "./divider.types";
+import { TDividerTheme } from "./divider.styles.types";
 import { calc } from "@vanilla-extract/css-utils";
 
-export const [dividerThemeClass, dividerThemeVar]: DividerTheme = createTheme({
+export const [dividerThemeClass, dividerThemeVar]: TDividerTheme = createTheme({
   dividerColor: "#000",
   labelColor: "#000",
   labelBackground: "#fff",

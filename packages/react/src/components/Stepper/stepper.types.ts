@@ -1,9 +1,6 @@
 import { MutableRefObject, ReactNode } from "react";
 import { DividerProps } from "../Divider";
-
-export type TStepperSizes = "xs" | "sm" | "md" | "lg" | "xl";
-
-export type TStepperBorderRadius = "xs" | "sm" | "md" | "lg" | "xl";
+import { TStepperTheme } from "@hover-design/core";
 
 export interface IStepperProps
   extends React.DetailedHTMLProps<
@@ -39,26 +36,3 @@ export interface IStepperStepProps
   ref?: MutableRefObject<HTMLDivElement | null>;
   dividerProps?: DividerProps;
 }
-
-export type TStepperTheme = [
-  string,
-  {
-    stepperStyleSize: TStepperSizes | string;
-    stepperStyleBorderRadius: TStepperBorderRadius | string;
-    baseStyles: {
-      color: string;
-      backgroundColor: string;
-      border: string;
-    };
-    completedStyles: {
-      color: string;
-      backgroundColor: string;
-      border: string;
-    };
-    progressStyles: {
-      color: string;
-      backgroundColor: string;
-      border: string;
-    };
-  }
-];

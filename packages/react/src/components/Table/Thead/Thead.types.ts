@@ -5,10 +5,3 @@ interface ITheadProps {
 }
 
 export type TheadProps = ITheadProps & JSX.IntrinsicElements["thead"];
-
-export type ITheadThemeVars = [
-  string,
-  {
-    customBackgroundColor: string;
-  }
-];

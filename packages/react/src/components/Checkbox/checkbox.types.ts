@@ -1,15 +1,5 @@
 import { MutableRefObject, ReactNode } from "react";
-
-export type TCheckboxSizes = "xs" | "sm" | "md" | "lg" | "xl";
-
-export type TCheckboxBorderRadius = "xs" | "sm" | "md" | "lg" | "xl";
-
-export type TCheckboxSpacing = "xs" | "sm" | "md" | "lg" | "xl";
-
-export type TCheckboxGroupTheme = [
-  string,
-  { checkboxGroupStyleSpacing: TCheckboxSpacing | string }
-];
+import { TCheckboxSpacing, TCheckboxTheme } from "@hover-design/core";
 
 export type TCheckboxGroupProps = JSX.IntrinsicElements["div"] & {
   ref?: MutableRefObject<HTMLDivElement | null>;
@@ -34,29 +24,3 @@ export interface ICheckboxProps
   selectedStyles?: Partial<TCheckboxTheme[1]["selectedStyles"]>;
   indeterminateStyles?: Partial<TCheckboxTheme[1]["indeterminateStyles"]>;
 }
-
-export type TCheckboxTheme = [
-  string,
-  {
-    disabledStyles: {
-      borderColor: string;
-      backgroundColor: string;
-    };
-    baseStyles: {
-      borderColor: string;
-      backgroundColor: string;
-    };
-    selectedStyles: {
-      color: string;
-      borderColor: string;
-      backgroundColor: string;
-    };
-    indeterminateStyles: {
-      color: string;
-      borderColor: string;
-      backgroundColor: string;
-    };
-    checkboxStyleSize: TCheckboxSizes | string;
-    checkboxStyleBorderRadius: TCheckboxBorderRadius | string;
-  }
-];

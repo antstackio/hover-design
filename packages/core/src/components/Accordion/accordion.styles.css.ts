@@ -1,5 +1,5 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { IAccordionTheme } from "./accordion.types";
+import { IAccordionTheme } from "./accordion.styles.types";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const [accordionThemeClass, accordionThemeVars]: IAccordionTheme =

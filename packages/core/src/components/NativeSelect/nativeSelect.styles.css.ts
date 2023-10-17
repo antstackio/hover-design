@@ -1,6 +1,6 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { NativeSelectThemeType } from "./nativeSelect.types";
+import { NativeSelectThemeType } from "./nativeSelect.styles.types";
 
 export const [nativeSelectThemeClass, nativeSelectVars]: NativeSelectThemeType =
   createTheme({

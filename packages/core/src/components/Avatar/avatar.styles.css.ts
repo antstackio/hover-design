@@ -1,5 +1,5 @@
 import { style, createTheme } from "@vanilla-extract/css";
-import { IAvatarGroupTheme, IAvatarTheme } from "./avatar.types";
+import { IAvatarGroupTheme, IAvatarTheme } from "./avatar.styles.types";
 
 export const avatarGaps: Record<
   IAvatarGroupTheme[1]["avatarStyleGap"],

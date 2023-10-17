@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { style, createTheme } from "@vanilla-extract/css";
-import { IBadgeTheme } from "./badge.types";
+import { IBadgeTheme } from "./badge.styles.types";
 
 export const [badgeThemeClass, badgeThemeVars]: IBadgeTheme = createTheme({
   badgeStyleColor: "none",

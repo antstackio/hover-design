@@ -1,5 +1,5 @@
 import { createTheme, style } from "@vanilla-extract/css";
-import { ITheadThemeVars } from "./Thead.types";
+import { ITheadThemeVars } from "./table.styles.types";
 
 export const [theadThemeClass, theadThemeVars]: ITheadThemeVars = createTheme({
   customBackgroundColor: "#ddd"

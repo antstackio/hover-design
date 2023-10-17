@@ -1,7 +1,7 @@
 import { createTheme } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { IListTheme } from "./list.types";
-export const [listThemeClass, listThemeVars]: IListTheme = createTheme({
+import { TListTheme } from "./list.styles.types";
+export const [listThemeClass, listThemeVars]: TListTheme = createTheme({
   listStyles: {
     listStyleType: "none"
   }

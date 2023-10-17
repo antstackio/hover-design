@@ -6,8 +6,3 @@ export interface TextAreaProps
   fixedSize?: boolean;
   statusBorder?: string;
 }
-
-export type TextAreaBorder = [
-  string,
-  { textAreaBorderColor: { statusBorderColor: string } }
-];

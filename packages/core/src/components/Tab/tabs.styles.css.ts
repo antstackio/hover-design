@@ -1,6 +1,6 @@
 import { createTheme, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { TabTheme } from "./tabs.types";
+import { TabTheme } from "./tabs.styles.types";
 
 export const [tabsTheme, tabsVars]: TabTheme = createTheme({
   color: "#2F80ED",
