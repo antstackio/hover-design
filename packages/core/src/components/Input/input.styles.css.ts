@@ -1,7 +1,7 @@
 import { createTheme, style } from "@vanilla-extract/css";
 
 import { lightColors } from "../../styles/tokens";
-import { IInputTheme } from "./input.types";
+import { IInputTheme } from "./input.styles.types";
 
 export const inputWrapperClass = style({
   position: "relative",

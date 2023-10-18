@@ -28,3 +28,5 @@ export * from "./components/TextArea";
 export * from "./components/Tooltip";
 export * from "./components/UnstyledButton";
 export * from "./components/reset";
+
+export * from "./styles/tokens";
