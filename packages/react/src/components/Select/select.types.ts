@@ -1,5 +1,7 @@
 import { KeyboardEvent, MouseEvent, MutableRefObject, ReactNode } from "react";
+
 type divType = Omit<JSX.IntrinsicElements["div"], "onChange" | "ref">;
+
 export type SelectPropsType = divType & {
   label?: ReactNode;
   placeholder?: string;
@@ -45,15 +47,3 @@ export type OptionsType = {
   disabled?: boolean;
   ref?: MutableRefObject<HTMLDivElement>;
 };
-
-export type SelectTheme = [
-  string,
-  {
-    borderRadius: string;
-    color: string;
-    maxDropDownHeight: string;
-    width: string;
-    minHeight: string;
-    zIndex: string;
-  }
-];

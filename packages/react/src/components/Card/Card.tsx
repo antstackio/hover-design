@@ -1,5 +1,5 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { cardStyles } from "./card.styles.css";
+import { cardStyles } from "@hover-design/core";
 import { CardProps } from "./card.types";
 
 const Card: ForwardRefRenderFunction<HTMLDivElement, CardProps> = (

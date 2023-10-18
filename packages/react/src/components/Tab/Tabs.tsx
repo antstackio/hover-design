@@ -19,7 +19,7 @@ import {
   tabsHeaderContainerRecipe,
   tabsRecipe,
   tabsVars
-} from "./tabs.css";
+} from "@hover-design/core";
 import { TabsObjectProps, TabsProps } from "./tabs.types";
 
 const TabComponent: ForwardRefRenderFunction<HTMLDivElement, TabsProps> = (

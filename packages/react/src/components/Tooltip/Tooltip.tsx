@@ -1,6 +1,6 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { tooltipContainerStyles } from "./tooltip.styles.css";
+import { tooltipContainerStyles } from "@hover-design/core";
 import { Popover } from "../Popover";
 
 import { TooltipType } from "./tooltip.types";
@@ -32,7 +32,7 @@ const TooltipComponent: ForwardRefRenderFunction<
         }),
         ...style
       }}
-      content={label}
+      content={label.toString()}
       className={`${tooltipContainerStyles} ${className}`}
       {...props}
     >

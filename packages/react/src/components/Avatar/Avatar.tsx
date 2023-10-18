@@ -7,7 +7,7 @@ import {
   avatarShapes,
   avatarSizes,
   avatarWrapper
-} from "./avatar.styles.css";
+} from "@hover-design/core";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { Flex } from "../Flex";
 

@@ -1,7 +1,7 @@
 import React, { ForwardRefRenderFunction } from "react";
 
 import { IListProps } from "./list.types";
-import { listStyles, listThemeVars, listThemeClass } from "./list.css";
+import { listStyles, listThemeVars, listThemeClass } from "@hover-design/core";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 
 const ListComponent: ForwardRefRenderFunction<HTMLUListElement, IListProps> = (

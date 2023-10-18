@@ -28,17 +28,21 @@
     "vanilla-extract",
     "hover"
   ],
-  "scripts": {},
+  "scripts": {
+    "tsc": "tsc",
+    "lint": "eslint 'src/**/*.ts?(x)' --fix"
+  },
   "dependencies": {
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/css-utils": "^0.1.2",
     "@vanilla-extract/dynamic": "^2.0.2",
     "@vanilla-extract/recipes": "^0.2.3",
-    "@vanilla-extract/sprinkles": "^1.3.3"
+    "@vanilla-extract/sprinkles": "^1.3.3",
+    "polished": "^4.1.3"
   },
   "devDependencies": {
     "@hover-design/eslint-config": "*",
-    "@types/node": "^17.0.21",
+    "@types/node": "^20.8.6",
     "typescript": "^4.3.2"
   },
   "peerDependencies": {

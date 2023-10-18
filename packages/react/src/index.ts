@@ -27,7 +27,6 @@ export * from "./components/Popover";
 export * from "./components/Portal";
 export * from "./components/Progress";
 export * from "./components/Radio";
-export * from "./components/reset";
 export * from "./components/Select";
 export * from "./components/Stepper";
 export * from "./components/Switch";

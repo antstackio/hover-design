@@ -6,7 +6,7 @@ import {
   accordionIconClass,
   accordionThemeVars,
   summaryClass
-} from "../accordion.styles.css";
+} from "@hover-design/core";
 import { IAccordionSummaryProps } from "./accordionSummary.types";
 
 const DefaultAccordionSummaryIcon: React.FC<{

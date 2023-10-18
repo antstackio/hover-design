@@ -12,7 +12,7 @@ import {
   modalThemeVars,
   modalTitleStyleClass,
   overlayStyleClass
-} from "./modal.styles.css";
+} from "@hover-design/core";
 import { IModalProps } from "./modal.types";
 
 const Modal: React.FC<IModalProps> = ({

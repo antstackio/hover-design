@@ -19,5 +19,5 @@
     "noEmit": false,
     "jsx": "react-jsx"
   },
-  "include": ["./src"]
+  "include": ["./src", "../core/src/styles/tokens"]
 }

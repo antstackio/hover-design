@@ -1,13 +1,6 @@
 import { MutableRefObject, ReactNode } from "react";
 
-export type TRadioSizes = "xs" | "sm" | "md" | "lg" | "xl";
-
-export type TRadioSpacing = "xs" | "sm" | "md" | "lg" | "xl";
-
-export type TRadioGroupTheme = [
-  string,
-  { radioGroupStyleSpacing: TRadioSpacing | string }
-];
+import { TRadioSpacing, TRadioTheme } from "@hover-design/core";
 
 export type TRadioGroupProps = JSX.IntrinsicElements["div"] & {
   ref?: MutableRefObject<HTMLDivElement | null>;
@@ -29,23 +22,3 @@ export interface IRadioProps
   disabledStyles?: Partial<TRadioTheme[1]["disabledStyles"]>;
   selectedStyles?: Partial<TRadioTheme[1]["selectedStyles"]>;
 }
-
-export type TRadioTheme = [
-  string,
-  {
-    disabledStyles: {
-      borderColor: string;
-      backgroundColor: string;
-    };
-    baseStyles: {
-      borderColor: string;
-      backgroundColor: string;
-    };
-    selectedStyles: {
-      color: string;
-      borderColor: string;
-      backgroundColor: string;
-    };
-    radioStyleSize: TRadioSizes | string;
-  }
-];

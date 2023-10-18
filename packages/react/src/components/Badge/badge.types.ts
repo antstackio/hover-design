@@ -1,5 +1,5 @@
 import { RecipeVariants } from "@vanilla-extract/recipes";
-import { badges } from "./badge.css";
+import { badges } from "@hover-design/core";
 import { ReactNode } from "react";
 
 export type IBadgesProps = JSX.IntrinsicElements["span"] &
@@ -17,8 +17,3 @@ export type IBadgesProps = JSX.IntrinsicElements["span"] &
     shape?: "rounded" | "rounded-circle";
     hide?: boolean;
   };
-
-export type IBadgeTheme = [
-  string,
-  { badgeStyleColor: string; badgeStyleTextColor: string }
-];

@@ -7,8 +7,7 @@ import {
   tableThemeVars,
   tableContainerThemeClass,
   tableThemeClass
-} from "./Table.css";
-import "./Table.global.styles.css";
+} from "@hover-design/core";
 import { InitialTableProps } from "./Table.types";
 
 const Table: ForwardRefRenderFunction<HTMLTableElement, InitialTableProps> = (

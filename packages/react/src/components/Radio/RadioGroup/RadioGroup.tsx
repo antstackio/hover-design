@@ -1,7 +1,7 @@
 import React, { ForwardRefRenderFunction } from "react";
 import { TRadioGroupProps } from "../radio.types";
 import { Flex } from "../../Flex";
-import { radioGroupChildClass, radioGroupSpacing } from "../radio.styles.css";
+import { radioGroupChildClass, radioGroupSpacing } from "@hover-design/core";
 
 const RadioGroup: ForwardRefRenderFunction<HTMLDivElement, TRadioGroupProps> = (
   {

@@ -7,7 +7,7 @@ import {
   avatarGaps,
   avatarGroupThemeClass,
   avatarGroupThemeVars
-} from "../avatar.styles.css";
+} from "@hover-design/core";
 import "../avatar.global.styles.css";
 
 const AvatarGroup: ForwardRefRenderFunction<

@@ -8,7 +8,7 @@ import {
   nativeSelectIconStyle,
   nativeSelectRecipe,
   nativeSelectVars
-} from "./nativeSelect.css";
+} from "@hover-design/core";
 import { NativeSelectPropsType } from "./nativeSelect.types";
 
 export const NativeSelect: FC<NativeSelectPropsType> = ({

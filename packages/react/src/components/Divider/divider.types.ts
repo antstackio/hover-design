@@ -10,15 +10,3 @@ export type DividerProps = JSX.IntrinsicElements["hr"] & {
   minHeight?: string;
   minWidth?: string;
 };
-
-export type DividerTheme = [
-  string,
-  {
-    dividerColor: string;
-    labelColor: string;
-    labelBackground: string;
-    dividerSize: string;
-    dividerStyleMinHeight: string;
-    dividerStyleMinWidth: string;
-  }
-];

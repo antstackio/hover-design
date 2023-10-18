@@ -6,7 +6,7 @@ import {
   radioThemeVars,
   radioSizes,
   radioThemeClass
-} from "./radio.styles.css";
+} from "@hover-design/core";
 import "./radio.global.styles.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { SvgDot } from "../_internal/Icons/SvgDot";

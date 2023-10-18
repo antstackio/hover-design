@@ -4,7 +4,7 @@ import {
   breadcrumbWrapper,
   crumbSeparator,
   crumbTitle
-} from "./breadcrumb.css";
+} from "@hover-design/core";
 
 const Breadcrumb: React.ForwardRefRenderFunction<
   HTMLDivElement,

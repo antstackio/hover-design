@@ -5,7 +5,7 @@ import {
   textAreaResize,
   textAreaColorClass,
   textAreaColorVars
-} from "./text-area.css";
+} from "@hover-design/core";
 import { TextAreaProps } from "./text-area.types";
 
 const TextAreaComponent: ForwardRefRenderFunction<

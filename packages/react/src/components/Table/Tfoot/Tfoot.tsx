@@ -1,6 +1,10 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import React, { ForwardRefRenderFunction } from "react";
-import { footerDefaults, tfootThemeClass, tfootThemeVars } from "./Tfoot.css";
+import {
+  footerDefaults,
+  tfootThemeClass,
+  tfootThemeVars
+} from "@hover-design/core";
 import { TfootProps } from "./Tfoot.types";
 import "./Tfoot.global.styles.css";
 

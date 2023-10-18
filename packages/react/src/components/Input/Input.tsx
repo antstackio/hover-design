@@ -7,11 +7,11 @@ import {
   inputWrapperClass,
   iconWrapper,
   leftIconWrapper,
-  rightIconWrapper
-} from "./input.styles.css";
+  rightIconWrapper,
+  lightColors
+} from "@hover-design/core";
 import { Flex } from "../Flex";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { lightColors } from "../../styles/tokens";
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   {
@@ -50,7 +50,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
           }),
           ...style
         }}
-        className={`${inputClass} ${inputThemeClass} ${className || ""}`}
+        className={`${inputClass} ${inputThemeClass} ${className ?? ""}`}
         {...props}
       />
       {Icon && iconPosition === "right" && (

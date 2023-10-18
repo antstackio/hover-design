@@ -1,6 +1,6 @@
 import React, { ForwardRefRenderFunction } from "react";
 
-import { accordionThemeClass, detailsClass } from "./accordion.styles.css";
+import { accordionThemeClass, detailsClass } from "@hover-design/core";
 import "./accordion.global.styles.css";
 import { IAccordionProps } from "./accordion.types";
 

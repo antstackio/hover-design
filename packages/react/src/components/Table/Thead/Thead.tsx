@@ -1,8 +1,11 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import React, { ForwardRefRenderFunction } from "react";
-import { headerDefaults, theadThemeClass, theadThemeVars } from "./Thead.css";
+import {
+  headerDefaults,
+  theadThemeClass,
+  theadThemeVars
+} from "@hover-design/core";
 import { TheadProps } from "./Thead.types";
-import "./Thead.global.styles.css";
 
 const Thead: ForwardRefRenderFunction<HTMLTableSectionElement, TheadProps> = (
   { children, backgroundColor = "#ddd", className, style, ...nativeProps },
