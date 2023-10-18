@@ -1,5 +1,3 @@
-import { Tokens } from "@vanilla-extract/css/dist/declarations/src/types";
-
 export const lightColors: IThemeColors = {
   brand: {
     100: "hsla(51,10%,91%,1)",
@@ -18,7 +16,7 @@ export const lightColors: IThemeColors = {
 };
 
 export interface IThemeColors {
-  [key: string]: string | Tokens;
+  [key: string]: string | Record<string, string>;
   brand: {
     100: string;
     200: string;
