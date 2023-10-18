@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@hover-design/eslint-config": "*",
-    "@types/node": "^17.0.21",
+    "@types/node": "^20.8.6",
     "typescript": "^4.3.2"
   },
   "peerDependencies": {
