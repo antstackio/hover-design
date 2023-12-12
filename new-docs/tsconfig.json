@@ -1,0 +1,17 @@
+{
+    "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+    "compilerOptions": {
+      "lib": ["DOM", "DOM.Iterable", "ES2022"],
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "jsx": "react-jsx",
+      "resolveJsonModule": true,
+      "moduleResolution": "Bundler",
+      "module": "ES2022",
+      "baseUrl": ".",
+      "noEmit": true,
+      "paths": {
+        "~/*": ["./app/*"]
+      }
+    }
+  }
